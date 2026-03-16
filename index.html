@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>은또링쌤의 행성 탐사대 - 성공적인 직업생활 수능 기출 분석</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      padding: 24px;
+      color: #334155;
+    }
+    
+    .container { max-width: 1152px; margin: 0 auto; overflow: visible; }
+    
+    /* 카드 스타일 */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      padding: 24px;
+      margin-bottom: 24px;
+      overflow: visible;
+    }
+    
+    /* 헤더 - 그라데이션 테두리 */
+    .header-wrapper {
+      background: linear-gradient(135deg, #a78bfa, #38bdf8, #4ade80);
+      border-radius: 20px;
+      padding: 3px;
+      margin-bottom: 24px;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 50%, #e0f2fe 100%);
+      border-radius: 17px;
+      padding: 24px 32px;
+      position: relative;
+      margin-bottom: 0;
+    }
+    
+    .header-icons {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 8px;
+      font-size: 24px;
+    }
+    
+    .header-icons span {
+      display: inline-block;
+      animation: float 2s ease-in-out infinite;
+    }
+    
+    .header-icons span:nth-child(1) { animation-delay: 0s; }
+    .header-icons span:nth-child(2) { animation-delay: 0.3s; }
+    .header-icons span:nth-child(3) { animation-delay: 0.6s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    .header-badge {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    .header-content {
+      text-align: center;
+      padding: 8px 0;
+    }
+    
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #5b21b6;
+      margin-bottom: 8px;
+    }
+    
+    .header .subtitle {
+      color: #64748b;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .header .topic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+      color: #5b21b6;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    /* 필터 */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .sel {
+      padding: 10px 16px;
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #475569;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    
+    .sel:focus {
+      outline: none;
+      border-color: #a78bfa;
+      box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
+    }
+    
+    /* 탭 */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .tab {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    
+    .tab-active {
+      background: #E0BBE4;
+      color: #5B4B6E;
+    }
+    
+    .tab-inactive {
+      background: #fff;
+      color: #64748b;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .tab-inactive:hover {
+      background: #f8fafc;
+    }
+    
+    /* 통계 카드 그리드 */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat-card {
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid;
+    }
+    
+    .stat-card.purple { background: #F3E8FF; border-color: #E9D5FF; }
+    .stat-card.blue { background: #DBEAFE; border-color: #BFDBFE; }
+    .stat-card.pink { background: #FCE7F3; border-color: #FBCFE8; }
+    .stat-card.green { background: #D1FAE5; border-color: #A7F3D0; }
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    
+    .stat-value.purple { color: #7C3AED; }
+    .stat-value.blue { color: #2563EB; }
+    .stat-value.pink { color: #DB2777; }
+    .stat-value.green { color: #059669; }
+    
+    .stat-label {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    
+    /* 2열 그리드 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+      overflow: visible;
+    }
+    
+    @media (max-width: 900px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+    
+    /* 파이 차트 영역 */
+    .pie-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    
+    .pie-chart-container {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .pie-legend {
+      font-size: 14px;
+      color: #475569;
+    }
+    
+    .pie-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .legend-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+    
+    /* TOP 5 */
+    .top-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #fafafa;
+      border: 1px solid #f1f5f9;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      transition: all 0.2s;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .top-item:hover {
+      background: #f0e6ff;
+      border-color: #c4b5fd;
+    }
+    
+    .top-tooltip {
+      position: absolute;
+      left: 50%;
+      top: 110%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      width: 250px;
+      box-shadow: 0 4px 20px rgba(91, 33, 182, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 100;
+      line-height: 1.6;
+    }
+    
+    .top-tooltip::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -8px;
+      transform: translateX(-50%);
+      border: 8px solid transparent;
+      border-bottom-color: #5b21b6;
+      border-top: none;
+    }
+    
+    .top-item:hover .top-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .top-tooltip-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .top-tooltip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .top-tooltip-tag {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    
+    .top-rank {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #475569;
+    }
+    
+    .top-name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 600;
+      color: #475569;
+    }
+    
+    .top-count {
+      font-size: 16px;
+      font-weight: 700;
+      color: #DB2777;
+    }
+    
+    /* 바 차트 영역 */
+    .bar-legend {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    
+    .bar-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .bar-chart-container {
+      height: 380px;
+    }
+    
+    /* 테이블 */
+    .table-container {
+      overflow-x: auto;
+    }
+    
+    .scroll-table {
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    
+    table {
+      width: 100%;
+      font-size: 14px;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      background: #F8F4FF;
+      position: sticky;
+      top: 0;
+    }
+    
+    th {
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 700;
+      color: #475569;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    th.center { text-align: center; }
+    
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    
+    td.center { text-align: center; }
+    
+    tr:hover td {
+      background: #f8fafc;
+    }
+    
+    /* 배지 */
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .badge-pink { background: #FCE7F3; color: #9D174D; }
+    .badge-blue { background: #DBEAFE; color: #1E40AF; }
+    .badge-green { background: #D1FAE5; color: #065F46; }
+    .badge-gray { background: #F3F4F6; color: #4B5563; }
+    
+    /* 정보 박스 */
+    .info-box {
+      background: #f8f4ff;
+      border: 1px solid #e9d5ff;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #7c3aed;
+      margin-bottom: 16px;
+    }
+    
+    /* 숨김 */
+    .hidden { display: none; }
+    
+    /* 푸터 */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- 헤더 -->
+    <div class="header-wrapper">
+      <div class="card header">
+        <div class="header-icons"><span>🚀</span><span>🪐</span><span>⭐</span></div>
+        <div class="header-badge">DIMIGO</div>
+        <div class="header-content">
+          <h1>🧑‍🚀 은또링쌤의 행성 탐사대</h1>
+          <p class="subtitle">📊 성공적인 직업생활 수능 기출 분석</p>
+          <div class="topic-badge">🗓️ 22~26학년도 | 모평 & 수능 완벽 분석</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 필터 -->
+    <div class="filters">
+      <select id="yearSel" class="sel" onchange="filterData()">
+        <option value="전체">전체 학년도</option>
+        <option value="22">22학년도</option>
+        <option value="23">23학년도</option>
+        <option value="24">24학년도</option>
+        <option value="25">25학년도</option>
+        <option value="26">26학년도</option>
+      </select>
+      <select id="examSel" class="sel" onchange="filterData()">
+        <option value="전체">전체 시험</option>
+        <option value="6월모평">6월 모평</option>
+        <option value="9월모평">9월 모평</option>
+        <option value="대수능">대수능</option>
+      </select>
+    </div>
+
+    <!-- 탭 -->
+    <div class="tabs">
+      <button onclick="showTab(1)" id="tab1" class="tab tab-active">📈 종합 분석</button>
+      <button onclick="showTab(2)" id="tab2" class="tab tab-inactive">📚 단원별 분석</button>
+      <button onclick="showTab(3)" id="tab3" class="tab tab-inactive">📋 문항 상세</button>
+    </div>
+
+    <!-- 패널 1: 종합 분석 -->
+    <div id="panel1">
+      <div class="stats-grid" id="statsCards"></div>
+      
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🥧 배점별 분포</div>
+          <div class="pie-area">
+            <div class="pie-chart-container">
+              <canvas id="pieChart"></canvas>
+            </div>
+            <div id="pieLegend" class="pie-legend"></div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-title">⭐ 3점 고난도 TOP 5</div>
+          <div id="topUnits"></div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-title">📊 단원별 출제 빈도 (중요도순)</div>
+        <div class="bar-legend">
+          <div class="bar-legend-item"><span class="legend-dot" style="background:#FFD1DC"></span>3점 문항</div>
+          <div class="bar-legend-item"><span class="legend-dot" style="background:#AEC6CF"></span>2점 문항</div>
+        </div>
+        <div class="bar-chart-container">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- 패널 2: 단원별 분석 -->
+    <div id="panel2" class="hidden">
+      <div class="card">
+        <div class="card-title">📚 단원별 중요도 분석</div>
+        <div class="info-box">💡 중요도 점수 = 3점 문항 ×2 + 2점 문항 ×1</div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>순위</th>
+                <th>단원명</th>
+                <th class="center">2점</th>
+                <th class="center">3점</th>
+                <th class="center">점수</th>
+                <th class="center">우선순위</th>
+              </tr>
+            </thead>
+            <tbody id="unitBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 패널 3: 문항 상세 -->
+    <div id="panel3" class="hidden">
+      <div class="card">
+        <div class="card-title">📋 문항 상세 목록</div>
+        <div class="table-container scroll-table">
+          <table>
+            <thead>
+              <tr>
+                <th>학년도</th>
+                <th>시험</th>
+                <th class="center">번호</th>
+                <th class="center">배점</th>
+                <th>단원</th>
+                <th>출제 내용</th>
+              </tr>
+            </thead>
+            <tbody id="detailBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 은또링쌤의 행성 탐사대 | 22~26학년도 기출문제 기반
+    </div>
+  </div>
+
+  <script>
+    const unitNames = {
+      "01": "01강 일과 직업",
+      "02~03": "02~03강 생애 발달",
+      "04": "04강 기업 형태",
+      "05": "05강 경영 활동",
+      "06": "06강 제조업",
+      "06~07": "06~07강 제조/서비스",
+      "07": "07강 서비스업",
+      "08": "08강 직업 기초 능력",
+      "09": "09강 NCS",
+      "11": "11강 경력·평생학습",
+      "12~14": "12~14강 취업·창업",
+      "15~16": "15~16강 근로관계와 법",
+      "17": "17강 고용 서비스",
+      "18": "18강 산업 안전",
+      "19": "19강 노사 관계",
+      "20": "20강 직업 윤리"
+    };
+
+    const questions = [
+      {y:"22",e:"6월모평",n:1,p:2,u:"12~14",t:"면접 유형"},{y:"22",e:"6월모평",n:2,p:2,u:"01",t:"직업 가치관"},{y:"22",e:"6월모평",n:3,p:2,u:"01",t:"일하는 방식"},{y:"22",e:"6월모평",n:4,p:3,u:"06",t:"제품 생산"},{y:"22",e:"6월모평",n:5,p:3,u:"17",t:"고용보험"},{y:"22",e:"6월모평",n:6,p:2,u:"02~03",t:"생애 발달"},{y:"22",e:"6월모평",n:7,p:2,u:"05",t:"경영 활동"},{y:"22",e:"6월모평",n:8,p:3,u:"18",t:"산업 재해"},{y:"22",e:"6월모평",n:9,p:3,u:"09",t:"NCS"},{y:"22",e:"6월모평",n:10,p:3,u:"02~03",t:"의사 결정"},{y:"22",e:"6월모평",n:11,p:2,u:"20",t:"미래 사회"},{y:"22",e:"6월모평",n:12,p:3,u:"08",t:"직업기초능력"},{y:"22",e:"6월모평",n:13,p:2,u:"20",t:"직업 윤리"},{y:"22",e:"6월모평",n:14,p:3,u:"04",t:"회사 형태"},{y:"22",e:"6월모평",n:15,p:2,u:"12~14",t:"창업"},{y:"22",e:"6월모평",n:16,p:2,u:"11",t:"평생 학습"},{y:"22",e:"6월모평",n:17,p:3,u:"12~14",t:"자기소개서"},{y:"22",e:"6월모평",n:18,p:2,u:"06~07",t:"제조vs서비스"},{y:"22",e:"6월모평",n:19,p:3,u:"19",t:"노동3권"},{y:"22",e:"6월모평",n:20,p:3,u:"15~16",t:"근로기준법"},
+      {y:"22",e:"9월모평",n:1,p:2,u:"01",t:"직업 요건"},{y:"22",e:"9월모평",n:2,p:2,u:"20",t:"직업 윤리"},{y:"22",e:"9월모평",n:3,p:2,u:"20",t:"직업 변화"},{y:"22",e:"9월모평",n:4,p:2,u:"12~14",t:"채용 전형"},{y:"22",e:"9월모평",n:5,p:2,u:"15~16",t:"부당해고"},{y:"22",e:"9월모평",n:6,p:3,u:"15~16",t:"근로기준법"},{y:"22",e:"9월모평",n:7,p:2,u:"18",t:"안전 표지"},{y:"22",e:"9월모평",n:8,p:2,u:"08",t:"직업기초능력"},{y:"22",e:"9월모평",n:9,p:3,u:"09",t:"직무기술서"},{y:"22",e:"9월모평",n:10,p:2,u:"12~14",t:"기업가 정신"},{y:"22",e:"9월모평",n:11,p:2,u:"04",t:"기업 형태"},{y:"22",e:"9월모평",n:12,p:2,u:"17",t:"고용보험"},{y:"22",e:"9월모평",n:13,p:2,u:"06",t:"제조업"},{y:"22",e:"9월모평",n:14,p:2,u:"05",t:"경영 활동"},{y:"22",e:"9월모평",n:15,p:3,u:"15~16",t:"근로 조건"},{y:"22",e:"9월모평",n:16,p:3,u:"02~03",t:"의사 결정"},{y:"22",e:"9월모평",n:17,p:3,u:"11",t:"평생학습"},{y:"22",e:"9월모평",n:18,p:2,u:"07",t:"서비스 특징"},{y:"22",e:"9월모평",n:19,p:3,u:"19",t:"노사 관계"},{y:"22",e:"9월모평",n:20,p:2,u:"02~03",t:"생애 발달"},
+      {y:"22",e:"대수능",n:1,p:2,u:"20",t:"직업 윤리"},{y:"22",e:"대수능",n:2,p:2,u:"01",t:"근무 방식"},{y:"22",e:"대수능",n:3,p:2,u:"01",t:"가치관"},{y:"22",e:"대수능",n:4,p:2,u:"08",t:"직업기초능력"},{y:"22",e:"대수능",n:5,p:2,u:"05",t:"경영 관리"},{y:"22",e:"대수능",n:6,p:2,u:"02~03",t:"생애 발달"},{y:"22",e:"대수능",n:7,p:3,u:"06",t:"제품 생산"},{y:"22",e:"대수능",n:8,p:3,u:"07",t:"서비스 프로세스"},{y:"22",e:"대수능",n:9,p:3,u:"15~16",t:"야간근로"},{y:"22",e:"대수능",n:10,p:3,u:"15~16",t:"연차휴가"},{y:"22",e:"대수능",n:11,p:2,u:"11",t:"경력 개발"},{y:"22",e:"대수능",n:12,p:3,u:"09",t:"NCS"},{y:"22",e:"대수능",n:13,p:2,u:"20",t:"직업 윤리"},{y:"22",e:"대수능",n:14,p:3,u:"04",t:"기업 형태"},{y:"22",e:"대수능",n:15,p:2,u:"12~14",t:"창업"},{y:"22",e:"대수능",n:16,p:3,u:"15~16",t:"연소근로자"},{y:"22",e:"대수능",n:17,p:3,u:"04",t:"기업 형태"},{y:"22",e:"대수능",n:18,p:2,u:"20",t:"첨단기술"},{y:"22",e:"대수능",n:19,p:3,u:"09",t:"NCS"},{y:"22",e:"대수능",n:20,p:3,u:"19",t:"부당노동행위"},
+      {y:"23",e:"6월모평",n:1,p:2,u:"01",t:"직업 요건"},{y:"23",e:"6월모평",n:2,p:2,u:"20",t:"직업 윤리"},{y:"23",e:"6월모평",n:3,p:2,u:"02~03",t:"생애 발달"},{y:"23",e:"6월모평",n:4,p:3,u:"09",t:"NCS"},{y:"23",e:"6월모평",n:5,p:2,u:"12~14",t:"면접"},{y:"23",e:"6월모평",n:6,p:2,u:"12~14",t:"창업"},{y:"23",e:"6월모평",n:7,p:3,u:"06",t:"제품 생산"},{y:"23",e:"6월모평",n:8,p:3,u:"07",t:"서비스"},{y:"23",e:"6월모평",n:9,p:3,u:"15~16",t:"야간근로"},{y:"23",e:"6월모평",n:10,p:2,u:"17",t:"산재보험"},{y:"23",e:"6월모평",n:11,p:2,u:"05",t:"경영관리"},{y:"23",e:"6월모평",n:12,p:2,u:"08",t:"자원관리"},{y:"23",e:"6월모평",n:13,p:2,u:"20",t:"환경윤리"},{y:"23",e:"6월모평",n:14,p:3,u:"18",t:"산업 재해"},{y:"23",e:"6월모평",n:15,p:2,u:"11",t:"일학습병행"},{y:"23",e:"6월모평",n:16,p:3,u:"02~03",t:"의사 결정"},{y:"23",e:"6월모평",n:17,p:2,u:"01",t:"가치관"},{y:"23",e:"6월모평",n:18,p:3,u:"04",t:"기업 형태"},{y:"23",e:"6월모평",n:19,p:3,u:"17",t:"고용보험"},{y:"23",e:"6월모평",n:20,p:3,u:"19",t:"노사 관계"},
+      {y:"23",e:"9월모평",n:1,p:2,u:"01",t:"직업 요건"},{y:"23",e:"9월모평",n:2,p:2,u:"02~03",t:"생애발달"},{y:"23",e:"9월모평",n:3,p:2,u:"05",t:"SWOT"},{y:"23",e:"9월모평",n:4,p:3,u:"06",t:"제품 생산"},{y:"23",e:"9월모평",n:5,p:2,u:"12~14",t:"면접"},{y:"23",e:"9월모평",n:6,p:2,u:"20",t:"직업윤리"},{y:"23",e:"9월모평",n:7,p:3,u:"02~03",t:"의사 결정"},{y:"23",e:"9월모평",n:8,p:3,u:"07",t:"서비스"},{y:"23",e:"9월모평",n:9,p:2,u:"08",t:"조직이해"},{y:"23",e:"9월모평",n:10,p:3,u:"15~16",t:"연차휴가"},{y:"23",e:"9월모평",n:11,p:3,u:"18",t:"산업 재해"},{y:"23",e:"9월모평",n:12,p:3,u:"09",t:"NCS"},{y:"23",e:"9월모평",n:13,p:2,u:"05",t:"경영활동"},{y:"23",e:"9월모평",n:14,p:3,u:"04",t:"기업 형태"},{y:"23",e:"9월모평",n:15,p:2,u:"11",t:"경력개발"},{y:"23",e:"9월모평",n:16,p:3,u:"11",t:"평생학습"},{y:"23",e:"9월모평",n:17,p:2,u:"20",t:"첨단기술"},{y:"23",e:"9월모평",n:18,p:2,u:"20",t:"정보윤리"},{y:"23",e:"9월모평",n:19,p:2,u:"08",t:"수리능력"},{y:"23",e:"9월모평",n:20,p:3,u:"04",t:"기업 형태"},
+      {y:"23",e:"대수능",n:1,p:2,u:"01",t:"직업 가치관"},{y:"23",e:"대수능",n:2,p:2,u:"02~03",t:"생애 발달"},{y:"23",e:"대수능",n:3,p:2,u:"05",t:"경영관리"},{y:"23",e:"대수능",n:4,p:3,u:"06",t:"제품 생산"},{y:"23",e:"대수능",n:5,p:2,u:"12~14",t:"토론면접"},{y:"23",e:"대수능",n:6,p:2,u:"12~14",t:"NCS채용"},{y:"23",e:"대수능",n:7,p:3,u:"02~03",t:"의사 결정"},{y:"23",e:"대수능",n:8,p:3,u:"07",t:"서비스"},{y:"23",e:"대수능",n:9,p:3,u:"15~16",t:"근로기준법"},{y:"23",e:"대수능",n:10,p:3,u:"15~16",t:"연차휴가"},{y:"23",e:"대수능",n:11,p:3,u:"18",t:"산업 재해"},{y:"23",e:"대수능",n:12,p:3,u:"09",t:"NCS"},{y:"23",e:"대수능",n:13,p:2,u:"05",t:"경영활동"},{y:"23",e:"대수능",n:14,p:2,u:"20",t:"환경윤리"},{y:"23",e:"대수능",n:15,p:2,u:"11",t:"경력개발"},{y:"23",e:"대수능",n:16,p:3,u:"11",t:"평생학습"},{y:"23",e:"대수능",n:17,p:2,u:"20",t:"바이오"},{y:"23",e:"대수능",n:18,p:2,u:"20",t:"정보윤리"},{y:"23",e:"대수능",n:19,p:2,u:"08",t:"대인관계"},{y:"23",e:"대수능",n:20,p:3,u:"04",t:"기업 형태"},
+      {y:"24",e:"6월모평",n:1,p:2,u:"01",t:"직업 가치관"},{y:"24",e:"6월모평",n:2,p:2,u:"02~03",t:"생애 발달"},{y:"24",e:"6월모평",n:3,p:2,u:"20",t:"환경윤리"},{y:"24",e:"6월모평",n:4,p:3,u:"11",t:"평생학습"},{y:"24",e:"6월모평",n:5,p:3,u:"01",t:"직업생활"},{y:"24",e:"6월모평",n:6,p:3,u:"15~16",t:"근로관계"},{y:"24",e:"6월모평",n:7,p:3,u:"19",t:"노사협의회"},{y:"24",e:"6월모평",n:8,p:3,u:"12~14",t:"NCS 채용"},{y:"24",e:"6월모평",n:9,p:3,u:"17",t:"고용보험"},{y:"24",e:"6월모평",n:10,p:3,u:"09",t:"NCS"},{y:"24",e:"6월모평",n:11,p:2,u:"01",t:"직업생활"},{y:"24",e:"6월모평",n:12,p:2,u:"20",t:"사회적책임"},{y:"24",e:"6월모평",n:13,p:2,u:"18",t:"업무상사고"},{y:"24",e:"6월모평",n:14,p:3,u:"18",t:"산업재해"},{y:"24",e:"6월모평",n:15,p:3,u:"15~16",t:"연소근로자"},{y:"24",e:"6월모평",n:16,p:2,u:"06",t:"제품생산"},{y:"24",e:"6월모평",n:17,p:3,u:"04",t:"기업 형태"},{y:"24",e:"6월모평",n:18,p:2,u:"05",t:"조직"},{y:"24",e:"6월모평",n:19,p:3,u:"08",t:"직업기초능력"},{y:"24",e:"6월모평",n:20,p:2,u:"07",t:"서비스특징"},
+      {y:"24",e:"9월모평",n:1,p:2,u:"01",t:"직업요건"},{y:"24",e:"9월모평",n:2,p:2,u:"20",t:"첨단기술"},{y:"24",e:"9월모평",n:3,p:2,u:"05",t:"통제"},{y:"24",e:"9월모평",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"24",e:"9월모평",n:5,p:3,u:"15~16",t:"퇴직금"},{y:"24",e:"9월모평",n:6,p:3,u:"08",t:"직업기초능력"},{y:"24",e:"9월모평",n:7,p:3,u:"06",t:"제품 생산"},{y:"24",e:"9월모평",n:8,p:2,u:"12~14",t:"상황면접"},{y:"24",e:"9월모평",n:9,p:3,u:"17",t:"고용보험"},{y:"24",e:"9월모평",n:10,p:3,u:"06",t:"전자상거래"},{y:"24",e:"9월모평",n:11,p:3,u:"18",t:"산업재해"},{y:"24",e:"9월모평",n:12,p:3,u:"09",t:"NCS"},{y:"24",e:"9월모평",n:13,p:2,u:"04",t:"공기업"},{y:"24",e:"9월모평",n:14,p:3,u:"19",t:"노동조합"},{y:"24",e:"9월모평",n:15,p:3,u:"04",t:"기업 형태"},{y:"24",e:"9월모평",n:16,p:3,u:"11",t:"평생학습"},{y:"24",e:"9월모평",n:17,p:2,u:"20",t:"생명윤리"},{y:"24",e:"9월모평",n:18,p:3,u:"15~16",t:"연소근로자"},{y:"24",e:"9월모평",n:19,p:3,u:"17",t:"상병급여"},{y:"24",e:"9월모평",n:20,p:3,u:"07",t:"서비스"},
+      {y:"24",e:"대수능",n:1,p:2,u:"01",t:"직업요건"},{y:"24",e:"대수능",n:2,p:2,u:"05",t:"조직"},{y:"24",e:"대수능",n:3,p:2,u:"02~03",t:"생애발달"},{y:"24",e:"대수능",n:4,p:2,u:"20",t:"첨단기술"},{y:"24",e:"대수능",n:5,p:2,u:"07",t:"서비스특징"},{y:"24",e:"대수능",n:6,p:2,u:"08",t:"자원관리"},{y:"24",e:"대수능",n:7,p:2,u:"20",t:"나노바이오"},{y:"24",e:"대수능",n:8,p:3,u:"15~16",t:"부당해고"},{y:"24",e:"대수능",n:9,p:3,u:"15~16",t:"연소근로자"},{y:"24",e:"대수능",n:10,p:3,u:"18",t:"산업재해"},{y:"24",e:"대수능",n:11,p:3,u:"09",t:"NCS"},{y:"24",e:"대수능",n:12,p:2,u:"12~14",t:"롤플레잉"},{y:"24",e:"대수능",n:13,p:3,u:"06",t:"제품 생산"},{y:"24",e:"대수능",n:14,p:3,u:"19",t:"노동조합"},{y:"24",e:"대수능",n:15,p:2,u:"02~03",t:"발달과업"},{y:"24",e:"대수능",n:16,p:2,u:"20",t:"정보화"},{y:"24",e:"대수능",n:17,p:3,u:"15~16",t:"임금"},{y:"24",e:"대수능",n:18,p:3,u:"11",t:"평생학습"},{y:"24",e:"대수능",n:19,p:3,u:"02~03",t:"의사 결정"},{y:"24",e:"대수능",n:20,p:3,u:"04",t:"기업 형태"},
+      {y:"25",e:"6월모평",n:1,p:2,u:"01",t:"가치관"},{y:"25",e:"6월모평",n:2,p:2,u:"20",t:"직업윤리"},{y:"25",e:"6월모평",n:3,p:2,u:"02~03",t:"생애발달"},{y:"25",e:"6월모평",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"25",e:"6월모평",n:5,p:3,u:"15~16",t:"퇴직금"},{y:"25",e:"6월모평",n:6,p:3,u:"08",t:"직업기초능력"},{y:"25",e:"6월모평",n:7,p:2,u:"05",t:"예측통제"},{y:"25",e:"6월모평",n:8,p:2,u:"12~14",t:"토론면접"},{y:"25",e:"6월모평",n:9,p:3,u:"09",t:"NCS"},{y:"25",e:"6월모평",n:10,p:3,u:"06",t:"B2B"},{y:"25",e:"6월모평",n:11,p:3,u:"15~16",t:"공민권"},{y:"25",e:"6월모평",n:12,p:3,u:"06",t:"제조업"},{y:"25",e:"6월모평",n:13,p:3,u:"18",t:"산업재해"},{y:"25",e:"6월모평",n:14,p:2,u:"20",t:"신재생에너지"},{y:"25",e:"6월모평",n:15,p:3,u:"19",t:"노동조합"},{y:"25",e:"6월모평",n:16,p:3,u:"11",t:"평생학습"},{y:"25",e:"6월모평",n:17,p:2,u:"20",t:"생명윤리"},{y:"25",e:"6월모평",n:18,p:3,u:"15~16",t:"연소근로자"},{y:"25",e:"6월모평",n:19,p:3,u:"17",t:"고용보험"},{y:"25",e:"6월모평",n:20,p:3,u:"04",t:"기업 형태"},
+      {y:"25",e:"9월모평",n:1,p:2,u:"01",t:"직업요건"},{y:"25",e:"9월모평",n:2,p:2,u:"20",t:"직업윤리"},{y:"25",e:"9월모평",n:3,p:2,u:"05",t:"조직지휘"},{y:"25",e:"9월모평",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"25",e:"9월모평",n:5,p:3,u:"15~16",t:"연차"},{y:"25",e:"9월모평",n:6,p:3,u:"08",t:"직업기초능력"},{y:"25",e:"9월모평",n:7,p:2,u:"11",t:"경력개발"},{y:"25",e:"9월모평",n:8,p:3,u:"12~14",t:"NCS 채용"},{y:"25",e:"9월모평",n:9,p:3,u:"09",t:"NCS"},{y:"25",e:"9월모평",n:10,p:3,u:"06",t:"전자상거래"},{y:"25",e:"9월모평",n:11,p:3,u:"18",t:"산업재해"},{y:"25",e:"9월모평",n:12,p:2,u:"12~14",t:"토론면접"},{y:"25",e:"9월모평",n:13,p:3,u:"17",t:"출산휴가"},{y:"25",e:"9월모평",n:14,p:2,u:"20",t:"신재생에너지"},{y:"25",e:"9월모평",n:15,p:3,u:"19",t:"노동조합"},{y:"25",e:"9월모평",n:16,p:3,u:"11",t:"평생학습"},{y:"25",e:"9월모평",n:17,p:3,u:"15~16",t:"연장근로"},{y:"25",e:"9월모평",n:18,p:3,u:"15~16",t:"연소근로자"},{y:"25",e:"9월모평",n:19,p:3,u:"04",t:"합자회사"},{y:"25",e:"9월모평",n:20,p:3,u:"07",t:"서비스"},
+      {y:"25",e:"대수능",n:1,p:2,u:"01",t:"가치관"},{y:"25",e:"대수능",n:2,p:2,u:"20",t:"환경윤리"},{y:"25",e:"대수능",n:3,p:2,u:"02~03",t:"생애발달"},{y:"25",e:"대수능",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"25",e:"대수능",n:5,p:3,u:"15~16",t:"퇴직금"},{y:"25",e:"대수능",n:6,p:3,u:"08",t:"직업기초능력"},{y:"25",e:"대수능",n:7,p:2,u:"05",t:"통제"},{y:"25",e:"대수능",n:8,p:3,u:"12~14",t:"면접"},{y:"25",e:"대수능",n:9,p:3,u:"09",t:"NCS"},{y:"25",e:"대수능",n:10,p:3,u:"06",t:"제품 생산"},{y:"25",e:"대수능",n:11,p:3,u:"18",t:"산업재해"},{y:"25",e:"대수능",n:12,p:2,u:"12~14",t:"NCS채용"},{y:"25",e:"대수능",n:13,p:3,u:"17",t:"고용보험"},{y:"25",e:"대수능",n:14,p:2,u:"20",t:"인공지능"},{y:"25",e:"대수능",n:15,p:3,u:"02~03",t:"생애발달"},{y:"25",e:"대수능",n:16,p:2,u:"20",t:"정보화"},{y:"25",e:"대수능",n:17,p:3,u:"15~16",t:"연장근로"},{y:"25",e:"대수능",n:18,p:3,u:"11",t:"평생학습"},{y:"25",e:"대수능",n:19,p:3,u:"04",t:"기업 형태"},{y:"25",e:"대수능",n:20,p:3,u:"15~16",t:"현장실습생"},
+      {y:"26",e:"6월모평",n:1,p:2,u:"01",t:"직업요건"},{y:"26",e:"6월모평",n:2,p:2,u:"20",t:"직업윤리"},{y:"26",e:"6월모평",n:3,p:2,u:"02~03",t:"생애발달"},{y:"26",e:"6월모평",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"26",e:"6월모평",n:5,p:3,u:"15~16",t:"연차"},{y:"26",e:"6월모평",n:6,p:3,u:"08",t:"문제해결"},{y:"26",e:"6월모평",n:7,p:2,u:"05",t:"조직"},{y:"26",e:"6월모평",n:8,p:3,u:"12~14",t:"NCS 채용"},{y:"26",e:"6월모평",n:9,p:3,u:"09",t:"NCS"},{y:"26",e:"6월모평",n:10,p:3,u:"06",t:"제품 생산"},{y:"26",e:"6월모평",n:11,p:3,u:"18",t:"산업재해"},{y:"26",e:"6월모평",n:12,p:2,u:"07",t:"서비스특징"},{y:"26",e:"6월모평",n:13,p:3,u:"17",t:"육아휴직"},{y:"26",e:"6월모평",n:14,p:2,u:"20",t:"첨단기술"},{y:"26",e:"6월모평",n:15,p:3,u:"19",t:"노동조합"},{y:"26",e:"6월모평",n:16,p:3,u:"11",t:"계약학과"},{y:"26",e:"6월모평",n:17,p:3,u:"15~16",t:"연소근로자"},{y:"26",e:"6월모평",n:18,p:3,u:"04",t:"기업 형태"},{y:"26",e:"6월모평",n:19,p:3,u:"15~16",t:"부당해고"},{y:"26",e:"6월모평",n:20,p:2,u:"11",t:"경력개발"},
+      {y:"26",e:"9월모평",n:1,p:2,u:"01",t:"직업요건"},{y:"26",e:"9월모평",n:2,p:2,u:"20",t:"직업윤리"},{y:"26",e:"9월모평",n:3,p:2,u:"05",t:"조직지휘"},{y:"26",e:"9월모평",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"26",e:"9월모평",n:5,p:3,u:"15~16",t:"연차"},{y:"26",e:"9월모평",n:6,p:3,u:"08",t:"의사소통"},{y:"26",e:"9월모평",n:7,p:2,u:"11",t:"경력개발"},{y:"26",e:"9월모평",n:8,p:3,u:"12~14",t:"NCS 채용"},{y:"26",e:"9월모평",n:9,p:3,u:"09",t:"NCS"},{y:"26",e:"9월모평",n:10,p:3,u:"06",t:"제품 생산"},{y:"26",e:"9월모평",n:11,p:3,u:"18",t:"산업재해"},{y:"26",e:"9월모평",n:12,p:2,u:"07",t:"서비스특징"},{y:"26",e:"9월모평",n:13,p:3,u:"17",t:"구직급여"},{y:"26",e:"9월모평",n:14,p:2,u:"20",t:"정보화"},{y:"26",e:"9월모평",n:15,p:3,u:"19",t:"단체교섭"},{y:"26",e:"9월모평",n:16,p:3,u:"17",t:"4대보험"},{y:"26",e:"9월모평",n:17,p:3,u:"19",t:"노동쟁의"},{y:"26",e:"9월모평",n:18,p:2,u:"20",t:"근면"},{y:"26",e:"9월모평",n:19,p:2,u:"08",t:"정보능력"},{y:"26",e:"9월모평",n:20,p:3,u:"18",t:"중대재해"},
+      {y:"26",e:"대수능",n:1,p:2,u:"01",t:"가치관"},{y:"26",e:"대수능",n:2,p:2,u:"20",t:"직업윤리"},{y:"26",e:"대수능",n:3,p:2,u:"02~03",t:"생애발달"},{y:"26",e:"대수능",n:4,p:3,u:"02~03",t:"의사 결정"},{y:"26",e:"대수능",n:5,p:3,u:"15~16",t:"주휴수당"},{y:"26",e:"대수능",n:6,p:3,u:"08",t:"직업기초능력"},{y:"26",e:"대수능",n:7,p:2,u:"05",t:"통제"},{y:"26",e:"대수능",n:8,p:3,u:"12~14",t:"발표면접"},{y:"26",e:"대수능",n:9,p:3,u:"09",t:"NCS"},{y:"26",e:"대수능",n:10,p:3,u:"06",t:"제품 생산"},{y:"26",e:"대수능",n:11,p:3,u:"18",t:"요양급여"},{y:"26",e:"대수능",n:12,p:2,u:"07",t:"서비스"},{y:"26",e:"대수능",n:13,p:3,u:"17",t:"구직급여"},{y:"26",e:"대수능",n:14,p:2,u:"20",t:"인공지능"},{y:"26",e:"대수능",n:15,p:3,u:"19",t:"중재"},{y:"26",e:"대수능",n:16,p:3,u:"11",t:"학점은행"},{y:"26",e:"대수능",n:17,p:3,u:"15~16",t:"연소근로자"},{y:"26",e:"대수능",n:18,p:3,u:"04",t:"기업 형태"},{y:"26",e:"대수능",n:19,p:3,u:"15~16",t:"위약예정금지"},{y:"26",e:"대수능",n:20,p:3,u:"15~16",t:"현장실습생"}
+    ];
+
+    let filtered = questions;
+    let pieChart, barChart;
+
+    function filterData() {
+      const y = document.getElementById('yearSel').value;
+      const e = document.getElementById('examSel').value;
+      filtered = questions.filter(q => (y === '전체' || q.y === y) && (e === '전체' || q.e === e));
+      renderAll();
+    }
+
+    function getStats() {
+      const s = {};
+      filtered.forEach(q => {
+        if (!s[q.u]) s[q.u] = { u: q.u, n: unitNames[q.u] || q.u, p2: 0, p3: 0 };
+        q.p === 2 ? s[q.u].p2++ : s[q.u].p3++;
+      });
+      return Object.values(s).sort((a, b) => (b.p3 * 2 + b.p2) - (a.p3 * 2 + a.p2));
+    }
+
+    function renderStats() {
+      const p2 = filtered.filter(q => q.p === 2).length;
+      const p3 = filtered.filter(q => q.p === 3).length;
+      const ratio = Math.round(p3 / (p2 + p3 || 1) * 100);
+      document.getElementById('statsCards').innerHTML = `
+        <div class="stat-card purple"><div class="stat-value purple">${filtered.length}</div><div class="stat-label">총 문항</div></div>
+        <div class="stat-card blue"><div class="stat-value blue">${p2}</div><div class="stat-label">2점 문항</div></div>
+        <div class="stat-card pink"><div class="stat-value pink">${p3}</div><div class="stat-label">3점 문항</div></div>
+        <div class="stat-card green"><div class="stat-value green">${ratio}%</div><div class="stat-label">3점 비율</div></div>
+      `;
+    }
+
+    function renderPie() {
+      const p2 = filtered.filter(q => q.p === 2).length;
+      const p3 = filtered.filter(q => q.p === 3).length;
+      
+      document.getElementById('pieLegend').innerHTML = `
+        <div class="pie-legend-item"><span class="legend-dot" style="background:#AEC6CF"></span><span>2점: <b>${p2}</b>문항</span></div>
+        <div class="pie-legend-item"><span class="legend-dot" style="background:#FFD1DC"></span><span>3점: <b>${p3}</b>문항</span></div>
+      `;
+
+      if (pieChart) pieChart.destroy();
+      pieChart = new Chart(document.getElementById('pieChart'), {
+        type: 'doughnut',
+        data: {
+          labels: ['2점', '3점'],
+          datasets: [{ data: [p2, p3], backgroundColor: ['#AEC6CF', '#FFD1DC'], borderWidth: 0 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          plugins: { legend: { display: false } },
+          cutout: '60%'
+        }
+      });
+    }
+
+    function renderTop5() {
+      const stats = getStats().slice(0, 5);
+      const colors = ['#FFD1DC', '#FFDAB9', '#FFFACD', '#B5EAD7', '#AEC6CF'];
+      
+      // 각 단원별 3점 문항 출제 내용 수집
+      function getTopics(unitCode) {
+        const topics = filtered
+          .filter(q => q.u === unitCode && q.p === 3)
+          .map(q => q.t);
+        // 중복 제거
+        return [...new Set(topics)];
+      }
+      
+      document.getElementById('topUnits').innerHTML = stats.map((s, i) => {
+        const topics = getTopics(s.u);
+        const topicTags = topics.slice(0, 6).map(t => `<span class="top-tooltip-tag">${t}</span>`).join('');
+        
+        return `
+        <div class="top-item">
+          <div class="top-rank" style="background:${colors[i]}">${i + 1}</div>
+          <div class="top-name">${s.n}</div>
+          <div class="top-count">${s.p3}문항</div>
+          <div class="top-tooltip">
+            <div class="top-tooltip-title">🎯 주요 출제 개념</div>
+            <div class="top-tooltip-list">${topicTags}</div>
+          </div>
+        </div>
+      `}).join('');
+    }
+
+    function renderBar() {
+      const stats = getStats().slice(0, 12);
+      
+      if (barChart) barChart.destroy();
+      barChart = new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+          labels: stats.map(s => s.n),
+          datasets: [
+            { label: '3점', data: stats.map(s => s.p3), backgroundColor: '#FFD1DC', borderRadius: 4 },
+            { label: '2점', data: stats.map(s => s.p2), backgroundColor: '#AEC6CF', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: { stacked: true, grid: { color: '#F1F5F9' } },
+            y: { stacked: true, grid: { display: false }, ticks: { font: { size: 12 } } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    function renderUnitTable() {
+      const stats = getStats();
+      document.getElementById('unitBody').innerHTML = stats.map((s, i) => {
+        const sc = s.p3 * 2 + s.p2;
+        let pr, cls;
+        if (sc >= 50) { pr = '★★★ 최우선'; cls = 'badge-pink'; }
+        else if (sc >= 30) { pr = '★★ 중요'; cls = 'badge-blue'; }
+        else if (sc >= 15) { pr = '★ 기본'; cls = 'badge-green'; }
+        else { pr = '선택'; cls = 'badge-gray'; }
+        return `<tr>
+          <td style="font-weight:700;color:#64748b">${i + 1}</td>
+          <td style="font-weight:600;color:#1e293b">${s.n}</td>
+          <td class="center" style="font-weight:600;color:#2563EB">${s.p2}</td>
+          <td class="center" style="font-weight:600;color:#DB2777">${s.p3}</td>
+          <td class="center" style="font-weight:700;color:#1e293b">${sc}</td>
+          <td class="center"><span class="badge ${cls}">${pr}</span></td>
+        </tr>`;
+      }).join('');
+    }
+
+    function renderDetail() {
+      document.getElementById('detailBody').innerHTML = filtered.map(q => `
+        <tr>
+          <td style="color:#64748b">${q.y}학년도</td>
+          <td style="color:#94a3b8">${q.e}</td>
+          <td class="center" style="font-weight:600;color:#475569">${q.n}번</td>
+          <td class="center"><span class="badge ${q.p === 3 ? 'badge-pink' : 'badge-blue'}">${q.p}점</span></td>
+          <td style="color:#475569">${unitNames[q.u] || q.u}</td>
+          <td style="color:#94a3b8">${q.t}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderAll() {
+      renderStats();
+      renderPie();
+      renderTop5();
+      renderBar();
+      renderUnitTable();
+      renderDetail();
+    }
+
+    function showTab(n) {
+      document.getElementById('panel1').classList.toggle('hidden', n !== 1);
+      document.getElementById('panel2').classList.toggle('hidden', n !== 2);
+      document.getElementById('panel3').classList.toggle('hidden', n !== 3);
+      
+      ['tab1', 'tab2', 'tab3'].forEach((id, i) => {
+        const tab = document.getElementById(id);
+        if (i + 1 === n) {
+          tab.className = 'tab tab-active';
+        } else {
+          tab.className = 'tab tab-inactive';
+        }
+      });
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>

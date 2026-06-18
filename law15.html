@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15강 근로관계와 법 (1) · 빈칸 학습지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F0E7; --card:#FFFFFF; --ink:#16243F; --ink2:#3A4A66;
+    --stamp:#B23A2E; --ok:#2E7D5B; --okbg:#E6F1EB; --wrongbg:#FBEAE7;
+    --line:#D8D2C4; --gold:#A8842C; --muted:#7C7768;
+    --sans:'Noto Sans KR',system-ui,sans-serif; --serif:'Noto Serif KR',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;
+    -webkit-font-smoothing:antialiased;padding-bottom:80px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px}
+
+  /* ===== header ===== */
+  header.masthead{padding:34px 0 22px;border-bottom:3px double var(--ink);margin-bottom:6px}
+  .eyebrow{font-size:.74rem;letter-spacing:.32em;color:var(--stamp);font-weight:700;text-transform:uppercase}
+  h1.title{font-family:var(--serif);font-weight:900;font-size:2.5rem;line-height:1.15;margin:.18em 0 .1em;letter-spacing:-.01em}
+  h1.title .ch{color:var(--stamp)}
+  .sub{color:var(--muted);font-size:.95rem}
+  .sub b{color:var(--ink2)}
+
+  /* ===== sticky scorebar ===== */
+  .scorebar{position:sticky;top:0;z-index:50;background:rgba(243,240,231,.94);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+  .scorebar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .meter{flex:1;min-width:160px;height:10px;background:#E4DFD2;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line)}
+  .meter > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ink),var(--gold));
+    transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .score{font-family:var(--serif);font-weight:700;font-size:.96rem;white-space:nowrap}
+  .score b{color:var(--stamp);font-size:1.2rem}
+  .btns{display:flex;gap:8px}
+  button.act{font-family:var(--sans);font-weight:700;font-size:.85rem;cursor:pointer;
+    border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:8px 15px;border-radius:7px;
+    transition:.18s;letter-spacing:.02em}
+  button.act:hover{transform:translateY(-1px)}
+  button.ghost{background:transparent;color:var(--ink)}
+  button.ghost:hover{background:var(--ink);color:#fff}
+  button.act:focus-visible,.optbtn:focus-visible,.blank:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+  /* ===== section ===== */
+  section.unit{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:24px 26px 22px;margin:22px 0;box-shadow:0 1px 0 rgba(0,0,0,.02);position:relative}
+  .unit-tag{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+  .unit-tag .no{font-family:var(--serif);font-weight:900;font-size:1.05rem;color:#fff;background:var(--ink);
+    width:34px;height:34px;display:grid;place-items:center;border-radius:8px;letter-spacing:-.02em}
+  .unit-tag h2{font-family:var(--serif);font-size:1.42rem;font-weight:700;letter-spacing:-.01em}
+  .sub-h{font-weight:700;color:var(--ink);margin:18px 0 8px;font-size:1.02rem;
+    padding-left:11px;border-left:4px solid var(--gold)}
+  .sub-h:first-of-type{margin-top:4px}
+  p.line{margin:7px 0;color:var(--ink2)}
+  p.line::before{content:"—";color:var(--gold);margin-right:7px;font-weight:700}
+  .note{font-size:.82rem;color:var(--muted);font-style:italic}
+
+  /* ===== blanks ===== */
+  .num{font-family:var(--serif);font-weight:700;color:var(--stamp);font-size:.82em;
+    vertical-align:.12em;margin-right:1px}
+  input.blank{font-family:var(--sans);font-weight:700;font-size:.96em;color:var(--ink);
+    border:none;border-bottom:2px solid var(--ink2);background:#FAF8F2;text-align:center;
+    min-width:62px;width:74px;padding:1px 4px;margin:0 2px;border-radius:3px 3px 0 0;transition:.18s}
+  input.blank.wide{width:128px}
+  input.blank::placeholder{color:#C7C0AE;font-weight:400}
+  input.blank:focus{background:#fff;border-bottom-color:var(--gold);outline:none}
+  input.blank.correct{background:var(--okbg);border-bottom-color:var(--ok);color:var(--ok)}
+  input.blank.wrong{background:var(--wrongbg);border-bottom-color:var(--stamp);color:var(--stamp)}
+  input.blank.reveal{background:#FBE9E7;border-bottom-color:var(--stamp);color:var(--stamp);font-weight:700}
+  input.blank.peek{background:#EAF1FB;border-bottom-color:var(--gold);color:var(--ink);font-weight:700}
+  .sol{display:none}
+  .sol{display:none;font-weight:700;color:var(--ok);font-size:.88em;margin-left:3px;white-space:nowrap}
+  .sol.show{display:inline}
+  .sol::before{content:"→ ";color:var(--muted)}
+
+  /* ===== tables ===== */
+  table.t{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:.92rem}
+  .t th,.t td{border:1px solid var(--line);padding:9px 11px;vertical-align:middle}
+  .t th{background:var(--ink);color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.01em}
+  .t td.k{background:#F6F3EA;font-weight:700;color:var(--ink);text-align:center;width:88px}
+  .t td.c{text-align:center}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* ===== O/X 퀴즈 박스 ===== */
+  .gichul{background:#11203A;color:#EDEAE0;border-radius:16px;padding:24px 22px 20px;margin:22px 0}
+  .gichul h2{font-family:var(--serif);font-size:1.32rem;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .gichul .lead{color:#B9C2D4;font-size:.85rem;margin-bottom:16px}
+  .q{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:15px 16px;margin-bottom:11px;transition:background .25s,border-color .25s}
+  .q:last-child{margin-bottom:0}
+  .q.answered.ok{background:rgba(46,125,91,.16);border-color:rgba(46,125,91,.5)}
+  .q.answered.no{background:rgba(178,58,46,.15);border-color:rgba(178,58,46,.5)}
+  .q .lab{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:.86rem}
+  .q .src{font-size:.7rem;color:#E7E3D8;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:11px;margin-left:7px;font-style:normal;vertical-align:1px}
+  .q p{color:#E7E3D8;margin:8px 0 11px;font-size:.96rem;line-height:1.55}
+  .ox{display:flex;gap:10px;flex-wrap:wrap}
+  .optbtn{font-family:var(--sans);font-weight:700;font-size:.9rem;cursor:pointer;color:#EDEAE0;
+    background:rgba(255,255,255,.04);border:1.5px solid #46577A;padding:9px 20px;border-radius:9px;transition:.16s}
+  .optbtn:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .optbtn.correct{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:0 3px 12px rgba(46,125,91,.35)}
+  .optbtn.wrong{background:var(--stamp);border-color:var(--stamp);color:#fff;animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .fe021{font-size:.83rem;color:#CBD3E0;margin-top:11px;display:none;padding:10px 13px;
+    background:rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;line-height:1.55}
+  .fe021.show{display:block;animation:feIn .3s ease}
+  @keyframes feIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+  .fe021 b{color:#FFD9A0}
+
+  /* ===== 함정 포인트 ===== */
+  .pit{background:linear-gradient(180deg,#FBF3E4,#FBFAF5);border:1px solid var(--gold);border-radius:16px;padding:22px 20px;margin:22px 0}
+  .pit h2{font-family:var(--serif);font-size:1.26rem;color:var(--stamp);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+  .pit details{background:#fff;border:1px solid #ECDFC4;border-radius:11px;margin-bottom:9px;transition:border-color .16s,box-shadow .16s}
+  .pit details:last-child{margin-bottom:0}
+  .pit details[open]{border-color:var(--stamp);box-shadow:0 4px 14px rgba(178,58,46,.09)}
+  .pit summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none;display:flex;gap:11px;align-items:center;padding:13px 15px}
+  .pit summary::-webkit-details-marker{display:none}
+  .pit summary .n{flex-shrink:0;width:25px;height:25px;display:grid;place-items:center;background:var(--stamp);color:#fff;border-radius:50%;font-family:var(--sans);font-size:.74rem;font-weight:700}
+  .pit summary::after{content:"+";margin-left:auto;color:var(--stamp);font-weight:700;font-size:1.35rem;line-height:1}
+  .pit details[open] summary::after{content:"–"}
+  .pit .body{padding:0 16px 14px 51px;color:var(--ink2);font-size:.9rem;line-height:1.6}
+  .pit .body b{color:var(--stamp)}
+
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
+
+  /* result toast */
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);
+    background:var(--ink);color:#fff;padding:13px 24px;border-radius:30px;font-weight:700;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s;z-index:99;font-size:.92rem;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #toast .stamp{color:#FFD9A0}
+
+  @media(max-width:560px){
+    h1.title{font-size:1.95rem}
+    section.unit{padding:20px 16px}
+    .gichul,.pit{padding:20px 16px}
+    input.blank{min-width:54px;width:64px}
+    input.blank.wide{width:104px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  /* ===== section nav ===== */
+  .secnav{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 2px}
+  .secnav a{font-size:.8rem;font-weight:700;text-decoration:none;color:var(--ink2);
+    border:1.5px solid var(--line);padding:6px 13px;border-radius:20px;transition:.16s;background:#fff}
+  .secnav a:hover{border-color:var(--ink);color:var(--ink)}
+  .anchor{scroll-margin-top:80px}
+  .band{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--ink);
+    margin:34px 0 4px;padding-bottom:6px;border-bottom:3px double var(--ink);display:flex;align-items:center;gap:10px}
+  .band .ic{font-size:1.1rem}
+  .band small{font-family:var(--sans);font-weight:500;font-size:.82rem;color:var(--muted);margin-left:auto}
+
+  /* ===== flashcards ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px;margin:14px 0}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:0;
+    cursor:pointer;min-height:96px;position:relative;perspective:800px}
+  .fcard .inner{padding:14px 14px;height:100%;display:flex;flex-direction:column;justify-content:center;transition:.2s}
+  .fcard .term{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.02rem;text-align:center}
+  .fcard .hint{font-size:.72rem;color:var(--muted);text-align:center;margin-top:6px}
+  .fcard .def{display:none;font-size:.82rem;color:var(--ink2);line-height:1.55}
+  .fcard.open{background:#FBF8F0;border-color:var(--gold)}
+  .fcard.open .term{font-size:.86rem;color:var(--gold);margin-bottom:6px;text-align:left}
+  .fcard.open .hint{display:none}
+  .fcard.open .def{display:block}
+
+  /* ===== plain reference tables ===== */
+  .reftbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+  .reftbl th,.reftbl td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+  .reftbl th{background:#F6F3EA;color:var(--ink);font-weight:700;text-align:left}
+  .reftbl td.k{font-weight:700;color:var(--ink);background:#FBF8F0;white-space:nowrap}
+  .reftbl .hl{color:var(--stamp);font-weight:700}
+  .deck{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+  .deck h3{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-bottom:4px}
+  .deck .cap{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .arb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:8px 0 2px}
+  .arb-card{border:1px solid var(--line);border-radius:13px;padding:18px 15px 16px;text-align:center;
+    background:linear-gradient(180deg,#FFFFFF,#FBFAF5);display:flex;flex-direction:column;align-items:center;
+    transition:transform .18s, box-shadow .18s}
+  .arb-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(22,36,63,.10)}
+  .arb-ill{width:86px;height:86px;margin-bottom:4px}
+  .arb-card h4{font-family:var(--serif);font-size:1.18rem;color:var(--ink);margin:2px 0 9px;font-weight:700}
+  .arb-card p{font-size:.85rem;color:var(--ink2);line-height:1.55;flex:1;margin-bottom:13px}
+  .arb-card p b{color:var(--ink)}
+  .arb-badge{display:inline-block;font-size:.76rem;font-weight:700;padding:6px 13px;border-radius:20px;border:1.5px solid;line-height:1.3}
+  .arb-badge.none{color:var(--muted);border-color:var(--line);background:#F4F1E8}
+  .arb-badge.bind{color:var(--stamp);border-color:var(--stamp);background:#FBE9E7}
+  .arb-badge.stop{color:#9A4A0A;border-color:#C2710E;background:#FBE7C8}
+  @media(max-width:600px){.arb-cards{grid-template-columns:1fr;gap:11px}
+    .arb-card{flex-direction:row;text-align:left;gap:14px;align-items:center;padding:14px}
+    .arb-ill{width:62px;height:62px;margin-bottom:0;flex-shrink:0}
+    .arb-card .arb-txt{flex:1;display:flex;flex-direction:column;align-items:flex-start}
+    .arb-card h4{margin:0 0 4px}.arb-card p{margin-bottom:8px}}
+  /* 법정 근로 시간 막대 */
+  .wt-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin:4px 0 16px}
+  .wt-toggle button{font-family:var(--sans);font-weight:700;font-size:.82rem;padding:7px 15px;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:.18s}
+  .wt-toggle button.on{background:var(--ink);color:#fff}
+  .wt-row{display:flex;align-items:center;gap:13px;padding:12px 0;border-top:1px solid var(--line)}
+  .wt-row:first-of-type{border-top:none}
+  .wt-ico{width:44px;height:44px;flex-shrink:0}
+  .wt-label{width:108px;flex-shrink:0;font-weight:700;font-size:.88rem;color:var(--ink)}
+  .wt-label small{display:block;font-weight:400;font-size:.7rem;color:var(--muted);margin-top:1px}
+  .wt-barwrap{flex:1;display:flex;align-items:center;gap:10px}
+  .wt-bar{flex:1;display:flex;height:25px;border-radius:6px;overflow:hidden;background:#EEE8DB;min-width:80px}
+  .wt-seg{height:100%;transition:width .55s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  .wt-seg.base{background:var(--ink)}
+  .wt-seg.ext{background:#C2710E}
+  .wt-total{font-weight:700;font-size:.84rem;color:var(--ink);min-width:42px;text-align:right}
+  .wt-total b{color:#C2710E}
+  .wt-total small{display:block;font-weight:400;font-size:.66rem;color:var(--muted)}
+  .wt-na{flex:1;font-size:.82rem;color:var(--ink2)}
+  .wt-na b{color:var(--stamp)}
+  @media(max-width:600px){.wt-label{width:84px;font-size:.8rem}.wt-row{gap:9px}.wt-ico{width:38px;height:38px}}
+  /* 임금 4원칙 플립카드 */
+  .wage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0 4px}
+  .wage-card{height:104px;cursor:pointer;perspective:1000px;background:none;border:none;padding:0}
+  .wage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1)}
+  .wage-card.flip .wage-inner{transform:rotateY(180deg)}
+  .wage-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .wage-front{background:linear-gradient(180deg,#fff,#F8F4EA);border:1px solid var(--line)}
+  .wage-front .wn{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink)}
+  .wage-front .wk{font-size:.76rem;color:var(--ink2);margin-top:4px}
+  .wage-front .wh{font-size:.68rem;color:var(--gold);margin-top:8px;font-weight:700}
+  .wage-back{background:var(--ink);color:#EDEAE0;transform:rotateY(180deg);border:1px solid var(--ink)}
+  .wage-back p{font-size:.82rem;line-height:1.5}
+  .wage-back .x{color:#F3B0A6;font-size:.74rem;display:block;margin-top:5px}
+  @media(max-width:600px){.wage-grid{grid-template-columns:1fr}.wage-card{height:92px}}
+  /* 평균임금 vs 통상임금 비교카드 */
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:10px 0 4px}
+  .cmp-card{border-radius:13px;padding:17px 16px;border:1px solid var(--line);transition:transform .18s,box-shadow .18s}
+  .cmp-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(22,36,63,.08)}
+  .cmp-card.avg{background:linear-gradient(180deg,#F1F6FC,#fff)}
+  .cmp-card.ord{background:linear-gradient(180deg,#FBEEEB,#fff);border-color:#E6C3BB}
+  .cmp-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .cmp-ico{width:42px;height:42px;flex-shrink:0}
+  .cmp-head h4{font-family:var(--serif);font-size:1.16rem;font-weight:700;color:var(--ink)}
+  .cmp-card.ord .cmp-head h4{color:var(--stamp)}
+  .cmp-def{font-size:.83rem;color:var(--ink2);line-height:1.55;margin-bottom:12px}
+  .cmp-def b{color:var(--ink)}
+  .cmp-label{font-size:.68rem;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.05em}
+  .cmp-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .cmp-chip{font-size:.76rem;font-weight:600;padding:4px 11px;border-radius:16px;background:#fff;border:1.5px solid var(--line);color:var(--ink2);transition:.16s}
+  .cmp-card.avg .cmp-chip{border-color:#B9CDE5}
+  .cmp-card.ord .cmp-chip{border-color:#E0A99F;color:var(--stamp);font-weight:700}
+  .cmp-chip:hover{transform:translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,.08)}
+  @media(max-width:600px){.cmp-grid{grid-template-columns:1fr}}
+  /* 실전 핵심 아코디언 */
+  .rx-item{border:1px solid var(--line);border-radius:11px;margin-bottom:9px;background:#fff;transition:.16s}
+  .rx-item[open]{border-color:var(--gold);box-shadow:0 3px 12px rgba(168,132,44,.10)}
+  .rx-sum{cursor:pointer;list-style:none;padding:13px 15px;display:flex;align-items:center;gap:11px}
+  .rx-sum::-webkit-details-marker{display:none}
+  .rx-num{flex-shrink:0;font-size:.67rem;font-weight:700;color:#fff;background:var(--gold);padding:3px 9px;border-radius:12px;white-space:nowrap}
+  .rx-title{font-weight:700;color:var(--ink);font-size:.95rem;flex:1}
+  .rx-sum::after{content:"+";color:var(--gold);font-weight:700;font-size:1.3rem;line-height:1;margin-left:4px}
+  .rx-item[open] .rx-sum::after{content:"\2013"}
+  .rx-body{padding:0 15px 14px 15px;font-size:.88rem;color:var(--ink2);line-height:1.6}
+  .rx-body b{color:var(--stamp)}
+  .rx-body .em{color:var(--ink);font-weight:700}
+  /* 강조 행 (특성화고 직결) */
+  .reftbl tr.spot td{background:linear-gradient(90deg,#FBF0D4,#FCF8EC);border-color:#E8D49C}
+  .reftbl tr.spot td.k{color:var(--stamp);position:relative;box-shadow:inset 4px 0 0 var(--gold);animation:spotPulse 2.4s ease-in-out infinite}
+  @keyframes spotPulse{0%,100%{box-shadow:inset 4px 0 0 var(--gold)}50%{box-shadow:inset 4px 0 0 var(--stamp)}}
+  .spot-badge{display:inline-block;font-size:.64rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;margin-left:7px;vertical-align:2px;white-space:nowrap}
+  .reftbl tr.spot:hover td{background:linear-gradient(90deg,#FBEAC2,#FCF5E2)}
+  /* 은또링샘의 행성 연구소 시그니처 */
+  .totop{display:flex;justify-content:center;margin:32px 0 0}
+  .totop button{font-family:var(--sans);font-weight:700;font-size:.86rem;color:#EDEAE0;
+    background:linear-gradient(180deg,#1F3357,#13233F);border:1.5px solid rgba(168,132,44,.55);
+    border-radius:30px;padding:7px 20px 7px 8px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 14px rgba(17,32,58,.22);transition:.22s}
+  .totop button:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(17,32,58,.34);border-color:var(--gold);color:#fff}
+  .totop button .ar{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#11203A;
+    display:grid;place-items:center;font-size:1.02rem;font-weight:900;line-height:1;transition:transform .25s}
+  .totop button:hover .ar{animation:bounceUp .7s ease infinite}
+  @keyframes bounceUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @media(prefers-reduced-motion:reduce){.totop button:hover .ar{animation:none}}
+  .lab-sign{margin:14px 0 8px;padding:16px 22px 14px;border-radius:16px;
+    background:radial-gradient(120% 160% at 50% 0%,#1A2C4D 0%,#11203A 60%,#0D1A30 100%);
+    text-align:center;position:relative;overflow:hidden;color:#EDEAE0}
+  .lab-stars span{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF2C8;
+    box-shadow:0 0 6px 1px rgba(255,228,160,.85);opacity:.6;animation:twinkle 2.3s ease-in-out infinite}
+  .lab-stars span:nth-child(1){top:24%;left:11%;animation-delay:0s}
+  .lab-stars span:nth-child(2){top:34%;left:30%;animation-delay:.4s;width:2px;height:2px}
+  .lab-stars span:nth-child(3){top:66%;left:18%;animation-delay:1.1s}
+  .lab-stars span:nth-child(4){top:72%;left:38%;animation-delay:1.6s;width:2px;height:2px}
+  .lab-stars span:nth-child(5){top:20%;left:62%;animation-delay:2s}
+  .lab-stars span:nth-child(6){top:58%;left:70%;animation-delay:.8s;width:2px;height:2px}
+  .lab-stars span:nth-child(7){top:30%;left:88%;animation-delay:1.3s}
+  .lab-stars span:nth-child(8){top:74%;left:84%;animation-delay:.2s}
+  .lab-stars span:nth-child(9){top:46%;left:95%;animation-delay:1.9s;width:4px;height:4px}
+  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.55)}50%{opacity:1;transform:scale(1.45)}}
+  .lab-head{display:flex;align-items:center;justify-content:center;gap:13px;position:relative;z-index:1}
+  .lab-planet-wrap{position:relative;width:46px;height:46px;flex-shrink:0;animation:floaty 4.5s ease-in-out infinite}
+  .lab-planet{width:46px;height:46px;display:block}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .lab-sign:hover .lab-stars span{animation-duration:1s}
+  .lab-text{text-align:left}
+  .lab-name{font-family:var(--serif);font-weight:900;font-size:1.2rem;color:#fff;letter-spacing:.01em;line-height:1.2}
+  .lab-name .em{color:var(--gold)}
+  .lab-tag{font-size:.66rem;color:#9FB0CC;margin-top:2px;letter-spacing:.22em}
+  .lab-meta{font-size:.72rem;color:#7C8BA8;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1}
+  @media(prefers-reduced-motion:reduce){.lab-planet,.lab-stars span{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="scorebar">
+  <div class="wrap">
+    <div class="meter"><i id="bar"></i></div>
+    <div class="score">완성 <b id="filled">0</b> / 50<span id="scoretxt"></span></div>
+    <div class="btns">
+      <button class="act" onclick="grade()">채점하기</button>
+      <button class="act ghost" onclick="toggleSol()" id="solBtn">정답 보기</button>
+      <button class="act ghost" onclick="resetAll()">다시 풀기</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">성공적인 직업생활 · EBS 수능특강 2027</div>
+  <h1 class="title"><span class="ch">15강</span> 근로관계와 법 (1)</h1>
+  <div class="sub">수능특강 본문 + <b>EBS Plus</b> 용어·심화 자료까지 모두 수록. 빈칸을 채우고 <b>채점하기</b>를 누르세요. <span class="note">(법조항·숫자·비율 정확히!)</span></div>
+  <nav class="secnav">
+    <a href="#fill">① 본문 빈칸</a>
+    <a href="#terms">② 용어 사전</a>
+    <a href="#deep">③ 심화 자료</a>
+    <a href="#exam">④ 기출·함정</a>
+  </nav>
+</header>
+
+<div class="band anchor" id="fill"><span class="ic">✎</span> 본문 빈칸 채우기 <small>① ~ ㊿</small></div>
+
+<!-- ===== 01 ===== -->
+<section class="unit">
+  <div class="unit-tag"><span class="no">01</span><h2>근로관계</h2></div>
+
+  <div class="sub-h">1. 근로관계법의 개념</div>
+  <p class="line">근로관계법: 근로자와 사용자의 <span class="num">①</span><input class="blank" data-a="권익" placeholder="①"><span class="sol"></span> 침해를 방지하기 위해 양자의 관계를 규정하는 법규</p>
+
+  <div class="sub-h">2. 헌법과 근로관계법 <span class="note">※ 헌법에 직접 명시된 조항</span></div>
+  <div class="scroll"><table class="t">
+    <tr><th>주요 내용</th><th>헌법 근거 조항</th></tr>
+    <tr><td>근로의 권리</td><td class="c">헌법 제32조 제1항</td></tr>
+    <tr><td>근로 조건의 법정주의</td><td class="c">헌법 제32조 제3·4·5항</td></tr>
+    <tr><td>근로자의 단결 활동권 보장</td><td class="c">헌법 제33조</td></tr>
+  </table></div>
+
+  <div class="sub-h">3. 근로(노동) 3권 <span class="note">← 근로자를 보호하는 가장 기본적인 권리</span></div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:120px">권리</th><th>내용</th></tr>
+    <tr><td class="c"><span class="num">②</span><input class="blank wide" data-a="단결권" placeholder="②"><span class="sol"></span></td><td>자주적으로 노동조합이나 그 밖의 단결체를 조직·가입·운영할 권리</td></tr>
+    <tr><td class="c"><span class="num">③</span><input class="blank wide" data-a="단체교섭권|단체 교섭권" placeholder="③"><span class="sol"></span></td><td>대표를 선정하여 사용자 측과 <span class="num">④</span><input class="blank" data-a="대등" placeholder="④"><span class="sol"></span>한 입장에서 교섭 → 사용자는 <span class="num">⑤</span><input class="blank" data-a="성실히|성실" placeholder="⑤"><span class="sol"></span> 응할 의무</td></tr>
+    <tr><td class="c"><span class="num">⑥</span><input class="blank wide" data-a="단체행동권|단체 행동권" placeholder="⑥"><span class="sol"></span></td><td>주장 관철 위해 동일 행동 → 서명 운동, 집회, <span class="num">⑦</span><input class="blank" data-a="파업" placeholder="⑦"><span class="sol"></span> 등</td></tr>
+  </table></div>
+  <p class="line">공무원: 단결권·단체 교섭권은 일정 부분 인정하되, <span class="num">⑧</span><input class="blank wide" data-a="단체행동권|단체 행동권|쟁의행위|쟁의 행위" placeholder="⑧"><span class="sol"></span>은 용인하지 않음 <span class="note">(단, 법률이 정하는 공무원에 한함)</span></p>
+
+  <div class="sub-h">4. 근로자와 사용자의 의무</div>
+  <p class="line">근로자의 의무: 근로 제공, 근로 충실, <span class="num">⑨</span><input class="blank wide" data-a="청렴|청렴의무|청렴 의무" placeholder="⑨"><span class="sol"></span>, 영업 비밀 유지, <span class="num">⑩</span><input class="blank wide" data-a="이중취업|이중 취업|이중취업금지" placeholder="⑩"><span class="sol"></span> 금지의 의무</p>
+  <p class="line">사용자의 의무: 안전 배려, <span class="num">⑪</span><input class="blank wide" data-a="균등대우|균등 대우|균등대우의무" placeholder="⑪"><span class="sol"></span>, 법령·규칙 게시, 임금 지급, 기능 습득자 보호의 의무</p>
+</section>
+
+<!-- ===== 02 ===== -->
+<section class="unit">
+  <div class="unit-tag"><span class="no">02</span><h2>근로관계법의 종류</h2></div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:64px">구분</th><th>개별적 근로관계법</th><th>집단적 근로관계법</th></tr>
+    <tr>
+      <td class="k">개념</td>
+      <td>개개 근로자와 개개 사용자 사이의 <span class="num">⑫</span><input class="blank wide" data-a="근로계약|근로 계약" placeholder="⑫"><span class="sol"></span>에 적용</td>
+      <td>대등한 <span class="num">⑬</span><input class="blank wide" data-a="노사관계|노사 관계" placeholder="⑬"><span class="sol"></span>를 형성하기 위해 자주적 단체 형성</td>
+    </tr>
+    <tr>
+      <td class="k">종류</td>
+      <td>근로기준법, <span class="num">⑭</span><input class="blank wide" data-a="최저임금법" placeholder="⑭"><span class="sol"></span>, 산업안전보건법, 기간제·단시간법, 직업안정법, <span class="num">⑮</span><input class="blank wide" data-a="직업교육훈련촉진법|직업교육훈련 촉진법" placeholder="⑮"><span class="sol"></span>, 고용보험법 등</td>
+      <td><span class="num">⑯</span><input class="blank wide" data-a="노동조합및노동관계조정법|노동조합 및 노동관계조정법|노조법" placeholder="⑯"><span class="sol"></span>, <span class="num">⑰</span><input class="blank wide" data-a="노동위원회법" placeholder="⑰"><span class="sol"></span>, <span class="num">⑱</span><input class="blank wide" data-a="근로자참여및협력증진에관한법률|근로자참여 및 협력증진에 관한 법률|근로자참여및협력증진법|근참법" placeholder="⑱"><span class="sol"></span>, 경제사회노동위원회법 등</td>
+    </tr>
+  </table></div>
+  <p class="line" style="font-size:.86rem;color:var(--muted)">※ <b style="color:var(--ink2)">근로자참여 및 협력증진에 관한 법률</b> = 노사협의회·고충처리위원의 근거법 (상시 30명 이상 사업장은 노사협의회 의무 설치)</p>
+</section>
+
+<!-- ===== 03 ===== -->
+<section class="unit">
+  <div class="unit-tag"><span class="no">03</span><h2>근로기준법</h2></div>
+
+  <div class="sub-h">1. 개념</div>
+  <p class="line">근로자가 직장에서 받는 모든 대우에 있어 ‘<span class="num">⑲</span><input class="blank wide" data-a="인간의존엄성|인간의 존엄성|인간존엄성" placeholder="⑲"><span class="sol"></span>’이 보장되는 기준을 정하는 근로자 보호의 기본법</p>
+
+  <div class="sub-h">2. 기본 원리 (9가지)</div>
+  <p class="line"><b>①</b> 근로 조건의 <span class="num">⑳</span><input class="blank" data-a="기준" placeholder="⑳"><span class="sol"></span> (최저 기준 준수)　<b>②</b> 근로 조건의 결정 (노사 <span class="num">㉑</span><input class="blank" data-a="동등" placeholder="㉑"><span class="sol"></span>·자유의사)　<b>③</b> 근로 조건의 준수</p>
+  <p class="line"><b>④</b> <span class="num">㉒</span><input class="blank" data-a="균등" placeholder="㉒"><span class="sol"></span>한 처우　<b>⑤</b> <span class="num">㉓</span><input class="blank" data-a="강제" placeholder="㉓"><span class="sol"></span> 근로의 금지　<b>⑥</b> 폭행의 금지</p>
+  <p class="line"><b>⑦</b> <span class="num">㉔</span><input class="blank wide" data-a="중간착취|중간 착취" placeholder="㉔"><span class="sol"></span>의 배제　<b>⑧</b> <span class="num">㉕</span><input class="blank" data-a="공민권" placeholder="㉕"><span class="sol"></span> 행사 보장　<b>⑨</b> <span class="num">㉖</span><input class="blank wide" data-a="직장내괴롭힘|직장 내 괴롭힘" placeholder="㉖"><span class="sol"></span> 금지</p>
+
+  <div class="sub-h">3. 주요 내용 <span class="note">※ 숫자 정확히</span></div>
+  <p class="line">적용 범위: 상시 <span class="num">㉗</span><input class="blank" data-a="5" placeholder="㉗"><span class="sol"></span>인 이상 사업장 <span class="note">(미만은 일부만 적용)</span></p>
+  <p class="line">5인 미만 미적용: 연차휴가·연차수당, 생리휴가, <span class="num">㉘</span><input class="blank" data-a="가산" placeholder="㉘"><span class="sol"></span>수당, 휴업수당, 해고 <span class="num">㉙</span><input class="blank" data-a="서면" placeholder="㉙"><span class="sol"></span> 통지 등</p>
+  <p class="line">근로 계약 기간: <span class="num">㉚</span><input class="blank" data-a="2" placeholder="㉚"><span class="sol"></span>년 초과 시 → 기간을 정하지 않은(무기) 계약으로 인정</p>
+  <div class="scroll"><table class="t">
+    <tr><th>법정 근로 시간</th><th style="width:120px">1일</th><th style="width:120px">1주</th></tr>
+    <tr><td>성인 (만 18세 이상)</td><td class="c"><span class="num">㉛</span><input class="blank" data-a="8" placeholder="㉛"><span class="sol"></span> 시간</td><td class="c"><span class="num">㉜</span><input class="blank" data-a="40" placeholder="㉜"><span class="sol"></span> 시간</td></tr>
+    <tr><td>연소 (만 15~18세 미만)</td><td class="c"><span class="num">㉝</span><input class="blank" data-a="7" placeholder="㉝"><span class="sol"></span> 시간</td><td class="c"><span class="num">㉞</span><input class="blank" data-a="35" placeholder="㉞"><span class="sol"></span> 시간</td></tr>
+  </table></div>
+  <p class="line">연장·야간·휴일 근로: 통상임금 <span class="num">㉟</span><input class="blank" data-a="50" placeholder="㉟"><span class="sol"></span>% 가산 <span class="note">(동의 필요)</span>　야간: 밤 <span class="num">㊱</span><input class="blank" data-a="10" placeholder="㊱"><span class="sol"></span>시 ~ 익일 <span class="num">㊲</span><input class="blank" data-a="6" placeholder="㊲"><span class="sol"></span>시</p>
+  <p class="line">휴게 시간: 4시간 → <span class="num">㊳</span><input class="blank" data-a="30" placeholder="㊳"><span class="sol"></span>분 이상 / 8시간 → <span class="num">㊴</span><input class="blank" data-a="1" placeholder="㊴"><span class="sol"></span>시간 이상 <span class="note">(무급)</span></p>
+  <p class="line">최저임금: 수습 <span class="num">㊵</span><input class="blank" data-a="3" placeholder="㊵"><span class="sol"></span>개월 이내 + 단순노무직 ‘아닌’ 근로자 → 최저임금의 <span class="num">㊶</span><input class="blank" data-a="90" placeholder="㊶"><span class="sol"></span>%</p>
+
+  <div class="sub-h">4. 근로 계약의 종료 · 퇴직금</div>
+  <p class="line">해고: 정당한 사유 필요 + <span class="num">㊷</span><input class="blank" data-a="30" placeholder="㊷"><span class="sol"></span>일 전 사유·시기 서면 통지(해고 예고) 시 효력</p>
+  <p class="line">권고사직: 사용자의 사직 권고에 응함 → 경영상 이유면 <span class="num">㊸</span><input class="blank wide" data-a="실업급여|구직급여" placeholder="㊸"><span class="sol"></span> 수령 가능</p>
+  <p class="line">자진사직: 근로자는 통상 <b>30일</b> 전에 사직을 통보 <span class="note">(급히 그만두면 무단결근 처리·불이익 가능)</span></p>
+  <p class="line">퇴직금: 계속근로 <span class="num">㊹</span><input class="blank" data-a="1" placeholder="㊹"><span class="sol"></span>년 이상 + 주 15시간 이상 → 1년당 평균임금 <span class="num">㊺</span><input class="blank" data-a="30" placeholder="㊺"><span class="sol"></span>일분, 퇴사일 14일 이내 지급</p>
+</section>
+<!-- ===== 04 ===== -->
+<section class="unit">
+  <div class="unit-tag"><span class="no">04</span><h2>노동조합 및 노동관계조정법</h2></div>
+  <p class="line">노동조합 가입: 근로자는 자유로이 가입 가능. 단, 공무원과 <span class="num">㊻</span><input class="blank" data-a="교원" placeholder="㊻"><span class="sol"></span>은 따로 법률로 정함</p>
+  <p class="line">쟁의 행위: 노동조합은 조합원 <span class="num">㊼</span><input class="blank wide" data-a="과반수" placeholder="㊼"><span class="sol"></span>의 찬성으로 결정·실시</p>
+  <p class="line">노동 쟁의 조정 제도(제3자 개입): <span class="num">㊽</span><input class="blank" data-a="조정" placeholder="㊽"><span class="sol"></span>, <span class="num">㊾</span><input class="blank" data-a="중재" placeholder="㊾"><span class="sol"></span>, <span class="num">㊿</span><input class="blank wide" data-a="긴급조정|긴급 조정" placeholder="㊿"><span class="sol"></span></p>
+</section>
+
+<!-- ================= 용어 사전 ================= -->
+<div class="band anchor" id="terms"><span class="ic">▤</span> EBS Plus 용어 사전 <small>카드를 누르면 뜻이 펼쳐집니다</small></div>
+<div class="cards" id="cards"></div>
+
+<!-- ================= 심화 자료 ================= -->
+<div class="band anchor" id="deep"><span class="ic">◆</span> 심화 자료 <small>EBS Plus 보충</small></div>
+
+<div class="deck">
+  <h3>법정 근로 시간 총정리 (근로기준법)</h3>
+  <div class="cap">막대 = <b>1주 근로시간</b>. 버튼으로 소정 ↔ 최장(연장 포함) 비교</div>
+  <div class="wt-toggle">
+    <button id="wtBase" onclick="setWT('base')">소정근로</button>
+    <button id="wtMax" class="on" onclick="setWT('max')">최장(연장 포함)</button>
+  </div>
+  <div id="wtRows">
+    <div class="wt-row" data-base="40" data-ext="12" data-db="8" data-de="12">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#EAF1FB"/><circle cx="22" cy="17.5" r="6" fill="#16243F"/><path d="M10.5 34.5 a11.5 9 0 0 1 23 0 z" fill="#16243F"/></svg>
+      <div class="wt-label">성인<small>만 18세 이상</small></div>
+      <div class="wt-barwrap"><div class="wt-bar"><div class="wt-seg base"></div><div class="wt-seg ext"></div></div><div class="wt-total"></div></div>
+    </div>
+    <div class="wt-row" data-base="35" data-ext="5" data-db="7" data-de="1">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBF3DE"/><circle cx="22" cy="18.5" r="5" fill="#A8842C"/><path d="M13 33.5 a9 7.5 0 0 1 18 0 z" fill="#A8842C"/></svg>
+      <div class="wt-label">연소<small>만 15~18세 미만</small></div>
+      <div class="wt-barwrap"><div class="wt-bar"><div class="wt-seg base"></div><div class="wt-seg ext"></div></div><div class="wt-total"></div></div>
+    </div>
+    <div class="wt-row" data-base="34" data-ext="0" data-db="6" data-de="0">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><path d="M13 27 a9 9 0 0 1 18 0 z" fill="#B23A2E"/><rect x="10" y="27" width="24" height="3.4" rx="1.6" fill="#B23A2E"/><rect x="20.5" y="15.5" width="3" height="4.5" rx="1" fill="#B23A2E"/></svg>
+      <div class="wt-label">유해·위험<small>작업</small></div>
+      <div class="wt-barwrap"><div class="wt-bar"><div class="wt-seg base"></div><div class="wt-seg ext"></div></div><div class="wt-total"></div></div>
+    </div>
+    <div class="wt-row">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#E6F1EB"/><rect x="14" y="13.5" width="16" height="19" rx="2" fill="#fff" stroke="#2E7D5B" stroke-width="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5" fill="#2E7D5B"/><line x1="17.5" y1="21" x2="26.5" y2="21" stroke="#2E7D5B" stroke-width="1.6" stroke-linecap="round"/><line x1="17.5" y1="25" x2="26.5" y2="25" stroke="#2E7D5B" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div class="wt-label">현장 실습생</div>
+      <div class="wt-na">연소 근로 기준 적용 · <b>야간(22~06시)·휴일 실습 불가</b></div>
+    </div>
+  </div>
+  <div class="cap" style="margin-top:10px">※ 가산: 연장·야간·휴일 근로는 각각 통상임금의 50% 가산(중복 시 합산). 야간 = 밤 10시~다음 날 오전 6시.</div>
+</div>
+
+<div class="deck">
+  <h3>임금 지급의 4원칙</h3>
+  <div class="cap">카드를 누르면 뒤집혀 상세가 나옵니다 ↻</div>
+  <div class="wage-grid">
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">통화불</div><div class="wk">현금으로</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>임금은 통화(현금)로 지급<span class="x">현물·상품권 ✕</span></p></div>
+      </div>
+    </button>
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">직접불</div><div class="wk">본인에게</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>근로자 본인에게 직접 지급<span class="x">대리 수령 ✕</span></p></div>
+      </div>
+    </button>
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">전액불</div><div class="wk">전액을</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>임금 전액을 지급<span class="x">법령·단협 외 임의 공제 ✕</span></p></div>
+      </div>
+    </button>
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">정기불</div><div class="wk">정기적으로</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>매월 1회 이상 일정한 날에 지급<span class="x">퇴사 시 14일 이내</span></p></div>
+      </div>
+    </button>
+  </div>
+  <div class="cap" style="margin-top:10px">※ 최저임금 결정: 고용노동부 산하 최저임금위원회가 물가 등을 고려, 매년 1월 1일부터 적용.</div>
+</div>
+
+<div class="deck">
+  <h3>노동 쟁의 조정 방법</h3>
+  <div class="cap">제3자가 개입하는 세 가지 방식 — <b>구속력 차이</b>가 출제 포인트</div>
+  <div class="arb-cards">
+
+    <div class="arb-card">
+      <svg class="arb-ill" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="44" cy="44" r="42" fill="#EAF1FB"/>
+        <path d="M16 31 h21 a4 4 0 0 1 4 4 v9 a4 4 0 0 1 -4 4 h-11 l-6 5 v-5 h-4 a4 4 0 0 1 -4 -4 v-9 a4 4 0 0 1 4 -4 z" fill="#16243F"/>
+        <circle cx="22" cy="39.5" r="1.7" fill="#fff"/><circle cx="28" cy="39.5" r="1.7" fill="#fff"/><circle cx="34" cy="39.5" r="1.7" fill="#fff"/>
+        <path d="M51 45 h21 a4 4 0 0 1 4 4 v9 a4 4 0 0 1 -4 4 h-4 v5 l-6 -5 h-11 a4 4 0 0 1 -4 -4 v-9 a4 4 0 0 1 4 -4 z" fill="#fff" stroke="#16243F" stroke-width="2.2"/>
+        <path d="M56 53.5 l3 3 6 -6" fill="none" stroke="#2E7D5B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="arb-txt">
+        <h4>조정</h4>
+        <p>노동위원회 <b>조정위원회</b>가 조정안을 제시하고 수락을 권고</p>
+        <span class="arb-badge none">구속력 없음</span>
+      </div>
+    </div>
+
+    <div class="arb-card">
+      <svg class="arb-ill" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="44" cy="44" r="42" fill="#FBE9E7"/>
+        <g stroke="#B23A2E" stroke-width="2.6" stroke-linecap="round" fill="none">
+          <line x1="44" y1="26" x2="44" y2="60"/>
+          <line x1="26" y1="33" x2="62" y2="33"/>
+          <line x1="35" y1="60" x2="53" y2="60"/>
+          <line x1="26" y1="33" x2="26" y2="39"/>
+          <line x1="62" y1="33" x2="62" y2="39"/>
+        </g>
+        <path d="M18 39 a8 6 0 0 0 16 0 z" fill="#fff" stroke="#B23A2E" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M54 39 a8 6 0 0 0 16 0 z" fill="#fff" stroke="#B23A2E" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="44" cy="26" r="3.4" fill="#B23A2E"/>
+      </svg>
+      <div class="arb-txt">
+        <h4>중재</h4>
+        <p>쌍방 신청 또는 단협에 의한 일방 신청 → <b>제3자(중재위원회) 판정</b></p>
+        <span class="arb-badge bind">구속력 있음 · 지노위 불복 시 중노위 재심</span>
+      </div>
+    </div>
+
+    <div class="arb-card">
+      <svg class="arb-ill" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="44" cy="44" r="42" fill="#FBE7C8"/>
+        <polygon points="44,22 69,65 19,65" fill="#fff" stroke="#C2710E" stroke-width="2.8" stroke-linejoin="round"/>
+        <line x1="44" y1="37" x2="44" y2="53" stroke="#C2710E" stroke-width="3.6" stroke-linecap="round"/>
+        <circle cx="44" cy="59" r="2.5" fill="#C2710E"/>
+      </svg>
+      <div class="arb-txt">
+        <h4>긴급 조정</h4>
+        <p>국민 경제에 큰 영향 → <b>고용노동부 장관</b> 결정, 중앙노동위원회 조정</p>
+        <span class="arb-badge stop">즉시 쟁의행위 중지</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="deck">
+  <h3>05 그 밖의 근로관계법 (목적)</h3>
+  <div class="scroll"><table class="reftbl">
+    <tr><th>법률</th><th>목적</th></tr>
+    <tr><td class="k">산업안전보건법</td><td>산업 안전·보건 기준 확립, 산업 재해 예방, 근로자 안전·보건 유지·증진</td></tr>
+    <tr><td class="k">산업재해보상보험법</td><td>업무상 재해의 신속·공정 보상, 재해 근로자 재활·사회 복귀 촉진</td></tr>
+    <tr><td class="k">최저임금법</td><td>임금의 최저 수준 보장 → 근로자 생활 안정·노동력의 질적 향상</td></tr>
+    <tr><td class="k">직업안정법</td><td>취업 기회 제공, 노동력 원활한 수급 지원 → 근로자 직업 안정 도모</td></tr>
+    <tr><td class="k">남녀고용평등·일가정양립지원법</td><td>고용상 남녀평등, 모성 보호·여성 고용 촉진, 일·가정 양립 지원</td></tr>
+    <tr><td class="k">고용보험법</td><td>실업 예방·고용 촉진·직업 능력 개발</td></tr>
+    <tr class="spot"><td class="k">🎓 직업교육훈련촉진법<span class="spot-badge">특성화고 직결</span></td><td>다양한 직업교육훈련 기회 제공, 효율성·질 제고 <span class="note">(현장 실습·취업 지원 인력 등)</span></td></tr>
+  </table></div>
+</div>
+
+<div class="deck">
+  <h3>평균임금 vs 통상임금</h3>
+  <div class="cap">정의보다 <b>‘어디에 쓰이는가’</b>가 출제 포인트 — 칩으로 구분</div>
+  <div class="cmp-grid">
+    <div class="cmp-card avg">
+      <div class="cmp-head">
+        <svg class="cmp-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#E7EFF9"/><line x1="13" y1="22" x2="31" y2="22" stroke="#16243F" stroke-width="2.8" stroke-linecap="round"/><circle cx="22" cy="15.5" r="2.5" fill="#16243F"/><circle cx="22" cy="28.5" r="2.5" fill="#16243F"/></svg>
+        <h4>평균임금</h4>
+      </div>
+      <div class="cmp-def">산정 사유 발생일 이전 <b>3개월</b> 임금 총액 ÷ 그 기간의 총일수</div>
+      <div class="cmp-label">산정 기초가 되는 것</div>
+      <div class="cmp-chips"><span class="cmp-chip">퇴직금</span><span class="cmp-chip">휴업수당</span><span class="cmp-chip">연차수당</span><span class="cmp-chip">재해보상금</span></div>
+    </div>
+    <div class="cmp-card ord">
+      <div class="cmp-head">
+        <svg class="cmp-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><circle cx="22" cy="22" r="11" fill="none" stroke="#B23A2E" stroke-width="2.4"/><path d="M22 22 V15.5 M22 22 l5 3" stroke="#B23A2E" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+        <h4>통상임금</h4>
+      </div>
+      <div class="cmp-def">정기적·일률적으로 지급하기로 정한 시간급·일급·월급 등 <span class="note">(평균임금 최저한도 보장)</span></div>
+      <div class="cmp-label">산정 기초가 되는 것</div>
+      <div class="cmp-chips"><span class="cmp-chip">해고예고수당</span><span class="cmp-chip">연장수당</span><span class="cmp-chip">야간수당</span><span class="cmp-chip">휴일수당</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="deck" style="border-color:var(--gold)">
+  <h3>실전문제가 짚어준 핵심 <span class="note" style="font-weight:400">— 본문엔 없지만 해설에 나온 부분</span></h3>
+  <div class="cap">제목을 누르면 핵심이 펼쳐집니다. 시험 함정으로 자주 출제!</div>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 2번</span><span class="rx-title">근로기준법 목적</span></summary>
+    <div class="rx-body">헌법에 따라 근로 조건의 기준을 정함으로써 근로자의 <span class="em">기본적 생활을 보장·향상</span>시키고 균형 있는 국민 경제의 발전을 꾀함 <span class="note">(개별적 근로관계법, 근로자 보호 기본법)</span></div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 6번</span><span class="rx-title">연차 유급 휴가</span></summary>
+    <div class="rx-body">① 1년간 <b>80% 이상</b> 출근 → <b>15일</b>　② 계속근로 1년 미만 → 1개월 개근당 1일　③ 3년 이상 → 가산휴가 포함 <b>최대 25일</b> 한도　④ 휴가 기간 임금 = 통상임금 또는 평균임금</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 4번</span><span class="rx-title">연소자·임산부 야간·휴일 근로</span></summary>
+    <div class="rx-body">원칙 금지. 본인 <span class="em">동의</span>(임산부는 명시적 청구) + <b>고용노동부 장관 인가</b>가 있어야 가능. <span class="note">‘동의만으로 가능’은 틀린 함정!</span></div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 3번</span><span class="rx-title">휴게 시간</span></summary>
+    <div class="rx-body">근로시간 도중에 부여(4h→30분↑, 8h→1h↑), 자유 이용. <b>근로시간에 미포함 = 무급</b> <span class="note">(‘임금 지급’은 틀림)</span></div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">미성년자 보호</span><span class="rx-title">주휴수당</span></summary>
+    <div class="rx-body">1주 소정근로 <b>15시간 이상</b> + 개근 → 1일분 유급. 금액 = 1일 평균 근로시간 × 시급 <span class="note">(1주 40시간까지만 인정)</span></div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 5번</span><span class="rx-title">소정근로시간 계산</span></summary>
+    <div class="rx-body">예: 09:00~18:00 중 휴게 1h → 실근로 8h. 8h × 5일 = <b>주 40h</b> <span class="note">(휴게는 소정근로에서 제외)</span></div></details>
+</div>
+
+<!-- ================= 기출 · 함정 ================= -->
+<div class="band anchor" id="exam"><span class="ic">★</span> 기출 연계 · 함정 포인트</div>
+
+<div class="gichul">
+  <h2>★ 기출 연계 확인</h2>
+  <div class="lead">선택지를 눌러 O / X 를 판단하세요. (수능·모평 출제 포인트)</div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">기출 1.</span><span class="src">2025수능 6번 연계</span>
+    <p>상시 근로자 3명(5인 미만)인 회사는 <b>연장근무 수당을 지급할 의무가 있다.</b></p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">5인 미만은 가산수당(연장·야간·휴일) 지급 의무가 <b>없음</b>. 단, 최저임금·법정근로시간·해고예고(1개월) 의무는 있음.</div>
+  </div>
+
+  <div class="q" data-ans="O">
+    <span class="lab">기출 2.</span><span class="src">2025·9월모평 연계</span>
+    <p>연소근로자가 본인 동의 시 1주 최장 근로 가능 시간은 <b>40시간</b>이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">소정 35시간 + 연장 5시간 = <b>40시간</b>.</div>
+  </div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">기출 3.</span><span class="src">2025수능 연계</span>
+    <p>성인 근로자가 본인 동의 시 1주 최장 근로 가능 시간은 <b>55시간</b>이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">소정 40시간 + 연장 12시간 = <b>52시간</b>. ‘55시간’은 대표적 오답 함정.</div>
+  </div>
+
+  <div class="q" data-ans="O">
+    <span class="lab">기출 4.</span><span class="src">2025수능 8번 연계</span>
+    <p>노동 쟁의 조정 중 ‘중재’는 법적 구속력이 있고, 위법 시 중앙노동위원회에 재심을 청구할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">중재 판정은 <b>법적 구속력</b>이 있으며, 위법·월권 시 중앙노동위원회 재심 청구가 가능.</div>
+  </div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">기출 5.</span><span class="src">근로 3권 연계</span>
+    <p>사용자는 노동조합의 임금 인상 교섭 요구(단체 교섭권 행사)에 대해 <b>조합원 해고로 대응할 수 있다.</b></p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">정당한 조합 활동을 이유로 한 해고·불이익은 <b>부당 노동 행위</b>로 금지된다.</div>
+  </div>
+</div>
+
+<div class="gichul" style="background:#1A2E1F">
+  <h2>✔ 수능특강 실전문제 체크</h2>
+  <div class="lead">15강 실전문제(본문 110~112쪽)에서 꼭 짚어야 할 함정. O / X 로 판단하세요.</div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">실전 4번.</span><span class="src">근로 시간</span>
+    <p>17세 연소근로자는 본인이 동의하면 <b>다른 조건 없이</b> 휴일에 근로할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">연소자·임산부의 야간·휴일 근로는 본인 동의에 더해 <b>고용노동부 장관의 인가</b>가 있어야 가능. ‘동의만으로 가능’은 오답.</div>
+  </div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">실전 4번.</span><span class="src">근로 시간</span>
+    <p>성인 근로자는 본인 동의 시 1주 최장 <b>55시간</b>까지 근로할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">소정 40 + 연장 12 = <b>52시간</b>. 단골 함정.</div>
+  </div>
+
+  <div class="q" data-ans="O">
+    <span class="lab">실전 6번.</span><span class="src">연차 유급 휴가</span>
+    <p>1년 이상 근무하고 1년간 <b>80% 이상</b> 출근하면 다음 해에 15일의 연차 유급 휴가가 부여된다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">‘70%’로 바꾸면 오답. 1년 미만은 1개월 개근당 1일.</div>
+  </div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">실전 6번.</span><span class="src">연차 유급 휴가</span>
+    <p>계속근로 3년 이상이면 가산휴가를 포함한 총 연차 일수는 <b>최대 20일</b> 한도다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">최대 <b>25일</b> 한도. ‘20일’은 오답 함정.</div>
+  </div>
+
+  <div class="q" data-ans="X">
+    <span class="lab">실전 3번.</span><span class="src">휴게 시간</span>
+    <p>휴게시간은 근로시간에 포함되지 않지만 <b>임금은 지급</b>받는다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">휴게시간은 근로시간 미포함이며 <b>무급</b>이다.</div>
+  </div>
+
+  <div class="q" data-ans="O">
+    <span class="lab">실전 9번.</span><span class="src">근로관계 종료</span>
+    <p>경영상 이유로 사용자의 권고를 받아 그만둔 권고사직자는 <b>실업급여</b>를 받을 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">경영상 이유 권고사직은 실업급여 수급 가능, 퇴직금도 수령 가능. (자진사직은 30일 전 통보, 해고는 30일 전 서면통지)</div>
+  </div>
+</div>
+
+<div class="pit">
+  <h2>▶ 함정 포인트</h2>
+  <details><summary><span class="n">01</span> 5인 미만 사업장, 다 면제되는 건 아니다</summary>
+    <div class="body">상시 5인 미만이라도 <b>최저임금·법정근로시간·해고예고(1개월)·임금 통화·직접 지급</b> 의무는 있다. 면제되는 건 연차휴가·연차수당·생리휴가·가산수당·휴업수당·해고 서면통지.</div></details>
+  <details><summary><span class="n">02</span> 가산수당은 각각 50%, 중복되면 합산</summary>
+    <div class="body">연장·야간·휴일 가산은 <b>각각 50%</b>. 겹치면 합산된다(예: 야간+연장 = 100% 가산).</div></details>
+  <details><summary><span class="n">03</span> 1주 최장 근로시간: 연소 40 / 성인 52</summary>
+    <div class="body">연소근로자 = <b>40시간(35+5)</b>, 성인 = <b>52시간(40+12)</b>. ‘55시간’ 함정에 주의.</div></details>
+  <details><summary><span class="n">04</span> 최저임금 90% 감액 대상</summary>
+    <div class="body"><b>수습 3개월 이내 + 단순노무직이 ‘아닌’ 근로자</b>에게만 90% 지급 가능. 단순노무직은 수습이어도 100%.</div></details>
+  <details><summary><span class="n">05</span> 헌법 근거 조항 (조문에 직접 명시)</summary>
+    <div class="body">근로의 권리=제32조 1항 / 근로조건 법정주의=제32조 3·4·5항 / 근로 3권=<b>제33조</b>.</div></details>
+  <details><summary><span class="n">06</span> 조정 vs 중재 — 구속력 차이</summary>
+    <div class="body"><b>조정</b>은 조정안 ‘권고’라 법적 구속력 없음. <b>중재</b>는 판정에 따라 분쟁 해결, <b>법적 구속력 있음</b>. 긴급 조정은 즉시 쟁의행위 중지.</div></details>
+  <details><summary><span class="n">07</span> 평균임금 / 통상임금이 쓰이는 곳</summary>
+    <div class="body"><b>평균임금</b> → 퇴직금·휴업수당·연차수당. <b>통상임금</b> → 해고예고수당·연장·야간·휴일 가산수당. 헷갈리면 감점.</div></details>
+</div>
+
+<div class="totop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="ar">↑</span> 맨 위로</button></div>
+<div class="lab-sign">
+  <div class="lab-stars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lab-head">
+    <div class="lab-planet-wrap">
+      <svg class="lab-planet" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#A8842C" stroke-width="2.4" transform="rotate(-20 40 42)"/>
+        <circle cx="40" cy="38" r="16" fill="#EAD9A6"/>
+        <path d="M40 22 a16 16 0 0 1 0 32 a16 16 0 0 1 0 -32 z" fill="#D8C386" opacity=".55"/>
+        <circle cx="34" cy="33" r="3" fill="#C9B273" opacity=".8"/>
+        <circle cx="46" cy="42" r="2.2" fill="#C9B273" opacity=".7"/>
+        <circle cx="40" cy="38" r="16" fill="none" stroke="#fff" stroke-width="1" opacity=".25"/>
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#EAD9A6" stroke-width="2.4" stroke-dasharray="2 60" transform="rotate(-20 40 42)"/>
+        <circle cx="68" cy="34" r="3.4" fill="#FFE6A8"/>
+      </svg>
+    </div>
+    <div class="lab-text">
+      <div class="lab-name">은또링샘의 <span class="em">행성 연구소</span></div>
+      <div class="lab-tag">P L A N E T &nbsp; L A B</div>
+    </div>
+  </div>
+  <div class="lab-meta">성공적인 직업생활 · 15강 근로관계와 법(1) · EBS 수능특강 2027 + EBS Plus 수록</div>
+</div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ===== 용어 사전 데이터 =====
+const TERMS = [
+  ["근로자","직업의 종류와 관계없이 임금·급료 등 이에 준하는 수입으로 생활하는 자. 현재 고용된 자뿐 아니라 실업자·해고자도 노동조합 형태에 따라 근로자에 해당."],
+  ["사용자","사업주, 사업의 경영 담당자, 또는 근로자에 관한 사항에서 사업주를 위해 행동하는 자."],
+  ["헌법","국가의 통치 조직·작용의 기본 원리 및 국민의 기본권을 보장하는 근본 규범."],
+  ["공무원의 근로 3권","단결권·단체 교섭권은 일정 부분 인정하되, 쟁의행위 등 단체 행동권은 용인하지 않음(법률이 정하는 공무원에 한함)."],
+  ["파업","노동 조건의 유지·개선을 위해 노동자들이 집단적으로 한꺼번에 작업을 중지하는 일."],
+  ["공민권","선거권·피선거권, 국회의원 활동, 법원 증인 참석, 예비군·민방위 훈련 등 공의 직무를 수행할 권리."],
+  ["상시근로자","대표를 제외하고 영업일 동안 근무하는 모든 직원(파견 근로자는 제외)."],
+  ["서면","일정한 내용을 적은 문서."],
+  ["기간제 근로자","기간의 정함이 있는 근로 계약을 체결한 근로자."],
+  ["단시간 근로자","1주 소정근로시간이 같은 사업장의 통상 근로자보다 짧은 근로자."],
+  ["소정근로시간","사용자와 근로자가 (법정 근로 시간 범위 내에서) 정한 근로 시간."],
+  ["법정근로시간","근로기준법에 규정된 기준 근로 시간(성인 1일 8h·1주 40h 등)."],
+  ["노동위원회법","노동관계 판정·조정 업무를 신속·공정하게 수행하기 위해 노동위원회 설치·운영을 규정하는 법."],
+  ["근로자참여 및 협력증진에 관한 법률","노사 쌍방의 참여·협력으로 공동 이익을 증진하고 산업 평화를 도모하기 위한 법."],
+  ["최저임금 결정","고용노동부 산하 최저임금위원회가 물가 상승 등을 고려해 매년 1월 1일부터 적용할 최저임금을 산정."],
+  ["근로시간의 계산","작업 전 준비시간, 작업 후 정리시간, 손님 대기시간, 의무 참석 교육·회식 등도 근로시간에 포함."],
+  ["평균임금","산정 사유 발생일 이전 3개월간 임금 총액 ÷ 총일수. 퇴직금·휴업수당·연차수당 등 산정 기초."],
+  ["통상임금","정기적·일률적으로 지급하기로 정한 금액(평균임금 최저한도 보장). 해고예고수당·가산수당 산정 기초."],
+];
+const cardWrap = document.getElementById('cards');
+TERMS.forEach(([t,d])=>{
+  const el=document.createElement('div'); el.className='fcard';
+  el.innerHTML='<div class="inner"><div class="term">'+t+'</div><div class="hint">뜻 보기</div><div class="def">'+d+'</div></div>';
+  el.addEventListener('click',()=>el.classList.toggle('open'));
+  cardWrap.appendChild(el);
+});
+
+// ===== 빈칸 채점 =====
+const blanks = [...document.querySelectorAll('input.blank')];
+const norm = s => (s||'').replace(/[\s().·,'’‘%]/g,'').toLowerCase();
+const answerOf = b => b.dataset.a.split('|')[0];
+const userVal = b => ('userans' in b.dataset) ? b.dataset.userans : b.value;
+function fitWidth(b){ b.style.width = Math.max(4, [...b.value].length + 1) + 'em'; }
+function clearState(b){
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title');
+  if('userans' in b.dataset){ b.value=b.dataset.userans; delete b.dataset.userans; }
+}
+
+function updateFilled(){
+  const n = blanks.filter(b=>userVal(b).trim()!=='').length;
+  document.getElementById('filled').textContent = n;
+  document.getElementById('bar').style.width = (n/blanks.length*100)+'%';
+}
+blanks.forEach(b=>b.addEventListener('input',()=>{
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title'); delete b.dataset.userans;
+  updateFilled();
+}));
+function isCorrect(b){
+  const got = norm(userVal(b)); if(!got) return null;
+  return b.dataset.a.split('|').some(a=>norm(a)===got);
+}
+function grade(){
+  let correct=0, answered=0;
+  blanks.forEach(b=>{
+    const uv = userVal(b);
+    b.classList.remove('correct','wrong','reveal','peek'); b.removeAttribute('title');
+    const r = isCorrect(b);
+    b.dataset.userans = uv;            // 내가 쓴 답 보관
+    b.value = answerOf(b);             // 빈칸 안에 정답 채움
+    fitWidth(b);
+    if(r===null){ b.title='내가 쓴 답: (빈칸)'; b.classList.add('reveal'); }
+    else if(r){ correct++; answered++; b.classList.add('correct'); }
+    else { answered++; b.title='내가 쓴 답: '+uv; b.classList.add('reveal'); }
+  });
+  solShown = true; document.getElementById('solBtn').textContent='정답 숨기기';
+  document.getElementById('scoretxt').innerHTML = ' · 정답 <b style="color:var(--ok)">'+correct+'</b>';
+  const pct = Math.round(correct/blanks.length*100);
+  let msg = correct===blanks.length ? '완벽합니다! 전 항목 정답 🎉'
+          : pct>=80 ? '거의 다 왔어요 — 빨강 칸이 정답!'
+          : pct>=50 ? '절반 이상! 빨강 칸이 정답입니다.'
+          : answered===0 ? '빈칸엔 정답을 채워 표시했어요.' : '빨강 칸이 정답입니다. 다시 도전!';
+  toast('채점 결과 — '+correct+' / '+blanks.length+'  ('+pct+'%)  '+msg);
+}
+let solShown=false;
+function toggleSol(){
+  solShown=!solShown;
+  if(solShown){
+    blanks.forEach(b=>{
+      if(!('userans' in b.dataset)) b.dataset.userans=b.value;
+      b.value=answerOf(b); b.classList.remove('correct','wrong','reveal');
+      b.classList.add('peek'); b.removeAttribute('title'); fitWidth(b);
+    });
+    document.getElementById('solBtn').textContent='정답 숨기기';
+  } else {
+    blanks.forEach(b=>clearState(b));
+    document.getElementById('solBtn').textContent='정답 보기';
+    document.getElementById('scoretxt').textContent='';
+  }
+  updateFilled();
+}
+function resetAll(){
+  blanks.forEach(b=>{ delete b.dataset.userans; b.value='';
+    b.classList.remove('correct','wrong','reveal','peek'); b.style.width=''; b.removeAttribute('title'); });
+  solShown=false; document.getElementById('solBtn').textContent='정답 보기';
+  document.getElementById('scoretxt').textContent='';
+  document.querySelectorAll('.q').forEach(q=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    q.querySelector('.fe021').classList.remove('show');
+    q.classList.remove('answered','ok','no'); });
+  document.querySelectorAll('.fcard.open').forEach(c=>c.classList.remove('open'));
+  updateFilled(); window.scrollTo({top:0,behavior:'smooth'});
+}
+// ===== 기출 O/X =====
+document.querySelectorAll('.q').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.optbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const ok = btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.optbtn[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.fe021').classList.add('show');
+    q.classList.remove('ok','no'); q.classList.add('answered', ok?'ok':'no');
+  }));
+});
+let toTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace('채점 결과','<span class="stamp">채점 결과</span>');
+  t.classList.add('show'); clearTimeout(toTimer);
+  toTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+// ===== 법정 근로 시간 막대 =====
+function setWT(mode){
+  const bBtn=document.getElementById('wtBase'), mBtn=document.getElementById('wtMax');
+  if(bBtn) bBtn.classList.toggle('on',mode==='base');
+  if(mBtn) mBtn.classList.toggle('on',mode==='max');
+  const MAX=52;
+  document.querySelectorAll('#wtRows .wt-row[data-base]').forEach(r=>{
+    const base=+r.dataset.base, ext=+r.dataset.ext, db=+r.dataset.db, de=+r.dataset.de;
+    const showExt=(mode==='max')?ext:0, showDe=(mode==='max')?de:0;
+    const bSeg=r.querySelector('.wt-seg.base'), eSeg=r.querySelector('.wt-seg.ext'), tot=r.querySelector('.wt-total');
+    bSeg.style.width=(base/MAX*100)+'%'; bSeg.textContent=base+'h';
+    eSeg.style.width=(showExt/MAX*100)+'%'; eSeg.textContent=showExt?('+'+showExt):'';
+    const wk=base+showExt, day=db+showDe;
+    tot.innerHTML='주 '+(showExt?('<b>'+wk+'h</b>'):(wk+'h'))+'<small>일 '+day+'h'+(ext===0&&mode==='max'?' · 연장 불가':'')+'</small>';
+  });
+}
+setWT('max');
+
+updateFilled();
+</script>
+</body>
+</html>

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16강 근로관계와 법 (2) · 빈칸 학습지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F0E7; --card:#FFFFFF; --ink:#16243F; --ink2:#3A4A66;
+    --stamp:#B23A2E; --ok:#2E7D5B; --okbg:#E6F1EB; --wrongbg:#FBEAE7;
+    --line:#D8D2C4; --gold:#A8842C; --muted:#7C7768;
+    --sans:'Noto Sans KR',system-ui,sans-serif; --serif:'Noto Serif KR',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px}
+  header.masthead{padding:34px 0 22px;border-bottom:3px double var(--ink);margin-bottom:6px}
+  .eyebrow{font-size:.74rem;letter-spacing:.32em;color:var(--stamp);font-weight:700;text-transform:uppercase}
+  h1.title{font-family:var(--serif);font-weight:900;font-size:2.5rem;line-height:1.15;margin:.18em 0 .1em;letter-spacing:-.01em}
+  h1.title .ch{color:var(--stamp)}
+  .sub{color:var(--muted);font-size:.95rem}
+  .sub b{color:var(--ink2)}
+  .scorebar{position:sticky;top:0;z-index:50;background:rgba(243,240,231,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+  .scorebar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .meter{flex:1;min-width:160px;height:10px;background:#E4DFD2;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+  .meter > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ink),var(--gold));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .score{font-family:var(--serif);font-weight:700;font-size:.96rem;white-space:nowrap}
+  .score b{color:var(--stamp);font-size:1.2rem}
+  .btns{display:flex;gap:8px}
+  button.act{font-family:var(--sans);font-weight:700;font-size:.85rem;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:8px 15px;border-radius:7px;transition:.18s;letter-spacing:.02em}
+  button.act:hover{transform:translateY(-1px)}
+  button.ghost{background:transparent;color:var(--ink)}
+  button.ghost:hover{background:var(--ink);color:#fff}
+  button.act:focus-visible,.optbtn:focus-visible,.blank:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  section.unit{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px 22px;margin:22px 0;box-shadow:0 1px 0 rgba(0,0,0,.02);position:relative}
+  .unit-tag{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+  .unit-tag .no{font-family:var(--serif);font-weight:900;font-size:1.05rem;color:#fff;background:var(--ink);width:34px;height:34px;display:grid;place-items:center;border-radius:8px;letter-spacing:-.02em}
+  .unit-tag h2{font-family:var(--serif);font-size:1.42rem;font-weight:700;letter-spacing:-.01em}
+  .sub-h{font-weight:700;color:var(--ink);margin:18px 0 8px;font-size:1.02rem;padding-left:11px;border-left:4px solid var(--gold)}
+  .sub-h:first-of-type{margin-top:4px}
+  p.line{margin:7px 0;color:var(--ink2)}
+  p.line::before{content:"—";color:var(--gold);margin-right:7px;font-weight:700}
+  .note{font-size:.82rem;color:var(--muted);font-style:italic}
+  .num{font-family:var(--serif);font-weight:700;color:var(--stamp);font-size:.82em;vertical-align:.12em;margin-right:1px}
+  input.blank{font-family:var(--sans);font-weight:700;font-size:.96em;color:var(--ink);border:none;border-bottom:2px solid var(--ink2);background:#FAF8F2;text-align:center;min-width:62px;width:74px;padding:1px 4px;margin:0 2px;border-radius:3px 3px 0 0;transition:.18s}
+  input.blank.wide{width:128px}
+  input.blank::placeholder{color:#C7C0AE;font-weight:400}
+  input.blank:focus{background:#fff;border-bottom-color:var(--gold);outline:none}
+  input.blank.correct{background:var(--okbg);border-bottom-color:var(--ok);color:var(--ok)}
+  input.blank.wrong{background:var(--wrongbg);border-bottom-color:var(--stamp);color:var(--stamp)}
+  input.blank.reveal{background:#FBE9E7;border-bottom-color:var(--stamp);color:var(--stamp);font-weight:700}
+  input.blank.peek{background:#EAF1FB;border-bottom-color:var(--gold);color:var(--ink);font-weight:700}
+  .sol{display:none;font-weight:700;color:var(--ok);font-size:.88em;margin-left:3px;white-space:nowrap}
+  .sol.show{display:inline}
+  .sol::before{content:"→ ";color:var(--muted)}
+  table.t{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:.92rem}
+  .t th,.t td{border:1px solid var(--line);padding:9px 11px;vertical-align:middle}
+  .t th{background:var(--ink);color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.01em}
+  .t td.k{background:#F6F3EA;font-weight:700;color:var(--ink);text-align:center;width:88px}
+  .t td.c{text-align:center}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .gichul{background:#11203A;color:#EDEAE0;border-radius:16px;padding:24px 22px 20px;margin:22px 0}
+  .gichul h2{font-family:var(--serif);font-size:1.32rem;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .gichul .lead{color:#B9C2D4;font-size:.85rem;margin-bottom:16px}
+  .q{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:15px 16px;margin-bottom:11px;transition:background .25s,border-color .25s}
+  .q:last-child{margin-bottom:0}
+  .q.answered.ok{background:rgba(46,125,91,.16);border-color:rgba(46,125,91,.5)}
+  .q.answered.no{background:rgba(178,58,46,.15);border-color:rgba(178,58,46,.5)}
+  .q .lab{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:.86rem}
+  .q .src{font-size:.7rem;color:#E7E3D8;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:11px;margin-left:7px;font-style:normal;vertical-align:1px}
+  .q p{color:#E7E3D8;margin:8px 0 11px;font-size:.96rem;line-height:1.55}
+  .ox{display:flex;gap:10px;flex-wrap:wrap}
+  .optbtn{font-family:var(--sans);font-weight:700;font-size:.9rem;cursor:pointer;color:#EDEAE0;background:rgba(255,255,255,.04);border:1.5px solid #46577A;padding:9px 20px;border-radius:9px;transition:.16s}
+  .optbtn:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .optbtn.correct{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:0 3px 12px rgba(46,125,91,.35)}
+  .optbtn.wrong{background:var(--stamp);border-color:var(--stamp);color:#fff;animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .fe021{font-size:.83rem;color:#CBD3E0;margin-top:11px;display:none;padding:10px 13px;background:rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;line-height:1.55}
+  .fe021.show{display:block;animation:feIn .3s ease}
+  @keyframes feIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+  .fe021 b{color:#FFD9A0}
+  .pit{background:linear-gradient(180deg,#FBF3E4,#FBFAF5);border:1px solid var(--gold);border-radius:16px;padding:22px 20px;margin:22px 0}
+  .pit h2{font-family:var(--serif);font-size:1.26rem;color:var(--stamp);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+  .pit details{background:#fff;border:1px solid #ECDFC4;border-radius:11px;margin-bottom:9px;transition:border-color .16s,box-shadow .16s}
+  .pit details:last-child{margin-bottom:0}
+  .pit details[open]{border-color:var(--stamp);box-shadow:0 4px 14px rgba(178,58,46,.09)}
+  .pit summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none;display:flex;gap:11px;align-items:center;padding:13px 15px}
+  .pit summary::-webkit-details-marker{display:none}
+  .pit summary .n{flex-shrink:0;width:25px;height:25px;display:grid;place-items:center;background:var(--stamp);color:#fff;border-radius:50%;font-family:var(--sans);font-size:.74rem;font-weight:700}
+  .pit summary::after{content:"+";margin-left:auto;color:var(--stamp);font-weight:700;font-size:1.35rem;line-height:1}
+  .pit details[open] summary::after{content:"–"}
+  .pit .body{padding:0 16px 14px 51px;color:var(--ink2);font-size:.9rem;line-height:1.6}
+  .pit .body b{color:var(--stamp)}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:13px 24px;border-radius:30px;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s;z-index:99;font-size:.92rem;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #toast .stamp{color:#FFD9A0}
+  @media(max-width:560px){h1.title{font-size:1.95rem}section.unit{padding:20px 16px}.gichul,.pit{padding:20px 16px}input.blank{min-width:54px;width:64px}input.blank.wide{width:104px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  .secnav{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 2px}
+  .secnav a{font-size:.8rem;font-weight:700;text-decoration:none;color:var(--ink2);border:1.5px solid var(--line);padding:6px 13px;border-radius:20px;transition:.16s;background:#fff}
+  .secnav a:hover{border-color:var(--ink);color:var(--ink)}
+  .anchor{scroll-margin-top:80px}
+  .band{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--ink);margin:34px 0 4px;padding-bottom:6px;border-bottom:3px double var(--ink);display:flex;align-items:center;gap:10px}
+  .band .ic{font-size:1.1rem}
+  .band small{font-family:var(--sans);font-weight:500;font-size:.82rem;color:var(--muted);margin-left:auto}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px;margin:14px 0}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:0;cursor:pointer;min-height:96px;position:relative;perspective:800px}
+  .fcard .inner{padding:14px 14px;height:100%;display:flex;flex-direction:column;justify-content:center;transition:.2s}
+  .fcard .term{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.02rem;text-align:center}
+  .fcard .hint{font-size:.72rem;color:var(--muted);text-align:center;margin-top:6px}
+  .fcard .def{display:none;font-size:.82rem;color:var(--ink2);line-height:1.55}
+  .fcard.open{background:#FBF8F0;border-color:var(--gold)}
+  .fcard.open .term{font-size:.86rem;color:var(--gold);margin-bottom:6px;text-align:left}
+  .fcard.open .hint{display:none}
+  .fcard.open .def{display:block}
+  .reftbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+  .reftbl th,.reftbl td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+  .reftbl th{background:#F6F3EA;color:var(--ink);font-weight:700;text-align:left}
+  .reftbl td.k{font-weight:700;color:var(--ink);background:#FBF8F0;white-space:nowrap}
+  .reftbl .hl{color:var(--stamp);font-weight:700}
+  .deck{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+  .deck h3{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-bottom:4px}
+  .deck .cap{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .arb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:8px 0 2px}
+  .arb-card{border:1px solid var(--line);border-radius:13px;padding:18px 15px 16px;text-align:center;background:linear-gradient(180deg,#FFFFFF,#FBFAF5);display:flex;flex-direction:column;align-items:center;transition:transform .18s, box-shadow .18s}
+  .arb-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(22,36,63,.10)}
+  .arb-ill{width:86px;height:86px;margin-bottom:4px}
+  .arb-card h4{font-family:var(--serif);font-size:1.18rem;color:var(--ink);margin:2px 0 9px;font-weight:700}
+  .arb-card p{font-size:.85rem;color:var(--ink2);line-height:1.55;flex:1;margin-bottom:13px}
+  .arb-card p b{color:var(--ink)}
+  .arb-badge{display:inline-block;font-size:.76rem;font-weight:700;padding:6px 13px;border-radius:20px;border:1.5px solid;line-height:1.3}
+  .arb-badge.none{color:var(--muted);border-color:var(--line);background:#F4F1E8}
+  .arb-badge.bind{color:var(--stamp);border-color:var(--stamp);background:#FBE9E7}
+  .arb-badge.stop{color:#9A4A0A;border-color:#C2710E;background:#FBE7C8}
+  @media(max-width:600px){.arb-cards{grid-template-columns:1fr;gap:11px}.arb-card{flex-direction:row;text-align:left;gap:14px;align-items:center;padding:14px}.arb-ill{width:62px;height:62px;margin-bottom:0;flex-shrink:0}.arb-card .arb-txt{flex:1;display:flex;flex-direction:column;align-items:flex-start}.arb-card h4{margin:0 0 4px}.arb-card p{margin-bottom:8px}}
+  .wt-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin:4px 0 16px}
+  .wt-toggle button{font-family:var(--sans);font-weight:700;font-size:.82rem;padding:7px 15px;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:.18s}
+  .wt-toggle button.on{background:var(--ink);color:#fff}
+  .wt-row{display:flex;align-items:center;gap:13px;padding:12px 0;border-top:1px solid var(--line)}
+  .wt-row:first-of-type{border-top:none}
+  .wt-ico{width:44px;height:44px;flex-shrink:0}
+  .wt-label{width:108px;flex-shrink:0;font-weight:700;font-size:.88rem;color:var(--ink)}
+  .wt-label small{display:block;font-weight:400;font-size:.7rem;color:var(--muted);margin-top:1px}
+  .wt-barwrap{flex:1;display:flex;align-items:center;gap:10px}
+  .wt-bar{flex:1;display:flex;height:25px;border-radius:6px;overflow:hidden;background:#EEE8DB;min-width:80px}
+  .wt-seg{height:100%;transition:width .55s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  .wt-seg.base{background:var(--ink)}
+  .wt-seg.ext{background:#C2710E}
+  .wt-total{font-weight:700;font-size:.84rem;color:var(--ink);min-width:42px;text-align:right}
+  .wt-total b{color:#C2710E}
+  .wt-total small{display:block;font-weight:400;font-size:.66rem;color:var(--muted)}
+  .wt-na{flex:1;font-size:.82rem;color:var(--ink2)}
+  .wt-na b{color:var(--stamp)}
+  @media(max-width:600px){.wt-label{width:84px;font-size:.8rem}.wt-row{gap:9px}.wt-ico{width:38px;height:38px}}
+  .wage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0 4px}
+  .wage-card{height:104px;cursor:pointer;perspective:1000px;background:none;border:none;padding:0}
+  .wage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1)}
+  .wage-card.flip .wage-inner{transform:rotateY(180deg)}
+  .wage-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .wage-front{background:linear-gradient(180deg,#fff,#F8F4EA);border:1px solid var(--line)}
+  .wage-front .wn{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink)}
+  .wage-front .wk{font-size:.76rem;color:var(--ink2);margin-top:4px}
+  .wage-front .wh{font-size:.68rem;color:var(--gold);margin-top:8px;font-weight:700}
+  .wage-back{background:var(--ink);color:#EDEAE0;transform:rotateY(180deg);border:1px solid var(--ink)}
+  .wage-back p{font-size:.82rem;line-height:1.5}
+  .wage-back .x{color:#F3B0A6;font-size:.74rem;display:block;margin-top:5px}
+  @media(max-width:600px){.wage-grid{grid-template-columns:1fr}.wage-card{height:92px}}
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:10px 0 4px}
+  .cmp-card{border-radius:13px;padding:17px 16px;border:1px solid var(--line);transition:transform .18s,box-shadow .18s}
+  .cmp-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(22,36,63,.08)}
+  .cmp-card.avg{background:linear-gradient(180deg,#F1F6FC,#fff)}
+  .cmp-card.ord{background:linear-gradient(180deg,#FBEEEB,#fff);border-color:#E6C3BB}
+  .cmp-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .cmp-ico{width:42px;height:42px;flex-shrink:0}
+  .cmp-head h4{font-family:var(--serif);font-size:1.16rem;font-weight:700;color:var(--ink)}
+  .cmp-card.ord .cmp-head h4{color:var(--stamp)}
+  .cmp-def{font-size:.83rem;color:var(--ink2);line-height:1.55;margin-bottom:12px}
+  .cmp-def b{color:var(--ink)}
+  .cmp-label{font-size:.68rem;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.05em}
+  .cmp-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .cmp-chip{font-size:.76rem;font-weight:600;padding:4px 11px;border-radius:16px;background:#fff;border:1.5px solid var(--line);color:var(--ink2);transition:.16s}
+  .cmp-card.avg .cmp-chip{border-color:#B9CDE5}
+  .cmp-card.ord .cmp-chip{border-color:#E0A99F;color:var(--stamp);font-weight:700}
+  .cmp-chip:hover{transform:translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,.08)}
+  @media(max-width:600px){.cmp-grid{grid-template-columns:1fr}}
+  .rx-item{border:1px solid var(--line);border-radius:11px;margin-bottom:9px;background:#fff;transition:.16s}
+  .rx-item[open]{border-color:var(--gold);box-shadow:0 3px 12px rgba(168,132,44,.10)}
+  .rx-sum{cursor:pointer;list-style:none;padding:13px 15px;display:flex;align-items:center;gap:11px}
+  .rx-sum::-webkit-details-marker{display:none}
+  .rx-num{flex-shrink:0;font-size:.67rem;font-weight:700;color:#fff;background:var(--gold);padding:3px 9px;border-radius:12px;white-space:nowrap}
+  .rx-title{font-weight:700;color:var(--ink);font-size:.95rem;flex:1}
+  .rx-sum::after{content:"+";color:var(--gold);font-weight:700;font-size:1.3rem;line-height:1;margin-left:4px}
+  .rx-item[open] .rx-sum::after{content:"\2013"}
+  .rx-body{padding:0 15px 14px 15px;font-size:.88rem;color:var(--ink2);line-height:1.6}
+  .rx-body b{color:var(--stamp)}
+  .rx-body .em{color:var(--ink);font-weight:700}
+  .reftbl tr.spot td{background:linear-gradient(90deg,#FBF0D4,#FCF8EC);border-color:#E8D49C}
+  .reftbl tr.spot td.k{color:var(--stamp);position:relative;box-shadow:inset 4px 0 0 var(--gold);animation:spotPulse 2.4s ease-in-out infinite}
+  @keyframes spotPulse{0%,100%{box-shadow:inset 4px 0 0 var(--gold)}50%{box-shadow:inset 4px 0 0 var(--stamp)}}
+  .spot-badge{display:inline-block;font-size:.64rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;margin-left:7px;vertical-align:2px;white-space:nowrap}
+  .reftbl tr.spot:hover td{background:linear-gradient(90deg,#FBEAC2,#FCF5E2)}
+  .totop{display:flex;justify-content:center;margin:32px 0 0}
+  .totop button{font-family:var(--sans);font-weight:700;font-size:.86rem;color:#EDEAE0;background:linear-gradient(180deg,#1F3357,#13233F);border:1.5px solid rgba(168,132,44,.55);border-radius:30px;padding:7px 20px 7px 8px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 14px rgba(17,32,58,.22);transition:.22s}
+  .totop button:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(17,32,58,.34);border-color:var(--gold);color:#fff}
+  .totop button .ar{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#11203A;display:grid;place-items:center;font-size:1.02rem;font-weight:900;line-height:1;transition:transform .25s}
+  .totop button:hover .ar{animation:bounceUp .7s ease infinite}
+  @keyframes bounceUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @media(prefers-reduced-motion:reduce){.totop button:hover .ar{animation:none}}
+  .lab-sign{margin:14px 0 8px;padding:16px 22px 14px;border-radius:16px;background:radial-gradient(120% 160% at 50% 0%,#1A2C4D 0%,#11203A 60%,#0D1A30 100%);text-align:center;position:relative;overflow:hidden;color:#EDEAE0}
+  .lab-stars span{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF2C8;box-shadow:0 0 6px 1px rgba(255,228,160,.85);opacity:.6;animation:twinkle 2.3s ease-in-out infinite}
+  .lab-stars span:nth-child(1){top:24%;left:11%;animation-delay:0s}
+  .lab-stars span:nth-child(2){top:34%;left:30%;animation-delay:.4s;width:2px;height:2px}
+  .lab-stars span:nth-child(3){top:66%;left:18%;animation-delay:1.1s}
+  .lab-stars span:nth-child(4){top:72%;left:38%;animation-delay:1.6s;width:2px;height:2px}
+  .lab-stars span:nth-child(5){top:20%;left:62%;animation-delay:2s}
+  .lab-stars span:nth-child(6){top:58%;left:70%;animation-delay:.8s;width:2px;height:2px}
+  .lab-stars span:nth-child(7){top:30%;left:88%;animation-delay:1.3s}
+  .lab-stars span:nth-child(8){top:74%;left:84%;animation-delay:.2s}
+  .lab-stars span:nth-child(9){top:46%;left:95%;animation-delay:1.9s;width:4px;height:4px}
+  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.55)}50%{opacity:1;transform:scale(1.45)}}
+  .lab-head{display:flex;align-items:center;justify-content:center;gap:13px;position:relative;z-index:1}
+  .lab-planet-wrap{position:relative;width:46px;height:46px;flex-shrink:0;animation:floaty 4.5s ease-in-out infinite}
+  .lab-planet{width:46px;height:46px;display:block}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .lab-sign:hover .lab-stars span{animation-duration:1s}
+  .lab-text{text-align:left}
+  .lab-name{font-family:var(--serif);font-weight:900;font-size:1.2rem;color:#fff;letter-spacing:.01em;line-height:1.2}
+  .lab-name .em{color:var(--gold)}
+  .lab-tag{font-size:.66rem;color:#9FB0CC;margin-top:2px;letter-spacing:.22em}
+  .lab-meta{font-size:.72rem;color:#7C8BA8;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1}
+  @media(prefers-reduced-motion:reduce){.lab-planet,.lab-stars span{animation:none}}
+  /* ===== 표준근로계약서 양식 ===== */
+  .ct-wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+  .ct-wrap > h3{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-bottom:4px}
+  .ct-wrap > .cap{font-size:.78rem;color:var(--muted);margin-bottom:12px}
+  .ct-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .ct-tools button{font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;border:1.5px solid var(--ink);background:#fff;color:var(--ink);padding:7px 13px;border-radius:8px;transition:.16s}
+  .ct-tools button:hover{background:#ECE6D7}
+  .ct-tools button.on{background:var(--ink);color:#fff}
+  .ct-paper{position:relative;background:#FCFBF6;border:1px solid #CFC8B6;border-radius:6px;padding:24px 24px 20px;box-shadow:0 2px 10px rgba(22,36,63,.07);overflow:hidden}
+  .ct-paper::before{content:"";position:absolute;inset:7px;border:1px solid #E3DCC9;border-radius:3px;pointer-events:none}
+  .ct-doc-title{font-family:var(--serif);font-weight:900;font-size:1.3rem;text-align:center;color:var(--ink);letter-spacing:.06em;position:relative;z-index:1}
+  .ct-doc-sub{text-align:center;font-size:.74rem;color:var(--muted);margin:2px 0 16px;position:relative;z-index:1}
+  .ct-intro{font-size:.82rem;color:var(--ink2);border-bottom:1.5px solid #DAD2BE;padding-bottom:12px;margin-bottom:6px;position:relative;z-index:1}
+  .ct-intro b{color:var(--ink)}
+  .ct-item{position:relative;z-index:1;border-bottom:1px dashed #DDD6C3}
+  .ct-item:last-of-type{border-bottom:none}
+  .ct-row{display:flex;gap:0;align-items:stretch;cursor:pointer;border-radius:4px;transition:background .15s}
+  .ct-row:hover{background:#F6F2E4}
+  .ct-chev{align-self:center;color:var(--gold);font-size:.78rem;font-weight:700;padding:0 2px 0 6px;transition:transform .2s;flex:none}
+  .ct-item.open .ct-chev{transform:rotate(180deg)}
+  .ct-detail{display:none;font-size:.8rem;color:var(--ink2);background:#F6F2E6;border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:9px 12px;margin:0 2px 11px 24px;line-height:1.58}
+  .ct-item.open .ct-detail{display:block;animation:feIn .25s ease}
+  .ct-detail b{color:var(--stamp)}
+  .ct-detail .ok{color:var(--ok);font-weight:700}
+  .ct-no{flex:none;width:24px;font-family:var(--serif);font-weight:700;color:var(--stamp);font-size:.86rem;padding:9px 0 9px 2px}
+  .ct-k{flex:none;width:118px;font-weight:700;color:var(--ink);font-size:.84rem;padding:9px 8px 9px 0;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .ct-v{flex:1;color:var(--ink2);font-size:.84rem;padding:9px 0;line-height:1.5}
+  .ct-v .fillin{display:inline-block;min-width:30px;border-bottom:1px solid #B7AE96;color:#9A917A;font-size:.8em;padding:0 6px;margin:0 2px}
+  .ct-v .pick{display:inline-block;font-size:.78rem;border:1px solid #C6BEA8;border-radius:4px;padding:1px 7px;margin:0 2px;color:var(--ink2)}
+  .ct-v .pick.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .ct-badge{display:inline-block;font-size:.62rem;font-weight:700;color:#fff;background:var(--gold);padding:1px 6px;border-radius:9px;white-space:nowrap;vertical-align:1px}
+  .ct-badge.give{background:var(--stamp)}
+  .ct-row.req{transition:background .25s,box-shadow .25s;border-radius:4px}
+  .ct-paper.showreq .ct-row.req{background:#FBF3DE;box-shadow:inset 3px 0 0 var(--gold)}
+  .ct-paper.showgive .ct-row.give{background:#FBE9E7;box-shadow:inset 3px 0 0 var(--stamp)}
+  .ct-sign{display:flex;justify-content:flex-end;gap:26px;margin-top:18px;padding-top:14px;border-top:1.5px solid #DAD2BE;position:relative;z-index:1;flex-wrap:wrap}
+  .ct-sign .s{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:8px}
+  .ct-sign .s b{color:var(--ink)}
+  .ct-stamp{display:inline-grid;place-items:center;width:38px;height:38px;border:2px solid var(--stamp);color:var(--stamp);border-radius:50%;font-family:var(--serif);font-weight:700;font-size:.6rem;transform:rotate(-12deg);line-height:1.1;text-align:center;opacity:.85}
+  .void-box{margin-top:16px;background:linear-gradient(180deg,#FBEEEB,#FCF7F5);border:1px solid #E6C3BB;border-radius:12px;padding:16px 18px}
+  .void-box h4{font-family:var(--serif);font-size:1rem;color:var(--stamp);margin-bottom:3px;display:flex;align-items:center;gap:7px}
+  .void-box .vcap{font-size:.76rem;color:var(--muted);margin-bottom:11px}
+  .void-item{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E8D0CB;border-radius:9px;padding:11px 13px;margin-bottom:8px}
+  .void-item:last-child{margin-bottom:0}
+  .void-clause{flex:1;font-size:.84rem;color:var(--ink2)}
+  .void-clause .strike{text-decoration:line-through;text-decoration-color:#D88;text-decoration-thickness:1.5px}
+  .void-clause b{color:var(--stamp);display:block;font-size:.72rem;font-weight:700;margin-top:3px}
+  .void-tag{flex:none;font-size:.62rem;font-weight:700;color:#fff;background:var(--stamp);padding:3px 8px;border-radius:9px;transform:rotate(-6deg);white-space:nowrap}
+  @media(max-width:560px){.ct-k{width:92px;font-size:.78rem}.ct-no{width:18px}.ct-v{font-size:.8rem}.ct-sign{justify-content:flex-start;gap:18px}}
+  /* ===== 권익 침해 유형 일러스트 / 구제 플로우 ===== */
+  .harm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:12px 0 6px}
+  @media(max-width:560px){.harm-grid{grid-template-columns:1fr}}
+  .harm-card{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:linear-gradient(180deg,#fff,#FBFAF5);transition:transform .16s,box-shadow .16s}
+  .harm-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(22,36,63,.08)}
+  .harm-ill{width:54px;height:54px;flex:none}
+  .harm-tx h5{font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin-bottom:2px}
+  .harm-tx p{font-size:.8rem;color:var(--ink2);line-height:1.45}
+  .harm-tx .ko{font-size:.66rem;font-weight:700;color:#fff;background:var(--gold);padding:1px 7px;border-radius:9px;display:inline-block;margin-bottom:4px}
+  .proc{margin:12px 0 4px}
+  .proc-flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+  .proc-step{flex:1;min-width:150px;background:linear-gradient(180deg,#1A2C4D,#11203A);color:#EDEAE0;border-radius:12px;padding:13px 14px;text-align:center}
+  .proc-step .pno{font-size:.66rem;color:#9FB0CC;font-weight:700;letter-spacing:.04em}
+  .proc-step .pic{width:34px;height:34px;margin:5px auto 6px;display:block}
+  .proc-step .pname{font-family:var(--serif);font-weight:700;font-size:1rem;color:#fff}
+  .proc-step .psub{font-size:.72rem;color:#B9C2D4;margin-top:3px}
+  .proc-arrow{align-self:center;color:var(--stamp);font-weight:900;font-size:1.4rem;flex:none}
+  @media(max-width:560px){.proc-arrow{transform:rotate(90deg);width:100%;text-align:center}.proc-step{min-width:0}}
+  .proc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+  .proc-tag{font-size:.74rem;font-weight:700;border:1.5px solid var(--line);border-radius:16px;padding:4px 11px;background:#fff;color:var(--ink2)}
+  .proc-tag b{color:var(--stamp)}
+  /* ===== 초단시간 근로자 인터랙티브 ===== */
+  .short-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+  .short-ill{width:72px;height:72px;flex:none}
+  .short-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+  .short-toggle button{font-family:var(--sans);font-weight:700;font-size:.85rem;padding:9px 18px;background:#fff;color:var(--ink);border:none;cursor:pointer;line-height:1.2;text-align:center;transition:.16s}
+  .short-toggle button small{display:block;font-size:.66rem;font-weight:500;color:var(--muted);margin-top:2px}
+  .short-toggle button.on{background:var(--ink);color:#fff}
+  .short-toggle button.on small{color:#C9D2E2}
+  .short-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:560px){.short-grid{grid-template-columns:1fr}}
+  .si{border:1px solid var(--line);border-radius:11px;padding:11px 12px;display:flex;align-items:center;gap:9px;background:#fff;transition:background .3s,border-color .3s}
+  .si .si-nm{flex:1;font-size:.84rem;font-weight:700;color:var(--ink);line-height:1.3}
+  .si .si-nm small{display:block;font-size:.66rem;font-weight:500;color:var(--muted)}
+  .si .si-stat{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:.92rem;transition:.3s;background:#ccc;color:#fff}
+  .si.ok{background:var(--okbg);border-color:#A9D2BC}
+  .si.ok .si-stat{background:var(--ok)}
+  .si.no{background:var(--wrongbg);border-color:#E2B6AE}
+  .si.no .si-stat{background:var(--stamp)}
+  .si.always{background:#F4F6FA;border-color:#C7D2E2}
+  .si.always .si-stat{background:var(--ink)}
+  .si.always .si-nm small{color:#6E7C95}
+  .si.cond{background:#FBF1DC;border-color:#E3C98A}
+  .si.cond .si-stat{background:#C2710E}
+  .si.cond .si-nm small{color:#9A6A22}
+  @keyframes pop{0%{transform:scale(.55)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+  .si.flash .si-stat{animation:pop .36s ease}
+  .short-note{margin-top:13px;font-size:.84rem;color:var(--ink2);background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 13px;line-height:1.55;transition:.2s}
+  .short-note b{color:var(--stamp)}
+  .short-label{display:inline-block;font-family:var(--serif);font-weight:700;font-size:.92rem;color:var(--ink);margin:2px 0 8px;padding:3px 12px;border-radius:20px;border:1.5px dashed var(--gold);background:#FCF8EC}
+  /* ===== 간접 고용 관계도 ===== */
+  .ig-tools{display:inline-flex;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin:4px 0 14px}
+  .ig-tools button{font-family:var(--sans);font-weight:700;font-size:.85rem;padding:8px 22px;background:#fff;color:var(--ink);border:none;border-right:1px solid var(--line);cursor:pointer;transition:.16s}
+  .ig-tools button:last-child{border-right:none}
+  .ig-tools button.on{background:var(--ink);color:#fff}
+  .ig-stage{background:#FCFBF6;border:1px solid #CFC8B6;border-radius:12px;padding:10px 8px 6px}
+  .ig-stage svg{width:100%;height:auto;display:block}
+  .ig-tip{margin-top:11px;background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 14px;font-size:.9rem;color:var(--ink2);line-height:1.55}
+  .ig-tip b{color:var(--stamp)}
+  .ig-tip .hd{font-family:var(--serif);font-weight:700;color:var(--ink);margin-right:4px}
+  .ig-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:11px;font-size:.78rem;color:var(--ink2)}
+  .ig-legend span{display:inline-flex;align-items:center;gap:6px}
+  .ig-legend i{width:22px;border-top-width:3px;border-top-style:solid;display:inline-block}
+  .ig-legend i.emp{border-color:#2E7D5B}
+  .ig-legend i.cmd{border-color:#B23A2E}
+  .ig-legend i.no{border-color:#AA9988;border-top-style:dashed}
+  /* ===== 기간제 → 무기계약 전환 ===== */
+  .ot-flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:10px 0 8px}
+  .ot-box{flex:1;min-width:128px;border:1.5px solid var(--line);border-radius:11px;padding:12px;text-align:center;background:#fff}
+  .ot-box .y{font-size:.7rem;color:var(--muted);font-weight:700}
+  .ot-box .n{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:.98rem;margin-top:3px}
+  .ot-box.res{background:linear-gradient(180deg,#E9F4EE,#fff);border-color:#9CCBAF}
+  .ot-box.res .n{color:var(--ok)}
+  .ot-arrow{align-self:center;color:var(--gold);font-weight:900;font-size:1.35rem;flex:none;text-align:center}
+  .ot-arrow small{display:block;font-family:var(--sans);font-size:.62rem;color:var(--stamp);font-weight:700;white-space:nowrap}
+  @media(max-width:600px){.ot-arrow{transform:rotate(90deg);width:100%}}
+  .ot-note{font-size:.84rem;color:var(--ink2);background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 13px;margin:6px 0 14px;line-height:1.55}
+  .ot-note b{color:var(--stamp)}
+  .ot-exc-h{font-weight:700;color:var(--stamp);margin:4px 0 9px;font-size:.95rem;display:flex;align-items:center;gap:7px}
+  .ot-exc{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  @media(max-width:600px){.ot-exc{grid-template-columns:1fr}}
+  .ot-card{border:1px solid #E2B0A8;border-radius:12px;padding:14px 13px;background:linear-gradient(180deg,#FBEEEB,#fff);text-align:center;display:flex;flex-direction:column;align-items:center}
+  .ot-card .oic{width:42px;height:42px;margin-bottom:5px}
+  .ot-card h5{font-family:var(--serif);font-size:1rem;color:var(--ink);margin:1px 0 5px}
+  .ot-card p{font-size:.77rem;color:var(--ink2);line-height:1.45;flex:1}
+  .ot-card .xb{margin-top:9px;font-size:.7rem;font-weight:700;color:#fff;background:var(--stamp);padding:3px 11px;border-radius:14px}
+</style>
+</head>
+<body>
+
+<div class="scorebar">
+  <div class="wrap">
+    <div class="meter"><i id="bar"></i></div>
+    <div class="score">완성 <b id="filled">0</b> / 50<span id="scoretxt"></span></div>
+    <div class="btns">
+      <button class="act" onclick="grade()">채점하기</button>
+      <button class="act ghost" onclick="toggleSol()" id="solBtn">정답 보기</button>
+      <button class="act ghost" onclick="resetAll()">다시 풀기</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">성공적인 직업생활 · EBS 수능특강 2027</div>
+  <h1 class="title"><span class="ch">16강</span> 근로관계와 법 (2)</h1>
+  <div class="sub">수능특강 본문 + <b>EBS Plus</b> 용어·심화 자료까지 모두 수록. 빈칸을 채우고 <b>채점하기</b>를 누르세요. <span class="note">(법조항·숫자·요건 정확히!)</span></div>
+  <nav class="secnav">
+    <a href="#fill">① 본문 빈칸</a>
+    <a href="#terms">② 용어 사전</a>
+    <a href="#deep">③ 심화 자료</a>
+    <a href="#exam">④ 기출·함정</a>
+  </nav>
+</header>
+
+<div class="band anchor" id="fill"><span class="ic">✎</span> 본문 빈칸 채우기 <small>① ~ ㊿</small></div>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">01</span><h2>근로 계약서와 사용자의 금지 사항</h2></div>
+  <div class="sub-h">1. 근로 계약서의 작성·교부</div>
+  <p class="line">사용자는 임금·소정 근로 시간 등 주요 근로 조건을 <span class="num">①</span><input class="blank" data-a="서면" placeholder="①"><span class="sol"></span>(으)로 명시하여 근로자에게 교부해야 한다.</p>
+  <p class="line">근로 계약서의 한 항목이 「근로기준법」에 위배될 경우, 계약 전체가 아니라 <span class="num">②</span><input class="blank wide" data-a="해당조항만|해당 조항만|그조항만|그 조항만|위배된조항만|위반조항만" placeholder="②"><span class="sol"></span> 무효가 된다.</p>
+  <div class="sub-h">2. 사용자의 금지 사항</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:150px">구분</th><th>내용</th></tr>
+    <tr><td class="k">위약 예정의 금지</td><td>근로 계약 불이행에 대한 <span class="num">③</span><input class="blank" data-a="위약금" placeholder="③"><span class="sol"></span> 또는 손해 배상액을 예정하는 계약 체결 금지</td></tr>
+    <tr><td class="k"><span class="num">④</span><input class="blank" data-a="전차금" placeholder="④"><span class="sol"></span> 상계의 금지</td><td>근로 제공 전 미리 빌려준 돈(전대 채권)을 임금에서 상계 금지</td></tr>
+    <tr><td class="k">강제 저금의 금지</td><td>근로 계약에 부수하여 <span class="num">⑤</span><input class="blank wide" data-a="강제저축|강제 저축|강제저금|강제 저금" placeholder="⑤"><span class="sol"></span> 또는 저축금 관리를 규정하는 계약 체결 금지</td></tr>
+  </table></div>
+  <div class="sub-h">3. 현장 실습 표준 협약 및 근로 계약 <span class="spot-badge">특성화고 직결</span></div>
+  <p class="line">특성화고·마이스터고 학생이 산업체에 파견되어 현장 실습을 하는 경우 <span class="num">⑥</span><input class="blank wide" data-a="현장실습표준협약|현장실습 표준협약|현장 실습 표준 협약|표준협약|현장실습표준협약서" placeholder="⑥"><span class="sol"></span>을 체결해야 한다.</p>
+  <p class="line">현장 실습 완료 후 채용으로 전환될 경우 <span class="num">⑦</span><input class="blank wide" data-a="근로계약서|근로 계약서" placeholder="⑦"><span class="sol"></span>을(를) 작성해야 한다.</p>
+  <p class="line">현장 실습생은 학년 수업일수의 <span class="num">⑧</span><input class="blank" data-a="2/3|3분의2|3분의 2" placeholder="⑧"><span class="sol"></span> 출석 이후에 채용 전환이 가능하다.</p>
+</section>
+
+<div class="ct-wrap">
+  <h3>📄 표준근로계약서 한눈에 보기 <span class="spot-badge">①·②·③④⑤ 연계</span></h3>
+  <div class="cap">실제 계약서를 보며 익히세요. <b>각 항목을 누르면 “꼭 확인!” 체크포인트</b>가 펼쳐지고, 버튼을 누르면 <b>서면 명시·교부 필수 4종</b>이 표시됩니다.</div>
+  <div class="ct-tools">
+    <button id="ctReqBtn" onclick="ctHi(this)">서면 명시·교부 필수 4종 ✦</button>
+    <button onclick="ctHi(null)">원래대로</button>
+  </div>
+  <div class="ct-paper" id="ctPaper">
+    <div class="ct-doc-title">표 준 근 로 계 약 서</div>
+    <div class="ct-doc-sub">Standard Labor Contract · 고용노동부 표준 양식</div>
+    <div class="ct-intro"><b>○○○</b>(이하 “사업주”)과(와) <b>□□□</b>(이하 “근로자”)은(는) 다음과 같이 근로 계약을 체결한다.</div>
+
+    <div class="ct-item">
+      <div class="ct-row" onclick="ctToggle(this)"><div class="ct-no">1</div><div class="ct-k">근로계약기간</div><div class="ct-v"><span class="fillin">2026 . 03 . 02</span> 부터 &nbsp;·&nbsp; <span class="pick on">기간의 정함 없음</span><span class="pick">정함 있음</span></div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 근로 <span class="ok">시작일</span>이 적혀 있는지, ‘정함 없음(정규직)’인지 ‘있음(기간제)’인지 확인. 기간제는 총 사용 기간이 <b>2년 초과</b>하면 기간의 정함이 없는(무기) 계약으로 간주된다. <span style="display:block;margin-top:5px;font-size:.92em;color:#9A4A0A">※ 단, <b>5인 미만 사업장</b>·<b>초단시간(주 15h 미만)</b>·만 55세 이상 고령자 등은 2년 초과해도 무기 전환 <b>예외</b>(기간제법 §4①·시행령 §3③).</span></div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row" onclick="ctToggle(this)"><div class="ct-no">2</div><div class="ct-k">근무 장소</div><div class="ct-v"><span class="fillin">○○시 △△로 12, ○○산업(주)</span></div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 실제 일할 곳이 <span class="ok">구체적으로</span> 적혀 있는지. 추후 전보·파견 등 변경 가능성이 있는지도 함께 확인한다.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row" onclick="ctToggle(this)"><div class="ct-no">3</div><div class="ct-k">업무의 내용</div><div class="ct-v"><span class="fillin">기계 부품 조립 및 품질 검사</span></div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 담당 업무가 <span class="ok">구체적</span>인지. 면접 때 들은 일과 다른 업무를 강요받지 않도록 ‘무엇을 하는지’를 명확히 적어 둔다.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row req" onclick="ctToggle(this)"><div class="ct-no">4</div><div class="ct-k">소정근로시간 <span class="ct-badge">서면+교부</span></div><div class="ct-v"><span class="fillin">09</span>시 <span class="fillin">00</span>분 ~ <span class="fillin">18</span>시 <span class="fillin">00</span>분 &nbsp;(휴게 12:00~13:00)</div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 법정 한도 이내인지 — 성인 1일 <b>8시간</b>·주 <b>40시간</b> / 연소 1일 <b>7시간</b>·주 <b>35시간</b>. <span class="ok">휴게시간</span>은 근로시간에 포함되지 않아 <b>무급</b>이며, 4시간당 30분·8시간당 1시간 이상 부여.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row req" onclick="ctToggle(this)"><div class="ct-no">5</div><div class="ct-k">근무일 · 휴일 <span class="ct-badge">서면+교부</span></div><div class="ct-v">매주 <span class="fillin">5</span>일 근무 · 주휴일 매주 <span class="fillin">일</span>요일</div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> <span class="ok">주휴일</span>이 정해졌는지. 1주 소정근로 <b>15시간 이상</b> + 개근 시 주휴일은 ‘유급’(주휴수당). 초단시간(주 15시간 미만)은 주휴·연차·퇴직금 미적용.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row req" onclick="ctToggle(this)"><div class="ct-no">6</div><div class="ct-k">임 금 <span class="ct-badge">서면+교부</span></div><div class="ct-v">월(시간)급 <span class="fillin">2,156,880</span>원 · 상여금 <span class="pick">있음</span><span class="pick on">없음</span> · 지급일 매월 <span class="fillin">25</span>일 · <b>지급방법: 근로자 본인 명의 계좌 입금(직접불)</b></div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> <span class="ok">2026년 최저임금</span> 시급 <b>10,320원</b>(월 209시간 기준 <b>2,156,880원</b>) 이상인지. 임금의 구성·계산·지급방법, 매월 1회 이상 정기지급일, 본인 명의 계좌 입금(직접불)을 확인. 최저임금 미달로 정한 부분은 <b>무효</b>가 되어 최저임금으로 지급해야 한다.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row req" onclick="ctToggle(this)"><div class="ct-no">7</div><div class="ct-k">연차유급휴가 <span class="ct-badge">서면+교부</span></div><div class="ct-v">「근로기준법」에서 정하는 바에 따라 부여</div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 1년간 <b>80% 이상</b> 출근 시 <b>15일</b>, 계속근로 1년 미만은 1개월 개근당 1일. 단, 상시 <b>5인 미만</b> 사업장은 연차유급휴가가 <span class="ok">적용되지 않는다</span>.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row" onclick="ctToggle(this)"><div class="ct-no">8</div><div class="ct-k">사회보험 적용</div><div class="ct-v"><span class="pick on">고용보험</span><span class="pick on">산재보험</span><span class="pick on">국민연금</span><span class="pick on">건강보험</span> <span class="note" style="font-size:.74rem">(4대 보험)</span></div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 4대 보험 가입 여부. <span class="ok">산재보험</span>은 근로자 1명 이상 모든 사업장에 의무 적용(보험료 전액 사업주 부담). 초단시간(주 15시간 미만) 등은 일부 보험 적용이 제외될 수 있다.</div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-row give" style="background:#FBE9E7;box-shadow:inset 3px 0 0 var(--stamp);border-radius:4px" onclick="ctToggle(this)"><div class="ct-no">9</div><div class="ct-k">계약서 교부 <span class="ct-badge give">①</span></div><div class="ct-v"><b>사업주는 근로 계약 체결과 동시에 본 계약서 사본을 근로자에게 교부한다.</b> (요구와 무관하게 의무 교부)</div><span class="ct-chev">▾</span></div>
+      <div class="ct-detail"><b>✅ 꼭 확인!</b> 사업주는 근로자가 <span class="ok">요구하지 않아도</span> 계약서 사본을 <b>반드시 교부</b>해야 한다(빈칸 ①). 미교부 시 과태료 등 벌칙 대상.</div>
+    </div>
+
+    <div class="ct-sign">
+      <div class="s">사업주 <b>(서명/인)</b> <span class="ct-stamp">사업<br>주인</span></div>
+      <div class="s">근로자 <b>(서명/인)</b> <span class="ct-stamp">근로<br>자인</span></div>
+    </div>
+  </div>
+
+  <div class="void-box">
+    <h4>✕ 이런 조항을 넣어도 「근로기준법」상 <span style="color:var(--stamp)">무효</span></h4>
+    <div class="vcap">사용자의 금지 사항(빈칸 ③④⑤). 계약 전체가 아니라 <b>해당 조항만</b> 무효가 됩니다(빈칸 ②).</div>
+    <div class="void-item"><div class="void-clause"><span class="strike">“근로자가 1년 내 퇴사 시 위약금 300만 원을 배상한다.”</span><b>→ ③ 위약 예정의 금지</b></div><div class="void-tag">무효</div></div>
+    <div class="void-item"><div class="void-clause"><span class="strike">“입사 시 빌려준 200만 원을 매월 임금에서 공제한다.”</span><b>→ ④ 전차금 상계의 금지</b></div><div class="void-tag">무효</div></div>
+    <div class="void-item"><div class="void-clause"><span class="strike">“임금의 30%를 회사 지정 계좌에 강제로 저축한다.”</span><b>→ ⑤ 강제 저금의 금지</b></div><div class="void-tag">무효</div></div>
+  </div>
+  <div class="cap" style="margin-top:11px">※ <b>서면 명시 의무</b>(근기법 §17①)는 모든 항목, 그중 <b>서면 명시 + 교부 의무</b>(§17②)는 ④소정근로시간·⑤휴일·⑥임금(구성·계산·지급방법)·⑦연차유급휴가 <b>4종</b>입니다.</div>
+</div>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">02</span><h2>미성년자(연소자)의 근로 보호</h2></div>
+  <div class="sub-h">1. 취업 연령 제한</div>
+  <p class="line">만 <span class="num">⑨</span><input class="blank" data-a="15" placeholder="⑨"><span class="sol"></span>세 미만인 사람은 원칙적으로 근로 계약을 체결할 수 없다.</p>
+  <p class="line">다만 고용노동부 장관의 <span class="num">⑩</span><input class="blank wide" data-a="취직인허증|취직 인허증" placeholder="⑩"><span class="sol"></span>을 받으면 취업할 수 있다.</p>
+  <p class="line">13세 미만인 자는 원칙적으로 발급받을 수 없으나, <span class="num">⑪</span><input class="blank wide" data-a="예술공연|예술 공연|예술공연참가자" placeholder="⑪"><span class="sol"></span> 참가자에 한해 예외적으로 허용된다.</p>
+  <div class="sub-h">2. 사업장에 갖추어야 할 서류</div>
+  <p class="line">18세 미만(연소자) 고용 시 ① 연령을 증명하는 <span class="num">⑫</span><input class="blank wide" data-a="가족관계기록사항증명서|가족관계기록사항 증명서|가족관계증명서|가족 관계 기록 사항에 관한 증명서" placeholder="⑫"><span class="sol"></span></p>
+  <p class="line">② 친권자 또는 후견인의 <span class="num">⑬</span><input class="blank" data-a="동의서" placeholder="⑬"><span class="sol"></span>를 갖추어야 한다.</p>
+  <div class="sub-h">3. 근로 금지 및 근로 시간 제한 <span class="note">※ 숫자 정확히</span></div>
+  <p class="line">사용자는 18세 미만인 사람을 도덕상 또는 <span class="num">⑭</span><input class="blank" data-a="보건" placeholder="⑭"><span class="sol"></span>상 유해·위험한 사업에 사용할 수 없다.</p>
+  <div class="scroll"><table class="t" style="table-layout:fixed">
+    <colgroup><col style="width:50%"><col style="width:25%"><col style="width:25%"></colgroup>
+    <tr><th>연소자 근로 시간 (15~18세 미만)</th><th>1일</th><th>1주</th></tr>
+    <tr><td>법정 근로 시간</td><td class="c" style="white-space:nowrap"><span class="num">⑮</span><input class="blank" data-a="7" placeholder="⑮"><span class="sol"></span> 시간</td><td class="c" style="white-space:nowrap"><span class="num">⑯</span><input class="blank" data-a="35" placeholder="⑯"><span class="sol"></span> 시간</td></tr>
+    <tr><td>연장 한도 (당사자 합의 시)</td><td class="c" style="white-space:nowrap">1 시간</td><td class="c" style="white-space:nowrap"><span class="num">⑰</span><input class="blank" data-a="5" placeholder="⑰"><span class="sol"></span> 시간</td></tr>
+  </table></div>
+  <p class="line">야간(22시~06시)·휴일 근로: 18세 미만자의 <span class="num">⑱</span><input class="blank" data-a="동의" placeholder="⑱"><span class="sol"></span>와(과) 고용노동부 장관의 <span class="num">⑲</span><input class="blank" data-a="인가" placeholder="⑲"><span class="sol"></span>가 모두 필요하다.</p>
+  <div class="sub-h">4. 미성년자의 근로 계약 <span class="note">「근로기준법」 제67·68조</span></div>
+  <p class="line">미성년자의 근로 계약은 친권자·후견인이 <span class="num">⑳</span><input class="blank" data-a="대리" placeholder="⑳"><span class="sol"></span>할 수 없고, 법정 대리인의 동의를 얻어 본인이 직접 체결한다.</p>
+  <p class="line">근로 계약이 미성년자에게 불리하다고 인정되면 친권자·후견인뿐 아니라 <span class="num">㉑</span><input class="blank wide" data-a="고용노동부장관|고용노동부 장관" placeholder="㉑"><span class="sol"></span>도 그 계약을 해지할 수 있다.</p>
+</section>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">03</span><h2>근로자 권익의 침해와 시정 방법</h2></div>
+  <div class="sub-h">1. 권익 침해의 종류</div>
+  <p class="line">정당한 이유 없는 해고 = <span class="num">㉒</span><input class="blank wide" data-a="부당해고|부당 해고" placeholder="㉒"><span class="sol"></span> / 노조 조직·가입을 이유로 한 불이익 = <span class="num">㉓</span><input class="blank wide" data-a="부당노동행위|부당 노동 행위|부당노동 행위" placeholder="㉓"><span class="sol"></span> / 임금 체불 / 직장 내 성희롱</p>
+  <p class="line">사용자는 근로자를 해고하려면 적어도 <span class="num">㉔</span><input class="blank" data-a="30" placeholder="㉔"><span class="sol"></span>일 전에 해고를 예고해야 한다.</p>
+  <p class="line">임금 체불: 정기 지급일을 1일이라도 초과하거나, 퇴직 후 <span class="num">㉕</span><input class="blank" data-a="14" placeholder="㉕"><span class="sol"></span>일 이내에 금품을 지급하지 않는 것. 임금 채권의 소멸 시효는 <span class="num">㉖</span><input class="blank" data-a="3" placeholder="㉖"><span class="sol"></span>년이다.</p>
+  <p class="line">직장 내 성희롱은 「<span class="num">㉗</span><input class="blank wide" data-a="남녀고용평등|남녀 고용 평등|남녀고용평등과일·가정양립지원에관한|남녀고용평등과 일·가정 양립 지원에 관한" placeholder="㉗"><span class="sol"></span>법」 등에서 규율한다. <span class="note">(동성 간·사업장 밖에서도 성립)</span></p>
+
+  <div class="harm-grid">
+    <div class="harm-card">
+      <svg class="harm-ill" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="26" fill="#FBE9E7"/>
+        <rect x="14" y="12" width="20" height="26" rx="2.5" fill="#fff" stroke="#16243F" stroke-width="2"/>
+        <line x1="18" y1="18" x2="30" y2="18" stroke="#16243F" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="18" y1="22.5" x2="30" y2="22.5" stroke="#16243F" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="18" y1="27" x2="26" y2="27" stroke="#16243F" stroke-width="1.8" stroke-linecap="round"/>
+        <g stroke="#B23A2E" stroke-width="3.4" stroke-linecap="round"><line x1="30" y1="30" x2="42" y2="42"/><line x1="42" y1="30" x2="30" y2="42"/></g>
+      </svg>
+      <div class="harm-tx"><span class="ko">노동위원회 구제</span><h5>부당 해고</h5><p>정당한 이유·절차 없는 해고, 해고 금지 시기 해고</p></div>
+    </div>
+    <div class="harm-card">
+      <svg class="harm-ill" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="26" fill="#EAF1FB"/>
+        <circle cx="24" cy="27" r="12" fill="#fff" stroke="#16243F" stroke-width="2"/>
+        <text x="24" y="32" text-anchor="middle" font-family="Noto Serif KR,serif" font-size="14" font-weight="700" fill="#16243F">₩</text>
+        <line x1="14" y1="38" x2="40" y2="14" stroke="#B23A2E" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <div class="harm-tx"><span class="ko">고용노동부 진정</span><h5>임금 체불</h5><p>지급일 1일 초과·퇴직 14일 미지급 (소멸시효 3년)</p></div>
+    </div>
+    <div class="harm-card">
+      <svg class="harm-ill" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="26" fill="#FBF3DE"/>
+        <circle cx="19" cy="22" r="4.2" fill="#16243F"/><path d="M11.5 36 a7.5 6 0 0 1 15 0 z" fill="#16243F"/>
+        <circle cx="33" cy="22" r="4.2" fill="#A8842C"/><path d="M25.5 36 a7.5 6 0 0 1 15 0 z" fill="#A8842C"/>
+        <line x1="12" y1="40" x2="42" y2="14" stroke="#B23A2E" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <div class="harm-tx"><span class="ko">노동위원회 구제</span><h5>부당 노동 행위</h5><p>노조 활동 이유 불이익 <b style="color:var(--stamp)">(주체 = 사용자)</b></p></div>
+    </div>
+    <div class="harm-card">
+      <svg class="harm-ill" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="26" fill="#FBE9E7"/>
+        <g fill="#B23A2E"><rect x="19" y="25" width="16" height="14" rx="4"/><rect x="20.5" y="17" width="3" height="11" rx="1.5"/><rect x="24.5" y="15" width="3" height="13" rx="1.5"/><rect x="28.5" y="15.5" width="3" height="12.5" rx="1.5"/><rect x="32" y="18" width="3" height="9.5" rx="1.5"/><rect x="15" y="24" width="3" height="8" rx="1.5" transform="rotate(-38 16.5 28)"/></g>
+      </svg>
+      <div class="harm-tx"><span class="ko">남녀고용평등법</span><h5>직장 내 성희롱</h5><p>동성 간·회식·야유회 등 사업장 밖에서도 성립</p></div>
+    </div>
+  </div>
+  <div class="sub-h">2. 권익 침해의 시정(구제) 절차</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:84px">단계</th><th>기관 / 절차</th></tr>
+    <tr><td class="k">1차</td><td><span class="num">㉘</span><input class="blank wide" data-a="지방노동위원회|지방 노동위원회" placeholder="㉘"><span class="sol"></span>에 구제 신청</td></tr>
+    <tr><td class="k">2차</td><td>불복 시 <span class="num">㉙</span><input class="blank wide" data-a="중앙노동위원회|중앙 노동위원회" placeholder="㉙"><span class="sol"></span>에 재심 신청</td></tr>
+    <tr><td class="k">3차</td><td>재심에도 불복 시 <span class="num">㉚</span><input class="blank wide" data-a="행정법원|행정 법원" placeholder="㉚"><span class="sol"></span>에 행정 소송 제기</td></tr>
+  </table></div>
+
+  <div class="proc">
+    <div class="proc-flow">
+      <div class="proc-step"><div class="pno">1차 · 3개월 이내</div>
+        <svg class="pic" viewBox="0 0 34 34" fill="none" stroke="#f2d9a0" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="7" width="16" height="21" rx="2"/><rect x="13" y="5" width="8" height="4" rx="1.5" fill="#f2d9a0" stroke="none"/><line x1="12.5" y1="14" x2="21.5" y2="14" stroke-linecap="round"/><line x1="12.5" y1="18" x2="21.5" y2="18" stroke-linecap="round"/><line x1="12.5" y1="22" x2="18" y2="22" stroke-linecap="round"/></svg>
+        <div class="pname">지방노동위원회</div><div class="psub">구제 신청</div></div>
+      <div class="proc-arrow">›</div>
+      <div class="proc-step"><div class="pno">2차 · 불복 시</div>
+        <svg class="pic" viewBox="0 0 34 34" fill="none" stroke="#f2d9a0" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M25 13 a9 9 0 1 0 1.5 8" stroke-linecap="round"/><path d="M25 7 v6 h-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pname">중앙노동위원회</div><div class="psub">재심 신청</div></div>
+      <div class="proc-arrow">›</div>
+      <div class="proc-step"><div class="pno">3차 · 불복 시</div>
+        <svg class="pic" viewBox="0 0 34 34" fill="none" stroke="#f2d9a0" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><line x1="17" y1="8" x2="17" y2="26" stroke-linecap="round"/><line x1="9" y1="12" x2="25" y2="12" stroke-linecap="round"/><path d="M9 12 l-3 6 h6 z"/><path d="M25 12 l-3 6 h6 z"/><line x1="11" y1="27" x2="23" y2="27" stroke-linecap="round"/></svg>
+        <div class="pname">행정법원</div><div class="psub">행정 소송 <span style="color:#f2d9a0;font-weight:700">· 피고: 중노위 위원장</span></div></div>
+    </div>
+    <div class="proc-tags">
+      <span class="proc-tag">신청 기한 <b>3개월</b> 이내</span>
+      <span class="proc-tag">부당해고·부당노동행위 <b>동일 절차</b></span>
+      <span class="proc-tag">해고 무효 확인은 <b>민사</b> 별도</span>
+      <span class="proc-tag">차별 시정 신청은 <b>6개월</b></span>
+      <span class="proc-tag">행정소송 피고 = <b>중앙노동위 위원장</b></span>
+    </div>
+    <div class="cap" style="margin-top:9px">※ 행정 소송은 중앙노동위원회의 재심 판정에 불복할 때 <b>중앙노동위원회 위원장을 피고</b>로 하여, 재심 판정서 송달일부터 15일 이내에 제기한다. <span class="note" style="font-size:.72rem">(노동위원회법 — 법령으로 보충)</span></div>
+  </div>
+  <p class="line">부당 해고 등의 구제 신청은 그 일이 있었던 날부터 <span class="num">㉛</span><input class="blank" data-a="3" placeholder="㉛"><span class="sol"></span>개월 이내에 해야 한다.</p>
+  <p class="line">해고 무효 확인 소송은 노동위원회와 별도로 <span class="num">㉜</span><input class="blank" data-a="민사" placeholder="㉜"><span class="sol"></span> 소송으로 청구할 수 있다.</p>
+  <p class="line">체불 임금이 소액일 때 법원에 <span class="num">㉝</span><input class="blank wide" data-a="소액|소액사건|소액 사건|소액심판" placeholder="㉝"><span class="sol"></span> 심판(사건 심판)을 청구할 수 있다.</p>
+</section>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">04</span><h2>근로자의 차별과 시정 · 간접 고용</h2></div>
+  <div class="sub-h">1. 차별의 시정</div>
+  <p class="line">차별 시정 신청 대상: 기간제·단시간·<span class="num">㉞</span><input class="blank" data-a="파견" placeholder="㉞"><span class="sol"></span> 근로자</p>
+  <p class="line">차별 시정 신청은 차별적 처우의 종료일부터 <span class="num">㉟</span><input class="blank" data-a="6" placeholder="㉟"><span class="sol"></span>개월 이내에 해야 하며, 차별이 없었음의 증명 책임은 <span class="num">㊱</span><input class="blank" data-a="사용자" placeholder="㊱"><span class="sol"></span>에게 있다.</p>
+  <p class="line">비교 대상: 기간의 정함이 없는 <span class="num">㊲</span><input class="blank wide" data-a="무기계약|무기 계약|무기계약근로자|무기계약 근로자" placeholder="㊲"><span class="sol"></span> 근로자, 소정 근로 시간을 모두 근무하는 <span class="num">㊳</span><input class="blank wide" data-a="전일제|전일제근로자|전일제 근로자" placeholder="㊳"><span class="sol"></span> 근로자, 사용자가 <span class="num">㊴</span><input class="blank wide" data-a="직접고용|직접 고용|직접고용근로자" placeholder="㊴"><span class="sol"></span>한 근로자</p>
+  <p class="line">초단시간 근로자: 주 평균 소정 근로 시간이 <span class="num">㊵</span><input class="blank" data-a="15" placeholder="㊵"><span class="sol"></span>시간 미만 → 주휴일·주휴 수당·연차 유급 휴가·<span class="num">㊶</span><input class="blank" data-a="퇴직금" placeholder="㊶"><span class="sol"></span> 적용 제외</p>
+  <div class="sub-h">2. 간접 고용의 형태</div>
+  <p class="line">직접 고용하지 않고 외부 업체와의 계약으로 노동력을 사용하는 형태 = <span class="num">㊷</span><input class="blank wide" data-a="간접고용|간접 고용" placeholder="㊷"><span class="sol"></span></p>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:70px">형태</th><th>핵심 내용</th></tr>
+    <tr><td class="c"><span class="num">㊸</span><input class="blank" data-a="파견|파견근로|파견 근로" placeholder="㊸"><span class="sol"></span></td><td>사용 사업주가 지휘·명령, 파견 사업주가 고용 계약 체결</td></tr>
+    <tr><td class="c"><span class="num">㊹</span><input class="blank" data-a="도급" placeholder="㊹"><span class="sol"></span></td><td>일의 완성에 보수 지급, 원청(도급인)은 지휘·명령 불가</td></tr>
+    <tr><td class="c"><span class="num">㊺</span><input class="blank" data-a="용역" placeholder="㊺"><span class="sol"></span></td><td>도급과 유사하나 인적 서비스에 한정(청소·경비·시설관리 등)</td></tr>
+  </table></div>
+  <p class="line">파견에서 파견 근로자에게 지휘·명령을 하는 주체는 <span class="num">㊻</span><input class="blank wide" data-a="사용사업주|사용 사업주" placeholder="㊻"><span class="sol"></span>, 고용 계약을 체결하는 주체는 <span class="num">㊼</span><input class="blank wide" data-a="파견사업주|파견 사업주" placeholder="㊼"><span class="sol"></span>이다.</p>
+  <p class="line">도급에서 근로자와 고용 계약을 맺는 주체는 <span class="num">㊽</span><input class="blank wide" data-a="수급인|하청업체|하청 업체|하청" placeholder="㊽"><span class="sol"></span>이며, 도급인(원청)은 그 근로자에게 지휘·명령을 할 수 <span class="num">㊾</span><input class="blank" data-a="없|없다|할수없" placeholder="㊾"><span class="sol"></span>다.</p>
+  <p class="line">용역의 예: 청소·경비업·<span class="num">㊿</span><input class="blank" data-a="시설" placeholder="㊿"><span class="sol"></span> 관리업 등</p>
+</section>
+
+<div class="band anchor" id="terms"><span class="ic">▤</span> EBS Plus 용어 사전 <small>카드를 누르면 뜻이 펼쳐집니다</small></div>
+<div class="cards" id="cards"></div>
+
+<div class="band anchor" id="deep"><span class="ic">◆</span> 심화 자료 <small>EBS Plus 보충</small></div>
+
+<div class="deck">
+  <h3>연소자 보호 — 법정 근로 시간</h3>
+  <div class="cap">막대 = <b>1주 근로시간</b>. 버튼으로 소정 ↔ 최장(연장 포함) 비교</div>
+  <div class="wt-toggle">
+    <button id="wtBase" onclick="setWT('base')">소정근로</button>
+    <button id="wtMax" class="on" onclick="setWT('max')">최장(연장 포함)</button>
+  </div>
+  <div id="wtRows">
+    <div class="wt-row" data-base="40" data-ext="12" data-db="8" data-de="12">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#EAF1FB"/><circle cx="22" cy="17.5" r="6" fill="#16243F"/><path d="M10.5 34.5 a11.5 9 0 0 1 23 0 z" fill="#16243F"/></svg>
+      <div class="wt-label">성인<small>만 18세 이상</small></div>
+      <div class="wt-barwrap"><div class="wt-bar"><div class="wt-seg base"></div><div class="wt-seg ext"></div></div><div class="wt-total"></div></div>
+    </div>
+    <div class="wt-row" data-base="35" data-ext="5" data-db="7" data-de="1">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBF3DE"/><circle cx="22" cy="18.5" r="5" fill="#A8842C"/><path d="M13 33.5 a9 7.5 0 0 1 18 0 z" fill="#A8842C"/></svg>
+      <div class="wt-label">연소<small>만 15~18세 미만</small></div>
+      <div class="wt-barwrap"><div class="wt-bar"><div class="wt-seg base"></div><div class="wt-seg ext"></div></div><div class="wt-total"></div></div>
+    </div>
+    <div class="wt-row">
+      <svg class="wt-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#E6F1EB"/><rect x="14" y="13.5" width="16" height="19" rx="2" fill="#fff" stroke="#2E7D5B" stroke-width="2"/><rect x="18" y="11.5" width="8" height="4" rx="1.5" fill="#2E7D5B"/><line x1="17.5" y1="21" x2="26.5" y2="21" stroke="#2E7D5B" stroke-width="1.6" stroke-linecap="round"/><line x1="17.5" y1="25" x2="26.5" y2="25" stroke="#2E7D5B" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div class="wt-label">현장 실습생</div>
+      <div class="wt-na">연소 근로 기준 적용 · <b>야간(22~06시)·휴일 실습 불가</b></div>
+    </div>
+  </div>
+  <div class="cap" style="margin-top:10px">※ 함정: 연소자 연장은 1주 12시간이 아니라 <b>1주 5시간</b>! 야간·휴일은 본인 동의 + <b>고용노동부 장관 인가</b>까지 필요.</div>
+</div>
+
+<div class="deck">
+  <h3>사용자의 금지 3원칙</h3>
+  <div class="cap">카드를 누르면 뒤집혀 상세가 나옵니다 ↻</div>
+  <div class="wage-grid">
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">위약 예정 금지</div><div class="wk">위약금·손해배상 예정 ✕</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>불이행에 대한 위약금·손해배상액을 미리 정하는 계약 금지<span class="x">실손해 배상 청구는 별개 ○</span></p></div>
+      </div>
+    </button>
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">전차금 상계 금지</div><div class="wk">빌려준 돈 ↔ 임금 ✕</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>미리 빌려준 돈(전대 채권)을 임금에서 일방적으로 상계 금지<span class="x">강제 근로 방지 목적</span></p></div>
+      </div>
+    </button>
+    <button type="button" class="wage-card" onclick="this.classList.toggle('flip')">
+      <div class="wage-inner">
+        <div class="wage-face wage-front"><div class="wn">강제 저금 금지</div><div class="wk">강제 저축·저축금 관리 ✕</div><div class="wh">눌러서 확인 ↻</div></div>
+        <div class="wage-face wage-back"><p>근로 계약에 부수하여 강제 저축·저축금 관리 규정 금지<span class="x">근로자 자유 의사 보장</span></p></div>
+      </div>
+    </button>
+  </div>
+  <div class="cap" style="margin-top:10px">※ 세 가지 모두 「근로기준법」에 직접 규정된 사용자 금지 조항입니다.</div>
+</div>
+
+<div class="deck">
+  <h3>간접 고용 3종 — 파견 · 도급 · 용역</h3>
+  <div class="cap">버튼을 눌러 관계도를 비교하세요. <b>누가 고용(임금)하고 누가 지휘·명령</b>하는지가 핵심!</div>
+  <div class="ig-tools" id="igTools">
+    <button class="on" onclick="renderIG('파견',this)">파견</button>
+    <button onclick="renderIG('도급',this)">도급</button>
+    <button onclick="renderIG('용역',this)">용역</button>
+  </div>
+  <div class="ig-stage"><div id="igStage"></div></div>
+  <div class="ig-legend">
+    <span><i class="emp"></i> 고용·임금</span>
+    <span><i class="cmd"></i> 지휘·명령 (O)</span>
+    <span><i class="no"></i> 지휘·명령 (X)</span>
+  </div>
+  <div class="ig-tip" id="igTip"></div>
+</div>
+
+<div class="deck">
+  <h3>부당 해고 구제 vs 차별 시정</h3>
+  <div class="cap">기한 숫자 — <b>3개월 vs 6개월</b>이 단골 함정</div>
+  <div class="cmp-grid">
+    <div class="cmp-card avg">
+      <div class="cmp-head">
+        <svg class="cmp-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#E7EFF9"/><path d="M14 28 V20 a8 8 0 0 1 16 0 v8" fill="none" stroke="#16243F" stroke-width="2.4"/><rect x="12" y="27" width="20" height="8" rx="2" fill="#16243F"/></svg>
+        <h4>부당 해고 등 구제</h4>
+      </div>
+      <div class="cmp-def">정당한 이유 없는 해고·부당노동행위 → 노동위원회 구제</div>
+      <div class="cmp-label">신청 기한 / 기관</div>
+      <div class="cmp-chips"><span class="cmp-chip">3개월 이내</span><span class="cmp-chip">지방노동위</span><span class="cmp-chip">중앙노동위 재심</span><span class="cmp-chip">행정 소송</span></div>
+    </div>
+    <div class="cmp-card ord">
+      <div class="cmp-head">
+        <svg class="cmp-ico" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><line x1="14" y1="18" x2="30" y2="18" stroke="#B23A2E" stroke-width="2.6" stroke-linecap="round"/><line x1="14" y1="26" x2="24" y2="26" stroke="#B23A2E" stroke-width="2.6" stroke-linecap="round"/></svg>
+        <h4>차별 시정</h4>
+      </div>
+      <div class="cmp-def">기간제·단시간·파견 근로자의 합리적 이유 없는 차별 → 시정 신청</div>
+      <div class="cmp-label">신청 기한 / 특징</div>
+      <div class="cmp-chips"><span class="cmp-chip">6개월 이내</span><span class="cmp-chip">입증책임 사용자</span><span class="cmp-chip">비교: 무기·전일제·직접고용</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="deck">
+  <h3>기간제 근로자와 무기계약 전환 <span class="spot-badge">㊲ 무기계약 연계</span></h3>
+  <div class="cap">근로계약기간 <b>‘정함 없음 = 무기(정규직)’</b> vs <b>‘있음 = 기간제’</b> — <b>2년</b>이 분기점!</div>
+  <div class="ot-flow">
+    <div class="ot-box"><div class="y">기간제 1차</div><div class="n">예) 1년 계약</div></div>
+    <div class="ot-arrow">›</div>
+    <div class="ot-box"><div class="y">갱신 2차</div><div class="n">예) +1년</div></div>
+    <div class="ot-arrow">›<small>2년 초과</small></div>
+    <div class="ot-box res"><div class="y">법에 의해 자동</div><div class="n">무기계약 간주</div></div>
+  </div>
+  <div class="ot-note">근거 <b>기간제법 §4②</b>. 반복 갱신·중간 퇴사 후 재입사도 <b>계속근로 총기간을 합산</b>해 2년 초과 여부를 판단한다. 새 계약서를 쓰지 않아도 <b>법에 의해 자동</b> 전환.</div>
+  <div class="ot-exc-h">⚠ 이런 경우엔 2년을 넘겨도 무기 전환 ✕ (예외)</div>
+  <div class="ot-exc">
+    <div class="ot-card">
+      <svg class="oic" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><rect x="13" y="14" width="18" height="18" rx="2" fill="#fff" stroke="#B23A2E" stroke-width="2"/><rect x="17" y="10" width="5" height="5" rx="1" fill="#B23A2E"/><rect x="16" y="18" width="3" height="3" fill="#B23A2E"/><rect x="20.5" y="18" width="3" height="3" fill="#B23A2E"/><rect x="25" y="18" width="3" height="3" fill="#B23A2E"/><rect x="16" y="23" width="3" height="3" fill="#B23A2E"/><rect x="20.5" y="23" width="3" height="3" fill="#B23A2E"/><rect x="25" y="23" width="3" height="3" fill="#B23A2E"/></svg>
+      <h5>5인 미만 사업장</h5>
+      <p>상시 4명 이하는 기간제법 <b>2년 제한 규정 자체가 적용 안 됨</b>(법 §3②).</p>
+      <span class="xb">무기 전환 ✕</span>
+    </div>
+    <div class="ot-card">
+      <svg class="oic" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><circle cx="22" cy="22" r="12" fill="#fff" stroke="#B23A2E" stroke-width="2"/><line x1="22" y1="22" x2="22" y2="15" stroke="#B23A2E" stroke-width="2.2" stroke-linecap="round"/><line x1="22" y1="22" x2="27" y2="24" stroke="#B23A2E" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <h5>초단시간 (주 15h 미만)</h5>
+      <p>주 평균 소정근로 15시간 미만은 사용기간 제한 <b>예외</b>(시행령 §3③6).</p>
+      <span class="xb">무기 전환 ✕</span>
+    </div>
+    <div class="ot-card">
+      <svg class="oic" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="21" fill="#FBE9E7"/><circle cx="22" cy="17" r="5" fill="#B23A2E"/><path d="M13 32 a9 7.5 0 0 1 18 0 z" fill="#B23A2E"/><circle cx="31" cy="14" r="3.4" fill="#A8842C"/></svg>
+      <h5>법에서 정한 예외 사유</h5>
+      <p>사업 완성·결원 대체·전문직(박사 등)·<b>만 55세 이상 고령자</b> 등. <span style="display:block;margin-top:3px;font-size:.92em;color:var(--muted)">(기간제법 §4① 단서)</span></p>
+      <span class="xb">무기 전환 ✕</span>
+    </div>
+  </div>
+  <div class="cap" style="margin-top:11px">※ <b>기본 원칙</b>은 ‘기간제로 2년 넘게 일하면 무기계약이 된다’예요. 위 세 경우(5인 미만 사업장·초단시간·법에서 정한 예외)는 그 <b>예외</b>라서 2년을 넘겨도 무기계약이 되지 않아요. 또 초단시간으로 일하던 사람이 나중에 <b>주 15시간 이상</b>으로 바뀌면, 그때부터 2년을 <b>새로</b> 셉니다. <span style="color:var(--muted)">(근거: 기간제법 §3②·§4①·시행령 §3③)</span></div>
+</div>
+
+<div class="deck" style="border-color:var(--stamp)">
+  <h3>근로자 권익 침해의 유형과 구제 <span class="spot-badge">킬러 빈출</span></h3>
+  <div class="cap">유형별 <b>판단 핵심 · 구제 경로</b> 한눈 정리 → 아래 카드를 누르면 <b>함정·기출</b>까지 펼쳐집니다</div>
+  <div class="scroll"><table class="reftbl">
+    <tr><th style="width:108px">유형</th><th>판단 핵심</th><th style="width:148px">구제 경로</th></tr>
+    <tr><td class="k">부당 해고</td><td>정당한 이유·절차 위반, 해고 금지 시기 해고</td><td><span class="hl">노동위원회</span>(3개월) + 민사 해고무효</td></tr>
+    <tr><td class="k">임금 체불</td><td>지급일 1일 초과 / 퇴직 후 14일 미지급. 소멸시효 <span class="hl">3년</span></td><td>고용노동부 진정 + 민사</td></tr>
+    <tr><td class="k">부당 노동 행위</td><td>노조 이유 불이익. <span class="hl">주체는 사용자</span></td><td><span class="hl">노동위원회</span>(3개월)</td></tr>
+    <tr class="spot"><td class="k">🎓 직장 내 성희롱</td><td>동성 간·회식·야유회 등 <span class="hl">사업장 밖에서도 성립</span></td><td>사업주 조치 + 고용노동부</td></tr>
+  </table></div>
+
+  <details class="rx-item" style="margin-top:12px"><summary class="rx-sum"><span class="rx-num" style="background:var(--stamp)">유형 ①</span><span class="rx-title">부당 해고 — 정당성 3요소 + 구제</span></summary>
+    <div class="rx-body">
+      <b>① 정당한 이유</b>(통상·징계·경영상 해고 모두) · <b>② 정당한 절차</b>(30일 전 서면 통지, 취업규칙·단협상 절차) · <b>③ 해고 금지 시기</b> 위반 금지 — 산재 요양기간 및 그 후 30일, 출산전후휴가기간 및 그 후 30일. <span class="em">셋 중 하나라도 어기면 부당 해고.</span><br>
+      <b>경영상 해고(정리해고)</b> 4요건 <span class="law" style="display:inline-block;background:#eef1f6;color:var(--ink);font-size:.8em;font-weight:700;padding:1px 6px;border-radius:5px;margin:0 2px">근기법 §24</span>: 긴박한 경영상 필요 · 해고 회피 노력 · 합리적·공정한 기준 · 근로자대표와 50일 전 협의.<br>
+      <b>구제</b>: 노동위원회 구제 신청(3개월 이내) → 중노위 재심 → 행정 소송 / 별도로 법원에 <b>해고 무효 확인 소송</b>(민사) 가능.<br>
+      <b style="color:var(--stamp)">함정</b>: 상시 <b>5인 미만</b> 사업장은 노동위원회 부당해고 <b>구제 신청 대상이 아님</b>(해고 예고·서면 통지 일부는 별개). ‘30일 전 예고’와 ‘30일 전 서면 통지’를 같은 것으로 묶는 선지 주의.
+    </div></details>
+
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num" style="background:var(--stamp)">유형 ②</span><span class="rx-title">임금 체불 — 14일·3년 + 구제</span></summary>
+    <div class="rx-body">
+      <b>판단</b>: 정기 지급일을 1일이라도 초과 / 퇴직 후 <b>14일 이내</b> 임금·퇴직금 등 금품 미지급(당사자 합의 시 기일 연장 가능).<br>
+      <b>구제</b>: 고용노동부(지방고용노동관서)에 진정·고소 → 체불 임금 확인 → <b>소액 사건 심판</b>·민사 소송. 임금 <b>채권 소멸시효 3년</b>.<br>
+      <b style="color:var(--stamp)">함정</b>: 소멸시효를 ‘1년/2년’으로, 청산 기한을 ‘30일’로 바꾸는 선지. <b>14일은 합의로 연장 가능</b>(무조건 위법 아님).
+    </div></details>
+
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num" style="background:var(--stamp)">유형 ③</span><span class="rx-title">부당 노동 행위 — 주체는 사용자</span></summary>
+    <div class="rx-body">
+      <b>유형</b>: 불이익 취급 · 황견(비열)계약 · 단체 교섭 거부·해태 · 지배·개입(노조 운영비 원조 등) <span class="law" style="display:inline-block;background:#eef1f6;color:var(--ink);font-size:.8em;font-weight:700;padding:1px 6px;border-radius:5px;margin:0 2px">노조법 §81</span>.<br>
+      <b>주체</b>: <b>사용자만</b> 부당 노동 행위의 주체가 된다(근로자·노조는 주체가 아님).<br>
+      <b>구제</b>: 노동위원회 구제 신청(부당 해고 등이 있었던 날부터 <b>3개월 이내</b>) — 부당 해고와 같은 절차.<br>
+      <b style="color:var(--stamp)">함정</b>: ‘근로자도 부당 노동 행위를 할 수 있다’는 오답. ‘정당한 조합 활동을 이유로 한 해고’는 부당 해고이자 <b>부당 노동 행위</b>로 동시에 해당.
+    </div></details>
+
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num" style="background:var(--stamp)">유형 ④</span><span class="rx-title">직장 내 성희롱 — 성립 범위·사용자 의무</span></summary>
+    <div class="rx-body">
+      <b>근거</b>: 「남녀고용평등과 일·가정 양립 지원에 관한 법률」.<br>
+      <b>성립</b>: 지위·업무 관련성을 이용한 성적 언동. <b>동성 간</b>에도, <b>회식·야유회 등 사업장 밖</b>에서도 성립. 거래처·고객 등 제3자에 의한 성희롱도 사용자 조치 의무 발생.<br>
+      <b>사용자 의무</b>: 예방 교육 <b>연 1회</b> 실시 · 발생 시 조사·가해자 징계 · 피해자 근무 장소 변경·유급 휴가 등, 피해자에 대한 <b>불리한 조치 금지</b>.<br>
+      <b style="color:var(--stamp)">함정</b>: ‘동성 간·사업장 밖은 성립 안 함’, ‘예방 교육은 임의 사항’은 오답.
+    </div></details>
+
+  <div class="cap" style="margin-top:12px">※ <b>본문 직접 명시</b>: 30일 전 해고 예고·14일 청산·소멸시효 3년·부당노동행위 주체(사용자)·성희롱 사업장 밖 성립. / <b>법령으로 보충(해석)</b>: 경영상 해고 4요건(근기법 §24)·부당노동행위 4유형(노조법 §81)·5인 미만 구제 제외.</div>
+</div>
+
+<div class="deck" style="border-color:var(--stamp)">
+  <h3>⏱ 초단시간 근로자 — 적용 vs 제외 <span class="spot-badge">킬러 빈출</span></h3>
+  <div class="cap">버튼으로 주 소정근로시간을 바꿔 보세요. <b>주 15시간</b>이 갈림길입니다. (㊵·㊶ 연계)</div>
+  <div class="short-top">
+    <svg class="short-ill" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#FBE9E7"/>
+      <rect x="22" y="15" width="28" height="3.6" rx="1.8" fill="#16243F"/>
+      <rect x="22" y="53.4" width="28" height="3.6" rx="1.8" fill="#16243F"/>
+      <path d="M26 18.6 H46 L37.6 36 L46 53.4 H26 L34.4 36 Z" fill="none" stroke="#16243F" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M31 21.5 h10 l-5 8.5 z" fill="#A8842C" opacity=".5"/>
+      <path d="M30.5 50 a5.5 4 0 0 1 11 0 z" fill="#A8842C"/>
+      <circle cx="36" cy="40.5" r="1.6" fill="#A8842C"/>
+    </svg>
+    <div class="short-toggle" id="shortToggle">
+      <button class="on" onclick="setShort('under')">주 15시간 <b>미만</b><small>초단시간 근로자</small></button>
+      <button onclick="setShort('over')">주 15시간 <b>이상</b><small>일반 근로자</small></button>
+    </div>
+  </div>
+
+  <span class="short-label" id="shortLabel">초단시간(주 15h 미만) — 빠지는 항목</span>
+  <div class="short-grid" id="shortGrid">
+    <div class="si flip"><div class="si-nm">주휴일·주휴수당</div><div class="si-stat"></div></div>
+    <div class="si flip"><div class="si-nm">연차 유급휴가</div><div class="si-stat"></div></div>
+    <div class="si flip"><div class="si-nm">퇴직금 <small>1년 이상 근속 시</small></div><div class="si-stat"></div></div>
+    <div class="si always ok"><div class="si-nm">최저임금 <small>시간·형태 무관</small></div><div class="si-stat">✓</div></div>
+    <div class="si always ok"><div class="si-nm">근로계약서 교부 <small>서면 명시·교부</small></div><div class="si-stat">✓</div></div>
+  </div>
+
+  <span class="short-label" style="margin-top:6px">4대 보험 — 가입 여부</span>
+  <div class="short-grid" id="shortGrid2">
+    <div class="si always ok"><div class="si-nm">산재보험 <small>1인 이상 항상</small></div><div class="si-stat">✓</div></div>
+    <div class="si cond"><div class="si-nm">고용보험 <small>3개월↑ 계속근로 시 적용</small></div><div class="si-stat"></div></div>
+    <div class="si flip"><div class="si-nm">국민연금 <small>직장가입</small></div><div class="si-stat"></div></div>
+    <div class="si flip"><div class="si-nm">건강보험 <small>직장가입</small></div><div class="si-stat"></div></div>
+  </div>
+  <div class="short-note" id="shortNote"></div>
+</div>
+
+<div class="deck" style="border-color:var(--gold)">
+  <h3>실전문제가 짚어준 핵심 <span class="note" style="font-weight:400">— 본문엔 없지만 해설에 나온 부분</span></h3>
+  <div class="cap">제목을 누르면 핵심이 펼쳐집니다. 시험 함정으로 자주 출제!</div>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 1번</span><span class="rx-title">취직인허증 제출 의무</span></summary>
+    <div class="rx-body">취직인허증은 <b>15세 미만</b>(예외적으로 13세 미만 예술공연)만 필요. 만 16세 학생은 <span class="em">제출 의무가 없다.</span> 1일 7시간 근로(휴게 별도)는 연소자 기준 적법.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 1번</span><span class="rx-title">임금 수령 통장 명의</span></summary>
+    <div class="rx-body">임금 <b>직접불 원칙</b>상 통장은 <span class="em">근로자 본인 명의</span>여야 한다. 친권자 명의 통장으로 받는 것은 위반. 미성년자도 임금을 <b>독자적으로 청구</b>할 수 있다.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 2번</span><span class="rx-title">현장 실습 표준 협약서</span></summary>
+    <div class="rx-body">표준 협약서는 회사와 학생이 <b>각각 1부씩 보관</b>. 채용 전환은 수업일수 <b>2/3 출석 이후</b>(1/3 아님)에 가능. 현장 실습생도 <span class="em">산업재해보상보험 적용 대상</span>. 야간(22시 이후) 실습은 불가.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 9번</span><span class="rx-title">직장 내 성희롱 성립 범위</span></summary>
+    <div class="rx-body"><b>동성 간</b> 성적 언동도 성립. <b>회식·야유회 등 사업장 밖</b>에서도 성립. 사업주는 예방 교육을 <b>연 1회</b> 실시해야 하며, 피해자는 유급 휴가 등을 요청할 수 있다.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 10번</span><span class="rx-title">소멸시효·구제 기관</span></summary>
+    <div class="rx-body">체불 임금(임금 채권) 소멸시효는 <b>3년</b>(1년 아님). 노조 가입을 이유로 한 성과급 미지급은 <span class="em">부당 노동 행위</span> → 지방노동위원회에 진정·구제 신청 가능.</div></details>
+</div>
+
+<div class="band anchor" id="exam"><span class="ic">★</span> 기출 연계 · 함정 포인트</div>
+
+<div class="gichul">
+  <h2>★ 기출 연계 확인</h2>
+  <div class="lead">선택지를 눌러 O / X 를 판단하세요. (수능·모평 출제 포인트)</div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 1.</span><span class="src">미성년자 근로</span>
+    <p>만 15세 미만인 사람은 <b>어떠한 경우에도</b> 근로 계약을 체결할 수 없다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">고용노동부 장관의 <b>취직인허증</b>을 받으면 가능. 13세 미만도 예술공연 참가자는 예외 허용.</div>
+  </div>
+  <div class="q" data-ans="O">
+    <span class="lab">기출 2.</span><span class="src">연소자 보호</span>
+    <p>연소자에게 야간·휴일 근로를 시키려면 본인 동의와 <b>고용노동부 장관의 인가</b>가 모두 필요하다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">동의만으로는 부족 — <b>동의 + 인가</b>가 함께 있어야 한다. 대표적 함정.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 3.</span><span class="src">미성년자 근로 계약</span>
+    <p>미성년자의 근로 계약은 친권자가 <b>대리하여</b> 체결할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">법정 대리인의 동의를 얻어 <b>본인이 직접</b> 체결한다(대리 불가). 「근로기준법」 67조.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 4.</span><span class="src">권익 구제</span>
+    <p>부당 해고 구제 신청은 부당 해고가 있었던 날부터 <b>6개월 이내</b>에 해야 한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">구제 신청은 <b>3개월 이내</b>. 6개월은 ‘차별 시정’ 신청 기한과 혼동시키는 함정.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 5.</span><span class="src">간접 고용</span>
+    <p>도급에서 도급인(원청)은 수급인의 근로자에게 직접 <b>지휘·명령</b>을 할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">도급인은 지휘·명령을 할 수 <b>없다</b>. 지휘·명령이 가능한 것은 파견의 <b>사용사업주</b>.</div>
+  </div>
+</div>
+
+<div class="gichul" style="background:#1A2E1F">
+  <h2>✔ 수능특강 실전문제 체크</h2>
+  <div class="lead">16강 실전문제에서 꼭 짚어야 할 함정. O / X 로 판단하세요.</div>
+  <div class="q" data-ans="O">
+    <span class="lab">실전 1번.</span><span class="src">연소자 근로 시간</span>
+    <p>만 16세 학생이 1일 7시간(휴게 1시간 별도) 근무하기로 한 계약은 「근로기준법」을 <b>준수</b>한 것이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">연소자 법정 근로 시간은 1일 7시간 → 적법. 휴게는 근로시간에서 제외.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 1번.</span><span class="src">취직인허증</span>
+    <p>위 만 16세 학생은 사용자에게 <b>취직인허증</b>을 제출할 의무가 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">취직인허증은 <b>15세 미만</b>만 필요. 16세는 제출 의무 없음.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 1번.</span><span class="src">임금 직접불</span>
+    <p>미성년자가 임금을 받는 통장의 명의자는 <b>친권자</b>여야 한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">임금 직접불 원칙상 통장은 <b>본인 명의</b>. 미성년자도 임금을 직접 청구한다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 2번.</span><span class="src">현장 실습</span>
+    <p>현장 실습생은 분야 특성에 따라 <b>오후 10시 이후 야간 실습</b>이 가능하다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">현장 실습생은 연소 근로 기준 적용 → <b>야간(22시 이후)·휴일 실습 불가</b>.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 9번.</span><span class="src">직장 내 성희롱</span>
+    <p>직장 내 성희롱은 <b>동성 간</b>의 성적 언동이나 야유회 등 사업장 밖에서는 성립하지 않는다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">동성 간에도, 회식·야유회 등 사업장 밖에서도 <b>성립</b>한다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 10번.</span><span class="src">임금 채권</span>
+    <p>임금 채권(체불 임금)의 소멸시효는 임금 체불일로부터 <b>1년</b>이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">임금 채권 소멸시효는 <b>3년</b>. ‘1년’은 함정.</div>
+  </div>
+</div>
+
+<div class="pit">
+  <h2>▶ 함정 포인트</h2>
+  <details><summary><span class="n">01</span> 취업 가능 연령 — ‘15세부터 무조건’ 아니다</summary>
+    <div class="body">원칙적으로 15세 미만은 근로 불가지만 <b>취직인허증</b>으로 가능. 13세 미만은 <b>예술공연 참가자</b>만 예외. ‘15세부터 항상 가능/15세 미만 절대 불가’는 함정.</div></details>
+  <details><summary><span class="n">02</span> 연소자 야간·휴일 근로 — 동의 + 인가</summary>
+    <div class="body">연소자(및 임산부)의 야간·휴일 근로는 본인 <b>동의</b>만으로 부족. <b>고용노동부 장관의 인가</b>까지 있어야 가능. ‘동의만으로 가능’은 오답.</div></details>
+  <details><summary><span class="n">03</span> 기한 숫자 3종 세트</summary>
+    <div class="body">부당해고 등 구제 신청 <b>3개월</b> / 차별 시정 신청 <b>6개월</b> / 임금 채권 소멸시효 <b>3년</b> / 퇴직 후 금품 청산 <b>14일</b>. 서로 바꿔 내는 단골 함정.</div></details>
+  <details><summary><span class="n">04</span> 미성년자 근로 계약 — 본인이 직접</summary>
+    <div class="body">법정 대리인의 동의를 얻어 <b>본인이 직접 체결</b>(대리 불가). 임금도 <b>본인이 직접 청구</b>. 불리한 계약은 친권자·후견인·<b>고용노동부 장관</b>도 해지 가능.</div></details>
+  <details><summary><span class="n">05</span> 간접 고용 — 지휘·명령권의 소재</summary>
+    <div class="body"><b>파견</b> = 사용사업주가 지휘·명령(고용은 파견사업주) / <b>도급</b> = 원청은 지휘·명령 불가 / <b>용역</b> = 인적 서비스 한정. 누가 명령권을 갖는지가 핵심.</div></details>
+  <details><summary><span class="n">06</span> 차별 시정 — 대상·비교·입증</summary>
+    <div class="body">신청 대상은 <b>기간제·단시간·파견</b> 근로자. 비교 대상은 <b>무기계약·전일제·직접고용</b> 근로자. 차별 없음의 <b>입증책임은 사용자</b>.</div></details>
+  <details><summary><span class="n">07</span> 초단시간 근로자 — 적용 제외 항목</summary>
+    <div class="body">주 평균 소정 근로 <b>15시간 미만</b>(월 60시간 미만) → 주휴일·주휴수당·연차 유급 휴가·<b>퇴직금</b> 적용 제외.</div></details>
+</div>
+
+<div class="totop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="ar">↑</span> 맨 위로</button></div>
+<div class="lab-sign">
+  <div class="lab-stars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lab-head">
+    <div class="lab-planet-wrap">
+      <svg class="lab-planet" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#A8842C" stroke-width="2.4" transform="rotate(-20 40 42)"/>
+        <circle cx="40" cy="38" r="16" fill="#EAD9A6"/>
+        <path d="M40 22 a16 16 0 0 1 0 32 a16 16 0 0 1 0 -32 z" fill="#D8C386" opacity=".55"/>
+        <circle cx="34" cy="33" r="3" fill="#C9B273" opacity=".8"/>
+        <circle cx="46" cy="42" r="2.2" fill="#C9B273" opacity=".7"/>
+        <circle cx="40" cy="38" r="16" fill="none" stroke="#fff" stroke-width="1" opacity=".25"/>
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#EAD9A6" stroke-width="2.4" stroke-dasharray="2 60" transform="rotate(-20 40 42)"/>
+        <circle cx="68" cy="34" r="3.4" fill="#FFE6A8"/>
+      </svg>
+    </div>
+    <div class="lab-text">
+      <div class="lab-name">은또링샘의 <span class="em">행성 연구소</span></div>
+      <div class="lab-tag">P L A N E T &nbsp; L A B</div>
+    </div>
+  </div>
+  <div class="lab-meta">성공적인 직업생활 · 16강 근로관계와 법(2) · EBS 수능특강 2027 + EBS Plus 수록</div>
+</div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const TERMS = [
+  ["취직인허증","15세 미만(예외적으로 13세 미만 예술공연 참가자)이 취업할 수 있도록 고용노동부 장관이 발급하는 증서. 본인·사용자·친권자·학교장 등의 서명·날인을 받아 신청."],
+  ["위약 예정의 금지","근로 계약 불이행에 대한 위약금·손해배상액을 미리 정하는 계약을 금지하는 것. 실손해 배상 청구는 가능."],
+  ["전차금 상계의 금지","사용자가 미리 빌려준 돈(전대 채권)을 임금에서 일방적으로 공제·상계하지 못하게 하는 것."],
+  ["현장 실습 표준 협약","특성화고·마이스터고 학생의 산업체 현장 실습 시 체결하는 협약. 채용 전환은 수업일수 2/3 출석 이후 가능."],
+  ["부당 해고","정당한 이유가 없거나 해고 절차·시기를 위반한 해고. 30일 전 서면 통지를 위반한 경우 포함."],
+  ["부당 노동 행위","노조 조직·가입·활동을 이유로 한 불이익이나 노조 활동에 대한 부당 개입. 주체는 사용자."],
+  ["임금 채권 소멸시효","임금을 청구할 수 있는 날부터 3년이 지나면 임금 채권이 소멸함."],
+  ["취직 인허증 발급 절차","지방고용노동청 민원실 서류에 본인·사용자·친권자·학교장 등의 서명·날인을 받아 제출하여 발급."],
+  ["차별 시정 제도","기간제·단시간·파견 근로자가 합리적 이유 없는 차별을 받을 때 구제받는 제도. 종료일부터 6개월 이내 신청, 입증책임은 사용자."],
+  ["초단시간 근로자","주 평균 소정 근로 15시간 미만(월 60시간 미만). 주휴일·주휴수당·연차·퇴직금 적용 제외."],
+  ["무기계약 근로자","기간의 정함이 없는 근로 계약을 체결한 근로자. 차별 시정의 비교 대상이 됨."],
+  ["전일제 근로자","취업 규칙 등에서 정한 소정 근로 시간을 모두 근무하는 근로자. 비교 대상."],
+  ["간접 고용","사용자가 직접 고용하지 않고 파견·도급·용역 등 외부 업체와의 계약으로 노동력을 사용하는 형태."],
+  ["파견 근로","파견사업주가 고용한 근로자를 사용사업주의 지휘·명령 아래 일하게 하는 형태(근로자 파견 계약)."],
+  ["도급","일의 완성을 목적으로 하는 계약. 도급인(원청)은 수급인의 근로자에게 지휘·명령할 수 없음."],
+  ["용역","도급과 유사하나 인적 서비스에 한정되는 형태. 청소·경비업·시설 관리업 등."],
+  ["직장 내 성희롱","지위·업무 관련성을 이용한 성적 언동. 동성 간·회식·야유회 등 사업장 밖에서도 성립 가능."],
+  ["부당 해고 등 구제 절차","지방노동위원회 구제 신청(3개월 이내) → 중앙노동위원회 재심 → 행정 법원 행정 소송."]
+];
+const cardWrap = document.getElementById('cards');
+TERMS.forEach(([t,d])=>{
+  const el=document.createElement('div'); el.className='fcard';
+  el.innerHTML='<div class="inner"><div class="term">'+t+'</div><div class="hint">뜻 보기</div><div class="def">'+d+'</div></div>';
+  el.addEventListener('click',()=>el.classList.toggle('open'));
+  cardWrap.appendChild(el);
+});
+
+const blanks = [...document.querySelectorAll('input.blank')];
+const norm = s => (s||'').replace(/[\s().·,'’‘%]/g,'').toLowerCase();
+const answerOf = b => b.dataset.a.split('|')[0];
+const userVal = b => ('userans' in b.dataset) ? b.dataset.userans : b.value;
+function fitWidth(b){ b.style.width = Math.max(4, [...b.value].length + 1) + 'em'; }
+function clearState(b){
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title');
+  if('userans' in b.dataset){ b.value=b.dataset.userans; delete b.dataset.userans; }
+}
+function updateFilled(){
+  const n = blanks.filter(b=>userVal(b).trim()!=='').length;
+  document.getElementById('filled').textContent = n;
+  document.getElementById('bar').style.width = (n/blanks.length*100)+'%';
+}
+blanks.forEach(b=>b.addEventListener('input',()=>{
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title'); delete b.dataset.userans;
+  updateFilled();
+}));
+function isCorrect(b){
+  const got = norm(userVal(b)); if(!got) return null;
+  return b.dataset.a.split('|').some(a=>norm(a)===got);
+}
+function grade(){
+  let correct=0, answered=0;
+  blanks.forEach(b=>{
+    const uv = userVal(b);
+    b.classList.remove('correct','wrong','reveal','peek'); b.removeAttribute('title');
+    const r = isCorrect(b);
+    b.dataset.userans = uv;
+    b.value = answerOf(b);
+    fitWidth(b);
+    if(r===null){ b.title='내가 쓴 답: (빈칸)'; b.classList.add('reveal'); }
+    else if(r){ correct++; answered++; b.classList.add('correct'); }
+    else { answered++; b.title='내가 쓴 답: '+uv; b.classList.add('reveal'); }
+  });
+  solShown = true; document.getElementById('solBtn').textContent='정답 숨기기';
+  document.getElementById('scoretxt').innerHTML = ' · 정답 <b style="color:var(--ok)">'+correct+'</b>';
+  const pct = Math.round(correct/blanks.length*100);
+  let msg = correct===blanks.length ? '완벽합니다! 전 항목 정답 🎉'
+          : pct>=80 ? '거의 다 왔어요 — 빨강 칸이 정답!'
+          : pct>=50 ? '절반 이상! 빨강 칸이 정답입니다.'
+          : answered===0 ? '빈칸엔 정답을 채워 표시했어요.' : '빨강 칸이 정답입니다. 다시 도전!';
+  toast('채점 결과 — '+correct+' / '+blanks.length+'  ('+pct+'%)  '+msg);
+}
+let solShown=false;
+function toggleSol(){
+  solShown=!solShown;
+  if(solShown){
+    blanks.forEach(b=>{
+      if(!('userans' in b.dataset)) b.dataset.userans=b.value;
+      b.value=answerOf(b); b.classList.remove('correct','wrong','reveal');
+      b.classList.add('peek'); b.removeAttribute('title'); fitWidth(b);
+    });
+    document.getElementById('solBtn').textContent='정답 숨기기';
+  } else {
+    blanks.forEach(b=>clearState(b));
+    document.getElementById('solBtn').textContent='정답 보기';
+    document.getElementById('scoretxt').textContent='';
+  }
+  updateFilled();
+}
+function resetAll(){
+  blanks.forEach(b=>{ delete b.dataset.userans; b.value='';
+    b.classList.remove('correct','wrong','reveal','peek'); b.style.width=''; b.removeAttribute('title'); });
+  solShown=false; document.getElementById('solBtn').textContent='정답 보기';
+  document.getElementById('scoretxt').textContent='';
+  document.querySelectorAll('.q').forEach(q=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    q.querySelector('.fe021').classList.remove('show');
+    q.classList.remove('answered','ok','no'); });
+  document.querySelectorAll('.fcard.open').forEach(c=>c.classList.remove('open'));
+  updateFilled(); window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.q').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.optbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const ok = btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.optbtn[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.fe021').classList.add('show');
+    q.classList.remove('ok','no'); q.classList.add('answered', ok?'ok':'no');
+  }));
+});
+let toTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace('채점 결과','<span class="stamp">채점 결과</span>');
+  t.classList.add('show'); clearTimeout(toTimer);
+  toTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+function setWT(mode){
+  const bBtn=document.getElementById('wtBase'), mBtn=document.getElementById('wtMax');
+  if(bBtn) bBtn.classList.toggle('on',mode==='base');
+  if(mBtn) mBtn.classList.toggle('on',mode==='max');
+  const MAX=52;
+  document.querySelectorAll('#wtRows .wt-row[data-base]').forEach(r=>{
+    const base=+r.dataset.base, ext=+r.dataset.ext, db=+r.dataset.db, de=+r.dataset.de;
+    const showExt=(mode==='max')?ext:0, showDe=(mode==='max')?de:0;
+    const bSeg=r.querySelector('.wt-seg.base'), eSeg=r.querySelector('.wt-seg.ext'), tot=r.querySelector('.wt-total');
+    bSeg.style.width=(base/MAX*100)+'%'; bSeg.textContent=base+'h';
+    eSeg.style.width=(showExt/MAX*100)+'%'; eSeg.textContent=showExt?('+'+showExt):'';
+    const wk=base+showExt, day=db+showDe;
+    tot.innerHTML='주 '+(showExt?('<b>'+wk+'h</b>'):(wk+'h'))+'<small>일 '+day+'h'+(ext===0&&mode==='max'?' · 연장 불가':'')+'</small>';
+  });
+}
+function ctToggle(rowEl){
+  const it=rowEl.closest('.ct-item'); if(it) it.classList.toggle('open');
+}
+function ctHi(btn){
+  const p=document.getElementById('ctPaper'); if(!p) return;
+  const on = btn && !btn.classList.contains('on');
+  const rb=document.getElementById('ctReqBtn'); if(rb) rb.classList.remove('on');
+  p.classList.toggle('showreq', !!on);
+  if(btn) btn.classList.toggle('on', !!on);
+}
+function setShort(mode){
+  const under = mode==='under';
+  const tg=document.getElementById('shortToggle');
+  if(tg){ const bs=tg.querySelectorAll('button'); bs[0].classList.toggle('on',under); bs[1].classList.toggle('on',!under); }
+  document.querySelectorAll('.si.flip').forEach(si=>{
+    si.classList.remove('ok','no'); si.classList.add(under?'no':'ok');
+    const st=si.querySelector('.si-stat'); st.textContent=under?'✕':'✓';
+    si.classList.add('flash'); setTimeout(()=>si.classList.remove('flash'),370);
+  });
+  document.querySelectorAll('.si.cond').forEach(si=>{
+    si.classList.remove('ok'); if(!under) si.classList.add('ok');
+    const st=si.querySelector('.si-stat'); st.textContent=under?'△':'✓';
+    si.classList.add('flash'); setTimeout(()=>si.classList.remove('flash'),370);
+  });
+  const lb=document.getElementById('shortLabel');
+  if(lb) lb.textContent = under ? '초단시간(주 15h 미만) — 빠지는 항목' : '주 15h 이상 — 모두 적용';
+  const note=document.getElementById('shortNote');
+  if(note) note.innerHTML = under
+    ? '주 평균 소정근로 <b>15시간 미만</b>(월 60시간 미만)인 <b>초단시간 근로자</b>는 <b>주휴일·주휴수당 · 연차 유급휴가 · 퇴직금</b>과 <b>국민연금·건강보험(직장가입)</b>이 적용 제외됩니다. <b>고용보험</b>은 원칙 제외이나 <b style="color:#9A4A0A">3개월 이상 계속 근로</b> 시 적용(△). 반면 <b style="color:var(--ok)">최저임금 · 근로계약서 교부 · 산재보험</b>은 항상 적용돼요.'
+    : '주 평균 소정근로 <b>15시간 이상</b>이면 주휴일·연차·퇴직금은 물론 <b style="color:var(--ok)">4대 보험(산재·고용·국민연금·건강)</b>이 모두 적용됩니다. (퇴직금은 계속근로 1년 이상일 때 발생)';
+}
+const IG = {
+  '파견':{ a:['파견사업주','고용계약 체결'], b:['사용사업주','지휘·명령'], c:['파견 근로자'],
+    ab:'근로자 파견 계약', ac:{l:'고용·임금',k:'emp'}, bc:{l:'지휘·명령',k:'cmd'},
+    tip:'월급은 <b>파견사업주</b>가 주고, 일은 <b>사용사업주</b>가 시킨다 — 고용과 지휘가 <b>나뉘는</b> 구조!' },
+  '도급':{ a:['도급인 (원청)','도급 발주'], b:['수급인 (하청)','고용 + 지휘'], c:['근로자'],
+    ab:'도급 계약 (일의 완성)', ac:{l:'지휘·명령 ✕',k:'no'}, bc:{l:'고용 + 지휘·명령',k:'emp'},
+    tip:'원청은 <b>결과물(일의 완성)</b>만 받고, 하청 근로자에게 <b>직접 지휘·명령은 못 한다</b>.' },
+  '용역':{ a:['사용 업체','서비스 이용'], b:['용역 업체','고용 + 지휘'], c:['근로자'],
+    ab:'용역 계약 (인적 서비스)', ac:{l:'지휘·명령 ✕',k:'no'}, bc:{l:'고용 + 지휘·명령',k:'emp'},
+    tip:'도급과 비슷하지만 <b>사람의 서비스</b>(청소·경비·시설관리) 자체가 목적이다.' }
+};
+function igLabel(mx,my,text,col){
+  const w=text.length*12+14;
+  return `<rect x="${(mx-w/2).toFixed(1)}" y="${my-11}" width="${w}" height="22" rx="5" fill="#FCFBF6" opacity="0.95"/>`+
+    `<text x="${mx}" y="${my+4}" text-anchor="middle" font-family="Noto Sans KR,sans-serif" font-weight="700" font-size="12" fill="${col}">${text}</text>`;
+}
+function igArrow(x1,y1,x2,y2,label,kind){
+  const col = kind==='emp'?'#2E7D5B':kind==='cmd'?'#B23A2E':'#AA9988';
+  const mk = kind==='emp'?'mEmp':kind==='cmd'?'mCmd':'mNo';
+  const dash = kind==='no'?'stroke-dasharray="7 5"':'';
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="2.6" ${dash} marker-end="url(#${mk})"/>`+
+    igLabel((x1+x2)/2,(y1+y2)/2,label,col);
+}
+function igIcon(type,cx,cy,color){
+  if(type==='biz'){
+    return `<g transform="translate(${cx-15},${cy-15})">`+
+      `<rect x="3" y="7" width="24" height="22" rx="2" fill="#fff" stroke="${color}" stroke-width="2"/>`+
+      `<rect x="13" y="2" width="7" height="7" rx="1" fill="${color}"/>`+
+      `<rect x="7" y="12" width="3.5" height="3.5" fill="${color}"/><rect x="13.5" y="12" width="3.5" height="3.5" fill="${color}"/><rect x="20" y="12" width="3.5" height="3.5" fill="${color}"/>`+
+      `<rect x="7" y="18" width="3.5" height="3.5" fill="${color}"/><rect x="13.5" y="18" width="3.5" height="3.5" fill="${color}"/><rect x="20" y="18" width="3.5" height="3.5" fill="${color}"/>`+
+      `<rect x="13" y="24" width="4" height="5" fill="${color}"/></g>`;
+  }
+  return `<g transform="translate(${cx-15},${cy-15})">`+
+    `<circle cx="15" cy="9" r="6" fill="${color}"/>`+
+    `<path d="M3 30 a12 10 0 0 1 24 0 z" fill="${color}"/>`+
+    `<rect x="11" y="17" width="8" height="3" rx="1.5" fill="#FCFBF6"/></g>`;
+}
+function igBox(x,y,w,h,t1,t2,accent,icon){
+  const tx=x+52;
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="11" fill="#fff" stroke="${accent}" stroke-width="2.6"/>`+
+    igIcon(icon, x+28, y+h/2, accent)+
+    `<text x="${tx}" y="${y+(t2?h/2-2:h/2+6)}" text-anchor="start" font-family="Noto Serif KR,serif" font-weight="700" font-size="16" fill="#16243F">${t1}</text>`+
+    (t2?`<text x="${tx}" y="${y+h/2+16}" text-anchor="start" font-family="Noto Sans KR,sans-serif" font-size="11" fill="#7C7768">${t2}</text>`:'');
+}
+function renderIG(form,btn){
+  const cfg=IG[form];
+  const A={x:18,y:20,w:188,h:64}, B={x:414,y:20,w:188,h:64}, C={x:216,y:158,w:188,h:66};
+  const defs=`<defs>`+
+    ['mEmp:#2E7D5B','mCmd:#B23A2E','mNo:#AA9988'].map(s=>{const[id,c]=s.split(':');
+      return `<marker id="${id}" markerWidth="9" markerHeight="9" refX="7.5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="${c}"/></marker>`;}).join('')+
+    `<marker id="mNav" markerWidth="9" markerHeight="9" refX="7.5" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" fill="#16243F"/></marker></defs>`;
+  const abY=A.y+A.h/2;
+  const contract = `<line x1="${A.x+A.w}" y1="${abY}" x2="${B.x}" y2="${abY}" stroke="#16243F" stroke-width="2.4" marker-start="url(#mNav)" marker-end="url(#mNav)"/>`+
+    igLabel((A.x+A.w+B.x)/2, abY, cfg.ab, '#16243F');
+  const accentB = (form==='파견')?'#B23A2E':'#2E7D5B';
+  const svg = `<svg viewBox="0 0 620 248" xmlns="http://www.w3.org/2000/svg">${defs}`+
+    igBox(A.x,A.y,A.w,A.h,cfg.a[0],cfg.a[1],'#3A4A66','biz')+
+    igBox(B.x,B.y,B.w,B.h,cfg.b[0],cfg.b[1],accentB,'biz')+
+    igBox(C.x,C.y,C.w,C.h,cfg.c[0],'','#A8842C','worker')+
+    contract+
+    igArrow(A.x+A.w*0.5, A.y+A.h, C.x+34, C.y, cfg.ac.l, cfg.ac.k)+
+    igArrow(B.x+B.w*0.5, B.y+B.h, C.x+C.w-34, C.y, cfg.bc.l, cfg.bc.k)+
+    `</svg>`;
+  document.getElementById('igStage').innerHTML=svg;
+  document.getElementById('igTip').innerHTML='<span class="hd">쉽게!</span>'+cfg.tip;
+  if(btn){ document.querySelectorAll('#igTools button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); }
+}
+renderIG('파견');
+setShort('under');
+setWT('max');
+updateFilled();
+</script>
+</body>
+</html>

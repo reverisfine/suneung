@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 19강 노동조합·노사관계 기출 15문항</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    --myeong:'Noto Serif KR',serif; --godic:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 상단 조작 바 (시험지 밖) ── */
+  .toolbar{position:sticky;top:0;z-index:60;background:rgba(233,231,226,.96);backdrop-filter:blur(5px);border-bottom:1px solid var(--line)}
+  .toolbar .in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .toolbar .prog{flex:1;min-width:120px;height:6px;background:#D6D3CC;border:1px solid var(--line);border-radius:0;overflow:hidden}
+  .toolbar .prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .45s ease}
+  .toolbar .stat{font-family:var(--godic);font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap}
+  .toolbar .stat b{font-family:var(--myeong);font-weight:700;font-size:1rem}
+  .tbtn{font-family:var(--godic);font-size:.76rem;font-weight:500;cursor:pointer;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 11px;border-radius:2px}
+  .tbtn:hover{background:var(--ink);color:#fff}
+  .tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+  .running{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--rule);padding-bottom:5px;margin-bottom:4px}
+  .running .l{font-family:var(--godic);font-weight:700;font-size:1.44rem;letter-spacing:-.02em}
+  .running .r{font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2)}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-bottom:1px solid var(--rule);padding:3px 0 6px;margin-bottom:16px}
+  /* ── 시험지 표지 머리 ── */
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld input{border:none;background:#fff;font-family:var(--myeong);font-size:.95rem;color:var(--ink);padding:0 8px;min-width:0}
+  .fld input:focus{outline:none;background:#FBFBF6}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;text-align:center;border-left:1.5px solid var(--ink);padding:0}
+  .fld .cell:first-of-type{border-left:none}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"◦";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+  .index{font-family:var(--godic);font-size:.78rem;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+  .index a{text-decoration:none;color:var(--ink2);border:1px solid var(--line);padding:4px 9px;background:#fff}
+  .index a:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* ── 단원 구분 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+  .part .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .part .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .part .memo ul{list-style:none}
+  .part .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .part .memo li::before{content:"·";position:absolute;left:3px;font-weight:700}
+  .part .memo b{font-weight:700}
+  .part .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+
+  /* ── 문항 ── */
+  .q{margin:22px 0 0;padding-bottom:20px;border-bottom:1px dashed var(--hair)}
+  .q:last-of-type{border-bottom:none}
+  .code{text-align:right;font-family:var(--godic);font-size:.7rem;color:var(--lgray);letter-spacing:-.01em;margin-bottom:1px}
+  .ask{font-family:var(--godic);font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:-.015em;text-indent:-1.35em;padding-left:1.35em}
+  .ask .n{font-weight:700}
+  .ask .pt{font-weight:700}
+  .ask .cond{font-weight:400;font-size:.88em}
+
+  .passage{border:1.2px solid var(--ink);padding:11px 14px;margin:11px 0 0;font-size:.87rem;line-height:1.68}
+  .passage .ttl{text-align:center;font-family:var(--godic);font-weight:700;font-size:.85rem;margin-bottom:7px}
+  .passage ul{list-style:none}
+  .passage li{margin:3px 0;padding-left:13px;position:relative}
+  .passage li::before{content:"◦";position:absolute;left:0;font-size:.85em}
+  .passage p{margin:3px 0;text-indent:.6em}
+  .passage .note{font-size:.8rem;color:var(--gray);margin-top:6px;text-indent:0}
+  .passage b{font-weight:700}
+
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:7px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.5}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+
+  .bogi{margin:12px 0 0;border:1.2px solid var(--ink);padding:0 15px 10px;font-size:.87rem}
+  .bogi .bt{display:block;width:-moz-fit-content;width:fit-content;margin:-11px auto 8px;background:#fff;padding:0 9px;
+    font-family:var(--godic);font-weight:500;font-size:.79rem;letter-spacing:.12em;color:var(--ink);line-height:1.5}
+  .bogi p{margin:3px 0;text-indent:-1.15em;padding-left:1.15em}
+
+  /* ── 선택지 ── */
+  ul.ch{list-style:none;margin-top:10px}
+  ul.ch li{margin:0}
+  .ch button{width:100%;text-align:left;font-family:var(--myeong);font-size:.885rem;line-height:1.6;color:var(--ink);background:transparent;border:1px solid transparent;padding:4px 7px;cursor:pointer;display:flex;gap:8px;align-items:flex-start;transition:background .12s,border-color .12s}
+  /* OMR 마킹 버블 */
+  .ch button .no{flex-shrink:0;width:19px;height:19px;margin-top:2px;border:1.3px solid #6E6E68;border-radius:50%;background:#fff;
+    display:inline-grid;place-items:center;font-family:var(--godic);font-size:.68rem;font-weight:500;color:#55554F;line-height:1;
+    transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+  .ch button:hover{background:#F2F1ED}
+  .ch button:hover .no{border-color:var(--ink);color:var(--ink)}
+  .ch.inline{display:flex;flex-wrap:wrap;gap:3px 8px;justify-content:flex-start}
+  .ch.inline li{flex:0 0 auto}
+  .ch.inline button{width:auto;padding:4px 10px;white-space:nowrap}
+  .q.done .ch button{cursor:default;pointer-events:none}
+  /* 채점 전: 마킹만 된 상태 (정오 표시 없음) */
+  .ch button.marked{background:#EFEEE9;border-color:#6E6E68}
+  .ch button.marked .no{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.06)}
+  /* 문항별 채점 버튼 */
+  .qact{display:flex;justify-content:flex-end;margin-top:11px}
+  .gradebtn{font-family:var(--godic);font-size:.78rem;font-weight:500;cursor:pointer;
+    border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 15px;border-radius:2px;transition:.14s}
+  .gradebtn:hover{background:var(--ink);color:#fff}
+  .gradebtn:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+  .gradebtn.graded{border-color:var(--line);color:var(--gray);font-size:.76rem}
+  .gradebtn.graded:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .ch.nudge{animation:nudge .34s}
+  @keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  /* 마킹한 답이 정답 */
+  .ch button.pick-ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .ch button.pick-ok .no{background:var(--ok);border-color:var(--ok);color:#fff;transform:scale(1.06)}
+  /* 마킹한 답이 오답 */
+  .ch button.pick-no{background:var(--nobg);border-color:var(--no);color:var(--no)}
+  .ch button.pick-no .no{background:var(--no);border-color:var(--no);color:#fff;transform:scale(1.06)}
+  .ch button.pick-no .tx{text-decoration:line-through;text-decoration-thickness:1px}
+  /* 마킹하지 않았지만 정답인 칸 */
+  .ch button.mark-ok{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+  .ch button.mark-ok .no{background:#fff;border:2px solid var(--ok);color:var(--ok);font-weight:700}
+  .ch button:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 정답과 해설 ── */
+  .sol{display:none;margin-top:13px;border:1px solid var(--line);border-left:4px solid var(--ink);background:#FBFBF9;padding:12px 15px}
+  .sol.open{display:block}
+  .sol .hd{font-family:var(--godic);font-weight:700;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sol .hd .ans{font-family:var(--myeong);font-size:1.1rem;color:var(--no)}
+  .sol .hd .via{margin-left:auto;font-weight:400;font-size:.7rem;color:var(--lgray)}
+  .sol .link{font-family:var(--godic);font-size:.75rem;color:var(--gray);margin-bottom:8px}
+  .sol .link b{color:var(--ink2)}
+  .sol .lab{font-family:var(--godic);font-weight:700;font-size:.78rem;background:var(--ink);color:#fff;padding:1px 7px;margin-right:6px;vertical-align:1px}
+  .sol .lab.w{background:#7A7A7A}
+  .sol .lab.t{background:var(--no)}
+  .sol p{font-size:.855rem;line-height:1.68;margin:6px 0}
+  .sol ul{list-style:none;margin:5px 0}
+  .sol ul li{font-size:.845rem;line-height:1.62;margin:4px 0;padding-left:1.5em;text-indent:-1.5em}
+  .sol ul li .x{font-weight:700;color:var(--no);margin-right:4px}
+  .sol .trap{margin-top:9px;border-top:1px dotted var(--line);padding-top:8px}
+  .sol b{font-weight:700}
+  .sol .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+
+  /* ── 부록 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  details.pit{border:1px solid var(--line);margin-bottom:6px;background:#fff}
+  details.pit[open]{border-color:var(--ink)}
+  details.pit summary{cursor:pointer;list-style:none;font-family:var(--godic);font-weight:500;font-size:.86rem;padding:9px 13px;display:flex;gap:9px;align-items:center}
+  details.pit summary::-webkit-details-marker{display:none}
+  details.pit summary .n{flex-shrink:0;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--ink);font-size:.7rem;font-weight:700;font-family:var(--myeong)}
+  details.pit summary::after{content:"＋";margin-left:auto;font-size:.85rem;color:var(--gray)}
+  details.pit[open] summary::after{content:"－"}
+  details.pit .bd{padding:0 14px 12px 42px;font-size:.85rem;line-height:1.68;color:var(--ink2)}
+  details.pit .bd b{font-weight:700;color:var(--ink)}
+  details.pit .bd table.ex{font-size:.78rem;margin:9px 0 6px}
+  details.pit .bd table.ex td,details.pit .bd table.ex th{padding:4px 7px}
+  details.pit .bd .sub{display:block;font-family:var(--godic);font-weight:700;font-size:.79rem;color:var(--ink);margin:11px 0 3px;padding-left:9px;border-left:3px solid var(--ink)}
+  details.pit .bd .cap{display:block;font-size:.77rem;color:var(--gray);margin-top:5px}
+  details.pit .bd .no-ok{color:var(--no);font-weight:700}
+  details.pit .bd .yes-ok{color:var(--ok);font-weight:700}
+  details.pit .bd .hl{font-weight:700;border-bottom:2px solid #E3DCC8}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-weight:700;font-size:.95rem}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .caution{margin-top:14px;border:1px solid var(--no);padding:10px 13px;font-size:.82rem;line-height:1.68;color:var(--ink2)}
+  .caution b{color:var(--no);font-weight:700}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 20px;font-family:var(--godic);font-size:.83rem;font-weight:500;box-shadow:0 6px 22px rgba(0,0,0,.25);transition:transform .35s ease,opacity .25s;z-index:99;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #top{position:fixed;right:14px;bottom:20px;z-index:60;width:36px;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:none;font-size:.9rem}
+  #top.show{display:block}
+
+  @media(max-width:640px){
+    .sheet{padding:22px 16px 18px;margin:10px auto 30px;border-left:none;border-right:none}
+    .running .l{font-size:1.15rem}
+    .cover h1{font-size:2.05rem}
+    .cover .titlerow{flex-direction:column;gap:10px;min-height:0}
+    .cover .form{position:static;transform:none}
+    .cover .fields{gap:12px}
+    .fld .nm{width:120px}
+    .fld .cell{width:24px}
+    .pagemark .pgcut{margin-left:-16px;margin-right:-16px}
+    .ch.inline{flex-direction:column;gap:0}
+    .ch.inline button{width:100%;white-space:normal}
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar,#top,#toast,.index,.lead,.qact{display:none!important}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .sol{display:none!important}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    @page{size:A4;margin:14mm}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <div class="prog"><i id="bar"></i></div>
+  <div class="stat">푼 문항 <b id="done">0</b>/15 · 정답 <b id="hit">0</b></div>
+  <button class="tbtn" onclick="showAll()">정답·해설 전체 보기</button>
+  <button class="tbtn" onclick="resetAll()">다시 풀기</button>
+  <button class="tbtn" onclick="window.print()">인쇄</button>
+</div></div>
+
+<div class="sheet">
+  <div class="cover">
+    <div class="org">은또링샘의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 기출 문제지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">19강</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><input class="nm" type="text" aria-label="성명"></div>
+      <div class="fld"><span class="lb">학번</span><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 첫째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 둘째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 셋째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 넷째 자리"></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>19강 협력적인 노사 관계</span>
+    <span>노동조합 기출 15문항</span>
+  </div>
+
+  <div class="lead">
+    <ul>
+      <li>선택지를 눌러 답을 표시한 뒤, 문항 아래 <b>채점하기</b>를 누르면 정답과 해설이 나타납니다.</li>
+      <li>제시문은 판단에 필요한 조건만 옮겼으므로, 원문 지문은 인쇄 학습지(11.5차시)와 함께 보십시오.</li>
+      <li>문항은 <b>개념 그룹별로 재배열</b>되어 있으며, 학습지 원래 번호는 각 문항 우측 상단에 표기하였습니다.</li>
+    </ul>
+  </div>
+
+  <nav class="index">
+    <a href="#p1">Ⅰ. 노동조합의 정체성</a>
+    <a href="#p2">Ⅱ. 노동 3권과 쟁의 행위</a>
+    <a href="#p3">Ⅲ. 노동위원회와 조정 절차</a>
+    <a href="#p4">Ⅳ. 부당 노동 행위</a>
+    <a href="#p5">Ⅴ. 노사협의회와 노동조합</a>
+    <a href="#appx">［부록］함정 정리·정답표</a>
+  </nav>
+
+<section class="part" id="p1">
+  <h2>Ⅰ. 노동조합의 정체성 <span class="rng">1~2번 · 종류 / 설립 / 기관 / 책임 / 가입 방식</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>종류</b> 직업별(동일 직업·직종) / 산업별(동일 산업) / <em>기업별(동일 기업)</em> / 일반. “○○주식회사 근로자만으로 구성” → 기업별</li>
+      <li><b>설립</b> <em>신고주의</em>. 행정 관청에 설립 신고서 + 규약 제출 → 신고증 교부. 근로자 <em>2인 이상</em>이면 자유의사로 설립 가능</li>
+      <li><b>기관</b> 결의 기관(총회·대의원회) / 집행 기관(위원장·부위원장·사무국장) / 감사 기관</li>
+      <li><b>책임</b> 기본(근로 조건 개선) · 집행(단체교섭·경제·정치 활동) · <em>참모(교육 선전 · 조사 연구 · 사회사업)</em></li>
+      <li><b>가입 방식</b> 오픈 숍(가입·탈퇴 자유) ↔ 클로즈드 숍(조합원만 채용)</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="1">
+  <div class="code">2022학년도 9월 모의평가 19번 · 학습지 문제 4</div>
+  <p class="ask"><span class="n">1.</span> 다음 ［○○기업 신입 사원 연수］에서 알 수 있는 노사 관계에 대한 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［○○기업 신입 사원 연수］</div>
+    <ul>
+      <li>사내 노동조합 형태 : <b>기업별 노동조합</b></li>
+      <li>노동쟁의 이력 : 2019년 6월 첫째 주 <b>파업 돌입</b>(사유 — 노사협의회 설치 및 근로 환경 개선 요구) → 1주일 후 노사 협상 타결 및 업무 복귀</li>
+      <li>노동쟁의 후속 조치 : <b>노사협의회 설치</b>, 출·퇴근 버스 지원 등 근로 환경 개선</li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 노동조합은 단체행동권을 행사한 적이 있다.</p>
+    <p>ㄴ. 후속 조치로 설치된 협의회는 사용자 위원과 공익 위원으로 구성된다.</p>
+    <p>ㄷ. 사내 노동조합 형태는 동일 산업에 속하는 다수 기업의 근로자들로 구성된 노동조합에 해당한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노동조합의 종류 / 노동 3권(단체행동권) / 노사협의회 구성</div>
+    <p><span class="lab">해설</span>ㄱ만 옳다. 2019년 6월 <b>파업</b>에 돌입한 이력이 있으므로 노동 3권 중 <b>단체행동권</b>을 행사한 사실이 확인된다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> 노사협의회는 <b>근로자 위원 + 사용자 위원</b>을 <b>같은 수</b>로 구성한다(각 3명 이상 10명 이하). ‘공익 위원’이 포함되는 조직은 <b>노동위원회</b>이다.</li>
+      <li><span class="x">ㄷ.</span> 동일 산업에 속하는 다수 기업의 근로자로 구성된 것은 <b>산업별 노동조합</b>이다. 제시문의 사내 노동조합은 <b>기업별 노동조합</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>‘공익 위원’이라는 단어가 보이면 곧바로 <span class="hl">노동위원회</span>를 떠올릴 것. 노사협의회에는 공익 위원이 없다. 이 구분 하나로 ㄴ·ㄷ 유형이 정리된다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2023학년도 10월 학력평가 8번 · 학습지 문제 7</div>
+  <p class="ask"><span class="n">2.</span> 다음은 ㈜○○의 노동조합 활동 사례이다. 이에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>㈜○○은 <b>상시 근로자 수가 50명</b>인 의류 유통업체로, 근로자는 <b>언제든지 ㈜○○노동조합에 자유롭게 가입과 탈퇴를 할 수 있다.</b> ㈜○○노동조합은 지역 내 청소년 보호 센터에 정기적으로 의류를 기증하고 센터를 방문하여 <b>노동 인권 교육</b>을 진행하는 등 다양한 <b>봉사 활동</b>을 통해 지역 사회 발전에 힘쓰고 있다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">㈜○○은 노사 관계에서 조정권을 가진다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">㈜○○은 노사협의회를 설치할 의무는 없다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">㈜○○노동조합은 참모 책임을 이행하였다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">㈜○○노동조합은 산업별 노동조합에 해당한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">㈜○○노동조합의 가입 방식은 클로즈드 숍(Closed Shop)에 해당한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노동조합의 책임(기본·집행·참모) / 노조 종류 / 노사협의회 설립 요건 30인</div>
+    <p><span class="lab">해설</span>의류 기증·노동 인권 교육 등 <b>사회봉사 활동</b>은 노동조합의 <b>참모 책임</b> 중 <b>사회사업</b>에 해당한다.</p>
+    <ul>
+      <li><span class="x">①</span> 노사 관계에서 <b>조정권을 가진 주체는 정부(노동위원회)</b>이다. 사용자인 ㈜○○은 조정의 당사자일 뿐이다.</li>
+      <li><span class="x">②</span> 상시 <b>50명 ≥ 30명</b>이므로 노사협의회를 <b>의무적으로 설치</b>해야 한다.</li>
+      <li><span class="x">④</span> ㈜○○ 근로자로만 구성되므로 <b>기업별</b> 노동조합이다.</li>
+      <li><span class="x">⑤</span> 가입·탈퇴가 자유로우므로 <b>오픈 숍</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>「노동조합의 책임」 3분류를 흔들면 통째로 틀린다. <b>기본</b>＝근로 조건 개선, <b>집행</b>＝단체교섭·공제 기금·법률 제개정 운동, <span class="hl">참모＝교육 선전·조사 연구·사회사업</span>. 봉사·기부·인식 개선은 모두 참모 책임이다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p2">
+  <h2>Ⅱ. 노동 3권과 쟁의 행위 <span class="rng">3~5번 · 파업 요건 / 직장폐쇄 / 노조전임자</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>노동 3권</b> 단결권 · 단체교섭권 · <em>단체행동권(파업 등 쟁의 행위)</em></li>
+      <li><b>쟁의 행위 유형</b> 근로자 측 — 파업 · 태업 · 시위 · 보이콧 / <em>사용자 측 — 직장폐쇄</em></li>
+      <li><b>적법 요건 두 가지(AND)</b> ① <em>조정 절차를 거칠 것</em> ② <em>조합원 과반수 찬성</em>(직접·비밀·무기명 투표)</li>
+      <li><b>직장폐쇄</b> 노동조합이 <em>쟁의 행위를 개시한 이후</em>에만 가능(대항적). 예상만으로 미리 하는 선제적 직장폐쇄는 위법. 행정 관청·노동위원회에 미리 신고</li>
+      <li><b>무노동 무임금</b> 사용자는 쟁의 행위 참가 근로자의 그 기간 임금을 지급할 의무가 없음</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="3">
+  <div class="code">2025학년도 9월 모의평가 15번 · 학습지 기출 분석 ②</div>
+  <p class="ask"><span class="n">3.</span> 다음 ［노사 분규 사례 조사］의 2023년 노사 분규에 대한 분석 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［노사 분규 사례 조사］</div>
+    <p style="text-indent:0">◦ A 주식회사에 종사하는 <b>근로자만으로 구성된 단위노동조합</b>과 사측의 2023년 노사 분규 일지</p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">7월 10일</td><td>노사 교섭 결렬 선언</td><td class="k">9월 11일</td><td>노조 측은 <b>적법한 절차</b>에 따라 전면 파업</td></tr>
+      <tr><td class="k">7월 25일</td><td>사측이 노동위원회에 노동쟁의 <b>조정 신청</b></td><td class="k">9월 13일</td><td>사측은 파업 참여를 이유로 근로자를 사규에 따라 <b>징계</b></td></tr>
+      <tr><td class="k">8월 10일</td><td>노동위원회 <b>조정 중지</b> 결정</td><td class="k">10월 30일</td><td>노사 <b>쌍방이 함께</b> 노동위원회에 중재 신청</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 주식회사 노동조합은 직업별 노동조합에 해당한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">7월 25일 이전에 노조 측은 그 주장을 관철할 목적으로 적법하게 태업을 할 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">9월 11일 이전에 사용자가 직장을 폐쇄하는 것은 적법하지 않다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">9월 13일 사측의 징계는 부당노동행위에 해당하지 않는다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">10월 30일 신청한 중재는 조정을 거쳐야만 신청할 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노조 종류 / 쟁의 행위(태업) / 직장폐쇄 / 부당노동행위 / 중재 신청 요건</div>
+    <p><span class="lab">해설</span>직장폐쇄는 <b>노동조합이 쟁의 행위를 개시한 이후</b>에만 할 수 있다(「노동조합 및 노동관계조정법」 제46조). 노조의 전면 파업일이 9월 11일이므로 <b>그 이전의 직장폐쇄는 선제적 직장폐쇄로 위법</b>하다.</p>
+    <ul>
+      <li><span class="x">①</span> A 주식회사 근로자<b>만으로</b> 구성되었으므로 <b>기업별</b> 노동조합이다.</li>
+      <li><span class="x">②</span> <b>태업도 쟁의 행위</b>이다. 조정 절차를 거치지 않은 7월 25일 이전에는 태업 역시 적법하지 않다.</li>
+      <li><span class="x">④</span> 9월 11일 파업이 적법한 절차를 거쳤으므로, 그 참여를 이유로 한 징계는 <b>부당노동행위에 해당한다.</b></li>
+      <li><span class="x">⑤</span> 중재는 <b>쌍방 신청</b> 또는 <b>단체협약에 근거한 일방 신청</b>이면 되고, 조정을 반드시 거쳐야 하는 것은 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“태업은 파업보다 약하니 조정 전에도 되지 않나”가 최다 오답 경로다. <span class="hl">파업·태업·시위·보이콧은 모두 쟁의 행위</span>이고, 예외 없이 조정 절차 경유가 전제 조건이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2026학년도 대학수학능력시험 18번 · 학습지 문제 12</div>
+  <p class="ask"><span class="n">4.</span> 다음 노사 분규 사례를 분석한 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">○○ 기업의 2025년 노사 분규 사례</div>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">1월</td><td>사용자는 임금 인상을 위한 노동조합의 <b>단체교섭 요구를 정당한 이유 없이 해태</b>함.</td></tr>
+      <tr><td class="k">6월</td><td><b>단체협약에 따라</b> 노동조합 대표는 <b>노동조합으로부터 급여를 지급받으면서</b> 근로계약 소정의 근로를 제공하지 않고, 사용자와의 교섭 활동을 수행함.</td></tr>
+      <tr><td class="k">7월</td><td>사용자가 노동위원회에 조정을 신청하였으나, 성과 없이 조정이 종료됨.</td></tr>
+      <tr><td class="k">8월</td><td>사용자는 조정 종료 직후 노동조합의 쟁의행위를 <b>예상하여</b> 작업 시설을 전면 폐쇄함.</td></tr>
+      <tr><td class="k">9월</td><td>사용자가 임금 동결을 조건으로 <b>노동조합의 운영비를 원조</b>함.</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 6월에 나타난 노동조합 대표의 활동은 적법하다.</p>
+    <p>ㄴ. 8월에 나타난 사용자의 쟁의행위는 적법하다.</p>
+    <p>ㄷ. 1월과 9월에 나타난 사용자의 행위는 부당노동행위에 해당한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노조전임자·근로시간 면제 제도 / 직장폐쇄 / 부당노동행위 5유형</div>
+    <p><span class="lab">해설</span><b>ㄱ.</b> 6월의 노동조합 대표는 <b>노조전임자</b>이다. 단체협약 또는 사용자의 동의로 근로를 제공하지 않고 노동조합 업무에만 종사하는 사람으로, <b>노동조합으로부터</b> 급여를 받는 형태이므로 적법하다.<br><b>ㄷ.</b> 1월의 <b>단체교섭 거부·해태</b>, 9월의 <b>노동조합 운영비 원조</b>는 모두 부당노동행위에 해당한다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> 8월 직장폐쇄는 노동조합이 아직 쟁의 행위를 개시하지 않은 상태에서 <b>‘예상하여’ 먼저</b> 단행한 <b>선제적 직장폐쇄</b>이므로 적법하지 않다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>6월 지문에서 급여 지급 <b>주체가 누구인지</b>가 승부처다. <span class="hl">노동조합이 주면 정상적인 전임자(적법)</span>, 반대로 <span class="hl">사용자가 근로시간 면제 한도를 넘겨 주면 부당노동행위</span>가 된다. 9월의 ‘운영비 원조’와 짝지어 기억할 것.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2027학년도 6월 모의평가 13번 · 학습지 문제 13 · 최신 기출</div>
+  <p class="ask"><span class="n">5.</span> 다음 노사 관계 사례를 분석한 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="cond">(단, 「노동조합 및 노동관계조정법」에 따른다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>2025년 ○○기업의 전체 근로자 중 과반수가 가입한 기업별 노동조합인 △△노조는 <b>최초 단체협약 체결</b>을 위한 임금 협상 끝에 10월 30일 최종 결렬을 선언했다. △△노조 측은 결렬 선언과 동시에 관할 노동위원회에 <b>단독으로 중재를 신청</b>했다. 이에 대항하여 ○○기업은 <b>11월 5일 직장폐쇄</b>를 단행했고, △△노조 측도 파업 돌입을 위한 <b>㉮ 찬반 투표를 11월 7일</b> 진행한다고 밝혔다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. △△노조는 ‘노동쟁의 조정 절차’를 준수하였다.</p>
+    <p>ㄴ. △△노조의 단체교섭권 행사에 대항하여 실시한 ○○기업의 쟁의행위는 적법하지 않다.</p>
+    <p>ㄷ. △△노조는 ㉮에서 △△노조 조합원 과반수의 찬성을 얻어야 한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">정답 확인 완료</span></div>
+    <div class="link">연계 — <b>law19</b> 중재 일방 신청 요건(제62조) / 직장폐쇄(제46조) / 쟁의 행위 찬반 투표(제41조 제1항)</div>
+    <p><span class="lab">해설</span><b>ㄴ.</b> 사용자의 직장폐쇄는 <b>노동조합이 쟁의 행위를 개시한 이후</b>에만 가능하다. 노조의 찬반 투표일이 11월 7일이므로 11월 5일 직장폐쇄는 쟁의 행위 개시 전이고, 대항 대상 또한 쟁의 행위가 아닌 <b>단체교섭권 행사</b>이므로 적법하지 않다.<br><b>ㄷ.</b> 쟁의 행위는 조합원의 직접·비밀·무기명 투표에 의한 <b>과반수 찬성</b>으로 결정해야 한다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 중재를 <b>일방(단독)</b>이 신청하려면 <b>단체협약에 근거</b>가 있어야 한다. 그런데 이 사례는 <b>“최초 단체협약 체결을 위한”</b> 협상이므로 근거로 삼을 단체협약이 존재하지 않는다. 따라서 단독 중재 신청은 요건을 갖추지 못했고, 조정 절차를 준수했다고 볼 수 없다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span><b>“최초 단체협약”</b> 다섯 글자가 이 문항의 열쇠다. “중재는 조정을 안 거쳐도 된다”만 외운 학생은 ㄱ을 옳다고 판단한다. 조정 경유 여부가 아니라 <b>단독 신청의 근거(단협)가 있는지</b>를 보아야 한다. → <span class="hl">조정＝일방 신청 가능(단협 불필요, 제53조)</span> ↔ <span class="hl">중재＝쌍방 신청 또는 단협 근거 일방 신청(제62조)</span></div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p3">
+  <h2>Ⅲ. 노동위원회와 노동쟁의 조정 절차 <span class="rng">6~9번 · 이 단원 최다 출제</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>노동위원회</b> 중앙 / 지방 / 특별. 근로자 위원 · 사용자 위원 · 공익 위원으로 구성된 <em>독립적 합의제 행정 기관</em></li>
+      <li><b>조정</b> 일방이 신청해도 개시(제53조). 노동위원회는 지체 없이 개시. 기간 — 일반 사업 <em>10일</em> / 공익사업 <em>15일</em>. <em>조정안은 당사자가 수락해야</em> 단체협약과 동일한 효력. <b>조정위원회 ＝ 근로자·사용자·공익 각 1인</b></li>
+      <li><b>중재</b> <em>쌍방 신청</em> 또는 <em>단체협약에 근거한 일방 신청</em>(제62조). <em>중재재정은 수락 여부와 무관하게</em> 단체협약과 동일한 효력. 중재 회부 시 <em>15일간</em> 쟁의 행위 금지. <b>중재위원회 ＝ 공익 위원 3인</b></li>
+      <li><b>긴급조정</b> 결정권자는 <em>고용노동부 장관</em>(중노위 위원장의 의견을 미리 들음). 공표 시 즉시 쟁의 행위 중지, <em>30일간</em> 재개 불가. 조정·중재와 <b>병렬적인 처리 방법</b>이지 순차 단계가 아님</li>
+      <li><b>특별조정위원회</b>(공익사업) ＝ <em>공익 위원 3인</em></li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="4">
+  <div class="code">2025학년도 6월 모의평가 6번 · 학습지 문제 2</div>
+  <p class="ask"><span class="n">6.</span> 다음은 노동쟁의의 조정 절차에 관한 수업 장면이다. ㉮~㉱에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? <span class="cond">(단, 「노동조합 및 노동관계조정법」에 따르고, 제시된 절차 외의 것은 고려하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［노동쟁의 조정 절차 흐름도］</div>
+    <ul>
+      <li>노사 간 교섭 결렬 → <b>㉮ 조정 신청</b> ／ <b>㉯ 중재 신청</b></li>
+      <li>㉮ → 관계 당사자 쌍방 조정안 수락 후 <b>㉰ 조정서 작성 및 서명</b></li>
+      <li>㉯ → <b>㉱ 중재재정</b></li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. ㉮는 쟁의 행위를 거치지 아니하면 신청할 수 없다.</p>
+    <p>ㄴ. 관계 당사자 쌍방이 ㉮를 신청한 경우 노동위원회는 지체 없이 이를 개시하여야 한다.</p>
+    <p>ㄷ. 관계 당사자 일방이 단체협약에 의하여 ㉯를 신청한 경우 고용노동부장관은 지체 없이 이를 행한다.</p>
+    <p>ㄹ. ㉰와 ㉱의 내용은 단체협약과 동일한 효력을 가진다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 조정 vs 중재 신청 요건·주체·효력 비교표</div>
+    <p><span class="lab">해설</span><b>ㄴ.</b> 조정 신청이 있으면 노동위원회는 지체 없이 조정을 개시해야 한다.<br><b>ㄹ.</b> ㉰ 조정서(수락 후 작성·서명한 것)와 ㉱ 중재재정은 모두 단체협약과 동일한 효력을 가진다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 순서가 거꾸로다. <b>조정을 거쳐야 쟁의 행위</b>를 할 수 있는 것이지, 쟁의 행위를 해야 조정을 신청할 수 있는 것이 아니다.</li>
+      <li><span class="x">ㄷ.</span> 중재를 행하는 주체는 <b>노동위원회</b>이다. 고용노동부 장관이 등장하는 곳은 <b>긴급조정 결정</b>뿐이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄹ은 조심해서 읽어야 한다. ‘조정<b>안</b>’이 아니라 ‘<b>조정서</b>’다. <span class="hl">조정안은 수락 전이므로 효력이 없고, 수락 후 작성·서명한 조정서부터 단체협약과 동일한 효력</span>이 생긴다. 7번 문항과 정확히 대비되는 선지다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2026학년도 9월 모의평가 6번 · 학습지 문제 11</div>
+  <p class="ask"><span class="n">7.</span> 다음 노동쟁의 관련 수행 평가 보고서를 분석한 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">수행 평가 보고서 <span style="font-weight:400;font-size:.8em">(작성자 : A)</span></div>
+    <p style="text-indent:0">주제 : 노동쟁의 조정 사례</p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">4월 10일</td><td>○○ 전자 노사가 <b>단체협약을 체결</b>함.</td></tr>
+      <tr><td class="k">7월 24일</td><td>노사 간 네 차례의 임금 협상에도 불구하고 <b>단체교섭이 결렬</b>됨.</td></tr>
+      <tr><td class="k">8월 12일</td><td>노동위원회에 <b>조정이 신청</b>되어 즉시 회부됨.</td></tr>
+      <tr><td class="k">8월 21일</td><td>조정위원회가 <b>조정안을 제시</b>함.</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. ○○전자 노동조합이 조합원 과반수의 찬성으로 7월 30일에 쟁의 행위를 실시하였다면 이는 적법하다.</p>
+    <p>ㄴ. 8월 12일에 ○○전자 노동조합 일방이 조정을 신청하였다면 이는 적법하다.</p>
+    <p>ㄷ. 8월 21일에 제시된 조정안은 관계 당사자의 의사와 상관없이 단체협약과 동일한 효력을 갖는다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 쟁의 행위 요건(조정 경유) / 조정의 일방 신청 / 조정안의 효력</div>
+    <p><span class="lab">해설</span>ㄴ만 옳다. <b>조정 신청은 노동조합 일방의 신청으로도 가능</b>하다(제53조). 조정에는 단체협약 근거가 필요 없다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 조합원 과반수 찬성만으로는 부족하다. <b>조정 절차를 먼저 거쳐야</b> 하는데 조정 신청일이 8월 12일이므로 <b>7월 30일 쟁의 행위는 위법</b>하다.</li>
+      <li><span class="x">ㄷ.</span> <b>조정안은 당사자 모두가 수락해야</b> 단체협약과 동일한 효력이 생긴다. ‘의사와 상관없이’ 효력을 갖는 것은 <b>중재재정</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>쟁의 행위 요건은 <span class="hl">① 조정 절차 경유 ② 조합원 과반수 찬성</span>의 AND 조건이다. 하나만 충족했다고 적법으로 판단하면 함정에 빠진다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2025학년도 대학수학능력시험 14번 · 학습지 기출 분석 ①</div>
+  <p class="ask"><span class="n">8.</span> 다음 A기업의 노사 분규 사례를 분석한 내용으로 옳은 것은? <span class="cond">(단, 「노동조합 및 노동관계조정법」에 따른다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>A기업(식품 제조업, 상시 근로자 30명)의 근로자로 구성된 <b>(가)</b>은/는 근로 조건 관련 단체교섭 협상이 결렬된 후, <b>고용노동부장관 소속의 (나)</b>에 조정을 신청하였으나 성과 없이 종료되었다. 이후 적법한 절차에 따라 <b>(가)</b>은/는 파업을 개시하였고, A기업은 이에 대항하여 <b>파업에 참여한 근로자들의 작업장 출입을 차단</b>하였다. 그 후 A기업은 <b>기존 단체협약에 근거해</b> <b>(나)</b>에 중재를 신청하였으며, 이에 따라 노동쟁의가 중재에 회부되었다.</p>
+    <p class="note">→ (가) 노동조합 / (나) 노동위원회</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A기업의 사용자가 (가)의 쟁의행위 참여 근로자를 대상으로 실시한 조치는 부당노동행위에 해당한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A기업의 사용자가 (가)의 쟁의행위에 참여한 근로자에게 그 기간에 대한 임금을 지급할 의무가 없다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(가)의 쟁의행위는 구성원 과반수의 찬성으로 결정되었으며, (나)의 중재에 회부된 후에도 쟁의행위를 지속할 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(나)는 긴급조정을 결정할 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(나)의 중재재정이 단체협약과 동일한 효력을 갖기 위해서는 A기업의 사용자와 (가)의 수락이 필요하다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 직장폐쇄 / 무노동 무임금 / 중재 회부 15일 / 긴급조정 결정권자 / 중재재정 효력</div>
+    <p><span class="lab">해설</span><b>무노동 무임금 원칙</b>에 따라 사용자는 쟁의 행위에 참여한 근로자에게 그 기간의 임금을 지급할 의무가 없다.</p>
+    <ul>
+      <li><span class="x">①</span> 파업 <b>이후</b> 작업장 출입을 차단한 것은 사용자의 방어적 수단인 <b>직장폐쇄</b>(대항적)이므로 부당노동행위가 아니다.</li>
+      <li><span class="x">③</span> 중재에 회부되면 <b>15일간 쟁의 행위를 할 수 없다.</b></li>
+      <li><span class="x">④</span> 긴급조정 결정권자는 <b>고용노동부 장관</b>이다. 중앙노동위원회 위원장은 <b>의견을 제시</b>할 뿐이다.</li>
+      <li><span class="x">⑤</span> 중재재정은 <b>수락 여부와 관계없이</b> 단체협약과 동일한 효력을 갖는다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>①이 최대 오답 유인이다. 직장폐쇄가 <span class="hl">파업 이후면 적법한 대항행위, 파업 이전이면 위법한 선제적 직장폐쇄</span>다. 같은 ‘작업장 출입 차단’이라도 타이밍이 정오답을 가른다.<br>또 하나 — 지문의 “고용노동부장관 <b>소속의</b> (나)”라는 표현 때문에 ④를 고르기 쉬우나, <b>소속 기관인 것과 권한을 갖는 것은 다르다.</b></div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2026학년도 6월 모의평가 20번 · 학습지 문제 9</div>
+  <p class="ask"><span class="n">9.</span> 다음 노사분규 관련 기사 제목을 분석한 내용으로 옳은 것은? <span class="cond">(단, A기업 관계 당사자의 쟁의행위는 모두 적법하게 행해졌다고 가정한다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:92px">날짜</th><th>기사 제목</th></tr>
+      <tr><td class="k">2025. 3. 4.</td><td>A 기업 <b>㉠ 노동조합</b>과 <b>㉡ 사용자</b>, 본격 교섭 시작!</td></tr>
+      <tr><td class="k">2025. 3. 24.</td><td>A 기업 노사 교섭 결렬! 노조 ‘총파업 돌입’ 예고</td></tr>
+      <tr><td class="k">2025. 4. 2.</td><td>A 기업 사용자 금일 노동위원회에 <b>㉢ 조정 신청</b></td></tr>
+      <tr><td class="k">2025. 5. 12.</td><td>A 기업 작업 시설 봉쇄. 직장폐쇄 전격 단행!</td></tr>
+      <tr><td class="k">2025. 5. 30.</td><td>파국 막을까.. A 기업 노사, 중재 신청</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">㉠이 5월 12일 자 기사 제목의 쟁의행위를 하였다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">㉠은 노사 공동의 이익을 증진하기 위해 근로자와 사용자가 참여한 단체 또는 연합단체이다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">㉡의 쟁의행위는 2025년 3월 24일과 2025년 4월 2일 사이에 행해졌다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">㉠의 쟁의행위에 참가한 것을 이유로 ㉡이 해당 근로자를 해고한다면 부당노동행위에 해당한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">㉢에서 작성된 조정안이 ㉠과 ㉡에 의해 수락되었다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 쟁의 행위 주체 구분 / 노조와 노사협의회의 정의 / 조정안 수락 / 부당노동행위</div>
+    <p><span class="lab">해설</span>근로자가 <b>정당한 단체 행위에 참가한 것을 이유로</b> 해고하거나 불이익을 주는 행위는 부당노동행위에 해당한다.</p>
+    <ul>
+      <li><span class="x">①</span> 5월 12일의 <b>직장폐쇄</b>는 ㉡ <b>사용자</b>의 대항행위이다.</li>
+      <li><span class="x">②</span> “노사 공동의 이익 증진 + 근로자와 사용자가 함께 참여”는 <b>노사협의회</b>의 정의이다. 노동조합은 <b>근로자가 주체</b>가 되어 만든 단체이다.</li>
+      <li><span class="x">③</span> ㉡의 쟁의행위는 <b>5월 12일 직장폐쇄</b>이다.</li>
+      <li><span class="x">⑤</span> 조정안이 수락되었다면 분쟁이 종결되었을 것인데, <b>5월 30일 중재 신청</b>이 이어졌으므로 수락되지 않았다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>⑤처럼 <span class="hl">뒤에 이어지는 사건으로 앞 사건의 결과를 역추적</span>하는 선지가 최근 자주 나온다. “중재 신청이 있었다＝조정이 실패했다”는 흐름을 표에서 읽어 내는 훈련이 필요하다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p4">
+  <h2>Ⅳ. 부당 노동 행위 <span class="rng">10번 · law16 근로자 권익 침해와 연결</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］권익 침해 3종 — 판정 기준은 하나</div>
+    <ul>
+      <li><b>부당 노동 행위</b> <em>노동조합이 개입된 사안</em>. ① 노조 가입·조직·활동을 이유로 한 불이익 ② 비가입·탈퇴를 고용 조건으로 하는 계약 ③ 정당한 이유 없는 단체교섭 거부·해태 ④ 노조 조직·운영의 지배·개입 및 운영비 원조 ⑤ 정당한 단체 행위 참가·신고·증언을 이유로 한 불이익</li>
+      <li><b>부당 해고</b> 서면 통지 없이, 정당한 사유 없이 해고·휴직·정직·감봉 (노조와 무관)</li>
+      <li><b>임금 체불</b> 정기 지급일 초과, 퇴사 후 14일 이내 금품 미지급</li>
+      <li><b>시정 절차</b>(law16) <em>지방노동위원회(3개월 이내) → 중앙노동위원회 재심(10일 이내) → 행정 소송(15일 이내)</em></li>
+      <li>부당 해고 구제 신청은 <b>상시 5인 이상</b> 사업장에 적용 / <b>부당 노동 행위는 사업장 규모와 무관</b></li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="4">
+  <div class="code">2024학년도 대학수학능력시험 8번 · 학습지 문제 1</div>
+  <p class="ask"><span class="n">10.</span> 다음 수업 장면에서 (가)에 해당하는 근로자 권익 침해 사례로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>교사 :</b> 다음 사례와 같은 고용 조건으로 근로계약을 체결하는 것은 「노동조합 및 노동관계조정법」 제81조의 <b>(가)</b>에 해당합니다.</p>
+    <div class="ttl" style="margin-top:8px">［근로자 권익 침해 사례］</div>
+    <p>김××씨는 <b>‘노동조합에 가입하지 않는다.’</b>라는 조건이 포함된 근로계약을 사용자와 체결하고 입사하였으나, 열악한 근로 조건을 알게 된 후 더 나은 근로 조건을 제시하는 기업에 재취업하기 위해 자발적으로 퇴사하였다.</p>
+    <p class="note">→ (가) 부당 노동 행위</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A씨는 육아휴직을 신청하였으나, 육아휴직을 허용하지 않는 회사의 방침에 따라 결국 해고를 통보받았다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B씨는 ‘민원 발생에 따른 손해에 대해 배상한다.’라는 조건이 포함된 근로계약을 체결하였으며, 실제로 고객 항의에 따른 손해가 발생하자 감봉 처분을 받았다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">상시 근로자가 10명인 회사에 근무하는 C씨는 회사 경영이 어렵다는 설명과 함께 휴대전화로 해고를 통보받았다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">D씨는 적법한 절차에 따라 진행된 파업을 주도하였다는 이유로 서면으로 해고 예고를 받은 뒤 30일 만에 해고되었다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">주 40시간씩 5년을 근무한 E씨는 개인 사정으로 정상 퇴직하였으나, 두 달이 지난 현재까지 퇴직금을 받지 못하고 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law16 + law19</b> 근로자 권익 침해 3종 구분 / 「노동조합 및 노동관계조정법」 제81조</div>
+    <p><span class="lab">해설</span><b>적법한 파업(정당한 단체 행위)을 주도하였다는 이유</b>로 해고하였으므로 전형적인 <b>부당 노동 행위</b>이다.</p>
+    <ul>
+      <li><span class="x">①</span> 육아휴직 신청을 이유로 한 해고 → <b>부당 해고</b>(노조와 무관).</li>
+      <li><span class="x">②</span> 손해 배상액을 미리 정해 둔 계약 → <b>위약 예정 금지</b> 위반(사용자 금지 사항, law15).</li>
+      <li><span class="x">③</span> 휴대전화 통보 → 서면 통지 의무 위반인 <b>부당 해고</b>.</li>
+      <li><span class="x">⑤</span> 퇴직 후 14일을 초과한 미지급 → <b>임금 체불</b>.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④는 “서면으로 해고 예고를 받은 뒤 30일 만에”라는 문구로 학생을 흔든다. 절차는 완벽하지만 <b>해고 사유가 파업 주도</b>이므로 부당 노동 행위다.<br>판정 순서 — <span class="hl">① 사유에 ‘노동조합’이 얽혀 있는가? → 있으면 부당 노동 행위.</span> 없으면 해고 관련 → 부당 해고, 금품 관련 → 임금 체불.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p5">
+  <h2>Ⅴ. 노사협의회와 노동조합 <span class="rng">11~15번 · 가장 자주, 가장 크게 나오는 비교</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］이 표 하나로 다섯 문항이 해결된다</div>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:82px">구분</th><th>노사협의회</th><th>노동조합</th></tr>
+      <tr><td class="k">근거 법률</td><td>근로자참여 및 협력증진에 관한 법률</td><td>노동조합 및 노동관계조정법</td></tr>
+      <tr><td class="k">대표성</td><td>소속 회사의 <b>모든</b> 근로자</td><td>노동조합에 <b>가입한 조합원</b></td></tr>
+      <tr><td class="k">설립 사업장</td><td><b>상시 30인 이상</b>(의무 설치)</td><td>자유의사로 설립 가능(<b>2인 이상</b>)</td></tr>
+      <tr><td class="k">구성</td><td>근로자 위원·사용자 위원 <b>같은 수</b><br>(각 <b>3명 이상 10명 이하</b>)</td><td>조합원</td></tr>
+      <tr><td class="k">권한</td><td>전체 직원의 이해·요구 대변<br><b>단체교섭권 ✕ / 단체행동권 ✕</b></td><td><b>단체교섭권 ○ / 단체행동권 ○</b>(파업 등)</td></tr>
+      <tr><td class="k">운영</td><td><b>3개월마다</b> 정기 개최</td><td>매년 <b>1회 이상</b> 총회 개최</td></tr>
+      <tr><td class="k">결과</td><td>노측 의견을 사측이 경영에 참조·반영<br>(불이행 시 500만 원 이하 벌금)</td><td>법적 구속력 있는 <b>단체협약</b> 체결</td></tr>
+    </table></div>
+    <ul style="margin-top:7px"><li><b>세 기구 구분</b> <em>노동위원회</em>(근로자·사용자·<b>공익</b> 위원 / 국가 기관) ↔ <em>노사협의회</em>(근로자·사용자 위원 / 사업장 기구) ↔ <em>노동조합</em>(근로자만)</li></ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2023학년도 대학수학능력시험 3번 · 학습지 문제 3</div>
+  <p class="ask"><span class="n">11.</span> 다음은 노사 관계 사례집이다. (가), (나) 단체에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">노사 관계 사례집</div>
+    <p style="text-indent:0"><b>［사례 1］</b> ○○기업은 의류 제조업체이다. ○○기업의 근로자와 사용자는 근로자의 복지 증진과 기업의 건전한 발전을 도모하기 위하여 <b>(가)</b>을/를 ‘근로자참여 및 협력증진에 관한 법률’에 따라 구성하였다.</p>
+    <p style="text-indent:0;margin-top:6px"><b>［사례 2］</b> △△기업은 전자제품을 생산하는 업체이다. △△기업의 근로자들이 주체가 되어 근로 조건의 유지·개선을 목적으로 ‘노동조합 및 노동관계조정법’에 따라 <b>(나)</b>을/를 설립하였다. 설립된 단체는 <b>다른 단체와 연합 단체를 구성하지 않았다.</b></p>
+    <p class="note">→ (가) 노사협의회 / (나) 기업별 노동조합</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)는 근로자 위원, 사용자 위원, 공익 위원으로 구성된다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(가)는 상시 30명 이상의 근로자를 사용하며 근로 조건에 대한 결정권이 있는 사업이나 사업장에 의무적으로 설치해야 한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(나)는 산업별 노동조합에 해당한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(나)가 주장을 관철할 목적으로 행할 수 있는 쟁의행위에는 파업, 태업, 직장폐쇄가 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가)와 (나)는 전체 근로자를 대표하여 노사 공동의 이익을 증진한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노사협의회 설립 요건 / 노조 종류 / 쟁의 행위 주체 / 대표성</div>
+    <p><span class="lab">해설</span>노사협의회는 <b>상시 30명 이상</b>의 근로자를 사용하고 <b>근로 조건 결정권이 있는</b> 사업이나 사업장에 의무적으로 설치해야 한다.</p>
+    <ul>
+      <li><span class="x">①</span> 공익 위원이 포함되는 것은 <b>노동위원회</b>이다.</li>
+      <li><span class="x">③</span> 연합 단체를 구성하지 않은 단일 기업 내 조직 → <b>기업별</b> 노동조합.</li>
+      <li><span class="x">④</span> <b>직장폐쇄는 사용자 측</b> 쟁의 행위이다. 노조 측은 파업·태업·시위·보이콧이다.</li>
+      <li><span class="x">⑤</span> <b>전체 근로자를 대표</b>하는 것은 (가) 노사협의회뿐이다. 노동조합은 가입한 조합원을 대표한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>⑤처럼 <span class="hl">“(가)와 (나) 둘 다”로 묶는 선지는 대부분 오답</span>이다. 두 기구는 대표성부터 다르다는 점을 먼저 확인할 것.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2024학년도 6월 모의평가 7번 · 학습지 문제 5</div>
+  <p class="ask"><span class="n">12.</span> 다음 노사 관계 관련 대화에서 (가)~(다)에 대한 설명으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>○○기업 직원 :</b> 50명이 상시 근로하는 우리 회사는 근로 조건이 다른 회사에 비해 열악하여 개선이 필요합니다.</p>
+    <p style="text-indent:0"><b>공인 노무사 :</b> 「근로자참여 및 협력증진에 관한 법률」에 의해 구성된 <b>(가)</b>에서 사용자 측과 협의를 시도해 보았나요?</p>
+    <p style="text-indent:0"><b>직원 :</b> 네, 그뿐만 아니라 <b>단체교섭</b>도 해 보았지만 사용자 측이 요구 사항을 도무지 받아주지 않습니다. 요구 사항을 관철하기 위해 적법한 <b>파업</b>을 계획하고 있습니다. 적법한 파업 절차에 대해 알려 주세요.</p>
+    <p style="text-indent:0"><b>공인 노무사 :</b> <b>(나)</b> …… 파업으로도 해결이 어렵다면 노동조합과 사용자 <b>쌍방이 함께</b> 노동위원회에 <b>(다)</b>을/를 신청하여 <b>구속력 있는 판정</b>을 받아 볼 수도 있습니다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. (가)는 근로자보다 사용자의 이익을 대변하는 기구이다.</p>
+    <p>ㄴ. (나)에는 ‘파업 찬반 투표에서 찬성이 조합원의 3분의 1을 넘으면 적법하게 파업할 수 있습니다.’가 들어갈 수 있다.</p>
+    <p>ㄷ. (다)에 해당하는 노동쟁의 조정 제도는 ‘중재’이다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노사협의회의 목적 / 파업 찬반 투표 정족수 / 중재의 구속력</div>
+    <p><span class="lab">해설</span>ㄷ만 옳다. <b>쌍방이 함께 신청 + 구속력 있는 판정</b> → 노동쟁의 조정 제도 중 <b>중재</b>이다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 노사협의회는 근로자와 사용자 쌍방이 참여·협력하여 <b>노사 공동의 이익</b>을 증진하는 기구이다.</li>
+      <li><span class="x">ㄴ.</span> <b>3분의 1이 아니라 2분의 1</b>이다. 조합원 <b>과반수</b> 찬성이어야 적법한 파업이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span><span class="hl">숫자 바꿔치기</span> 선지다. 3분의 1 / 3분의 2 / 2분의 1을 섞어 놓는 유형이 반복 출제된다. 쟁의 행위 결정은 <b>조합원 과반수</b>, 하나만 기억할 것.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2024학년도 대학수학능력시험 16번 · 학습지 문제 6</div>
+  <p class="ask"><span class="n">13.</span> 다음은 협력적인 노사 관계 사례이다. (가)~(다)에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>재작년 노동쟁의로 인해 「노동조합 및 노동관계조정법」에 따라 <b>고용노동부장관 소속의 (가)</b>에 조정을 신청했던 ○○기업의 사용자는 올해 비교적 짧은 단체교섭 후 <b>(나)</b>와/과 <b>단체협약을 체결</b>하고, ‘노사 화합 공동 선언문’을 발표했다. 특히 「근로자참여 및 협력증진에 관한 법률」에 따라 구성한 협의기구인 <b>(다)</b>을/를 <b>매월 개최</b>하여 근로조건을 사전 조율해 온 것이 이러한 결과를 이끌어 낸 원동력으로 분석된다.</p>
+    <p class="note">→ (가) 노동위원회 / (나) 노동조합 / (다) 노사협의회</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)의 조정은 당사자의 수락 여부와 상관없이 단체협약과 동일한 효력을 가진다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(나)는 상시 30명 이상의 근로자를 사용하는 사업장은 의무적으로 설치해야 한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(다)는 근로자 위원과 공익 위원으로 구성되는 단체이다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(다)는 사용자와의 협의가 결렬될 경우 적법한 절차에 따라 쟁의행위를 할 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(나)는 사용자의 동의 없이 노동쟁의의 조정을 (가)에 신청할 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노동위원회·노동조합·노사협의회 3자 구분 / 조정안의 효력</div>
+    <p><span class="lab">해설</span><b>조정은 관계 당사자 일방의 신청</b>만으로 개시된다. 따라서 노동조합은 사용자의 동의 없이 노동위원회에 조정을 신청할 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> 조정은 <b>당사자가 수락한 경우에</b> 단체협약과 동일한 효력을 가진다.</li>
+      <li><span class="x">②</span> 30명 이상 의무 설치는 <b>(다) 노사협의회</b>의 내용이다.</li>
+      <li><span class="x">③</span> ‘근로자 위원 + 공익 위원’ 조합은 <b>(가) 노동위원회</b> 쪽 표현이다. 노사협의회는 근로자 위원 + 사용자 위원이다.</li>
+      <li><span class="x">④</span> 쟁의행위를 할 수 있는 것은 <b>(나) 노동조합</b>이다. 노사협의회는 단체행동권이 없다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>지문의 “(다)를 <b>매월</b> 개최”를 보고 “3개월마다인데 위반 아닌가” 하고 흔들리는 학생이 많다. <span class="hl">3개월마다 1회는 법정 최소 기준</span>이므로 더 자주 여는 것은 문제되지 않으며, 이 문항은 위반 여부를 묻지도 않았다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2022학년도 대학수학능력시험 18번 · 학습지 문제 8</div>
+  <p class="ask"><span class="n">14.</span> 다음 사례를 통해 알 수 있는 노사 협력 제도에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>○○기업은 ‘근로자참여 및 협력증진에 관한 법률’에 명시되어 있는 <b>협의회</b>를 운영하고 있다. 이 협의회는 <b>3개월마다 1회 개최</b>되어 근로자 복지 증진이나 사업 경쟁력 강화 등 다양한 사항을 논의하고 있다. 이를 통해 근로자와 사용자의 <b>참여와 협력</b>을 통한 상생의 경영 문화를 만들고 있다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 사용자보다 근로자의 이익을 대변하는 기구이다.</p>
+    <p>ㄴ. 상시 20명 이상의 근로자를 사용하는 사업장은 의무적으로 설치하여야 한다.</p>
+    <p>ㄷ. 근로자와 사용자를 대표하는 같은 수의 위원으로 구성하되, 각 3명 이상 10명 이하로 하여야 한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 정답표 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노사협의회 목적 / 설치 요건 30인 / 위원 구성 3~10인</div>
+    <p><span class="lab">해설</span>노사협의회는 <b>근로자를 대표하는 위원과 사용자를 대표하는 위원 같은 수</b>로 구성하며, 각 <b>3명 이상 10명 이하</b>로 한다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 근로자 편이 아니라 <b>노사 공동의 이익</b>을 증진하는 기구이다.</li>
+      <li><span class="x">ㄴ.</span> <b>20명이 아니라 30명</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>노사 관계 단원의 숫자는 <span class="hl">30 / 3 / 3~10</span> 세 덩어리로 묶어 두면 안전하다. <b>설치 30인 이상 · 3개월마다 1회 · 노사 각 3~10인.</b> 여기에 20·15·5를 끼워 넣는 것이 전형적인 오답 제작 방식이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2026학년도 10월 학력평가 16번 · 학습지 문제 10</div>
+  <p class="ask"><span class="n">15.</span> 다음 사례에 나타난 노사 관계에 대한 분석 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>근로자 A씨는 의류 제작 <b>○○기업(상시 근로자 수 20명)</b>의 근로 조건 개선을 위한 단체 교섭 과정에서 <b>(가)</b>의 교섭 위원으로 활동하였다. 이를 빌미로 ○○기업은 A씨에게 인사상 불이익을 주었고, 이에 A씨는 자진 사직을 하고 △△기업에 주 5일 40시간의 근로 조건으로 이직하였다. A씨는 ○○기업과 별도의 합의가 없었음에도 퇴직 후 2개월이 지난 지금까지 근로 기간 3년분에 대한 퇴직금을 받지 못하고 있다. 한편, A씨는 <b>△△기업(상시 근로자 수 30명)</b>에서도 「근로자참여 및 협력증진에 관한 법률」에 따라 사용자와 근로자로 구성된 <b>(나)</b>의 근로자 위원으로 활동하고 있다.</p>
+    <div class="ttl" style="margin-top:8px">［○○기업 노사 분규 일지］</div>
+    <ul>
+      <li>5월 10일 사측 노동쟁의 공적 <b>조정 신청</b></li>
+      <li>5월 15일 노사 양측 모두 <b>조정안 수용 거부</b></li>
+      <li>5월 20일 사측 노동쟁의 <b>중재 신청</b></li>
+    </ul>
+    <p class="note">→ (가) 노동조합 / (나) 노사협의회</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)는 근로자 자유의사에 따라 1인으로도 구성이 가능하다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(나)는 ○○기업도 의무적으로 설치해야 한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(가), (나)는 주장을 관철할 목적으로 파업을 할 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">5월 10일에 신청한 조정을 진행하는 기관은 관계 당사자가 추천한 공익 위원 3인으로 구성된다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">5월 20일에 신청한 중재에 대한 판정 효력은 단체 협약과 동일한 효력을 가진다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">공식 해설 확인</span></div>
+    <div class="link">연계 — <b>law19</b> 노조 설립 인원 / 노사협의회 30인 / 조정위원회 구성 / 중재재정 효력</div>
+    <p><span class="lab">해설</span><b>중재재정은 단체협약과 동일한 효력</b>을 가진다(당사자의 수락 여부와 무관).</p>
+    <ul>
+      <li><span class="x">①</span> 노동조합은 근로자 <b>2인 이상</b>이어야 설립할 수 있다.</li>
+      <li><span class="x">②</span> ○○기업은 상시 <b>20명</b>이므로 30인 기준에 미달하여 노사협의회 설치 의무가 없다.</li>
+      <li><span class="x">③</span> 파업은 <b>(가) 노동조합</b>만 가능하다. 노사협의회는 단체행동권이 없다.</li>
+      <li><span class="x">④</span> <b>조정위원회는 근로자·사용자·공익 위원 각 1인</b>으로 구성된다. <b>공익 위원 3인</b>은 <b>중재위원회</b>와 <b>특별조정위원회</b>의 구성이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④가 최대 오답 유인이다. <span class="hl">조정위원회 ＝ 노·사·공 각 1인 / 중재위원회·특별조정위원회 ＝ 공익 위원 3인.</span> 숫자 ‘3’을 보고 반사적으로 조정위원회에 붙이면 틀린다.<br>참고로 지문 앞부분의 “교섭 위원 활동을 빌미로 준 인사상 불이익”은 <b>부당 노동 행위</b>, “합의 없이 퇴직 후 2개월 미지급 퇴직금”은 <b>임금 체불</b>이다(연계 문항인 17번의 소재).</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="appx" id="appx">
+  <h2>［부록 1］ 이 단원 함정 포인트 9</h2>
+
+  <details class="pit"><summary><span class="n">1</span>조정안과 중재재정, 효력이 갈리는 지점</summary>
+    <div class="bd"><b>조정안</b>은 당사자가 <b>수락해야</b> 효력이 생기며, 수락 후 작성·서명한 <span class="hl">조정서</span>가 단체협약과 동일한 효력을 갖는다. 반면 <b>중재재정</b>은 <b>수락 여부와 관계없이</b> 단체협약과 동일한 효력을 갖는다.<br>출제 문구 — “<b>당사자의 의사와 상관없이</b>”가 붙으면 <span class="hl">중재</span>가 맞고 조정은 틀린다. (6·7·8·13·15번)</div>
+  </details>
+  <details class="pit"><summary><span class="n">2</span>조정은 일방 신청 가능, 중재는 조건이 붙는다</summary>
+    <div class="bd"><b>조정</b>(제53조) — 관계 당사자 <b>일방</b>이 신청해도 개시. 단체협약 근거 불필요.<br><b>중재</b>(제62조) — ① 관계 당사자 <b>쌍방</b>이 함께 신청 또는 ② <b>단체협약에 근거한 일방</b> 신청.<br>→ “최초 단체협약 체결을 위한 협상”이면 근거로 삼을 단협이 없으므로 <span class="hl">단독 중재 신청 불가</span>. (5·7·13번)</div>
+  </details>
+  <details class="pit"><summary><span class="n">3</span>직장폐쇄는 ‘타이밍’이 정오답을 가른다</summary>
+    <div class="bd">사용자의 직장폐쇄는 <b>노동조합이 쟁의 행위를 개시한 이후</b>에만 가능하다(제46조, 대항적 직장폐쇄). 노조의 쟁의 행위를 <b>예상하여 미리</b> 하는 선제적 직장폐쇄는 위법하며, 직장폐쇄 시 <b>행정 관청·노동위원회에 미리 신고</b>해야 한다.<br>→ 같은 ‘작업장 봉쇄’라도 파업 이후면 적법(8번 ①), 파업 이전이면 위법(3번 ③·4번 ㄴ·5번 ㄴ).</div>
+  </details>
+  <details class="pit"><summary><span class="n">4</span>긴급조정의 결정권자는 고용노동부 장관</summary>
+    <div class="bd"><b>고용노동부 장관</b>이 결정하며, 이때 <b>미리 중앙노동위원회 위원장의 의견</b>을 듣는다. 중노위 위원장은 <b>의견 제시</b>만 할 뿐 결정권자가 아니다. 공표 시 즉시 쟁의 행위를 중지해야 하고, 공표일부터 <b>30일간</b> 재개할 수 없다.<br>→ 긴급조정은 조정·중재의 다음 단계가 아니라 <span class="hl">병렬적인 처리 방법</span>이다. (8번 ④)</div>
+  </details>
+  <details class="pit"><summary><span class="n">5</span>위원회 세 종류 — 구성 인원 구분</summary>
+    <div class="bd"><b>조정위원회</b> ＝ 근로자 위원 · 사용자 위원 · 공익 위원 <span class="hl">각 1인</span><br><b>중재위원회</b> ＝ <span class="hl">공익 위원 3인</span><br><b>특별조정위원회</b>(공익사업) ＝ <span class="hl">공익 위원 3인</span><br><b>노동위원회 전체</b> ＝ 근로자·사용자 위원 각 10~50명(같은 수), 공익 위원 10~70명<br>→ “공익 위원 3인”을 조정위원회에 붙이는 선지가 반복 출제된다. (15번 ④)</div>
+  </details>
+  <details class="pit"><summary><span class="n">6</span>쟁의 행위 적법 요건은 AND 조건 두 개 — 정족수는 ‘재적’ 기준</summary>
+    <div class="bd">
+      ① <b>조정 절차를 거칠 것</b> ② <b>조합원 과반수 찬성</b>(직접·비밀·무기명 투표). 둘 중 하나만 있으면 위법이다. 또한 <b>파업뿐 아니라 태업·시위·보이콧도 모두 쟁의 행위</b>라서 같은 요건이 적용된다.
+
+      <span class="sub">과반수의 모수는 ‘투표 참여자’가 아니라 ‘전체 조합원’</span>
+      「노동조합 및 노동관계조정법」 제41조 제1항은 “조합원의 직접·비밀·무기명투표에 의한 <b>조합원 과반수의 찬성</b>”이라고만 규정한다. 조문에 <b>‘출석’이나 ‘투표에 참여한’이라는 한정어가 없다.</b> 즉 기준은 <span class="hl">재적(전체) 조합원 수</span>이며, 투표에 불참한 조합원은 사실상 반대표와 같은 효과를 낸다.
+
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">조합원 100명일 때</th><th style="width:120px">찬성 비율</th><th>판정</th></tr>
+        <tr><td class="k">60명 투표 · 40명 찬성</td><td style="text-align:center">투표자의 66.7%<br>(전체의 40%)</td><td><span class="no-ok">위법</span> — 전체의 과반이 아님</td></tr>
+        <tr><td class="k">90명 투표 · 50명 찬성</td><td style="text-align:center">전체의 50%</td><td><span class="no-ok">위법</span> — 50%는 과반수가 아님</td></tr>
+        <tr><td class="k">70명 투표 · 51명 찬성</td><td style="text-align:center">전체의 51%</td><td><span class="yes-ok">적법</span></td></tr>
+      </table></div>
+      <span class="cap">→ 투표율이 아무리 높아도 <b>찬성표가 51표에 못 미치면</b> 파업할 수 없다.</span>
+
+      <span class="sub">학생들이 반드시 섞는 지점 — 총회는 ‘출석’, 쟁의 행위는 ‘재적’</span>
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:190px">구분</th><th>정족수</th></tr>
+        <tr><td class="k">노동조합 총회 일반 의결<br>(제16조 제2항)</td><td>재적조합원 과반수 <b>출석</b> + <b>출석</b>조합원 과반수 찬성</td></tr>
+        <tr><td class="k">쟁의 행위 결정<br>(제41조 제1항)</td><td>‘출석’ 개념 없이 곧바로 <b>재적조합원 과반수 찬성</b></td></tr>
+      </table></div>
+      <span class="cap">→ <b>“총회는 출석 기준, 쟁의 행위는 재적 기준”</b>으로 갈라서 외울 것.</span>
+
+      <span class="sub">출제 경향과 심화</span>
+      지금까지 수능·모평은 정족수 <b>숫자만 바꿔치기</b>하는 방식으로 출제되었다(3분의 1 / 3분의 2). 앞으로 <b>‘출석 조합원 과반수’</b> 형태의 선지가 나오면 그것도 <span class="no-ok">오답</span>이다.<br>
+      · <b>복수노조 사업장</b> — 교섭창구 단일화를 거쳤다면, 교섭대표노동조합이 쟁의 행위를 하려면 <b>단일화 절차에 참여한 노동조합의 전체 조합원</b>을 모수로 과반수 찬성을 얻어야 한다(자기 노조 조합원만이 아니다).<br>
+      · <b>위반 효과</b> — 찬반투표를 거치지 않은 쟁의 행위는 정당성을 잃고, 제91조에 따라 형사처벌 대상이 된다.
+      <span class="cap">＊ EBS 교재 명시 표현은 “노동조합은 <b>조합원 과반수의 찬성</b>으로 쟁의 행위를 결정하여 실시함.”이며, 재적·출석 구분은 법령 조문으로 보충한 내용이다.</span>
+
+      <span class="cap" style="margin-top:8px">관련 문항 — 3번 ② · 5번 ㄷ · 7번 ㄱ · 12번 ㄴ</span>
+    </div>
+  </details>
+  <details class="pit"><summary><span class="n">7</span>노사협의회 숫자 세트 — 30 / 3 / 3~10</summary>
+    <div class="bd">설치 의무 <b>상시 30인 이상</b> · <b>3개월마다</b> 정기 개최 · 근로자 위원과 사용자 위원 <b>같은 수, 각 3명 이상 10명 이하</b>. <b>공익 위원은 없고</b>(공익 위원은 노동위원회), <b>단체교섭권·단체행동권도 없다.</b><br>→ 20인·15인, 6개월마다 같은 변형에 주의. 다만 <span class="hl">3개월마다는 최소 기준</span>이라 ‘매월 개최’는 위반이 아니다. (11·13·14·15번)</div>
+  </details>
+  <details class="pit"><summary><span class="n">8</span>권익 침해 3종 — 사유에 ‘노동조합’이 있는가</summary>
+    <div class="bd">판정 1순위 — <b>해고·불이익의 사유가 노동조합과 얽혀 있는가?</b> 있으면 <b>부당 노동 행위</b>. 없고 해고 절차·사유 문제면 <b>부당 해고</b>, 금품 문제면 <b>임금 체불</b>.<br>→ 절차(서면 통지·30일 예고)가 완벽해도 <span class="hl">사유가 파업 주도면 부당 노동 행위</span>다(10번 ④). 또한 부당 해고 구제 신청은 <b>상시 5인 이상</b> 사업장에만 적용되지만, <b>부당 노동 행위는 규모와 무관</b>하다.</div>
+  </details>
+  <details class="pit"><summary><span class="n">9</span>노조 종류는 ‘누구로 구성되었나’만 본다</summary>
+    <div class="bd"><b>“○○주식회사 근로자만으로 구성”</b> · <b>“연합 단체를 구성하지 않음”</b> → <span class="hl">기업별</span>.<br><b>“동일 산업에 근무하는 근로자”</b> → 산업별 / <b>“산업·기업 구별 없이 동일 직종”</b> → 직업별 / <b>“기업이나 산업에 관계없이 폭넓게”</b> → 일반.<br>→ 회사 규모가 커도 그 회사 근로자만으로 구성되면 여전히 <b>기업별</b>이다. (1번 ㄷ·2번 ④·3번 ①)</div>
+  </details>
+
+  <h2 style="margin-top:22px">［부록 2］ 정답표 및 학습지 대조</h2>
+  <div class="scroll"><table class="ans">
+    <tr><th>번호</th><th>학습지 위치</th><th>출처</th><th>정답</th><th>핵심 개념</th></tr>
+    <tr><td>1</td><td>문제 4</td><td>2022학년도 9월 모평 19번</td><td class="a">①</td><td class="l">기업별 노조 · 단체행동권 · 노사협의회 구성</td></tr>
+    <tr><td>2</td><td>문제 7</td><td>2023학년도 10월 학평 8번</td><td class="a">③</td><td class="l">참모 책임 · 오픈 숍 · 노사협의회 30인</td></tr>
+    <tr><td>3</td><td>기출 분석 ②</td><td>2025학년도 9월 모평 15번</td><td class="a">③</td><td class="l">선제적 직장폐쇄 · 태업도 쟁의 행위</td></tr>
+    <tr><td>4</td><td>문제 12</td><td>2026학년도 수능 18번</td><td class="a">③</td><td class="l">노조전임자 · 교섭 해태 · 운영비 원조</td></tr>
+    <tr><td>5</td><td>문제 13</td><td>2027학년도 6월 모평 13번</td><td class="a">④</td><td class="l">최초 단협 → 단독 중재 신청 불가</td></tr>
+    <tr><td>6</td><td>문제 2</td><td>2025학년도 6월 모평 6번</td><td class="a">④</td><td class="l">조정·중재 신청 주체 / 조정서·중재재정 효력</td></tr>
+    <tr><td>7</td><td>문제 11</td><td>2026학년도 9월 모평 6번</td><td class="a">②</td><td class="l">조정 일방 신청 · 조정안은 수락해야 효력</td></tr>
+    <tr><td>8</td><td>기출 분석 ①</td><td>2025학년도 수능 14번</td><td class="a">②</td><td class="l">무노동 무임금 · 긴급조정 결정권자</td></tr>
+    <tr><td>9</td><td>문제 9</td><td>2026학년도 6월 모평 20번</td><td class="a">④</td><td class="l">쟁의 행위 주체 · 부당 노동 행위</td></tr>
+    <tr><td>10</td><td>문제 1</td><td>2024학년도 수능 8번</td><td class="a">④</td><td class="l">부당 노동 행위 / 부당 해고 / 임금 체불</td></tr>
+    <tr><td>11</td><td>문제 3</td><td>2023학년도 수능 3번</td><td class="a">②</td><td class="l">노사협의회 설치 요건 · 대표성</td></tr>
+    <tr><td>12</td><td>문제 5</td><td>2024학년도 6월 모평 7번</td><td class="a">②</td><td class="l">파업 찬반 정족수 · 중재의 구속력</td></tr>
+    <tr><td>13</td><td>문제 6</td><td>2024학년도 수능 16번</td><td class="a">⑤</td><td class="l">노동위원회·노조·노사협의회 3자 구분</td></tr>
+    <tr><td>14</td><td>문제 8</td><td>2022학년도 수능 18번</td><td class="a">②</td><td class="l">노사협의회 위원 3~10인</td></tr>
+    <tr><td>15</td><td>문제 10</td><td>2026학년도 10월 학평 16번</td><td class="a">⑤</td><td class="l">조정위원회 구성 · 중재재정 효력</td></tr>
+  </table></div>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 19강</span>
+    <span>은또링샘의 행성 연구소</span>
+  </div>
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 6 -</div></div>
+  <p style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;color:#8A8A8A;margin-top:10px">기출 문항의 저작권은 한국교육과정평가원 및 시·도 교육청에 있습니다.</p>
+</section>
+
+</div><!-- /sheet -->
+
+<div id="toast"></div>
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var TOTAL = qs.length;
+  var tt;
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){t.classList.remove('show');},3000);
+  }
+  function update(){
+    var d=qs.filter(function(q){return q.classList.contains('done');}).length;
+    var h=qs.filter(function(q){return q.dataset.hit==='1';}).length;
+    document.getElementById('done').textContent=d;
+    document.getElementById('hit').textContent=h;
+    document.getElementById('bar').style.width=(d/TOTAL*100)+'%';
+    if(d===TOTAL) toast(h===TOTAL?TOTAL+'문항 전부 정답입니다.':'채점 완료 — 정답 '+h+' / '+TOTAL);
+  }
+  // 채점 실행 — 마킹한 답과 정답을 대조해 표시하고 해설을 연다
+  function applyGrade(q){
+    var ans=q.dataset.a, pick=q.dataset.pick||'';
+    q.classList.add('done');
+    q.dataset.hit=(pick===ans)?'1':'0';
+    q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+    if(pick){
+      var pb=q.querySelector('.ch button[data-i="'+pick+'"]');
+      if(pb) pb.classList.add(pick===ans?'pick-ok':'pick-no');
+    }
+    if(pick!==ans){
+      var right=q.querySelector('.ch button[data-i="'+ans+'"]');
+      if(right) right.classList.add('mark-ok');
+    }
+    q.querySelector('.sol').classList.add('open');
+    var g=q.querySelector('.gradebtn');
+    g.textContent='해설 접기'; g.classList.add('graded');
+  }
+
+  qs.forEach(function(q){
+    var list=q.querySelector('.ch');
+    var g=q.querySelector('.gradebtn');
+
+    // 선택지 클릭 — 채점 전에는 마킹만 한다(정오 표시 없음)
+    q.querySelectorAll('.ch button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('done')) return;
+        q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+        btn.classList.add('marked');
+        q.dataset.pick=btn.dataset.i;
+      });
+    });
+
+    // 채점하기 / 채점 후에는 해설 접기·펼치기 토글
+    g.addEventListener('click',function(){
+      if(!q.classList.contains('done')){
+        if(!q.dataset.pick){
+          toast('답을 먼저 고른 뒤 채점하세요.');
+          list.classList.remove('nudge'); void list.offsetWidth; list.classList.add('nudge');
+          return;
+        }
+        applyGrade(q); update();
+      }else{
+        var sol=q.querySelector('.sol');
+        var open=sol.classList.toggle('open');
+        g.textContent=open?'해설 접기':'해설 보기';
+      }
+    });
+  });
+
+  window.showAll=function(){
+    qs.forEach(function(q){
+      if(q.classList.contains('done')){
+        q.querySelector('.sol').classList.add('open');
+        q.querySelector('.gradebtn').textContent='해설 접기';
+        return;
+      }
+      applyGrade(q);
+    });
+    update(); toast('정답과 해설을 모두 펼쳤습니다.');
+  };
+
+  window.resetAll=function(){
+    qs.forEach(function(q){
+      q.classList.remove('done'); delete q.dataset.hit; delete q.dataset.pick;
+      q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked','pick-ok','pick-no','mark-ok');});
+      q.querySelector('.sol').classList.remove('open');
+      var g=q.querySelector('.gradebtn');
+      g.textContent='채점하기'; g.classList.remove('graded');
+    });
+    update(); toast('처음부터 다시 풀어 보세요.');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  // 학번 칸: 숫자만 입력하고 한 자리 채우면 다음 칸으로
+  var cells=Array.prototype.slice.call(document.querySelectorAll('.fld .cell'));
+  cells.forEach(function(c,i){
+    c.addEventListener('input',function(){
+      c.value=c.value.replace(/[^0-9]/g,'').slice(0,1);
+      if(c.value && cells[i+1]) cells[i+1].focus();
+    });
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Backspace' && !c.value && cells[i-1]) cells[i-1].focus();
+    });
+  });
+  window.addEventListener('scroll',function(){
+    document.getElementById('top').classList.toggle('show', window.scrollY>420);
+  });
+  update();
+})();
+</script>
+</body>
+</html>

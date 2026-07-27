@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBS 수능완성 실전 모의고사 05회 총정리 | 성공적인 직업생활</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FDF7EA;      /* 바탕 */
+  --cream2:#FAF0DD;     /* 연한 크림 채움 */
+  --tick:#EFDFC0;       /* 상단 눈금 */
+  --card:#FFFFFF;
+  --coral:#EE8B6C;      /* 주 강조 */
+  --coral-d:#DA6A48;    /* 진한 코랄 */
+  --coral-l:#FBE3D9;    /* 살구 채움 */
+  --coral-ll:#FDF1EC;   /* 아주 연한 살구 */
+  --line:#F2B49B;       /* 코랄 경계선 */
+  --line-s:#F7D3C3;     /* 옅은 경계선 */
+  --teal:#3E9E88;       /* 보조 강조 (기준·정답) */
+  --teal-l:#E3F1EC;
+  --teal-line:#9BCFC1;
+  --ink:#4B4744;
+  --ink-d:#2E2B29;
+  --muted:#A79D92;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Noto Sans KR',sans-serif;color:var(--ink);
+  line-height:1.85;-webkit-text-size-adjust:100%;background:var(--cream);
+}
+h1,h2,h3,h4,.gt{font-family:'Gothic A1','Noto Sans KR',sans-serif}
+
+/* ===== 상단 눈금 띠 ===== */
+.ticks{
+  height:19px;width:100%;
+  background-image:repeating-linear-gradient(90deg,
+    var(--tick) 0 3px, transparent 3px 11px,
+    var(--tick) 11px 14px, transparent 14px 22px,
+    var(--tick) 22px 25px, transparent 25px 33px,
+    var(--tick) 33px 36px, transparent 36px 44px,
+    var(--tick) 44px 47px, transparent 47px 55px,
+    var(--tick) 55px 58px, transparent 58px 66px,
+    var(--tick) 66px 69px, transparent 69px 96px);
+  background-position:0 0;
+}
+
+/* ===== 상단바 ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(253,247,234,.97);
+  backdrop-filter:blur(5px);border-bottom:1.5px solid var(--line)
+}
+.topbar-in{max-width:940px;margin:0 auto;padding:10px 26px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.tb-label{font-family:'Gothic A1',sans-serif;font-size:.78rem;font-weight:800;color:var(--coral-d);white-space:nowrap;letter-spacing:.02em}
+.bar{flex:1;min-width:110px;height:8px;background:var(--coral-ll);border:1px solid var(--line-s);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:var(--coral);transition:width .35s ease}
+.tb-score{font-family:'Gothic A1',sans-serif;font-size:.84rem;font-weight:800;color:var(--coral-d);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tb-btns{display:flex;gap:7px;flex-wrap:wrap}
+.btn{
+  font-family:'Gothic A1',sans-serif;font-size:.76rem;font-weight:700;padding:6px 14px;border-radius:99px;
+  border:1.5px solid var(--line);background:var(--card);color:var(--coral-d);cursor:pointer;transition:.15s;white-space:nowrap
+}
+.btn:hover{background:var(--coral-l)}
+.btn.primary{background:var(--coral);border-color:var(--coral);color:#fff}
+.btn.primary:hover{background:var(--coral-d);border-color:var(--coral-d)}
+.btn.ghost{border-color:var(--line-s);color:var(--muted);background:transparent}
+.btn.ghost:hover{background:var(--cream2);color:var(--ink)}
+
+/* ===== 시트(외곽 프레임) ===== */
+.sheet{
+  max-width:940px;margin:22px auto 60px;background:var(--cream);
+  border:1.5px solid var(--line);border-radius:7px;overflow:hidden
+}
+.wrap{padding:0 30px 84px}
+@media(max-width:780px){.sheet{margin:14px 12px 36px}.wrap{padding:0 18px 60px}}
+@media(max-width:480px){.sheet{margin:10px 7px 26px}.wrap{padding:0 13px 50px}}
+
+/* ===== 표지 ===== */
+.masthead{margin:0 -30px 42px;padding:0}
+@media(max-width:780px){.masthead{margin:0 -18px 34px}}
+@media(max-width:480px){.masthead{margin:0 -13px 28px}}
+.mh-body{padding:24px 30px 30px;border-bottom:1.5px solid var(--line)}
+.mh-toprow{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:26px}
+.tag-out{
+  font-family:'Gothic A1',sans-serif;font-size:.8rem;font-weight:700;color:var(--coral-d);
+  border:1.5px solid var(--line);border-radius:5px;padding:4px 13px;background:var(--card)
+}
+.tag-fill{
+  font-family:'Gothic A1',sans-serif;font-size:.8rem;font-weight:800;color:#fff;
+  background:var(--coral);border-radius:99px;padding:5px 17px
+}
+.mh-center{text-align:center;margin-bottom:26px}
+.mh-band{
+  display:inline-block;font-family:'Gothic A1',sans-serif;font-size:.86rem;font-weight:700;
+  color:var(--coral-d);border:1.5px solid var(--line);border-radius:5px;padding:5px 17px;background:var(--card)
+}
+.mh-title{
+  font-size:2.9rem;font-weight:900;color:var(--coral);letter-spacing:-.02em;
+  line-height:1.2;margin:18px 0 6px
+}
+.mh-sub2{font-family:'Gothic A1',sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink-d);letter-spacing:-.01em}
+.mh-fields{display:flex;gap:14px;flex-wrap:wrap}
+.fld{flex:1;min-width:210px;display:flex;border:1.5px solid var(--line);border-radius:5px;overflow:hidden;background:var(--card)}
+.fld-l{
+  flex:none;font-family:'Gothic A1',sans-serif;font-size:.8rem;font-weight:700;color:var(--coral-d);
+  background:var(--coral-l);padding:8px 16px;border-right:1.5px solid var(--line)
+}
+.fld-v{padding:8px 15px;font-size:.82rem;color:var(--ink)}
+.mh-guide{background:var(--coral-l);padding:17px 30px}
+.mh-guide ul{list-style:none}
+.mh-guide li{position:relative;padding-left:15px;font-size:.83rem;color:var(--ink);line-height:1.95}
+.mh-guide li::before{content:'•';position:absolute;left:0;color:var(--coral-d);font-weight:700}
+.mh-guide b{color:var(--coral-d);font-weight:700}
+
+/* ===== 목차 ===== */
+.secnav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px}
+.secnav a{
+  font-family:'Gothic A1',sans-serif;font-size:.79rem;font-weight:700;text-decoration:none;color:var(--coral-d);
+  border:1.5px solid var(--line);background:var(--card);padding:5px 14px;border-radius:99px;transition:.15s
+}
+.secnav a:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* ===== 섹션 ===== */
+section{margin-bottom:60px;scroll-margin-top:66px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+.sec-no{
+  flex:none;width:32px;height:32px;border-radius:6px;background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-family:'Gothic A1',sans-serif;font-size:.95rem;font-weight:800
+}
+.sec-title{font-size:1.34rem;font-weight:800;color:var(--ink-d);letter-spacing:-.02em;line-height:1.4}
+.sec-desc{font-size:.85rem;color:var(--muted);margin-bottom:22px;padding-left:44px;line-height:1.9}
+.sec-desc b{color:var(--coral-d);font-weight:700}
+@media(max-width:600px){.sec-desc{padding-left:0}}
+
+/* 안내 밴드 */
+.note{
+  background:var(--coral-l);border:1.5px solid var(--line);border-radius:6px;
+  padding:17px 20px;font-size:.84rem;color:var(--ink);line-height:1.95;margin-top:22px
+}
+.note b{color:var(--coral-d);font-weight:700}
+
+/* ===== 출제 지도 ===== */
+.mapgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px}
+.qcell{
+  background:var(--card);border:1.5px solid var(--line-s);border-radius:6px;padding:12px 13px;
+  cursor:pointer;transition:.14s;text-align:left;font-family:inherit;position:relative
+}
+.qcell:hover{border-color:var(--coral);box-shadow:0 2px 8px rgba(238,139,108,.16)}
+.qcell .qn{font-family:'Gothic A1',sans-serif;font-size:1.12rem;font-weight:800;color:var(--ink-d);line-height:1}
+.qcell .qtag{
+  display:inline-block;font-size:.63rem;font-weight:500;padding:2px 8px;border-radius:99px;
+  background:var(--cream2);color:var(--muted);margin:7px 0 5px
+}
+.qcell .qcon{font-size:.74rem;color:var(--ink);line-height:1.6}
+.qcell .qans{position:absolute;top:11px;right:12px;font-size:.85rem;color:var(--line);opacity:.9}
+.qcell.miss{background:var(--coral-ll);border-color:var(--coral);border-width:1.5px}
+.qcell.miss .qn{color:var(--coral-d)}
+.qcell.miss::after{
+  content:'✕';position:absolute;bottom:9px;right:11px;font-size:.9rem;font-weight:800;color:var(--coral-d)
+}
+.qcell.out{border-style:dashed;border-color:var(--teal-line)}
+.missbar{
+  display:flex;align-items:center;gap:11px;flex-wrap:wrap;
+  background:var(--coral-l);border:1.5px solid var(--line);border-radius:6px;padding:12px 18px;margin-bottom:16px
+}
+.missbar .mtxt{font-family:'Gothic A1',sans-serif;font-size:.84rem;font-weight:700;color:var(--coral-d)}
+.missbar .mcnt{font-family:'Gothic A1',sans-serif;font-size:.9rem;font-weight:800;color:var(--coral-d)}
+
+/* ===== 함정 아코디언 ===== */
+.pit{background:var(--card);border:1.5px solid var(--line-s);border-radius:6px;margin-bottom:9px;transition:.15s;overflow:hidden}
+.pit:hover{border-color:var(--line)}
+.pit[open]{border-color:var(--coral)}
+.pit summary{
+  list-style:none;cursor:pointer;padding:14px 17px;display:flex;align-items:flex-start;gap:12px;
+  color:var(--ink-d);font-size:.9rem;font-weight:500;line-height:1.7;transition:.15s
+}
+.pit summary::-webkit-details-marker{display:none}
+.pit[open] summary{background:var(--coral-ll);border-bottom:1px dashed var(--line)}
+.pit .pno{
+  flex:none;width:26px;height:26px;border-radius:50%;background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-family:'Gothic A1',sans-serif;font-size:.76rem;font-weight:800
+}
+.pit .psum{flex:1}
+.pit .psum b{color:var(--coral-d);font-weight:700}
+.pit .ptog{flex:none;font-size:1.1rem;color:var(--line);line-height:1.4}
+.pit[open] .ptog{color:var(--coral-d)}
+.pit .pbody{padding:16px 20px 20px 55px;font-size:.85rem;line-height:1.98;color:var(--ink)}
+@media(max-width:600px){.pit .pbody{padding-left:18px}}
+.pit .pbody b{color:var(--coral-d);font-weight:700}
+.pit .pbody .bad{
+  background:var(--coral-l);border:1.2px solid var(--line);border-radius:5px;
+  padding:11px 15px;margin:12px 0
+}
+.pit .pbody .bad b{color:var(--coral-d)}
+.pit .pbody .good{
+  background:var(--teal-l);border:1.2px solid var(--teal-line);border-radius:5px;
+  padding:11px 15px;margin:12px 0
+}
+.pit .pbody .good b{color:#2C7D6B}
+.pit .pbody .src{
+  font-size:.74rem;color:var(--muted);margin-top:13px;display:block;line-height:1.7;
+  padding-top:10px;border-top:1px dashed var(--line-s)
+}
+.pit .pbody .src b{color:var(--coral-d)}
+.warnflag{
+  display:inline-block;font-family:'Gothic A1',sans-serif;font-size:.66rem;font-weight:700;
+  padding:2px 8px;border-radius:99px;background:var(--teal-l);color:#2C7D6B;
+  border:1px solid var(--teal-line);margin-left:6px
+}
+
+/* ===== 비교표 ===== */
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:20px}
+.tab{
+  font-family:'Gothic A1',sans-serif;font-size:.79rem;font-weight:700;padding:6px 15px;border-radius:99px;
+  border:1.5px solid var(--line-s);background:var(--card);color:var(--muted);cursor:pointer;transition:.15s
+}
+.tab:hover{color:var(--coral-d);border-color:var(--line)}
+.tab.on{background:var(--coral);border-color:var(--coral);color:#fff}
+.pane{display:none}
+.pane.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.tblbox{margin-bottom:28px}
+.tblbox h4{
+  font-size:1rem;font-weight:800;color:var(--ink-d);margin-bottom:9px;letter-spacing:-.01em;
+  background:var(--coral-ll);border:1.5px solid var(--line);border-radius:5px;padding:8px 15px
+}
+.tblbox h4 span{font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d);margin-left:7px}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:.8rem;border:1.5px solid var(--line)}
+th,td{padding:9px 12px;text-align:left;line-height:1.75;vertical-align:top;border-right:1px solid var(--line-s)}
+th:last-child,td:last-child{border-right:none}
+th{background:var(--coral-l);color:var(--coral-d);font-family:'Gothic A1',sans-serif;font-weight:700;font-size:.77rem;border-bottom:1.5px solid var(--line)}
+tr+tr td{border-top:1px dashed var(--line-s)}
+td b{color:var(--coral-d);font-weight:700}
+.tblbox .cap{font-size:.76rem;color:var(--muted);margin-top:8px;line-height:1.75}
+.tblbox .cap b{color:var(--coral-d);font-weight:700}
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ===== 심화 보충 블록 ===== */
+.suppl{
+  display:inline-block;font-family:'Gothic A1',sans-serif;font-size:.66rem;font-weight:700;
+  padding:2px 9px;border-radius:99px;background:var(--teal-l);color:#2C7D6B;
+  border:1px solid var(--teal-line);margin-left:7px;vertical-align:middle
+}
+.pit .pbody h5{
+  font-family:'Gothic A1',sans-serif;font-size:.89rem;font-weight:800;color:var(--ink-d);
+  margin:20px 0 9px;padding-top:15px;border-top:1px dashed var(--line-s)
+}
+.calc{
+  background:var(--cream2);border:1.2px solid #E3D3AE;border-radius:5px;
+  padding:12px 16px;margin:11px 0;font-size:.82rem;line-height:2.05
+}
+.calc .st{display:block}
+.calc .st span{display:inline-block;min-width:20px;font-weight:800;color:var(--coral-d)}
+.calc b{color:var(--coral-d);font-weight:700}
+.calc .res{
+  display:block;margin-top:8px;padding-top:9px;border-top:1px dashed #E3D3AE;
+  font-weight:700;color:var(--ink-d)
+}
+
+/* ===== 도식 공통 ===== */
+.figbox{background:var(--card);border:1.5px solid var(--line-s);border-radius:6px;padding:16px 15px 13px;margin-bottom:13px}
+.figbox .figwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.figbox svg{width:100%;height:auto;display:block;min-width:560px}
+.figbox .figcap{
+  font-size:.77rem;color:var(--muted);margin-top:11px;padding-top:10px;
+  border-top:1px dashed var(--line-s);line-height:1.75
+}
+.figbox .figcap b{color:var(--coral-d);font-weight:700}
+
+/* ===== O/X ===== */
+.ox{background:var(--card);border:1.5px solid var(--line-s);border-radius:6px;padding:15px 17px;margin-bottom:9px;transition:.16s}
+.ox:hover{border-color:var(--line)}
+.ox.correct{background:var(--teal-l);border-color:var(--teal-line)}
+.ox.wrong{background:var(--coral-l);border-color:var(--coral)}
+.ox-top{display:flex;gap:12px;align-items:flex-start}
+.ox-no{
+  flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);color:var(--coral-d);
+  display:grid;place-items:center;font-family:'Gothic A1',sans-serif;font-size:.76rem;font-weight:800;background:var(--card)
+}
+.ox.correct .ox-no{background:var(--teal);border-color:var(--teal);color:#fff}
+.ox.wrong .ox-no{background:var(--coral-d);border-color:var(--coral-d);color:#fff}
+.ox-q{flex:1;font-size:.87rem;color:var(--ink-d);line-height:1.85}
+.ox-q .tag{font-size:.7rem;color:var(--muted);display:block;margin-top:2px}
+.ox-btns{display:flex;gap:7px;flex:none}
+.oxb{
+  font-family:'Gothic A1',sans-serif;width:39px;height:39px;border-radius:50%;
+  border:1.5px solid var(--line-s);background:var(--card);color:var(--muted);
+  font-size:1.02rem;font-weight:800;cursor:pointer;transition:.14s
+}
+.oxb:hover:not(:disabled){border-color:var(--coral);color:var(--coral-d);background:var(--coral-ll)}
+.oxb.pick{border-color:var(--coral);background:var(--coral);color:#fff}
+.oxb:disabled{cursor:default;opacity:.4}
+.oxb.pick:disabled{opacity:1}
+.ox.correct .oxb.pick{background:var(--teal);border-color:var(--teal)}
+.ox.wrong .oxb.pick{background:var(--coral-d);border-color:var(--coral-d)}
+.shake{animation:sh .35s}
+@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.ox-sol{
+  display:none;margin:12px 0 0 38px;padding:11px 15px;background:var(--card);
+  border:1.2px solid var(--line-s);border-radius:5px;font-size:.82rem;line-height:1.9;color:var(--ink)
+}
+.ox-sol.show{display:block}
+.ox-sol b{color:var(--coral-d);font-weight:700}
+.ox.correct .ox-sol{border-color:var(--teal-line)}
+.ox.wrong .ox-sol{border-color:var(--line)}
+@media(max-width:520px){
+  .ox-top{flex-wrap:wrap}
+  .ox-btns{width:100%;justify-content:flex-end;margin-top:9px}
+  .ox-sol{margin-left:0}
+}
+
+/* ===== 토스트 / 맨위로 ===== */
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,80px);
+  background:var(--coral-d);color:#fff;padding:11px 24px;border-radius:99px;
+  font-family:'Gothic A1',sans-serif;font-size:.82rem;font-weight:700;z-index:200;opacity:0;
+  transition:.32s;pointer-events:none;box-shadow:0 6px 18px rgba(218,106,72,.28);text-align:center
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.totop{
+  position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;
+  border:1.5px solid var(--line);background:var(--card);color:var(--coral-d);
+  font-size:1.1rem;cursor:pointer;z-index:150;opacity:0;pointer-events:none;transition:.25s
+}
+.totop.on{opacity:1;pointer-events:auto}
+.totop:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+
+/* ===== 푸터 ===== */
+.foot{margin-top:46px;text-align:center}
+.uptop{
+  display:inline-flex;align-items:center;gap:9px;background:var(--card);
+  border:1.5px solid var(--line);border-radius:99px;padding:5px 18px 5px 5px;
+  cursor:pointer;font-family:'Gothic A1',sans-serif;font-size:.83rem;font-weight:800;
+  color:var(--coral-d);margin-bottom:15px;transition:.15s
+}
+.uptop:hover{background:var(--coral-ll);border-color:var(--coral)}
+.uptop i{
+  width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;
+  display:grid;place-items:center;font-style:normal;font-size:.92rem;font-weight:700
+}
+.labpanel{
+  position:relative;overflow:hidden;border-radius:13px;
+  background:linear-gradient(135deg,#E0764F 0%,#C4573A 100%);
+  padding:18px 22px 16px
+}
+.labpanel .star{
+  position:absolute;border-radius:50%;background:#fff;pointer-events:none;
+  box-shadow:0 0 9px 2px rgba(255,255,255,.95);
+  animation-name:twinkle;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+  animation-direction:alternate;
+}
+@keyframes twinkle{
+  from{opacity:.10;transform:scale(.35)}
+  to{opacity:1;transform:scale(1.5)}
+}
+.planet{
+  display:inline-block;line-height:0;
+  animation-name:floaty;
+  animation-duration:3.2s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+  animation-direction:alternate;
+  filter:drop-shadow(0 4px 7px rgba(120,40,15,.35));
+}
+@keyframes floaty{
+  from{transform:translateY(7px) rotate(-7deg)}
+  to{transform:translateY(-9px) rotate(7deg)}
+}
+.lab-row{display:flex;align-items:center;justify-content:center;gap:11px;position:relative;z-index:2}
+.lab-nm{font-family:'Gothic A1',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.lab-nm .w{color:#FFFFFF}
+.lab-nm .g{color:#FFE0BA}
+.lab-en{
+  font-family:'Gothic A1',sans-serif;font-size:.71rem;font-weight:700;color:rgba(255,255,255,.58);
+  letter-spacing:.46em;padding-left:.46em;margin-top:3px;position:relative;z-index:2
+}
+.lab-div{height:1px;background:rgba(255,255,255,.26);margin:12px auto 0;max-width:76%;position:relative;z-index:2}
+.lab-sub{margin-top:10px;font-size:.78rem;color:rgba(255,241,232,.82);line-height:1.6;position:relative;z-index:2}
+@media(max-width:520px){
+  .lab-row{gap:9px}
+  .lab-nm{font-size:1.08rem}
+  .lab-en{font-size:.64rem;letter-spacing:.34em;padding-left:.34em}
+  .lab-sub{font-size:.73rem}
+  .labpanel{padding:15px 15px 13px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="ticks"></div>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <span class="tb-label">셀프 점검</span>
+    <span class="bar"><i id="barFill"></i></span>
+    <span class="tb-score" id="scoreTxt">0 / 0</span>
+    <span class="tb-btns">
+      <button class="btn primary" onclick="revealAll()">정답·해설 전체 보기</button>
+      <button class="btn ghost" onclick="resetAll()">다시 풀기</button>
+    </span>
+  </div>
+</div>
+
+<div class="sheet">
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mh-body">
+      <div class="mh-toprow">
+        <span class="tag-out">실전 모의고사 총정리</span>
+        <span class="tag-fill">05회</span>
+      </div>
+      <div class="mh-center">
+        <span class="mh-band">2027학년도 EBS 수능완성 · 직업탐구영역</span>
+        <h1 class="mh-title">성공적인 직업생활</h1>
+        <p class="mh-sub2">실전 모의고사 제5회 오답 정리</p>
+      </div>
+      <div class="mh-fields">
+        <div class="fld"><span class="fld-l">범위</span><span class="fld-v">본문 32~39쪽 · 해설 18~22쪽</span></div>
+        <div class="fld"><span class="fld-l">구성</span><span class="fld-v">20문항 · 30분 · 50점</span></div>
+      </div>
+    </div>
+    <div class="mh-guide">
+      <ul>
+        <li>한 회차를 풀고 나서 <b>무엇을 놓쳤는지</b>를 잡아내는 마무리 자료입니다.</li>
+        <li>개념을 처음 배우는 자료가 아니라, <b>오답 선택지에서 출제자의 함정을 역추적</b>하는 자료입니다.</li>
+        <li>틀린 문항을 출제 지도에 표시한 뒤, 같은 번호의 <b>함정 포인트</b>를 찾아 읽으십시오.</li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="secnav">
+    <a href="#s1">① 출제 지도</a>
+    <a href="#s2">② 함정 포인트 20</a>
+    <a href="#s3">③ 개념 비교표</a>
+    <a href="#s4">④ 셀프 체크 O/X</a>
+  </nav>
+
+  <!-- ========== 1. 출제 지도 ========== -->
+  <section id="s1">
+    <div class="sec-head"><span class="sec-no">1</span><h2 class="sec-title">출제 지도 — 20문항이 어느 단원에서 왔나</h2></div>
+    <p class="sec-desc">
+      틀린 문항을 눌러 표시해 두세요. 아래 <b>함정 포인트</b>에서 같은 번호를 찾아 읽으면 됩니다.
+      점선 테두리(<span style="color:var(--teal);font-weight:700">⌐ ¬</span>)는 <b>문항 번호와 단원 순서가 어긋난 문항</b>입니다.
+    </p>
+
+    <div class="missbar">
+      <span class="mtxt">내가 틀린 문항</span>
+      <span class="mcnt" id="missCnt">0개</span>
+      <span style="flex:1"></span>
+      <button class="btn ghost" onclick="clearMiss()">표시 지우기</button>
+    </div>
+
+    <div class="mapgrid" id="mapGrid"></div>
+
+    <div class="note">
+      <b>이 회차의 성격 —</b> 20문항이 20강을 거의 1:1로 훑습니다.
+      배점은 <b>3점 문항이 10개</b>(2·3·6·7·9·11·14·15·18·19번)로,
+      3점이 몰린 곳(기업 형태·NCS·근로자 권익·노사협의회)이 이 회차의 승부처입니다.
+    </div>
+  </section>
+
+  
+
+  <!-- ========== 2. 함정 포인트 ========== -->
+  <section id="s2">
+    <div class="sec-head"><span class="sec-no">2</span><h2 class="sec-title">주의해야 할 함정 포인트 20가지</h2></div>
+    <p class="sec-desc">문항마다 <b>"왜 그 선택지가 매력적이었는가"</b>를 한 줄로 정리했습니다. 정답 해설보다 오답 해설이 시험에 더 도움이 됩니다.</p>
+
+    <details class="pit"><summary><span class="pno">1</span><span class="psum">돌잔치 = 영아기. 발달 과업은 <b>신뢰감</b>이지 주도성이 아니다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="bad"><b>함정 —</b> "촉감 놀이"라는 말에 끌려 감각 발달을 떠올리거나, "요즘 계속 붙어 있으려 한다"를 자기주도성으로 읽으면 ②로 빠집니다.</div>
+        <div class="good"><b>기준점 —</b> 돌잔치 = 만 1세 = <b>영아기</b>. 에릭슨의 심리사회적 이론에서 이 시기 과업은 <b>신뢰감 대 불신감</b>입니다. 주 양육자와의 관계로 기본적 신뢰감을 형성하고, 실패하면 불신감을 갖습니다.</div>
+        <p>나머지 선택지는 전부 <b>다른 시기</b>의 과업입니다 — 주도성(3~6세) · 근면성(6~12세) · 친밀성(성인 초기) · 생산성(중년기 40~65세).
+        선택지에 발달 과업 이름이 나오면 <b>먼저 나이대부터 매칭</b>하십시오.</p>
+        <span class="src">1번 · 02강 생애 발달과 직업적 성공(1)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">2</span><span class="psum">조하리의 창은 <b>"누가 아는가"</b> 두 축으로만 판별한다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>판별법 —</b> 체크리스트를 두 줄로만 읽습니다. ① "나는 나를 아는가" ② "타인은 나를 아는가".
+        학생 A는 <b>자기 강점·약점은 알고(나 O)</b>, <b>감정을 드러내지 않으며 도움 요청도 어려워함(타인 X)</b> → <b>숨겨진 영역(hidden)</b>이 가장 큽니다.</div>
+        <div class="bad"><b>함정 —</b> ㄷ은 "주변의 피드백을 들어야 한다"는 말 때문에 그럴듯하지만, 이는 <b>보이지 않는 영역(blind)</b>이 클 때의 처방입니다.
+        ㄹ의 "고립되어 자신의 모습을 알지 못한다"는 <b>미지의 영역(unknown)</b> 설명입니다. 학생 A는 두 항목 모두 '아니요'로 답했습니다.</div>
+        <p>즉 <b>정답 근거는 체크리스트 안에 다 있습니다.</b> 감정적으로 그럴듯한 조언을 고르면 틀립니다.</p>
+        <span class="src">2번 [3점] · 03강 생애 발달과 직업적 성공(2)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">3</span><span class="psum">유한회사 vs 유한책임회사 — 갈리는 지점은 딱 <b>의결권</b>과 <b>외부 감사</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p><b>공통점</b>은 둘 다 <b>유한 책임 사원으로만</b> 구성된다는 것. 여기까지는 같습니다.</p>
+        <div class="good"><b>차이 —</b> 유한회사는 주식회사처럼 소유와 경영이 분리되고 <b>출자 비율에 따라 의결권</b>. 유한책임회사는 출자 사원이 직접 경영하며 <b>출자액과 관계없이 1인 1의결권</b>.
+        또 유한회사는 일정 규모 이상이면 외부 감사 대상이지만, 유한책임회사는 <b>외부 감사 의무가 없어</b> 전환 사례가 늘고 있다는 것이 기사의 논지입니다.</div>
+        <div class="bad"><b>함정 —</b> ①은 합명회사(무한 책임 사원만), ③·⑤는 조합 기업/협동조합, ④는 주식회사(주주 총회) 설명입니다.
+        <b>'유한'이라는 글자가 겹친다고 같은 회사가 아닙니다.</b></div>
+        <span class="src">3번 [3점] · 04강 기업의 종류와 형태별 특징</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">4</span><span class="psum">마케팅 믹스 4P — <b>"어떻게 전달할까"</b>는 유통(Place)이다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>정답 근거 —</b> 대화는 "가까운 매장에서 포장해 배달", "매장에서 주문 후 집으로 가져다준다" — 전부 <b>제품이 소비자에게 도달하는 경로</b> 이야기입니다. 유통 전략.</div>
+        <div class="bad"><b>함정 —</b> ②의 "제품 수명 주기에 따른 전략"은 <b>제품(Product) 전략</b>입니다. 퀵 커머스라는 최신 소재에 눈이 가면 "새로운 서비스니까 제품 아닌가?"로 착각하기 쉽습니다.</div>
+        <p><b>4P 한 줄 구분 —</b> 제품=무엇을 만들까 / 가격=얼마에 팔까 / 유통=어떻게 전달할까 / 촉진=어떻게 알릴까.</p>
+        <span class="src">4번 · 05강 기업의 경영 활동</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">5</span><span class="psum">"세상에 단 하나뿐 + 고가 + 대면 주문" = <b>개별 생산</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>키워드 대응 —</b> 맞춤 · 하나뿐 · 고가 · 직접 대면 → <b>개별 생산 방식</b>. 소비자 요구에 따라 제품을 개별적으로 생산하며, 제품마다 품질·가공 방법·기계가 다릅니다.</div>
+        <div class="bad"><b>함정 —</b> ①(대량 제작으로 단가 낮춤)과 ③(정해진 공정에 따라 연속 생산)은 <b>연속 생산</b>, ②(수요 예측·재고 최소화)는 <b>시장(계획) 생산</b>, ⑤(일정 수량 모이면 일괄 제작)는 <b>로트 생산</b>.
+        ⑤는 "맞춤"이라는 단어가 남아 있어 특히 헷갈립니다 — 로트는 <b>비슷한 요구를 묶어서</b> 만드는 것이라 '하나뿐'과 정면으로 어긋납니다.</div>
+        <span class="src">5번 · 06강 제조업</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">6</span><span class="psum">경력직 선호 = 서비스의 <b>이질성</b>. 그리고 <b>지문에 없는 말은 답이 아니다</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>연결 고리 —</b> "숙련도와 전문성이 뛰어난 경력직" → 사람에 따라 서비스의 질이 달라진다 → <b>이질성</b>. 서비스는 전달하는 사람·고객·시간·장소·환경에 따라 내용과 질이 달라집니다.</div>
+        <div class="bad"><b>함정 —</b> ①은 나이와 중년층 선호, ②는 임금과 이윤, ④는 인원 감축 — <b>기사에 단 한 줄도 없는 내용</b>입니다.
+        ③은 동시성(비분리성)을 끌어왔지만 경력직 선호와 논리적으로 이어지지 않습니다.</div>
+        <p>이 문항은 개념 문항이 아니라 <b>독해 문항</b>입니다. 선택지 4개가 "기사에 근거 없음"으로 탈락합니다.</p>
+        <span class="src">6번 [3점] · 07강 서비스업</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">7</span><span class="psum">"국토의 대동맥 · 도로교통 전문" = <b>공기업</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>정의 —</b> 공기업은 국가 또는 지방 자치 단체, 공공 단체가 <b>공공의 이익</b>을 목적으로 출자하여 경영하는 기업입니다.</div>
+        <div class="bad"><b>함정 —</b> ①은 합명회사, ③은 조합 기업(협동조합), ④는 개인 기업, ⑤는 유한회사 설명입니다.
+        3번 문항과 짝을 이뤄 <b>한 회차 안에서 기업 형태를 두 번</b> 묻습니다. 04강은 이 회차의 최다 출제 단원입니다.</div>
+        <span class="src">7번 [3점] · 04강 기업의 종류와 형태별 특징</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">8</span><span class="psum">'정보처리'와 '문제처리' — 이름은 닮았는데 <b>소속이 다르다</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p>공고문에 제시된 직업 기초 능력은 <b>의사소통 · 문제 해결 · 조직 이해 · 기술 · 직업 윤리</b> 5가지입니다.</p>
+        <div class="good">ㄱ <b>국제 감각 → 조직 이해 능력</b>의 하위 영역 ✔<br>ㄷ <b>문제 처리 능력 → 문제 해결 능력</b>의 하위 영역 ✔</div>
+        <div class="bad">ㄴ <b>정보 처리 능력 → 정보 능력</b>의 하위 영역. 공고문에 '정보 능력'은 없습니다. 이름이 '문제 처리'와 비슷해 그냥 넘어가기 쉽습니다.</div>
+        <p><b>출제 공식 —</b> 지문에 나열된 능력 5개를 먼저 표시해 두고, 선택지의 하위 영역이 <b>그 5개 안에서 왔는지</b>만 확인하면 됩니다.</p>
+        <span class="src">8번 · 08강 직업 기초 능력</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">9</span><span class="psum">NCS 3층 구조 — <b>세분류(직무) ＞ 능력단위 ＞ 능력단위 요소</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>이 자료의 층위 —</b> 세분류 = <b>05. 건강기능식품제조가공(＝직무)</b> / 능력단위 = <b>건강기능식품가공 위생관리</b> / 능력단위 요소 = 개인위생 관리하기, 가공기계·설비위생 관리하기, 작업장 위생 관리하기.</div>
+        <div class="bad"><b>함정 4종 —</b>
+        ① 직무를 '식품가공'(대·중·소분류 이름)으로 착각 → <b>직무는 세분류</b>입니다.<br>
+        ② 분류번호 <b>2101010525_17v2</b>의 '17'은 <b>2017년</b> 수정·보완을 뜻합니다. 2025년이 아닙니다.<br>
+        ③ '작업장 위생 관리하기'는 능력단위 <b>요소</b>이지 기본 단위(＝능력단위)가 아닙니다.<br>
+        ④ 필요 기술·직무 수행 태도·직업 기초 능력 어디에도 <b>컴퓨터 활용 능력은 없습니다</b>.</div>
+        <p>분류번호 뒤의 <b>_○○v○</b>는 <b>연도 + 버전</b>이라는 것만 알면 ②는 그냥 잡힙니다.</p>
+        <span class="src">9번 [3점] · 09·10강 전공별 직무 수행 능력(NCS)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">10</span><span class="psum">취업 계획 절차 — 목표를 세웠으면 다음은 <b>기업 선택·정보 수집</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p><b>절차 —</b> 자기 분석(직종·직무 선택) → 취업 환경 분석·<b>취업 목표 설정</b> → <b>취업 준비</b>(기업 선택 + 기업 정보 수집) → 구직 활동(채용 전형 준비·모의 면접·이미지 메이킹) → 취업 이후.</p>
+        <div class="good">질문자는 적성·자격증·목표 직업까지 정해진 상태 = <b>목표 설정 완료</b>. 따라서 답변은 바로 다음 칸인 <b>취업 준비</b>여야 합니다 → ④ 같은 직종의 업체를 선정해 목록을 만들고 비교.</div>
+        <div class="bad"><b>함정 —</b> ③ 모의 면접과 ⑤ 자기소개서 작성은 <b>한 칸 더 뒤인 구직 활동</b>입니다. 둘 다 "취업 준비"라는 일상어로는 맞는 말이라 가장 많이 끌립니다.
+        ①은 이미 끝난 목표 설정, ②는 취업 이후 단계입니다.</div>
+        <p><b>이런 절차 문항의 요령 —</b> "지금 어디까지 왔는가"를 지문에서 먼저 확정하고, <b>딱 한 칸만</b> 전진하십시오.</p>
+        <span class="src">10번 · 12강 취업과 창업 및 기업가 정신(1)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">11</span><span class="psum">공고에 <b>직무 정보는 있어도 기업 정보는 없다</b> / 발표 면접 ≠ 토론 면접</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good">ㄴ <b>경력 기술서</b> = 본인이 수행한 구체적 직무 영역 관련 활동·경험·역할·성과를 상세히 기술하는 서류 ✔<br>
+        ㄷ <b>문제 해결 능력</b> = 업무 수행 중 문제 상황이 생겼을 때 창의적·논리적 사고로 인식하고 해결하는 능력 ✔</div>
+        <div class="bad">ㄱ 공고문에는 직무 설명서(핵심 직무·수행 업무·필요 지식)만 있고 <b>기업 정보는 제시되지 않았습니다</b>.
+        "채용 공고니까 회사 정보도 당연히 있겠지"라는 추측이 함정입니다.<br>
+        ㄹ 찬반으로 나뉘어 논리를 펼치는 것은 <b>토론 면접</b>입니다. 공고의 면접은 <b>프레젠테이션(발표) 면접</b> — 주어진 주제로 발표 자료를 만들어 실무자 앞에서 발표하는 방식입니다.</div>
+        <span class="src">11번 [3점] · 13강 취업과 창업 및 기업가 정신(2)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">12</span><span class="psum">창업 3유형 — <b>"자율권이 있다"</b>가 신규 창업의 표지</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p>강연자는 <b>없던 플랫폼을 스스로 만들어</b> 출시했습니다 → <b>신규 창업</b>.</p>
+        <div class="good"><b>신규 창업 —</b> 창업자 자신이 새로운 기업을 설립. 창업 아이템·시장 선정·마케팅 전략에 대한 <b>자율권</b>이 창업자에게 있음. 그만큼 창업자의 자질·능력과 강한 의지가 필요.</div>
+        <div class="bad"><b>함정 —</b> ①·③은 <b>기존 사업체 인수</b>(경영하던 사업체를 넘겨받음 / 생산 시설·판매 시장을 그대로 이용),
+        ②·⑤는 <b>프랜차이즈</b>(가맹 계약·독점 판매권 / 모기업 로고·브랜드 사용, 기술 노하우 교육).
+        "공동 창업하여 성공한 후"라는 앞부분 문장에 시선이 꽂히면 인수로 착각합니다 — <b>지금 설명하는 창업</b>이 무엇인지를 봐야 합니다.</div>
+        <span class="src">12번 · 14강 취업과 창업 및 기업가 정신(3)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">13</span><span class="psum">현장 실습 — 숫자 <b>7 · 35 · 3부 · 40%</b>를 통째로 외운다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p>이 회차에서 <b>함정이 가장 촘촘한 문항</b>입니다. 선택지 5개 중 4개가 숫자·조건을 한 칸씩 틀어놨습니다.</p>
+        <div class="good"><b>정답 ② —</b> 현장 실습 시간은 <b>1일 7시간, 1주 35시간 이내</b>. 당사자 합의가 있으면 <b>1일 8시간, 1주 40시간 한도</b>로 연장 가능하며, 이는 표준 협약서에 적어야 합니다.</div>
+        <div class="bad"><b>함정 —</b>
+        ① 휴일은 <b>1주 2회 이상</b> 보장(1회 ✕)<br>
+        ③ 표준 협약서는 <b>3부</b> 작성 — 학교·기업·학생이 각각 보관(2부 ✕)<br>
+        ④ 야간(오후 10시~오전 6시)과 휴일 실습은 <b>동의가 있어도 금지</b>(동의하면 가능 ✕)<br>
+        ⑤ 현장 실습 수당은 <b>최저임금의 40% 수준 이상</b>(최저임금 이상 ✕)</div>
+        <p><b>덧붙여 —</b> 현장 실습생은 <b>근로자가 아니므로</b> 국민연금·건강보험·고용보험 가입이 불가하지만, <b>산재보험은 기업이 필수 가입</b>해야 합니다. 이 대비도 자주 나옵니다.</p>
+        <h5>심화 · 실습 수당은 어떻게 정해지나<span class="suppl">교육부 현장실습 매뉴얼 보충</span></h5>
+        <p>현장 실습은 <b>근로계약이 아니라 현장실습 협약</b>을 맺습니다. 그래서 받는 돈은 근로의 대가인 &lsquo;급여&rsquo;가 아니라 <b>교육훈련에 대한 &lsquo;실습 수당&rsquo;</b>입니다. 아래 규정이 전부 이 한 문장에서 나옵니다.</p>
+        <div class="good"><b>참여 수당의 구성 —</b> 학생이 받는 돈은 두 갈래입니다.<br>
+        ① <b>현장실습 지원금</b> — 국고·교육청 예산, <b>1일 6만 원</b>. 한국장학재단을 통해 지급되며 <b>학생이 개인별로 신청</b>합니다.<br>
+        ② <b>현장실습 수당</b> — <b>기업</b>이 지급. 당해 연도 <b>최저임금의 40% 수준 이상</b>.</div>
+        <p><b>2026년 기준 시급이 나오는 과정</b>입니다. 40%를 어디에 곱하는지가 핵심입니다.</p>
+        <div class="calc">
+          <span class="st"><span>①</span> 최저임금 10,320원 × 6일 × 7시간 = <b>433,440원</b> <span style="color:var(--muted);font-weight:400">← 주휴수당을 포함한 근로자 1주일 수준</span></span>
+          <span class="st"><span>②</span> 433,440원 × 40% = <b>173,376원</b></span>
+          <span class="st"><span>③</span> 173,376원 ÷ 5일 ÷ 7시간 = <b>4,954원</b></span>
+          <span class="res">→ 2026년 최저 현장실습 수당 <b>시급 5,000원</b> · 1일 수당 = 5,000원 × 1일 실습시간</span>
+        </div>
+        <div class="bad"><b>여기서 갈리는 네 가지 —</b>
+        <b>주휴수당</b> 최저 수당을 책정할 때 <b>이미 반영</b>되어 있으므로 별도로 지급하지 않습니다.<br>
+        <b>연장실습</b> 합의가 있어도 <b>1일 1시간까지만</b> 가능하며, 이를 넘는 연장 수당은 지급해서는 안 됩니다.<br>
+        <b>가산율</b> 근로가 아닌 실습이므로 <b>1.5배 가산 없이</b> 시간당 수당 그대로 지급합니다.<br>
+        <b>결근·조퇴</b> 해당 시간만큼 <b>제외</b>하고 지급합니다.</div>
+        <p><b>한 줄로 꿰면 —</b> &ldquo;현장실습생은 근로자가 아니다&rdquo;라는 명제가 <b>보험(4대보험 불가·산재만 가입)</b>, <b>수당(급여가 아닌 실습 수당)</b>, <b>연장(가산율 없음)</b>에 <b>똑같이</b> 적용됩니다. 하나만 외우면 셋이 따라옵니다.</p>
+        <h5>왜 최저임금의 40%만 주면 되나<span class="suppl">배경 설명</span></h5>
+        <p>학생들이 가장 많이 던지는 질문입니다. 답은 한 문장으로 정리됩니다. <b>그 돈이 임금이 아니기 때문입니다.</b></p>
+        <div class="good"><b>① 최저임금법이 적용되지 않습니다 —</b> 최저임금법은 <b>근로자</b>에게 적용됩니다. 현장실습생은 근로계약이 아니라 <b>현장실습 협약</b>을 맺으므로 근로기준법상 근로자가 아닙니다.
+        「직업교육훈련 촉진법」 제24조가 근로기준법을 <b>&lsquo;준용&rsquo;</b>한다고 규정하는데, 이는 <b>전면 적용이 아니라 일부만 끌어다 쓴다</b>는 뜻입니다. 강제근로 금지·최저연령·야간 및 휴일 제한 같은 <b>안전과 인권 보호 조항</b>은 준용하지만, <b>최저임금법은 준용 대상이 아닙니다.</b><br><br>
+        <b>② 받는 돈의 성격이 다릅니다 —</b> 근로자가 받는 돈은 <b>노동의 대가</b>인 임금이라 최저임금 하한이 강제됩니다. 실습생이 받는 돈은 <b>교육훈련에 참여한 데 대한 수당</b>입니다. 기업 입장에서도 실습생은 생산력이 아니라 <b>가르쳐야 할 대상</b>이라, 지도 인력과 안전 관리 부담을 함께 집니다.<br><br>
+        <b>③ 부족분은 국가가 메웁니다 —</b> 학생이 실제로 쥐는 돈은 기업 수당만이 아닙니다.
+        <b>참여 수당 ＝ 기업의 현장실습 수당(최저임금 40%) ＋ 국고·교육청 현장실습 지원금</b>.
+        기업 부담을 낮춰 <b>실습처를 확보</b>하면서 학생 소득은 <b>지원금으로 보전</b>하는 설계입니다.</div>
+        <p><b>그럼 40%라는 숫자는 —</b> 법이 정한 값이 아니라 <b>교육부가 지침으로 정한 정책적 하한선</b>입니다. 0원으로 두면 무급 노동의 통로가 되고, 100%로 두면 실습생과 근로자가 구분되지 않아 값싼 정규 인력처럼 쓰일 유인이 생깁니다. 그 사이에 그은 방어선이 40%입니다.</p>
+        <div class="bad"><b>단, 외형만 실습이면 이야기가 달라집니다 —</b> 협약서에 &lsquo;실습&rsquo;이라 쓰여 있어도 <b>실질이 근로</b>면 근로자로 인정될 수 있습니다.
+        교육 프로그램 없이 생산 라인에 투입되거나, 일반 직원과 똑같은 지휘·감독을 받고 성과를 요구받는 경우가 그렇습니다. 이때는 최저임금법이 적용되어 미지급분을 청구할 수 있습니다.
+        <b>법은 이름이 아니라 실질을 봅니다.</b></div>
+        <p><b>논쟁이 있는 지점입니다 —</b> <b>낮다는 쪽</b>은 현실에서 실습생이 실제 노동을 하는 경우가 많은데 40%가 &lsquo;교육&rsquo;이라는 명분으로 저임금을 정당화한다고 봅니다. <b>불가피하다는 쪽</b>은 부담을 올리면 중소기업이 실습생을 받지 않아 실습 기회 자체가 줄어든다고 봅니다.
+        2017년 이후 제도가 크게 개편된 것도 이 긴장 때문입니다. 안전사고를 계기로 &lsquo;학습 중심&rsquo;으로 방향을 틀면서 실습시간 단축·야간 금지·수당 기준이 함께 들어왔습니다.</p>
+        <p><b>수업용 한 문장 —</b> &ldquo;실습생은 일하러 간 게 아니라 <b>배우러</b> 간 것이다. 그래서 받는 건 임금이 아니라 수당이고 최저임금법이 걸리지 않는다. 대신 나라가 지원금으로 채워 준다. 다만 <b>진짜로 일만 시키면</b> 근로자로 인정받을 수 있다.&rdquo;</p>
+        <p style="font-size:.78rem;color:var(--muted);line-height:1.75">※ 시험에 직접 출제된 범위는 <b style="color:var(--coral-d)">&lsquo;최저임금의 40% 수준 이상&rsquo;</b>까지입니다. 위 계산 과정과 금액은 교육부 현장실습 매뉴얼 기준 보충 자료로, 연도마다 최저임금에 따라 달라집니다.</p>
+        <span class="src">13번 · 현장 실습(직업교육훈련 촉진법 · 현장 실습 표준 협약서 고시)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">14</span><span class="psum">권익 침해 3사례 — <b>구제 기관이 서로 다르다</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p><b>사례 판정 —</b></p>
+        <div class="good">
+        <b>A씨</b> 1년 기간제 계약이 만료되어 재계약하지 않음 → <b>권익 침해 아님</b>. 기간 만료로 근로 관계가 자동 종료된 것입니다.<br>
+        <b>B씨</b> 퇴사 후 한 달간 퇴직금 미지급 → <b>임금 체불</b>. 구제는 <b>고용노동부</b>에 임금 체불 진정서 제출.<br>
+        <b>C씨</b> 합법적 쟁의 행위 참가를 이유로 부서 이동 → <b>부당 노동 행위</b>(노동조합 및 노동관계조정법 제81조). 구제는 <b>관할 지방노동위원회</b>에 신청.
+        </div>
+        <div class="bad"><b>함정 —</b>
+        ② 퇴직금은 계속 근로 <b>1년당 평균임금 30일분 이상</b>입니다. '70%'라는 숫자는 존재하지 않습니다.<br>
+        ④ "A, C씨가 지방노동위원회에서 구제" → <b>A씨는 침해 자체가 아닙니다</b>. C씨만 해당.<br>
+        ⑤ "B, C씨가 부당 노동 행위" → B씨는 <b>임금 체불</b>입니다.</div>
+        <p><b>가장 중요한 대비 —</b> 임금 체불은 <b>고용노동부</b>, 부당 노동 행위는 <b>노동위원회</b>. 기관을 바꿔 놓는 선택지가 반복 출제됩니다.</p>
+        <span class="src">14번 [3점] · 15·16강 근로관계와 법</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">15</span><span class="psum">홀랜드 — <b>사회형(S)은 사람을 돕고, 진취형(E)은 목표를 세워 이끈다</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>A씨(스포츠 트레이너)</b> 운동 방법을 전수하고 선수의 재활을 도움 → <b>사회형(S)</b>. 관련 직업: 항공기 객실 승무원, 다문화 언어 지도사.<br>
+        <b>B씨(행사 기획자)</b> 행사의 목표를 설정하고 여러 상황을 해결 → <b>진취형(E)</b>. 관련 직업: 선장, 광고 및 홍보 사무원, 기술 영업원.</div>
+        <div class="bad"><b>함정 —</b>
+        ① 통신 장비 기사, ③ 건설기계 운전원은 <b>현실형(R)</b> 직업입니다. '스포츠', '행사 장비' 같은 단어에 이끌려 기계 쪽 직업을 고르게 만드는 배치입니다.<br>
+        ④ "기계나 도구, 사물을 다루는" = <b>현실형</b> 설명을 B씨에게 붙였습니다.<br>
+        ⑤ A와 B를 <b>뒤바꿔</b> 놓았습니다.</div>
+        <p><b>육각형으로 보면 더 빨리 잡힙니다 —</b> 홀랜드는 여섯 유형을 <b>정육각형</b>에 배치하고, <b>가까울수록 유사성이 높고 멀수록 낮다</b>고 설명합니다.
+        A씨(<b>사회형 S</b>)와 B씨(<b>진취형 E</b>)는 <b>바로 옆</b>이라 헷갈릴 만합니다. 그런데 오답 ①·③이 내민 통신 장비 기사·건설기계 운전원은 <b>현실형(R)</b>이고,
+        그중 ①은 사회형의 <b>정반대</b> 자리입니다. <b>가장 먼 유형을 갖다 붙인 선택지</b>였던 셈입니다.</p>
+        <p><b>주의 —</b> 이 문항은 15번이지만 <b>01강</b> 내용입니다. 문항 번호로 단원을 추측하면 안 되는 대표 사례입니다.</p>
+        <span class="src">15번 [3점] · 01강 일과 직업 및 직업 생활</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">16</span><span class="psum">실업 급여 — <b>구직급여 연장 4종</b>과 <b>취업촉진수당 4종</b>을 갈라 외운다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>A씨 = 특별 연장 급여.</b> 실업 급증 등 대통령령으로 정하는 사유 발생 시, 고용노동부장관이 <b>60일 범위</b>에서 소정 급여 일수를 초과해 구직급여를 연장 지급.<br>
+        <b>B씨 = 광역 구직 활동비.</b> 수급 자격자가 직업 안정 기관의 소개로 <b>광범위한 지역</b>에 걸쳐 구직 활동을 할 때 지급.</div>
+        <div class="bad"><b>함정 —</b> '연장'이라는 말이 붙은 급여가 <b>훈련 연장 · 개별 연장 · 특별 연장</b> 셋이라 서로 바꿔치기하기 좋습니다.
+        또 <b>조기 재취업 수당</b>은 취업촉진수당이지만 이름이 구직급여처럼 들려 A쪽에 붙이기 쉽습니다.</div>
+        <p><b>가르는 기준 —</b> "아직 취업 못 해서 <b>더 받는</b> 것"은 구직급여 연장, "취업하러 <b>움직이는 데 드는</b> 것"은 취업촉진수당.</p>
+        <span class="src">16번 · 17강 고용 서비스와 사회 제도</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">17</span><span class="psum">중대 재해 요건 — <b>3개월 · 2명</b>이지 2개월 · 3명이 아니다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="bad"><b>정답(적절하지 않은 것) ② —</b> 산업안전보건법 시행규칙상 중대 재해는
+        ⑴ 사망자 <b>1명 이상</b> ⑵ <b>3개월 이상</b>의 요양이 필요한 부상자가 동시에 <b>2명 이상</b> ⑶ 부상자 또는 직업성 질병자가 동시에 <b>10명 이상</b>.
+        보고서의 재해는 <b>2개월</b> 요양 부상자 <b>3명</b> → 어느 요건에도 해당하지 않습니다. 숫자를 서로 엇갈리게 배치한 전형적 함정입니다.</div>
+        <div class="good"><b>나머지는 모두 옳음 —</b>
+        ① 높은 선반에서 추락 → 사고 유형 <b>떨어짐</b><br>
+        ③ (가) 작업자의 훈련 미숙 → <b>간접 원인 중 교육적 원인</b><br>
+        ④ (나) 답답하다는 이유로 안전모 미착용 → <b>직접 원인 중 불안전한 행동</b><br>
+        ⑤ (다) 안전모 착용 표지판 → <b>지시 표지</b>(파란색 원형, 흰색 그림이 전체 규격의 30% 이상)</div>
+        <p><b>원인 구분의 핵심 —</b> <b>사람이 그 순간 한 행동/현장의 상태</b>는 직접 원인, <b>기술·교육·관리의 결함</b>은 간접 원인입니다.</p>
+        <span class="src">17번 · 18강 산업 안전과 재해 예방</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">18</span><span class="psum">노사협의회는 <b>단체 협약을 못 맺는다</b> / 조합원이 과반수여야 노조가 위원을 낸다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good">ㄴ 노사협의회는 근로자와 사용자를 대표하는 <b>같은 수</b>의 위원으로 구성(각 3명 이상 10명 이하) ✔<br>
+        ㄹ 회의는 <b>3개월마다</b> 정기 개최. 6월 25일 회의였으므로 <b>9월 25일까지</b> 열지 않으면 법 위반 ✔ (미개최 시 200만 원 이하 벌금)</div>
+        <div class="bad">ㄱ 근로자 위원은 원칙적으로 <b>근로자 과반수가 참여한 직접·비밀·무기명 투표</b>로 선출합니다.
+        근로자 과반수로 조직된 노동조합이 있을 때만 노조 대표자와 노조가 위촉하는 자로 합니다.
+        이 회사는 <b>상시 근로자 100명 · 조합원 30명</b> → 과반수가 아니므로 "조합원으로만 구성"은 성립하지 않습니다. <b>회의록의 숫자가 정답 근거입니다.</b><br>
+        ㄷ 법적 구속력 있는 <b>단체 협약 체결권은 노동조합</b>에 있습니다. 노사협의회는 단체 교섭권·단체 행동권이 없습니다.</div>
+        <span class="src">18번 [3점] · 19강 협력적인 노사관계(근로자참여 및 협력증진에 관한 법률)</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">19</span><span class="psum">독학학위제 — 1~3과정은 <b>순서는 자유롭지만 전부 합격해야</b> 4과정에 간다</span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <p>4단계 구조: 1과정 <b>교양과정</b> 인정시험 → 2과정 <b>전공기초과정</b> 인정시험 → 3과정 <b>전공심화과정</b> 인정시험 → 4과정 <b>학위취득 종합시험</b>.</p>
+        <div class="good"><b>기준점 —</b> 1~3과정은 <b>순서에 상관없이</b> 해당 과목을 공부하면 응시할 수 있고(ㄴ ✔), <b>1~3과정에 합격해야</b> 4과정에 응시할 자격이 주어집니다. 4과정 합격 시 <b>교육부장관 명의의 학위</b>가 수여됩니다(ㄷ ✔).</div>
+        <div class="bad"><b>함정 —</b>
+        ㄱ 1과정 교양과정 인정시험은 <b>5과목(필수 3과목 + 선택 2과목)</b>을 합격해야 합니다. &lsquo;필수 7과목&rsquo;이 아닙니다.<br>
+        ㄹ 고졸 검정고시 합격자도 응시할 수 있다는 것까지는 맞습니다. 그러나 1·2·3과정은 <b>순서만 자유로울 뿐 전부 합격해야</b> 학위 취득 종합 시험(4과정)에 응시할 수 있습니다. 3과정을 합격했다고 1~2과정을 건너뛸 수는 없습니다.</div>
+        <p><b>도식 읽는 법 —</b> 1~3과정이 &lsquo;＋&rsquo;로 묶이고 4과정만 화살표로 올라가는 이유가 여기 있습니다. <b>＋는 순서가 아니라 &lsquo;모두 더해야 한다&rsquo;</b>는 뜻입니다. ㄹ은 이 &lsquo;＋&rsquo;를 순서 없음으로만 읽게 만드는 선택지입니다.</p>
+        <span class="src">19번 [3점] · 11강 경력 개발과 평생 학습</span>
+      </div>
+    </details>
+
+    <details class="pit"><summary><span class="pno">20</span><span class="psum">직업 윤리 — (ㄱ) <b>전문가 의식</b> / (ㄴ) <b>책임 의식</b></span><span class="ptog">＋</span></summary>
+      <div class="pbody">
+        <div class="good"><b>기준점 —</b>
+        (ㄱ) <b>전문가 의식</b> — 자신의 일이 누구나 할 수 있는 것이 아니라, 해당 분야의 <b>지식과 교육을 바탕으로 성실히 수행해야만</b> 가능한 것이라 믿는 태도.<br>
+        (ㄴ) <b>책임 의식</b> — 직업에 대한 <b>사회적 역할과 책무를 충실히 수행하고 책임을 다하는</b> 태도.</div>
+        <div class="bad"><b>함정 —</b>
+        ① <b>천직 의식</b>은 자신의 일이 적성과 꼭 맞는다는 내용이라 (ㄱ)과 관련이 없고, <b>소명 의식</b>은 맡은 일을 하늘이 맡긴 것으로 여기는 태도라 (ㄴ)과 관련이 없습니다.<br>
+        ② <b>직분 의식</b>은 자신의 일이 사회나 기업 등을 위해 중요한 역할을 한다고 믿는 태도라 (ㄱ)과 관련이 없습니다.<br>
+        ③·④는 ①·②에서 이미 걸러진 덕목의 조합이므로 따라서 탈락합니다.</div>
+        <p><b>선택지 지우는 순서 —</b> ①과 ②만 정확히 판정하면 ③·④는 자동으로 지워집니다. 다섯 개를 전부 따질 필요가 없습니다.</p>
+        <p><b>6덕목 전체</b>는 <b>③ 헷갈리는 개념 비교표 → E. 직업 윤리</b> 탭에 뜻과 선택지 대응까지 표로 정리해 두었습니다.</p>
+        <span class="src">20번 · 20강 사회 문제와 직업 윤리</span>
+      </div>
+    </details>
+  </section>
+
+  <!-- ========== 3. 비교표 ========== -->
+  <section id="s3">
+    <div class="sec-head"><span class="sec-no">3</span><h2 class="sec-title">헷갈리는 개념 비교표</h2></div>
+    <p class="sec-desc">출제자가 오답 선택지를 만들 때 <b>서로 바꿔 놓은 개념</b>들을 짝지어 정리했습니다. 단원 전체를 정리한 표가 아니라, 이번 회차에서 <b>실제로 헷갈렸던 부분</b>만 담았습니다.</p>
+
+    <div class="tabs">
+      <button class="tab on" onclick="showPane(0,this)">A. 나를 아는 도구</button>
+      <button class="tab" onclick="showPane(1,this)">B. 기업 · 생산 · 서비스</button>
+      <button class="tab" onclick="showPane(2,this)">C. 능력 · 취업 · 창업</button>
+      <button class="tab" onclick="showPane(3,this)">D. 법 · 안전 · 복지</button>
+      <button class="tab" onclick="showPane(4,this)">E. 직업 윤리</button>
+    </div>
+
+    <!-- Pane A -->
+    <div class="pane on">
+      <div class="tblbox"><h4>에릭슨 심리사회적 발달 과업 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">1번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:26%">시기</th><th style="width:24%">발달 과업</th><th>선택지에 나온 표현</th></tr>
+        <tr><td>영아기 (0~1세)</td><td><b>신뢰감</b> 대 불신감</td><td>양육자와 촉감 놀이를 통한 신뢰감 향상</td></tr>
+        <tr><td>유아기 (1~3세)</td><td>자율성 대 수치심</td><td>—</td></tr>
+        <tr><td>아동 전기 (3~6세)</td><td>주도성 대 죄책감</td><td>문제 해결 과제를 통한 자기주도성 향상</td></tr>
+        <tr><td>아동 후기 (6~12세)</td><td>근면성 대 열등감</td><td>도전 과제 수행으로 키워 가는 근면성</td></tr>
+        <tr><td>청소년기</td><td>자아 정체감 대 역할 혼미</td><td>—</td></tr>
+        <tr><td>성인 초기</td><td>친밀성 대 고립감</td><td>또래 친구와 역할 활동을 통한 친밀감</td></tr>
+        <tr><td>중년기 (40~65세)</td><td>생산성 대 침체감</td><td>자신에게만 몰두하지 않도록 돕는 생산성</td></tr>
+        <tr><td>노년기</td><td>자아 통합 대 절망감</td><td>—</td></tr>
+      </table></div>
+      <p class="cap">지문의 나이 단서(돌잔치·입학·취업·은퇴)를 먼저 잡고 표에서 내려오면 한 번에 걸립니다.</p></div>
+
+      <div class="tblbox"><h4>조하리의 창 4영역 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">2번</span></h4>
+
+      <div class="figbox">
+        <div class="figwrap">
+        <svg viewBox="0 0 650 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="조하리의 창 4영역 도식">
+          <defs>
+            <marker id="ahC" markerWidth="9" markerHeight="8" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#DA6A48"/></marker>
+            <marker id="ahT" markerWidth="9" markerHeight="8" refX="7" refY="3.2" orient="auto"><path d="M0,0 L7,3.2 L0,6.4 Z" fill="#3E9E88"/></marker>
+          </defs>
+          <g font-family="'Gothic A1','Noto Sans KR',sans-serif">
+            <text x="386" y="20" text-anchor="middle" font-size="15" font-weight="800" fill="#2E2B29">자기 인식</text>
+            <line x1="138" y1="42" x2="628" y2="42" stroke="#DA6A48" stroke-width="2.2" marker-end="url(#ahC)"/>
+            <text x="258" y="76" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4B4744">자신이 <tspan fill="#DA6A48">아는</tspan> 부분</text>
+            <text x="514" y="76" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4B4744">자신이 <tspan fill="#DA6A48">모르는</tspan> 부분</text>
+
+            <text transform="translate(17,278) rotate(-90)" text-anchor="middle" font-size="15" font-weight="800" fill="#2E2B29">타인 인식</text>
+            <line x1="44" y1="100" x2="44" y2="452" stroke="#3E9E88" stroke-width="2.2" marker-end="url(#ahT)"/>
+            <text x="58" y="176" font-size="11.5" font-weight="700" fill="#4B4744">타인이</text>
+            <text x="58" y="193" font-size="11.5" font-weight="700" fill="#3E9E88">아는 부분</text>
+            <text x="58" y="352" font-size="11.5" font-weight="700" fill="#4B4744">타인이</text>
+            <text x="58" y="369" font-size="11.5" font-weight="700" fill="#3E9E88">모르는 부분</text>
+
+            <rect x="136" y="100" width="244" height="164" rx="6" fill="#FDF1EC" stroke="#F2B49B" stroke-width="1.5"/>
+            <text x="258" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#DA6A48">( 개방형 )</text>
+            <text x="258" y="170" text-anchor="middle" font-size="19" font-weight="800" fill="#2E2B29">열린 자아</text>
+            <text x="258" y="194" text-anchor="middle" font-size="13" font-weight="500" fill="#4B4744">Open area</text>
+            <text x="258" y="228" text-anchor="middle" font-size="11.5" fill="#A79D92">나도 알고 남도 안다</text>
+
+            <rect x="392" y="100" width="244" height="164" rx="6" fill="#E3F1EC" stroke="#9BCFC1" stroke-width="1.5"/>
+            <text x="514" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#2C7D6B">( 자기 주장형 )</text>
+            <text x="514" y="170" text-anchor="middle" font-size="19" font-weight="800" fill="#2E2B29">눈먼 자아</text>
+            <text x="514" y="194" text-anchor="middle" font-size="13" font-weight="500" fill="#4B4744">Blind area</text>
+            <text x="514" y="228" text-anchor="middle" font-size="11.5" fill="#A79D92">나만 모른다 → 피드백이 필요</text>
+
+            <rect x="136" y="276" width="244" height="164" rx="6" fill="#FBE3D9" stroke="#EE8B6C" stroke-width="3"/>
+            <rect x="148" y="286" width="78" height="20" rx="10" fill="#DA6A48"/>
+            <text x="187" y="300" text-anchor="middle" font-size="10.5" font-weight="800" fill="#FFFFFF">2번의 정답</text>
+            <text x="258" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#DA6A48">( 신중형 )</text>
+            <text x="258" y="366" text-anchor="middle" font-size="19" font-weight="800" fill="#2E2B29">감추어진 자아</text>
+            <text x="258" y="390" text-anchor="middle" font-size="13" font-weight="500" fill="#4B4744">Hidden area</text>
+            <text x="258" y="422" text-anchor="middle" font-size="11.5" fill="#8C7A70">나만 안다 → 신중하지만 고독</text>
+
+            <rect x="392" y="276" width="244" height="164" rx="6" fill="#FAF0DD" stroke="#E3D3AE" stroke-width="1.5"/>
+            <text x="514" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#A08A4E">( 고립형 )</text>
+            <text x="514" y="366" text-anchor="middle" font-size="19" font-weight="800" fill="#2E2B29">알 수 없는 자아</text>
+            <text x="514" y="390" text-anchor="middle" font-size="13" font-weight="500" fill="#4B4744">Unknown area</text>
+            <text x="514" y="422" text-anchor="middle" font-size="11.5" fill="#A79D92">아무도 모른다 → 고립</text>
+          </g>
+        </svg>
+        </div>
+        <p class="figcap">
+          <b>2번 문항 읽는 법 —</b> 학생 A는 자기 강점·약점을 <b>안다</b>(자기 인식 ○). 그런데 감정을 드러내지 않고 도움 요청도 어려워한다
+          (타인 인식 ✕). 두 축을 교차시키면 <b>감추어진 자아</b> 칸에 떨어집니다. 나머지 두 항목에 &lsquo;아니요&rsquo;로 답했으므로 눈먼 자아와 알 수 없는 자아는 작습니다.
+        </p>
+      </div>
+      <div class="scrollx"><table>
+        <tr><th style="width:22%">영역</th><th style="width:15%">나는?</th><th style="width:15%">타인은?</th><th>특징 · 처방</th></tr>
+        <tr><td>열린 영역 (open)</td><td>안다</td><td>안다</td><td>개방적·원만. 넓을수록 인간관계가 좋음</td></tr>
+        <tr><td>보이지 않는 영역 (blind)</td><td>모른다</td><td>안다</td><td>눈치 없어 보임 → <b>주변 피드백을 경청</b>해야 함</td></tr>
+        <tr><td><b>숨겨진 영역 (hidden)</b></td><td><b>안다</b></td><td><b>모른다</b></td><td>신중하지만 <b>고독해 보임</b> → 약점·문제를 표현해 도움받기</td></tr>
+        <tr><td>미지의 영역 (unknown)</td><td>모른다</td><td>모른다</td><td>넓어지면 <b>고립</b>되고 타인과의 접촉을 불편해함</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>홀랜드 직업 흥미 6유형(RIASEC) <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">15번</span></h4>
+
+      <div class="figbox">
+        <div class="figwrap">
+        <svg viewBox="0 0 640 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="홀랜드 흥미 육각형 모형">
+          <g font-family="'Gothic A1','Noto Sans KR',sans-serif">
+            <polygon points="320,98 452,174 452,326 320,402 188,326 188,174" fill="none" stroke="#F7D3C3" stroke-width="1.2" opacity=".55"/>
+            <line x1="320" y1="132" x2="320" y2="368" stroke="#F2B49B" stroke-width="1.3" stroke-dasharray="5 4" opacity=".6"/>
+            <line x1="422" y1="191" x2="218" y2="309" stroke="#F2B49B" stroke-width="1.3" stroke-dasharray="5 4" opacity=".6"/>
+            <line x1="422" y1="309" x2="218" y2="191" stroke="#F2B49B" stroke-width="1.3" stroke-dasharray="5 4" opacity=".6"/>
+            <polygon points="320,132 422,191 422,309 320,368 218,309 218,191" fill="none" stroke="#F2B49B" stroke-width="2"/>
+            <polygon points="320,198 365,224 365,276 320,302 275,276 275,224" fill="#FDF1EC" stroke="#F2B49B" stroke-width="1.5"/>
+            <text x="320" y="239" text-anchor="middle" font-size="12.5" font-weight="800" fill="#DA6A48">홀랜드</text>
+            <text x="320" y="256" text-anchor="middle" font-size="12.5" font-weight="800" fill="#DA6A48">흥미</text>
+            <text x="320" y="273" text-anchor="middle" font-size="12.5" font-weight="800" fill="#DA6A48">육각형</text>
+            <circle cx="320" cy="132" r="31" fill="#FFFFFF" stroke="#F2B49B" stroke-width="2"/>
+            <text x="320" y="140" text-anchor="middle" font-size="23" font-weight="800" fill="#2E2B29">R</text>
+            <circle cx="422" cy="191" r="31" fill="#FFFFFF" stroke="#F2B49B" stroke-width="2"/>
+            <text x="422" y="199" text-anchor="middle" font-size="23" font-weight="800" fill="#2E2B29">I</text>
+            <circle cx="422" cy="309" r="31" fill="#FFFFFF" stroke="#F2B49B" stroke-width="2"/>
+            <text x="422" y="317" text-anchor="middle" font-size="23" font-weight="800" fill="#2E2B29">A</text>
+            <circle cx="320" cy="368" r="31" fill="#FBE3D9" stroke="#EE8B6C" stroke-width="3"/>
+            <text x="320" y="376" text-anchor="middle" font-size="23" font-weight="800" fill="#DA6A48">S</text>
+            <circle cx="218" cy="309" r="31" fill="#FBE3D9" stroke="#EE8B6C" stroke-width="3"/>
+            <text x="218" y="317" text-anchor="middle" font-size="23" font-weight="800" fill="#DA6A48">E</text>
+            <circle cx="218" cy="191" r="31" fill="#FFFFFF" stroke="#F2B49B" stroke-width="2"/>
+            <text x="218" y="199" text-anchor="middle" font-size="23" font-weight="800" fill="#2E2B29">C</text>
+            <text x="320" y="74" text-anchor="middle" font-size="15" font-weight="800" fill="#2E2B29">현실형</text>
+            <text x="320" y="93" text-anchor="middle" font-size="11.5" fill="#A79D92">실행 / 사물 지향</text>
+            <text x="468" y="182" text-anchor="start" font-size="15" font-weight="800" fill="#2E2B29">탐구형</text>
+            <text x="468" y="201" text-anchor="start" font-size="11.5" fill="#A79D92">사고 / 아이디어 지향</text>
+            <text x="468" y="300" text-anchor="start" font-size="15" font-weight="800" fill="#2E2B29">예술형</text>
+            <text x="468" y="319" text-anchor="start" font-size="11.5" fill="#A79D92">창조 / 아이디어 지향</text>
+            <text x="320" y="416" text-anchor="middle" font-size="15" font-weight="800" fill="#DA6A48">사회형</text>
+            <text x="320" y="435" text-anchor="middle" font-size="11.5" fill="#A79D92">자선 / 사람 지향</text>
+            <text x="172" y="300" text-anchor="end" font-size="15" font-weight="800" fill="#DA6A48">진취형</text>
+            <text x="172" y="319" text-anchor="end" font-size="11.5" fill="#A79D92">관리 / 과제 지향</text>
+            <text x="172" y="182" text-anchor="end" font-size="15" font-weight="800" fill="#2E2B29">관습형</text>
+            <text x="172" y="201" text-anchor="end" font-size="11.5" fill="#A79D92">동조 / 자료 지향</text>
+          </g>
+        </svg>
+        </div>
+        <p class="figcap">
+          <b>가까울수록 닮았다 —</b> 홀랜드 이론은 여섯 유형의 관계를 <b>정육각형</b>으로 설명합니다.
+          육각형에서 <b>가까운 위치</b>의 유형일수록 유사성이 <b>높고</b>, <b>먼 위치</b>일수록 유사성이 <b>떨어집니다</b>.
+          점선으로 이은 <b>R↔S · I↔E · A↔C</b>가 서로 가장 먼, 즉 가장 다른 짝입니다.<br>
+          <b>15번에 대입하면 —</b> A씨는 <b>사회형(S)</b>, B씨는 <b>진취형(E)</b>로 육각형에서 <b>바로 옆</b>입니다.
+          반면 오답 ①이 내민 통신 장비 기사는 <b>현실형(R)</b> 직업인데, R은 S의 <b>정반대</b> 자리입니다.
+          출제자가 <b>가장 먼 유형</b>을 갖다 붙인 셈입니다.
+        </p>
+      </div>
+      <div class="scrollx"><table>
+        <tr><th style="width:15%">유형</th><th style="width:19%">지향</th><th style="width:34%">주로 하는 일</th><th>관련 직업 예</th></tr>
+        <tr><td>현실형 (R)</td><td>실행 / 사물</td><td>기계·도구·사물을 조작하거나 몸을 움직임, 실행</td><td>통신 장비 기사, 건설기계 운전원</td></tr>
+        <tr><td>탐구형 (I)</td><td>사고 / 아이디어</td><td>아이디어로 문제 해결, 정보 분석. 과학적·학문적</td><td>연구원, 분석가</td></tr>
+        <tr><td>예술형 (A)</td><td>창조 / 아이디어</td><td>재능으로 창의적 작업, 독창적 아이디어 표현</td><td>디자이너, 작가</td></tr>
+        <tr><td><b>사회형 (S)</b></td><td><b>자선 / 사람</b></td><td><b>타인의 문제와 어려움을 해결하고 도와줌</b></td><td>항공기 객실 승무원, 다문화 언어 지도사</td></tr>
+        <tr><td><b>진취형 (E)</b></td><td><b>관리 / 과제</b></td><td><b>설득·영향력 발휘, 과제 목표 설정과 상황 해결</b></td><td>선장, 광고 및 홍보 사무원, 기술 영업원</td></tr>
+        <tr><td>관습형 (C)</td><td>동조 / 자료</td><td>구체적·공식적 규정과 절차, 자료와 정보를 다룸</td><td>사무원, 회계 담당</td></tr>
+      </table></div>
+      <p class="cap">S와 E가 가장 많이 뒤바뀝니다. <b>사람을 &lsquo;돕는가&rsquo;(S) vs 사람을 &lsquo;이끄는가&rsquo;(E)</b>로 가르십시오. &lsquo;지향&rsquo; 한 단어만 붙잡아도 여섯 유형이 갈립니다.</p></div>
+
+      <div class="tblbox"><h4>육각형 위치와 유사성 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">15번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:20%">위치 관계</th><th style="width:36%">해당 짝</th><th>유사성</th></tr>
+        <tr><td><b>인접</b> (한 칸 옆)</td><td>R–I · I–A · A–S · <b>S–E</b> · E–C · C–R</td><td><b>높음</b> — 성격이 비슷해 함께 나타나기 쉬움</td></tr>
+        <tr><td>한 칸 건너</td><td>R–A · I–S · A–E · S–C · E–R · C–I</td><td>중간</td></tr>
+        <tr><td><b>대각</b> (정반대)</td><td><b>R↔S</b> · I↔E · A↔C</td><td><b>낮음</b> — 성격이 가장 다름</td></tr>
+      </table></div>
+      <p class="cap">15번의 A씨(<b>S</b>)와 B씨(<b>E</b>)는 <b>인접</b>. 오답 ①의 통신 장비 기사는 <b>R</b>로 A씨와 <b>정반대</b> 자리입니다. 선택지에 직업이 나오면 <b>육각형 어디쯤인지</b>부터 짚으십시오.</p></div>
+    </div>
+
+    <!-- Pane B -->
+    <div class="pane">
+      <div class="tblbox"><h4>출자 형태에 따른 기업 분류 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">3 · 7번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:20%">형태</th><th style="width:26%">사원 구성</th><th>의사 결정 · 특징</th></tr>
+        <tr><td>개인 기업</td><td>개인 단독 출자</td><td>소유자＝경영자, 모든 권한과 책임을 개인이 부담</td></tr>
+        <tr><td>합명회사</td><td><b>무한</b> 책임 사원만</td><td>대표적 인적 공동 기업</td></tr>
+        <tr><td>합자회사</td><td>무한＋유한 책임 사원</td><td>무한 책임 사원이 업무 집행, 유한 책임 사원은 경영 불참</td></tr>
+        <tr><td><b>유한회사</b></td><td><b>유한</b> 책임 사원만</td><td>소유와 경영 분리, <b>출자 비율에 따라 의결권</b>. 일정 규모 이상 <b>외부 감사 대상</b></td></tr>
+        <tr><td><b>유한책임회사</b></td><td><b>유한</b> 책임 사원만</td><td>출자 사원이 경영 참여, <b>1인 1의결권</b>. <b>외부 감사 의무 없음</b></td></tr>
+        <tr><td>주식회사</td><td>주주(유한 책임)</td><td><b>주주 총회</b>로 의사 결정, 자본의 증권화로 대규모 자본 조달</td></tr>
+        <tr><td><b>공기업</b></td><td>국가·지자체·공공 단체</td><td><b>공공의 이익</b>을 목적으로 출자·경영</td></tr>
+        <tr><td>협동조합</td><td>조합원</td><td>1인 1표, 조합원의 권익 향상과 이용·편익 제공이 목적</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>마케팅 믹스 4P <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">4번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:20%">요소</th><th style="width:26%">한 줄 질문</th><th>포함되는 활동</th></tr>
+        <tr><td>제품 (Product)</td><td>무엇을 만들까</td><td>신제품 개발, 품질 개선, 제품 다양화, <b>제품 수명 주기 전략</b></td></tr>
+        <tr><td>가격 (Price)</td><td>얼마에 팔까</td><td>기업과 고객이 만족하는 최적의 판매 가격 결정</td></tr>
+        <tr><td><b>유통 (Place)</b></td><td><b>어떻게 전달할까</b></td><td>생산부터 최종 소비자까지의 효율적 유통 경로 구축</td></tr>
+        <tr><td>촉진 (Promotion)</td><td>어떻게 알릴까</td><td>광고, 인적 판매, 홍보, 판매 촉진</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>제품 생산 방식 4가지 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">5번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:22%">방식</th><th style="width:34%">핵심 표지</th><th>선택지 표현</th></tr>
+        <tr><td><b>개별 생산</b></td><td><b>주문마다 다르게 · 고가 · 하나뿐</b></td><td>소비자 요구를 파악해 제품을 개별적으로 생산</td></tr>
+        <tr><td>로트 생산</td><td>비슷한 주문을 <b>묶어서</b> 일괄</td><td>요구 사항이 일정 수량 이상 모이면 일괄 제작</td></tr>
+        <tr><td>연속 생산</td><td>정해진 공정 · 대량 · 단가 ↓</td><td>제작 라인으로 대량 제작 / 연속 생산 방식 적용</td></tr>
+        <tr><td>시장(계획) 생산</td><td><b>수요 예측</b> 후 미리 생산</td><td>수요를 예측해 재고를 최소화</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>서비스의 4가지 특성 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">6번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:26%">특성</th><th>의미</th></tr>
+        <tr><td>무형성</td><td>형태가 없어 보거나 만질 수 없음</td></tr>
+        <tr><td>비분리성(동시성)</td><td>생산과 소비가 동시에 일어남. 소비자가 생산 과정에 참여</td></tr>
+        <tr><td><b>이질성</b></td><td><b>전달하는 사람의 숙련도·전문성, 고객·시간·장소·환경에 따라 내용과 질이 달라짐</b></td></tr>
+        <tr><td>소멸성</td><td>저장·재고가 불가능함</td></tr>
+      </table></div></div>
+    </div>
+
+    <!-- Pane C -->
+    <div class="pane">
+      <div class="tblbox"><h4>직업 기초 능력 10영역과 하위 영역 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">8번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">능력</th><th>하위 영역</th></tr>
+        <tr><td>의사소통 능력</td><td>문서 이해, 문서 작성, 경청, 의사 표현, 기초 외국어</td></tr>
+        <tr><td><b>문제 해결 능력</b></td><td>사고력, <b>문제 처리 능력</b></td></tr>
+        <tr><td>자원 관리 능력</td><td>시간·예산·물적 자원·인적 자원 관리</td></tr>
+        <tr><td><b>정보 능력</b></td><td>컴퓨터 활용, <b>정보 처리 능력</b></td></tr>
+        <tr><td><b>조직 이해 능력</b></td><td>업무 이해, 경영 이해, 조직 체제 이해, <b>국제 감각</b></td></tr>
+        <tr><td>기술 능력</td><td>기술 이해, 기술 선택, 기술 적용</td></tr>
+        <tr><td>직업 윤리</td><td>근로 윤리, 공동체 윤리</td></tr>
+        <tr><td>수리 · 대인 관계 · 자기 개발 능력</td><td>(공고에 제시되지 않음)</td></tr>
+      </table></div>
+      <p class="cap"><b>문제</b>처리 능력 ↔ <b>정보</b>처리 능력. 이름이 닮았지만 소속이 다릅니다.</p></div>
+
+      <div class="tblbox"><h4>NCS 분류 체계 3층 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">9번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:26%">층위</th><th style="width:32%">이 문항의 값</th><th>주의</th></tr>
+        <tr><td>대 → 중 → 소분류</td><td>21 · 01 · 01 식품가공</td><td>여기까지는 <b>직무가 아님</b></td></tr>
+        <tr><td><b>세분류 ＝ 직무</b></td><td><b>05. 건강기능식품제조가공</b></td><td>"직무는?"이라 물으면 <b>세분류</b></td></tr>
+        <tr><td><b>능력단위</b> (직무의 기본 단위)</td><td><b>건강기능식품가공 위생관리</b></td><td>분류번호 <b>2101010525_17v2</b> → 2017년 수정·보완, 버전 2</td></tr>
+        <tr><td>능력단위 요소</td><td>개인위생 / 가공기계·설비위생 / 작업장 위생 관리하기</td><td>기본 단위가 <b>아님</b></td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>취업 계획 수립 절차 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">10번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:26%">단계</th><th>내용</th></tr>
+        <tr><td>① 자기 분석</td><td>적성·성격 파악 → 관심 업종·직종·직무 선택</td></tr>
+        <tr><td>② 취업 환경 분석 · 목표 설정</td><td>취업 목표를 명확히 정함 <span style="color:var(--coral-d);font-weight:700">← 지문의 질문자</span></td></tr>
+        <tr><td><b>③ 취업 준비</b></td><td><b>기업 선택(인재상이 본인과 부합) + 기업 정보 수집</b></td></tr>
+        <tr><td>④ 구직 활동</td><td>채용 전형 준비, <b>모의 면접·면접 클리닉</b>, 자기소개서, 이미지 메이킹</td></tr>
+        <tr><td>⑤ 취업 이후</td><td>직무 역량 강화 교육, 예절 교육 등</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>창업 방법 3유형 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">12번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">유형</th><th>표지가 되는 문장</th></tr>
+        <tr><td><b>신규 창업</b></td><td>창업자가 <b>새로운 기업을 스스로 설립</b>. 아이템·시장 선정·마케팅에 <b>자율권</b>. 창업자의 자질·능력과 강한 의지 필요</td></tr>
+        <tr><td>기존 사업체 인수</td><td>경영하던 사업체를 <b>인수</b>. 생산 시설·판매 시장 등 자원을 <b>그대로</b> 이용</td></tr>
+        <tr><td>프랜차이즈</td><td><b>가맹 계약</b>으로 일정 지역 <b>독점 판매권</b>. 모기업 로고·브랜드 사용, 기술 노하우 교육 제공</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>채용 서류와 면접 유형 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">11번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:26%">구분</th><th>내용</th></tr>
+        <tr><td>입사 지원서</td><td>최소한의 인적 사항 + 직무 관련 교육·자격·경력 사항</td></tr>
+        <tr><td><b>경력 기술서</b></td><td>수행한 <b>구체적 직무 영역</b>의 활동·경험·역할·행동·<b>성과</b>를 상세히 기술</td></tr>
+        <tr><td><b>발표(프레젠테이션) 면접</b></td><td>사전 제시 주제로 발표 자료를 만들어 <b>실무자 앞에서 발표</b></td></tr>
+        <tr><td>토론 면접</td><td>특정 주제를 놓고 <b>찬성·반대로 나뉘어</b> 논리를 펼침</td></tr>
+        <tr><td>경험 면접</td><td>과거 경험을 기반으로 역량 평가</td></tr>
+      </table></div></div>
+    </div>
+
+    <!-- Pane D -->
+    <div class="pane">
+      <div class="tblbox"><h4>근로자 권익 침해 유형과 구제 기관 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">14번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">유형</th><th style="width:38%">해당 사례</th><th>구제 경로</th></tr>
+        <tr><td><b>임금 체불</b></td><td>정기 지급일을 하루라도 초과 / 퇴사 후 <b>14일 이내</b> 임금·퇴직금 미지급</td><td><b>고용노동부</b>에 임금 체불 진정서 제출</td></tr>
+        <tr><td><b>부당 노동 행위</b></td><td>노조 조직·가입을 이유로 불이익, 정상적 노조 활동에 부당 개입 (노조법 §81)</td><td>관할 <b>지방노동위원회</b>에 구제 신청</td></tr>
+        <tr><td>침해 아님</td><td>기간의 정함이 있는 근로 계약이 <b>만료</b>되어 재계약하지 않음</td><td>—</td></tr>
+      </table></div>
+      <p class="cap">퇴직금 = 계속 근로 <b>1년당 평균임금 30일분 이상</b>. '70%' 같은 숫자는 존재하지 않습니다.</p></div>
+
+      <div class="tblbox"><h4>산업체 채용형 현장 실습 규정 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">13번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:30%">항목</th><th>기준</th></tr>
+        <tr><td>협약 주체</td><td>학교 · 기업 · 현장 실습생 <b>3자</b>. 표준 협약서 <b>3부</b> 작성 후 각자 보관</td></tr>
+        <tr><td><b>실습 시간</b></td><td><b>1일 7시간, 1주 35시간 이내</b> / 합의 시 1일 8시간, 1주 40시간 한도 연장 가능</td></tr>
+        <tr><td>야간 · 휴일</td><td>야간(22시~06시)과 휴일 실습 <b>금지</b> — 실습생이 동의해도 불가</td></tr>
+        <tr><td>휴일</td><td><b>1주 2회 이상</b> 보장</td></tr>
+        <tr><td>수당</td><td><b>최저임금의 40% 수준 이상</b></td></tr>
+        <tr><td>보험</td><td>실습생은 근로자가 아님 → 국민연금·건강보험·고용보험 <b>가입 불가</b> / <b>산재보험은 필수</b></td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>현장 실습 수당의 구조 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">13번</span><span class="suppl">매뉴얼 보충</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">구분</th><th>내용</th></tr>
+        <tr><td>돈의 성격</td><td>근로계약 ✕ / <b>현장실습 협약</b> ○ → 급여가 아닌 <b>교육훈련에 대한 실습 수당</b></td></tr>
+        <tr><td><b>참여 수당 구성</b></td><td><b>현장실습 지원금</b>(국고·교육청) ＋ <b>현장실습 수당</b>(기업)</td></tr>
+        <tr><td>지원금</td><td><b>1일 6만 원</b>. 한국장학재단을 통해 지급, <b>학생이 개인별 신청</b></td></tr>
+        <tr><td><b>기업 수당 기준</b></td><td>당해 연도 <b>최저임금의 40% 수준 이상</b> <span style="color:var(--coral-d)">← 시험에 나온 지점</span></td></tr>
+        <tr><td>2026년 시급</td><td><b>5,000원</b> (10,320원×6일×7시간＝433,440원 → ×40%＝173,376원 → ÷5일÷7시간＝4,954원)</td></tr>
+        <tr><td>1일 수당</td><td>시급 × 1일 실습시간. <b>매월 지급</b>이 원칙</td></tr>
+        <tr><td>주휴수당</td><td>최저 수당 책정 시 <b>이미 반영</b> → 별도 지급 불필요</td></tr>
+        <tr><td>연장실습</td><td>합의로 <b>1일 1시간까지만</b>. <b>1.5배 가산 없이</b> 시간당 수당 그대로</td></tr>
+        <tr><td>결근·조퇴</td><td>해당 시간만큼 <b>제외</b>하고 지급</td></tr>
+      </table></div>
+      <p class="cap">금액은 연도별 최저임금에 따라 달라집니다. 시험 대비로 외울 것은 <b>&lsquo;최저임금의 40% 수준 이상&rsquo;</b>이라는 기준선 하나입니다.</p></div>
+
+      <div class="tblbox"><h4>실업 급여 체계 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">16번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">대분류</th><th style="width:26%">종류</th><th>지급 사유</th></tr>
+        <tr><td rowspan="4"><b>구직급여</b><br><span style="font-size:.72rem;color:var(--muted)">＝못 구해서 더 받는 것</span></td><td>훈련 연장 급여</td><td>직업 능력 개발 훈련 수강 시</td></tr>
+        <tr><td>개별 연장 급여</td><td>취업이 특히 곤란한 수급자에게 개별 연장</td></tr>
+        <tr><td><b>특별 연장 급여</b></td><td><b>실업 급증 등 대통령령 사유</b> 시 고용노동부장관이 <b>60일 범위</b>에서 연장</td></tr>
+        <tr><td>상병 급여</td><td>질병·부상으로 구직 활동이 어려울 때</td></tr>
+        <tr><td rowspan="4"><b>취업촉진수당</b><br><span style="font-size:.72rem;color:var(--muted)">＝움직이는 데 드는 것</span></td><td>조기 재취업 수당</td><td>수급 기간 중 일찍 재취업했을 때</td></tr>
+        <tr><td>직업 능력 개발 수당</td><td>훈련 참여에 드는 비용</td></tr>
+        <tr><td><b>광역 구직 활동비</b></td><td><b>광범위한 지역</b>에 걸쳐 구직 활동을 할 때</td></tr>
+        <tr><td>이주비</td><td>취업·훈련을 위해 거주지를 옮길 때</td></tr>
+      </table></div></div>
+
+      <div class="tblbox"><h4>산업 재해의 원인과 중대 재해 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">17번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:22%">구분</th><th style="width:24%">하위</th><th>예</th></tr>
+        <tr><td rowspan="2"><b>직접 원인</b></td><td>불안전한 <b>행동</b></td><td>안전장치 기능 제거, 불안전한 자세·동작, 위험 장소 접근, 위험물 취급 부주의 <span style="color:var(--coral-d)">← 안전모 미착용</span></td></tr>
+        <tr><td>불안전한 <b>상태</b></td><td>작업 환경 결함, 생산 공정 결함, 안전 보호 장치 결함</td></tr>
+        <tr><td rowspan="3"><b>간접 원인</b></td><td>기술적 원인</td><td>생산 공정 부적합, 구조·재료 부적합, 건물·기계 설계 불량</td></tr>
+        <tr><td><b>교육적</b> 원인</td><td>안전 의식 부족, <b>경험 및 훈련 미숙</b>, 안전 교육 불충분</td></tr>
+        <tr><td>관리적 원인</td><td>작업 준비 불충분, 작업 지시 부적당, 안전 관리 조직 결함</td></tr>
+      </table></div>
+      <p class="cap"><b>중대 재해 요건</b> ⑴ 사망자 1명 이상 ⑵ <b>3개월 이상</b> 요양 부상자 동시 <b>2명 이상</b> ⑶ 부상자·직업성 질병자 동시 <b>10명 이상</b><br>
+      <b>안전 보건 표지</b> 금지(빨강) · 경고(노랑) · <b>지시(파란 원형, 흰 그림이 규격의 30% 이상)</b> · 안내(녹색)</p></div>
+
+      <div class="tblbox"><h4>노사협의회 vs 노동조합 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">18번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:24%">구분</th><th style="width:40%">노사협의회</th><th>노동조합</th></tr>
+        <tr><td>근거 법률</td><td><b>근로자참여 및 협력증진에 관한 법률</b></td><td>노동조합 및 노동관계조정법</td></tr>
+        <tr><td>대표성</td><td>소속 회사의 <b>모든 근로자</b></td><td>조합원</td></tr>
+        <tr><td>설립 기준</td><td><b>30인 이상</b> 사업장</td><td>규모 기준 없음</td></tr>
+        <tr><td>구성</td><td>노·사 <b>같은 수</b>의 위원, 각 3명 이상 10명 이하</td><td>조합원</td></tr>
+        <tr><td>근로자 위원 선출</td><td>근로자 과반수 참여 직접·비밀·무기명 투표<br><b>단, 근로자 과반수 노조가 있으면</b> 노조 대표자와 노조 위촉자</td><td>—</td></tr>
+        <tr><td><b>권한</b></td><td>전체 직원의 이해와 요구를 대변하나 <b>단체 교섭권·단체 행동권 없음 → 단체 협약 체결 불가</b></td><td><b>단체 협약 체결 가능</b></td></tr>
+        <tr><td>운영</td><td><b>3개월마다</b> 정기 개최 (미개최 시 200만 원 이하 벌금)</td><td>규약에 따름</td></tr>
+        <tr><td>합의 미이행</td><td>정당한 사유 없이 미이행 시 <b>500만 원 이하 벌금</b></td><td>—</td></tr>
+      </table></div></div>
+    </div>
+
+    <!-- Pane E -->
+    <div class="pane">
+      <div class="tblbox"><h4>직업 윤리의 6가지 덕목 <span style="font-family:'Gothic A1',sans-serif;font-size:.72rem;font-weight:700;color:var(--coral-d)">20번</span></h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:16%">덕목</th><th style="width:52%">뜻</th><th>20번에서의 위치</th></tr>
+        <tr><td>소명 의식</td><td>자신이 맡은 일은 <b>하늘에 의해 맡겨진 것</b>이라고 생각하는 태도</td><td>①·④의 (ㄴ) 자리 — 오답</td></tr>
+        <tr><td>천직 의식</td><td>자신의 일이 <b>자신의 적성에 꼭 맞는다</b>고 여기는 태도</td><td>①·③의 자리 — 오답</td></tr>
+        <tr><td>직분 의식</td><td>자신의 일이 <b>사회나 기업 등을 위해 중요한 역할</b>을 하고 있다고 믿는 태도</td><td>②·③의 (ㄱ) 자리 — 오답</td></tr>
+        <tr><td><b>책임 의식</b></td><td>직업에 대한 <b>사회적 역할과 책무를 충실히 수행</b>하고 책임을 다하는 태도</td><td><b>(ㄴ) 정답</b></td></tr>
+        <tr><td><b>전문가 의식</b></td><td>자신의 일이 누구나 할 수 있는 것이 아니라, <b>해당 분야의 지식과 교육을 바탕으로</b> 성실히 수행해야만 가능하다고 믿는 태도</td><td><b>(ㄱ) 정답</b></td></tr>
+        <tr><td>봉사 의식</td><td>직업 활동을 통해 <b>다른 사람과 공동체에 헌신</b>하는 정신</td><td><b>선택지에 등장하지 않음</b></td></tr>
+      </table></div>
+      <p class="cap">20번 선택지는 ① 천직/소명 · ② 직분/책임 · ③ 직분/천직 · ④ 전문가/소명 · ⑤ 전문가/책임 → 정답 <b>⑤</b>.
+      &lsquo;협력하여 힘쓴다&rsquo;를 보고 <b>봉사 의식</b>을 떠올리기 쉬운데, 이 문항의 선택지에는 <b>아예 없습니다</b>.
+      선서문 전체가 아니라 <b>밑줄 친 부분의 핵심 동사</b>로 판단하십시오.</p></div>
+
+      <div class="tblbox"><h4>한 단어로 가르기</h4>
+      <div class="scrollx"><table>
+        <tr><th style="width:20%">덕목</th><th>이 단어가 나오면</th></tr>
+        <tr><td>소명</td><td><b>하늘</b> · 부름 · 맡겨짐</td></tr>
+        <tr><td>천직</td><td><b>적성</b> · 나에게 꼭 맞음</td></tr>
+        <tr><td>직분</td><td><b>사회·기업에서 중요한 역할</b></td></tr>
+        <tr><td>책임</td><td><b>맡은 역할·책무</b> · 다한다</td></tr>
+        <tr><td>전문가</td><td><b>지식·교육·능력 개발</b> · 아무나 못 함</td></tr>
+        <tr><td>봉사</td><td><b>남·공동체</b> · 헌신</td></tr>
+      </table></div></div>
+    </div>
+  </section>
+
+  <!-- ========== 4. 셀프 체크 ========== -->
+  <section id="s4">
+    <div class="sec-head"><span class="sec-no">4</span><h2 class="sec-title">셀프 체크 O/X</h2></div>
+    <p class="sec-desc">전부 <b>이 회차의 오답 선택지</b>를 문장으로 바꾼 것입니다. 즉 <b>실제로 나왔던 함정</b>만 골라 담았습니다. 누르면 바로 채점됩니다.</p>
+    <div id="quizWrap"></div>
+  </section>
+
+  <footer class="foot">
+    <button class="uptop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i>↑</i>맨 위로</button>
+    <div class="labpanel">
+      <span class="star" style="left:6%;top:22%;width:5px;height:5px;animation-duration:2.6s;animation-delay:0s"></span><span class="star" style="left:13%;top:58%;width:4px;height:4px;animation-duration:2.1s;animation-delay:0.7s"></span><span class="star" style="left:24%;top:30%;width:4px;height:4px;animation-duration:3.0s;animation-delay:1.4s"></span><span class="star" style="left:33%;top:74%;width:3px;height:3px;animation-duration:2.4s;animation-delay:0.35s"></span><span class="star" style="left:43%;top:18%;width:5px;height:5px;animation-duration:2.8s;animation-delay:1.9s"></span><span class="star" style="left:52%;top:64%;width:3px;height:3px;animation-duration:2.2s;animation-delay:0.9s"></span><span class="star" style="left:60%;top:30%;width:4px;height:4px;animation-duration:3.2s;animation-delay:2.3s"></span><span class="star" style="left:68%;top:72%;width:4px;height:4px;animation-duration:2.5s;animation-delay:1.1s"></span><span class="star" style="left:77%;top:24%;width:5px;height:5px;animation-duration:2.9s;animation-delay:0.5s"></span><span class="star" style="left:85%;top:60%;width:3px;height:3px;animation-duration:2.3s;animation-delay:2.0s"></span><span class="star" style="left:93%;top:34%;width:4px;height:4px;animation-duration:2.7s;animation-delay:1.6s"></span><span class="star" style="left:47%;top:86%;width:4px;height:4px;animation-duration:2.4s;animation-delay:2.6s"></span>
+      <div class="lab-row">
+        <span class="planet"><svg width="36" height="34" viewBox="0 0 36 34" fill="none" aria-hidden="true">
+          <circle cx="18" cy="16" r="7.6" fill="#FFE0BA"/>
+          <ellipse cx="18" cy="16" rx="15.6" ry="5.3" fill="none" stroke="rgba(255,255,255,.82)" stroke-width="1.6" transform="rotate(-20 18 16)"/>
+        </svg></span>
+        <span class="lab-nm"><span class="w">은또링샘의</span> <span class="g">행성 연구소</span></span>
+      </div>
+      <div class="lab-en">PLANET LAB</div>
+      <div class="lab-div"></div>
+      <p class="lab-sub">성공적인 직업생활 · 실전 모의고사 05회 · EBS 2027 수능완성 수록</p>
+    </div>
+  </footer>
+</div>
+</div>
+
+<button class="totop" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 출제 지도 데이터 ===== */
+var MAP=[
+ {n:1, tag:'02강 생애 발달', con:'에릭슨 · 영아기 발달 과업', a:'①'},
+ {n:2, tag:'03강 자기 이해', con:'조하리의 창 4영역', a:'①', p3:1},
+ {n:3, tag:'04강 기업 형태', con:'유한회사 vs 유한책임회사', a:'②', p3:1},
+ {n:4, tag:'05강 경영 활동', con:'마케팅 믹스 4P · 유통', a:'③'},
+ {n:5, tag:'06강 제조업', con:'제품 생산 방식 · 개별 생산', a:'④'},
+ {n:6, tag:'07강 서비스업', con:'서비스의 이질성', a:'⑤', p3:1},
+ {n:7, tag:'04강 기업 형태', con:'공기업', a:'②', p3:1},
+ {n:8, tag:'08강 직업 기초 능력', con:'하위 영역 소속 구분', a:'③'},
+ {n:9, tag:'09·10강 NCS', con:'분류 체계 · 직무 기술서', a:'⑤', p3:1},
+ {n:10,tag:'12강 취업', con:'취업 계획 수립 절차', a:'④'},
+ {n:11,tag:'13강 취업', con:'채용 서류 · 면접 유형', a:'③', p3:1},
+ {n:12,tag:'14강 창업', con:'창업 방법 3유형', a:'④'},
+ {n:13,tag:'현장 실습', con:'표준 협약서 규정', a:'②'},
+ {n:14,tag:'15·16강 근로관계와 법', con:'권익 침해 유형과 구제', a:'③', p3:1},
+ {n:15,tag:'01강 일과 직업', con:'홀랜드 흥미 유형', a:'②', p3:1, out:1},
+ {n:16,tag:'17강 고용 서비스', con:'실업 급여의 종류', a:'④'},
+ {n:17,tag:'18강 산업 안전', con:'재해 원인 · 중대 재해', a:'②'},
+ {n:18,tag:'19강 노사관계', con:'노사협의회', a:'④', p3:1},
+ {n:19,tag:'11강 경력 개발', con:'학위 취득 제도', a:'③', p3:1, out:1},
+ {n:20,tag:'20강 직업 윤리', con:'직업 윤리의 덕목', a:'⑤'}
+];
+
+/* ===== O/X 문항 데이터 ===== */
+var QUIZ=[
+ {q:'돌잔치를 앞둔 시기의 발달 과업은 자기주도성이다.', a:false, t:'1번 · 에릭슨', s:'영아기의 과업은 <b>신뢰감 대 불신감</b>입니다. 자기주도성은 3~6세 아동 전기의 과업입니다.'},
+ {q:'조하리의 창에서 나는 알지만 타인은 모르는 영역을 숨겨진 영역이라 한다.', a:true, t:'2번 · 조하리', s:'맞습니다. 신중해 보이지만 <b>고독해 보이는</b> 특징이 있습니다.'},
+ {q:'유한책임회사는 출자 비율에 따라 의결권을 행사한다.', a:false, t:'3번 · 기업 형태', s:'유한책임회사는 <b>출자액과 관계없이 1인 1의결권</b>입니다. 출자 비율에 따르는 쪽은 <b>유한회사</b>입니다.'},
+ {q:'유한회사와 유한책임회사는 모두 유한 책임 사원으로만 구성된다.', a:true, t:'3번 · 기업 형태', s:'이것이 두 회사의 <b>공통점</b>입니다. 갈리는 지점은 의결권과 외부 감사 의무입니다.'},
+ {q:'제품 수명 주기에 따른 전략을 계획하는 것은 유통 전략에 해당한다.', a:false, t:'4번 · 마케팅 믹스', s:'<b>제품 전략</b>입니다. 유통은 &lsquo;어떻게 전달할까&rsquo;에 해당합니다.'},
+ {q:'비슷한 고객 요구가 일정 수량 이상 모이면 일괄 제작하는 방식은 개별 생산이다.', a:false, t:'5번 · 생산 방식', s:'<b>로트 생산</b>입니다. 개별 생산은 주문마다 다르게 만드는 고가·소량 방식입니다.'},
+ {q:'제공자의 숙련도와 전문성에 따라 서비스의 질이 달라지는 특성은 비분리성이다.', a:false, t:'6번 · 서비스업', s:'<b>이질성</b>입니다. 비분리성(동시성)은 생산과 소비가 동시에 일어나는 특성입니다.'},
+ {q:'공기업은 국가·지방 자치 단체 또는 공공 단체가 공공의 이익을 목적으로 출자하여 경영한다.', a:true, t:'7번 · 기업 형태', s:'맞습니다. 사원 총회로 의사 결정하는 것은 유한회사입니다.'},
+ {q:'정보 처리 능력은 문제 해결 능력의 하위 영역이다.', a:false, t:'8번 · 직업 기초 능력', s:'<b>정보 능력</b>의 하위 영역입니다. 문제 해결 능력의 하위는 사고력과 <b>문제 처리 능력</b>입니다.'},
+ {q:'국제 감각은 조직 이해 능력의 하위 영역이다.', a:true, t:'8번 · 직업 기초 능력', s:'맞습니다. 업무 이해·경영 이해·조직 체제 이해와 함께 묶입니다.'},
+ {q:'NCS 분류 체계에서 직무에 해당하는 것은 세분류이다.', a:true, t:'9번 · NCS', s:'맞습니다. 대·중·소분류는 직무가 아닙니다.'},
+ {q:'능력단위 요소는 직무를 구성하는 기본 단위이다.', a:false, t:'9번 · NCS', s:'기본 단위는 <b>능력단위</b>입니다. 능력단위 요소는 그 아래 단계입니다.'},
+ {q:'분류번호가 2101010525_17v2라면 2017년에 수정·보완된 자료다.', a:true, t:'9번 · NCS', s:'맞습니다. 뒤의 <b>_○○v○</b>는 연도와 버전을 뜻합니다.'},
+ {q:'취업 목표를 명확히 설정한 다음 단계는 모의 면접 훈련이다.', a:false, t:'10번 · 취업 계획', s:'바로 다음은 <b>취업 준비</b> — 기업 선택과 기업 정보 수집입니다. 모의 면접은 그다음 구직 활동 단계입니다.'},
+ {q:'경력 기술서는 수행한 직무 영역과 관련된 활동·성과를 상세히 기술하는 서류다.', a:true, t:'11번 · 채용 서류', s:'맞습니다. 입사 지원서는 인적 사항과 교육·자격·경력 정보 중심입니다.'},
+ {q:'프레젠테이션 면접은 지원자를 찬성과 반대로 나누어 논리를 겨루게 하는 면접이다.', a:false, t:'11번 · 면접 유형', s:'그것은 <b>토론 면접</b>입니다. 발표 면접은 주어진 주제로 자료를 만들어 실무자 앞에서 발표합니다.'},
+ {q:'모기업의 로고와 브랜드를 사용하고 기술 노하우 교육을 받는 창업은 신규 창업이다.', a:false, t:'12번 · 창업', s:'<b>프랜차이즈</b>입니다. 신규 창업의 표지는 아이템·시장·마케팅에 대한 <b>자율권</b>입니다.'},
+ {q:'현장 실습 시간은 1일 7시간, 1주 35시간 이내가 원칙이다.', a:true, t:'13번 · 현장 실습', s:'맞습니다. 당사자 합의 시 1일 8시간, 1주 40시간 한도로 연장할 수 있습니다.'},
+ {q:'현장 실습생이 동의하면 휴일에도 현장 실습을 할 수 있다.', a:false, t:'13번 · 현장 실습', s:'야간과 휴일 실습은 <b>동의가 있어도 금지</b>됩니다.'},
+ {q:'현장 실습 표준 협약서는 3부를 작성해 학교·기업·학생이 각각 보관한다.', a:true, t:'13번 · 현장 실습', s:'맞습니다. 2부가 아닙니다.'},
+ {q:'기업이 지급하는 현장 실습 수당은 최저임금 이상이어야 한다.', a:false, t:'13번 · 현장 실습', s:'<b>최저임금의 40% 수준 이상</b>입니다.'},
+ {q:'현장 실습생은 근로자가 아니지만 기업은 산재보험에 반드시 가입해야 한다.', a:true, t:'13번 · 현장 실습', s:'맞습니다. 국민연금·건강보험·고용보험은 가입할 수 없습니다.'},
+ {q:'현장 실습 참여 수당은 국고·교육청의 현장실습 지원금과 기업이 주는 현장실습 수당으로 구성된다.', a:true, t:'13번 · 현장 실습', s:'맞습니다. 지원금은 한국장학재단을 통해 <b>학생이 개인별로 신청</b>합니다.'},
+ {q:'현장실습생이 합의로 연장실습을 하면 근로자와 같이 시간당 수당의 1.5배를 받는다.', a:false, t:'13번 · 현장 실습', s:'근로가 아닌 <b>실습</b>이므로 <b>가산 없이</b> 시간당 수당 그대로 지급합니다.'},
+ {q:'현장실습생의 연장실습은 합의가 있어도 1일 1시간까지만 가능하다.', a:true, t:'13번 · 현장 실습', s:'맞습니다. 1일 7시간 ＋ 연장 1시간 ＝ 최대 8시간입니다.'},
+ {q:'기업은 현장실습 수당과 별도로 주휴수당을 지급해야 한다.', a:false, t:'13번 · 현장 실습', s:'최저 현장실습 수당을 책정할 때 <b>주휴수당이 이미 반영</b>되어 있어 별도 지급이 필요 없습니다.'},
+ {q:'현장실습생에게는 최저임금법이 적용되지 않는다.', a:true, t:'13번 · 현장 실습', s:'최저임금법은 <b>근로자</b>에게 적용됩니다. 실습생은 근로계약이 아닌 <b>현장실습 협약</b>을 맺으므로 적용 대상이 아닙니다.'},
+ {q:'협약서에 &lsquo;실습&rsquo;이라고 적혀 있으면 실제로는 근로를 했더라도 근로자로 인정될 수 없다.', a:false, t:'13번 · 현장 실습', s:'<b>법은 이름이 아니라 실질을 봅니다.</b> 교육 없이 생산에 투입되고 일반 직원과 같은 지휘·감독을 받았다면 근로자로 인정될 수 있습니다.'},
+ {q:'1년 기간제 근로 계약이 만료되어 재계약하지 않은 것은 근로자 권익 침해에 해당한다.', a:false, t:'14번 · 근로자 권익', s:'기간 만료로 근로 관계가 <b>자동 종료</b>된 것이므로 침해가 아닙니다.'},
+ {q:'퇴직금은 계속 근로 1년당 평균임금 30일분 이상이다.', a:true, t:'14번 · 근로자 권익', s:'맞습니다. &lsquo;평균임금의 70%&rsquo; 같은 기준은 없습니다.'},
+ {q:'합법적 쟁의 행위 참가를 이유로 불이익을 준 경우 고용노동부에 진정서를 내어 구제받는다.', a:false, t:'14번 · 근로자 권익', s:'부당 노동 행위는 <b>관할 지방노동위원회</b>에 구제를 신청합니다. 고용노동부 진정은 <b>임금 체불</b>의 경로입니다.'},
+ {q:'홀랜드 유형에서 타인의 문제와 어려움을 해결하고 도와주는 활동을 하는 것은 사회형이다.', a:true, t:'15번 · 홀랜드', s:'맞습니다. 관련 직업으로 항공기 객실 승무원, 다문화 언어 지도사가 있습니다.'},
+ {q:'행사의 목표를 설정하고 주어진 상황을 해결하는 활동은 현실형에 해당한다.', a:false, t:'15번 · 홀랜드', s:'<b>진취형(E)</b>입니다. 현실형은 기계·도구·사물을 다루는 유형입니다.'},
+ {q:'홀랜드의 육각형 모형에서 서로 가까운 위치에 있는 유형일수록 유사성이 높다.', a:true, t:'15번 · 홀랜드', s:'맞습니다. 멀리 있을수록 유사성이 떨어집니다.'},
+ {q:'현실형(R)과 사회형(S)은 육각형에서 이웃해 있어 유사성이 높다.', a:false, t:'15번 · 홀랜드', s:'R과 S는 <b>정반대(대각)</b> 자리입니다. 여섯 유형 중 가장 다른 짝입니다.'},
+ {q:'육각형 모형에서 탐구형(I)의 정반대에 있는 유형은 진취형(E)이다.', a:true, t:'15번 · 홀랜드', s:'맞습니다. 대각 짝은 <b>R↔S · I↔E · A↔C</b> 셋입니다.'},
+ {q:'실업 급증 등의 사유로 60일 범위에서 구직급여를 연장 지급하는 것은 특별 연장 급여다.', a:true, t:'16번 · 실업 급여', s:'맞습니다. 고용노동부장관이 결정합니다.'},
+ {q:'광역 구직 활동비는 구직급여의 한 종류다.', a:false, t:'16번 · 실업 급여', s:'<b>취업촉진수당</b>에 속합니다. 조기 재취업 수당·직업 능력 개발 수당·이주비와 같은 묶음입니다.'},
+ {q:'2개월 요양이 필요한 부상자가 동시에 3명 발생하면 산업안전보건법상 중대 재해다.', a:false, t:'17번 · 산업 안전', s:'중대 재해는 <b>3개월 이상</b> 요양 부상자가 동시에 <b>2명 이상</b>일 때입니다. 숫자가 엇갈려 있습니다.'},
+ {q:'작업자의 훈련 미숙은 산업 재해의 직접 원인 중 불안전한 상태에 해당한다.', a:false, t:'17번 · 산업 안전', s:'<b>간접 원인 중 교육적 원인</b>입니다. 불안전한 상태는 작업 환경·공정·보호 장치의 결함입니다.'},
+ {q:'안전모 착용 표지판은 지시 표지이며 파란색 원형으로 표시한다.', a:true, t:'17번 · 산업 안전', s:'맞습니다. 흰색 그림이 전체 규격의 30% 이상이어야 합니다.'},
+ {q:'노사협의회는 30인 이상 사업장에 두며 3개월마다 정기 회의를 개최해야 한다.', a:true, t:'18번 · 노사협의회', s:'맞습니다. 정기적으로 개최하지 않으면 200만 원 이하의 벌금에 처합니다.'},
+ {q:'노사협의회는 회의를 통해 법적 구속력이 있는 단체 협약을 체결할 수 있다.', a:false, t:'18번 · 노사협의회', s:'단체 협약 체결권은 <b>노동조합</b>에 있습니다. 노사협의회는 단체 교섭권·단체 행동권이 없습니다.'},
+ {q:'조합원이 근로자의 과반수에 못 미쳐도 근로자 위원은 노동조합 조합원으로만 구성한다.', a:false, t:'18번 · 노사협의회', s:'과반수 노조일 때만 노조가 위원을 냅니다. 그렇지 않으면 <b>근로자 과반수가 참여한 투표</b>로 선출합니다.'},
+ {q:'독학학위제의 1~3과정 시험은 순서에 상관없이 응시할 수 있다.', a:true, t:'19번 · 학위 취득', s:'맞습니다. 다만 <b>순서만</b> 자유롭습니다.'},
+ {q:'1~3과정 중 3과정만 합격해도 학위 취득 종합 시험(4과정)에 응시할 수 있다.', a:false, t:'19번 · 학위 취득', s:'1~3과정은 순서는 상관없지만 <b>전부 합격해야</b> 4과정에 응시할 수 있습니다.'},
+ {q:'독학학위제 1과정 교양과정 인정시험은 5과목(필수 3과목, 선택 2과목)을 합격해야 한다.', a:true, t:'19번 · 학위 취득', s:'맞습니다. &lsquo;필수 7과목&rsquo;이라는 선택지가 함정이었습니다.'},
+ {q:'자신의 일이 누구나 할 수 있는 것이 아니라 해당 분야의 지식과 교육을 바탕으로 해야 가능하다고 믿는 태도는 전문가 의식이다.', a:true, t:'20번 · 직업 윤리', s:'맞습니다. 선서문 (ㄱ)이 여기에 해당합니다.'},
+ {q:'응급구조사가 &ldquo;맡은 역할을 인식하고 협력하여 서비스 체계가 안정적으로 운영되도록 힘쓴다&rdquo;는 것은 소명 의식이다.', a:false, t:'20번 · 직업 윤리', s:'<b>책임 의식</b>입니다. 소명 의식은 맡은 일을 <b>하늘이 맡긴 것</b>으로 여기는 태도입니다.'},
+ {q:'직분 의식은 자신의 일이 적성에 꼭 맞는다고 여기는 태도다.', a:false, t:'20번 · 직업 윤리', s:'그것은 <b>천직 의식</b>입니다. 직분 의식은 자신의 일이 <b>사회나 기업을 위해 중요한 역할</b>을 한다고 믿는 태도입니다.'},
+ {q:'소명 의식은 자신이 맡은 일을 하늘이 맡긴 것이라고 생각하는 태도다.', a:true, t:'20번 · 직업 윤리', s:'맞습니다. 적성에 맞는다고 여기는 것은 <b>천직 의식</b>입니다.'},
+ {q:'직업 활동을 통해 다른 사람과 공동체에 헌신하는 정신은 봉사 의식이다.', a:true, t:'20번 · 직업 윤리', s:'맞습니다. 다만 20번 <b>선택지에는 등장하지 않은</b> 덕목입니다.'}
+];
+
+/* ===== 출제 지도 렌더 ===== */
+(function(){
+  var g=document.getElementById('mapGrid'), h='';
+  for(var i=0;i<MAP.length;i++){
+    var m=MAP[i];
+    h+='<button class="qcell'+(m.out?' out':'')+'" data-n="'+m.n+'" onclick="toggleMiss(this)">'
+      +'<span class="qans">'+m.a+'</span>'
+      +'<span class="qn">'+m.n+'</span>'
+      +(m.p3?'<span style="font-size:.62rem;font-weight:700;color:var(--coral-d);margin-left:5px">3점</span>':'')
+      +'<br><span class="qtag">'+m.tag+'</span>'
+      +'<span class="qcon">'+m.con+'</span></button>';
+  }
+  g.innerHTML=h;
+})();
+
+function toggleMiss(el){
+  el.classList.toggle('miss');
+  var n=document.querySelectorAll('.qcell.miss').length;
+  document.getElementById('missCnt').textContent=n+'개';
+  if(n>0 && el.classList.contains('miss')){
+    toast(el.dataset.n+'번 표시 — 함정 포인트 '+el.dataset.n+'번을 확인하세요');
+  }
+}
+function clearMiss(){
+  var a=document.querySelectorAll('.qcell.miss');
+  for(var i=0;i<a.length;i++) a[i].classList.remove('miss');
+  document.getElementById('missCnt').textContent='0개';
+}
+
+/* ===== 비교표 탭 ===== */
+function showPane(i,btn){
+  var tabs=document.querySelectorAll('.tab'), panes=document.querySelectorAll('.pane');
+  for(var k=0;k<tabs.length;k++) tabs[k].classList.remove('on');
+  for(var k=0;k<panes.length;k++) panes[k].classList.remove('on');
+  btn.classList.add('on'); panes[i].classList.add('on');
+}
+
+/* ===== O/X 퀴즈 렌더 ===== */
+(function(){
+  var w=document.getElementById('quizWrap'), h='';
+  for(var i=0;i<QUIZ.length;i++){
+    var q=QUIZ[i];
+    h+='<div class="ox" id="ox'+i+'" data-a="'+(q.a?'O':'X')+'">'
+      +'<div class="ox-top">'
+      +'<span class="ox-no">'+(i+1)+'</span>'
+      +'<span class="ox-q">'+q.q+'<span class="tag">'+q.t+'</span></span>'
+      +'<span class="ox-btns">'
+      +'<button class="oxb" data-v="O" onclick="pick('+i+',\'O\')">O</button>'
+      +'<button class="oxb" data-v="X" onclick="pick('+i+',\'X\')">X</button>'
+      +'</span></div>'
+      +'<div class="ox-sol" id="sol'+i+'"><b>정답 '+(q.a?'O':'X')+'</b> — '+q.s+'</div>'
+      +'</div>';
+  }
+  w.innerHTML=h;
+  document.getElementById('scoreTxt').textContent='0 / '+QUIZ.length;
+})();
+
+var answered={}, correct=0;
+
+function pick(i,v){
+  if(answered[i]) return;
+  var box=document.getElementById('ox'+i);
+  var real=box.dataset.a;
+  var btns=box.querySelectorAll('.oxb');
+  for(var k=0;k<btns.length;k++){
+    if(btns[k].dataset.v===v) btns[k].classList.add('pick');
+    btns[k].disabled=true;
+  }
+  answered[i]=true;
+  if(v===real){ box.classList.add('correct'); correct++; }
+  else{
+    box.classList.add('wrong');
+    box.classList.add('shake');
+    setTimeout(function(){ box.classList.remove('shake'); },380);
+  }
+  document.getElementById('sol'+i).classList.add('show');
+  update();
+}
+
+function update(){
+  var done=Object.keys(answered).length, total=QUIZ.length;
+  document.getElementById('barFill').style.width=(done/total*100)+'%';
+  document.getElementById('scoreTxt').textContent=correct+' / '+total;
+  if(done===total){
+    var pct=Math.round(correct/total*100);
+    var msg = pct>=90 ? '완벽합니다. 이 회차는 넘어가도 좋습니다'
+            : pct>=70 ? '틀린 문항의 함정 포인트만 다시 읽으세요'
+            : '함정 포인트를 처음부터 한 번 더 읽고 오세요';
+    toast(correct+' / '+total+' ('+pct+'%) · '+msg);
+  }
+}
+
+function revealAll(){
+  for(var i=0;i<QUIZ.length;i++){
+    var box=document.getElementById('ox'+i);
+    var btns=box.querySelectorAll('.oxb');
+    for(var k=0;k<btns.length;k++){
+      btns[k].disabled=true;
+      if(!answered[i] && btns[k].dataset.v===box.dataset.a) btns[k].classList.add('pick');
+    }
+    if(!answered[i]) box.classList.add('correct');
+    document.getElementById('sol'+i).classList.add('show');
+  }
+  var pits=document.querySelectorAll('.pit');
+  for(var k=0;k<pits.length;k++) pits[k].open=true;
+  toast('정답과 해설을 모두 펼쳤습니다');
+}
+
+function resetAll(){
+  answered={}; correct=0;
+  for(var i=0;i<QUIZ.length;i++){
+    var box=document.getElementById('ox'+i);
+    box.className='ox';
+    var btns=box.querySelectorAll('.oxb');
+    for(var k=0;k<btns.length;k++){ btns[k].disabled=false; btns[k].classList.remove('pick'); }
+    document.getElementById('sol'+i).classList.remove('show');
+  }
+  var pits=document.querySelectorAll('.pit');
+  for(var k=0;k<pits.length;k++) pits[k].open=false;
+  clearMiss();
+  update();
+  toast('처음부터 다시 풀 수 있습니다');
+  document.getElementById('s4').scrollIntoView({behavior:'smooth'});
+}
+
+/* ===== 아코디언 +/- 토글 ===== */
+(function(){
+  var pits=document.querySelectorAll('.pit');
+  for(var i=0;i<pits.length;i++){
+    pits[i].addEventListener('toggle',function(){
+      var t=this.querySelector('.ptog');
+      if(t) t.textContent=this.open?'－':'＋';
+    });
+  }
+})();
+
+/* ===== 토스트 / 맨 위로 ===== */
+var tTimer;
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.innerHTML=msg; t.classList.add('on');
+  clearTimeout(tTimer);
+  tTimer=setTimeout(function(){ t.classList.remove('on'); },2600);
+}
+window.addEventListener('scroll',function(){
+  document.getElementById('toTop').classList.toggle('on', window.scrollY>420);
+});
+</script>
+</body>
+</html>

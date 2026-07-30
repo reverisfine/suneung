@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 19강 노동위원회와 노동 쟁의 조정 제도</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    --myeong:'Noto Serif KR',serif; --godic:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 상단 조작 바 ── */
+  .toolbar{position:sticky;top:0;z-index:60;background:rgba(233,231,226,.96);backdrop-filter:blur(5px);border-bottom:1px solid var(--line)}
+  .toolbar .in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .toolbar .prog{flex:1;min-width:120px;height:6px;background:#D6D3CC;border:1px solid var(--line);overflow:hidden}
+  .toolbar .prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .45s ease}
+  .toolbar .stat{font-family:var(--godic);font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap}
+  .toolbar .stat b{font-family:var(--myeong);font-weight:700;font-size:1rem}
+  .tbtn{font-family:var(--godic);font-size:.76rem;font-weight:500;cursor:pointer;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 11px;border-radius:2px}
+  .tbtn:hover{background:var(--ink);color:#fff}
+  .tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-bottom:1px solid var(--rule);padding:3px 0 6px;margin-bottom:16px}
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld input{border:none;background:#fff;font-family:var(--myeong);font-size:.95rem;color:var(--ink);padding:0 8px;min-width:0}
+  .fld input:focus{outline:none;background:#FBFBF6}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;text-align:center;border-left:1.5px solid var(--ink);padding:0}
+  .fld .cell:first-of-type{border-left:none}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"\25E6";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+  .index{font-family:var(--godic);font-size:.78rem;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+  .index a{text-decoration:none;color:var(--ink2);border:1px solid var(--line);padding:4px 9px;background:#fff}
+  .index a:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* ── 단원 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+  h3.subh{font-family:var(--godic);font-weight:700;font-size:.9rem;margin:18px 0 7px;padding-left:9px;border-left:3px solid var(--ink);letter-spacing:-.01em}
+  h3.subh .flag,.memo .mt .flag{vertical-align:1px;margin-right:6px}
+  p.line{font-size:.88rem;line-height:1.85;margin:5px 0;padding-left:1.1em;text-indent:-1.1em}
+  p.line::before{content:"\2014";color:var(--lgray);margin-right:5px}
+  p.plain{font-size:.88rem;line-height:1.85;margin:5px 0}
+  .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .memo ul{list-style:none}
+  .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .memo li::before{content:"\B7";position:absolute;left:3px;font-weight:700}
+  .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+  b{font-weight:700}
+
+  /* ── 출처 구분 배지 ── */
+  .flag{display:inline-block;font-family:var(--godic);font-size:.66rem;font-weight:700;letter-spacing:-.01em;
+    padding:1px 6px;border:1px solid var(--ink);background:#fff;color:var(--ink);vertical-align:2px;margin-right:5px;
+    white-space:nowrap;text-indent:0}
+  .flag.sup{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fnote{font-family:var(--godic);font-size:.74rem;color:var(--gray);margin-top:4px;padding-left:1.1em;text-indent:-1.1em}
+
+  /* ── 빈칸 ── */
+  .num{font-family:var(--myeong);font-weight:700;font-size:.95rem;color:var(--ink);margin-right:2px}
+  input.blank{font-family:var(--godic);font-size:.85rem;font-weight:500;color:var(--ink);text-align:center;text-indent:0;
+    width:7.2em;padding:1px 3px;margin:0 2px;background:#FCFCFA;
+    border:none;border-bottom:1.4px solid var(--ink);border-radius:0;transition:background .15s,border-color .15s}
+  input.blank.wide{width:10.5em}
+  input.blank.narrow{width:4.2em}
+  input.blank:focus{outline:none;background:#F1F0EA;border-bottom-color:var(--ok)}
+  input.blank.correct{color:var(--ok);font-weight:700;background:var(--okbg);border-bottom:1.6px solid var(--ok)}
+  input.blank.reveal{color:var(--no);font-weight:700;background:var(--nobg);border-bottom:1.6px solid var(--no)}
+  input.blank.peek{color:var(--ink2);font-weight:700;background:#F1F0EA;border-bottom:1.6px dashed var(--ink2)}
+
+  /* ── 표 ── */
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:9px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.55}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+  .ex td.c{text-align:center}
+  .cap{display:block;font-family:var(--godic);font-size:.76rem;color:var(--gray);margin-top:5px}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* ── 도식 ── */
+  .figbox{border:1.2px solid var(--ink);padding:10px 12px 8px;margin:10px 0 0;background:#fff}
+  .figbox .figt{font-family:var(--godic);font-weight:700;font-size:.83rem;text-align:center;margin-bottom:8px;
+    padding-bottom:5px;border-bottom:1px solid var(--hair)}
+  .figbox svg{display:block;width:100%;height:auto}
+  .figbox.wideonly svg{min-width:720px}
+  .figbox.orgfig svg{min-width:640px}
+  svg .nbox{fill:#fff;stroke:#111;stroke-width:1.2}
+  svg .nfill{fill:#EFEFEC;stroke:#111;stroke-width:1.2}
+  svg .ndash{stroke-dasharray:5 3}
+  svg .blankbox{fill:#FCFCFA;stroke-dasharray:4 2.5}
+  svg .nt{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;fill:#111}
+  svg .lbl{font-family:'Noto Sans KR',sans-serif;font-size:11.5px;fill:#333}
+  svg .lbl.em{font-weight:700;fill:#111}
+  svg .cap{font-family:'Noto Sans KR',sans-serif;font-size:10.5px;fill:#666}
+  svg .src{font-family:'Noto Sans KR',sans-serif;font-size:10.5px;fill:#8A8A8A}
+  svg .nf{font-family:'Noto Serif KR',serif;font-size:13px;font-weight:700;fill:#B3261E}
+  svg .nf.filled{font-family:'Noto Sans KR',sans-serif;font-size:12.5px;fill:#1F6B45}
+  svg .nf.nfs{font-size:11.5px}
+  svg .nf.nfs.filled{font-size:11.5px}
+  svg .ln{stroke:#111;stroke-width:1.2;fill:none}
+  svg .ln.dot{stroke-dasharray:3 3;stroke:#666}
+  svg .ahd{fill:#111}
+
+  /* ── O/X ── */
+  .oxwrap{margin-top:10px}
+  .ox{border:1px solid var(--line);background:#fff;padding:9px 12px;margin-bottom:6px}
+  .ox.answered.ok{border-color:var(--ok);background:var(--okbg)}
+  .ox.answered.no{border-color:var(--no);background:var(--nobg)}
+  .ox .qrow{display:flex;gap:9px;align-items:flex-start}
+  .ox .qn{flex-shrink:0;width:21px;height:21px;display:grid;place-items:center;border:1px solid var(--ink);
+    font-family:var(--myeong);font-size:.72rem;font-weight:700;background:#fff}
+  .ox .qt{flex:1;font-size:.86rem;line-height:1.62}
+  .ox .btns{flex-shrink:0;display:flex;gap:4px}
+  .oxb{width:30px;height:26px;cursor:pointer;border:1px solid #6E6E68;background:#fff;color:#55554F;
+    font-family:var(--godic);font-size:.82rem;font-weight:700;border-radius:2px}
+  .oxb:hover{border-color:var(--ink);color:var(--ink)}
+  .oxb.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+  .oxb.hit{background:var(--ok);border-color:var(--ok);color:#fff}
+  .oxb.miss{background:var(--no);border-color:var(--no);color:#fff}
+  .ox.answered .oxb{cursor:default;pointer-events:none}
+  .oxsol{display:none;margin-top:8px;padding-top:7px;border-top:1px dotted var(--line);font-size:.83rem;line-height:1.66;color:var(--ink2)}
+  .ox.answered .oxsol{display:block}
+  .oxsol .tag{display:inline-block;font-family:var(--godic);font-weight:700;font-size:.74rem;background:var(--ink);color:#fff;padding:1px 6px;margin-right:5px;text-indent:0;white-space:nowrap}
+  .oxsol .tag.t{background:var(--no)}
+  .oxsol .from{display:inline-block;font-family:var(--godic);font-size:.72rem;font-weight:500;color:var(--gray);
+    border-left:1px solid var(--line);margin-left:6px;padding-left:7px;white-space:nowrap}
+  .shake{animation:shk .34s}
+  @keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+  /* ── 부록 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  details.pit{border:1px solid var(--line);margin-bottom:6px;background:#fff}
+  details.pit[open]{border-color:var(--ink)}
+  details.pit summary{cursor:pointer;list-style:none;font-family:var(--godic);font-weight:500;font-size:.86rem;padding:9px 13px;display:flex;gap:9px;align-items:center}
+  details.pit summary::-webkit-details-marker{display:none}
+  details.pit summary .n{flex-shrink:0;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--ink);font-size:.7rem;font-weight:700;font-family:var(--myeong)}
+  details.pit summary::after{content:"\FF0B";margin-left:auto;font-size:.85rem;color:var(--gray)}
+  details.pit[open] summary::after{content:"\FF0D"}
+  details.pit .bd{padding:0 14px 12px 42px;font-size:.85rem;line-height:1.68;color:var(--ink2)}
+  details.pit .bd b{font-weight:700;color:var(--ink)}
+  details.pit .bd .sub{display:block;font-family:var(--godic);font-weight:700;font-size:.79rem;color:var(--ink);margin:11px 0 3px;padding-left:9px;border-left:3px solid var(--ink)}
+  details.pit .bd table.ex{font-size:.78rem;margin:9px 0 6px}
+  details.pit .bd table.ex td,details.pit .bd table.ex th{padding:4px 7px}
+  .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+  .no-ok{color:var(--no);font-weight:700}
+  .yes-ok{color:var(--ok);font-weight:700}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-family:var(--godic);font-weight:700;text-align:left}
+  .ans td.n{font-family:var(--myeong);font-weight:700;white-space:nowrap}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .keysheet{border:2px solid var(--ink);padding:12px 15px;margin-top:10px}
+  .keysheet .kt{font-family:var(--godic);font-weight:700;font-size:.88rem;margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 20px;font-family:var(--godic);font-size:.83rem;font-weight:500;box-shadow:0 6px 22px rgba(0,0,0,.25);transition:transform .35s ease,opacity .25s;z-index:99;opacity:0;max-width:88vw;text-align:center}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #top{position:fixed;right:14px;bottom:20px;z-index:60;width:36px;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:none;font-size:.9rem}
+  #top.show{display:block}
+
+  @media(max-width:640px){
+    .sheet{padding:22px 16px 18px;margin:10px auto 30px;border-left:none;border-right:none}
+    .cover h1{font-size:2.05rem}
+    .cover .titlerow{flex-direction:column;gap:10px;min-height:0}
+    .cover .form{position:static;transform:none}
+    .cover .fields{gap:12px}
+    .fld .nm{width:120px}
+    .fld .cell{width:24px}
+    .pagemark .pgcut{margin-left:-16px;margin-right:-16px}
+    .ox .qrow{flex-wrap:wrap}
+    .ox .btns{margin-left:30px}
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar,#top,#toast,.index,.lead{display:none!important}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .oxsol{display:none!important}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .figbox{break-inside:avoid;page-break-inside:avoid}
+    .figbox.wideonly svg,.figbox.orgfig svg{min-width:0}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    details.pit{break-inside:avoid}
+    .pagemark .pgend{display:none}
+    #keypage{break-before:page;page-break-before:always}
+    @page{size:A4;margin:14mm}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <div class="prog"><i id="bar"></i></div>
+  <div class="stat">완성 <b id="filled">0</b>/<b id="total">50</b><span id="scoretxt"></span></div>
+  <button class="tbtn" onclick="grade()">채점하기</button>
+  <button class="tbtn" id="solBtn" onclick="toggleSol()">정답 보기</button>
+  <button class="tbtn" onclick="resetAll()">다시 풀기</button>
+  <button class="tbtn" onclick="window.print()">인쇄</button>
+</div></div>
+
+<div class="sheet">
+  <div class="cover">
+    <div class="org">은또링쌤의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 개념 학습지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">19강 ②</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><input class="nm" type="text" aria-label="성명"></div>
+      <div class="fld"><span class="lb">학번</span><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 첫째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 둘째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 셋째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 넷째 자리"></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>19강 협력적인 노사 관계</span>
+    <span>노동위원회와 노동 쟁의 조정 제도 &#183; 빈칸 50 &#183; 기출 O/X 12 &#183; 확인 O/X 20</span>
+  </div>
+
+  <div class="lead">
+    <ul>
+      <li>빈칸 <b>50개</b>를 채운 뒤 상단 <b>채점하기</b>를 누르면 즉시 채점됩니다. 초록은 정답, <b>빨강 칸에 들어 있는 글자가 정답</b>이며 내가 쓴 답은 칸에 마우스를 올리면 나타납니다.</li>
+      <li>흰 배지 <span class="flag">교재</span>는 수능특강 본문에 그대로 나오는 내용, 검은 배지 <span class="flag sup">보충</span>은 법령 원문으로 채워 넣은 내용입니다. 시험에 먼저 나오는 쪽은 <b>교재</b>입니다.</li>
+    </ul>
+  </div>
+
+  <nav class="index">
+    <a href="#p1">&#8544;. 노동위원회의 조직</a>
+    <a href="#p2">&#8545;. 조정 절차 흐름도</a>
+    <a href="#p3">&#8546;. 조정</a>
+    <a href="#p4">&#8547;. 중재와 불복</a>
+    <a href="#p5">&#8548;. 공익사업 특칙과 긴급 조정</a>
+    <a href="#p6">&#8549;. 기출 확인 O/X 12</a>
+    <a href="#p7">&#8550;. 확인 O/X 20</a>
+    <a href="#appx">［부록］함정 포인트</a>
+    <a href="#keypage">［정답지］</a>
+  </nav>
+<section class="part" id="p1">
+  <h2>&#8544;. 노동위원회 &#8212; 무엇을 하는 기관인가 <span class="rng">빈칸 ①~⑥</span></h2>
+
+  <h3 class="subh">1. 성격</h3>
+  <p class="line"><span class="flag sup">보충</span>노동위원회는 <b>고용노동부 장관 소속</b>이지만, 사건을 심판·조정할 때는 지시를 받지 않는 <b>독립적 합의제 행정 기관</b>이다. 판정까지 한다는 점에서 <b>준사법적</b> 성격을 갖는다.</p>
+  <p class="line"><span class="flag">교재</span>노사 간 분쟁이 자주적으로 해결되지 못할 때 <b>제3자가 개입하여 조정하는 제도</b>가 노동 쟁의 조정 제도이며, 처리 방법에 따라 <b>조정 &#183; 중재 &#183; 긴급 조정</b>이 있다.</p>
+  <p class="fnote">&#8212; 소속 기관이라는 것과 권한을 가진다는 것은 다릅니다. 기출에서 “고용노동부 장관 소속의 노동위원회”라는 표현을 보고 <b>장관의 권한(긴급 조정 결정)</b>을 노동위원회에 붙이면 틀립니다.</p>
+
+  <h3 class="subh">2. 종류 &#8212; 셋</h3>
+  <p class="plain"><span class="num">①</span><input class="blank wide" data-a="중앙노동위원회|중앙 노동위원회" placeholder="①" aria-label="빈칸 1"> · 지방노동위원회 · <span class="num">②</span><input class="blank wide" data-a="특별노동위원회|특별 노동위원회" placeholder="②" aria-label="빈칸 2"></p>
+  <p class="fnote">&#8212; 특별노동위원회는 특정 사항을 관장하기 위해 따로 두는 위원회입니다(선원노동위원회 등).</p>
+
+  <h3 class="subh">3. 위원 구성 &#8212; 셋</h3>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:150px">위원</th><th>인원</th><th style="width:110px">추천 주체</th></tr>
+    <tr><td class="k">근로자 위원</td><td rowspan="2">각 10명 이상 <span class="num">③</span><input class="blank narrow" data-a="50|50명" placeholder="③" aria-label="빈칸 3">명 이하<br>&#8212; 그리고 두 위원은 반드시 <span class="num">④</span><input class="blank" data-a="같은 수|동수|같은수" placeholder="④" aria-label="빈칸 4">로 둔다</td><td class="c">노동조합</td></tr>
+    <tr><td class="k">사용자 위원</td><td class="c">사용자단체</td></tr>
+    <tr><td class="k">공익 위원</td><td>10명 이상 <span class="num">⑤</span><input class="blank narrow" data-a="70|70명" placeholder="⑤" aria-label="빈칸 5">명 이하</td><td class="c">&#8212;</td></tr>
+  </table></div>
+  <span class="cap">＊ 근로자 위원과 사용자 위원의 인원 칸을 하나로 묶은 것은 <b>둘이 같은 수</b>여야 하기 때문입니다. 공익 위원에는 이런 제약이 없습니다.</span>
+
+  <div class="figbox orgfig">
+    <div class="figt">노동위원회의 조직 구성</div>
+    <div class="scroll"><svg viewBox="0 0 940 436" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="노동위원회 조직 구성도"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ahd"/></marker></defs><rect class="nfill" x="320" y="14" width="300" height="46" rx="0"/><text class="nt" x="470" y="34" text-anchor="middle">노동위원회</text><text class="lbl" x="470" y="52" text-anchor="middle">고용노동부 장관 소속 · 독립적 합의제 행정 기관</text><path class="ln" d="M470 60 L470 86"/><path class="ln" d="M150 86 L790 86"/><path class="ln" d="M150 86 L150 104" marker-end="url(#ah)"/><rect class="nbox" x="45" y="104" width="210" height="30" rx="0"/><text class="nt" x="150" y="124" text-anchor="middle">중앙노동위원회</text><path class="ln" d="M470 86 L470 104" marker-end="url(#ah)"/><rect class="nbox" x="365" y="104" width="210" height="30" rx="0"/><text class="nt" x="470" y="124" text-anchor="middle">지방노동위원회</text><path class="ln" d="M790 86 L790 104" marker-end="url(#ah)"/><rect class="nbox" x="685" y="104" width="210" height="30" rx="0"/><text class="nt" x="790" y="124" text-anchor="middle">특별노동위원회</text><text class="src" x="930" y="98" text-anchor="end">「노동위원회법」 제2조</text><path class="ln dot" d="M20 152 L920 152"/><rect x="352" y="143" width="236" height="18" fill="#fff"/><text class="cap" x="470" y="157" text-anchor="middle">아래는 세 위원회에 공통으로 적용된다</text><rect class="nbox" x="60" y="176" width="820" height="78" rx="0"/><rect class="nfill" x="60" y="176" width="820" height="26" rx="0"/><text class="nt" x="470" y="194" text-anchor="middle">위원 구성 — 셋</text><text class="nt" x="200" y="218" text-anchor="middle">근로자 위원</text><text class="lbl" x="200" y="235" text-anchor="middle">10명 이상 50명 이하</text><text class="cap" x="200" y="250" text-anchor="middle">노동조합이 추천</text><text class="nt" x="470" y="218" text-anchor="middle">사용자 위원</text><text class="lbl" x="470" y="235" text-anchor="middle">10명 이상 50명 이하</text><text class="cap" x="470" y="250" text-anchor="middle">사용자단체가 추천</text><path class="ln" d="M335 202 L335 254" style="stroke:#BFBFBF;stroke-width:1"/><text class="nt" x="740" y="218" text-anchor="middle">공익 위원</text><text class="lbl" x="740" y="235" text-anchor="middle">10명 이상 70명 이하</text><text class="cap" x="740" y="250" text-anchor="middle">심판·차별시정·조정담당</text><path class="ln" d="M605 202 L605 254" style="stroke:#BFBFBF;stroke-width:1"/><text class="lbl em" x="470" y="274" text-anchor="middle">근로자 위원과 사용자 위원은 반드시 같은 수로 둔다</text><rect class="nbox" x="60" y="292" width="820" height="54" rx="0"/><rect class="nfill" x="60" y="292" width="820" height="24" rx="0"/><text class="nt" x="470" y="309" text-anchor="middle">노동쟁의를 다루는 부문별 위원회</text><text class="lbl" x="470" y="334" text-anchor="middle">조정위원회(노·사·공 각 1인)   ·   특별조정위원회(공익 3인)   ·   중재위원회(공익 3인)</text><path class="ln" d="M470 278 L470 292" marker-end="url(#ah)"/><path class="ln dot" d="M20 364 L920 364"/><rect class="nbox ndash" x="228" y="376" width="484" height="50" rx="0"/><text class="lbl" x="246" y="396" text-anchor="start">혼동 주의 — 경제사회노동위원회는 고용 노동 정책 등을 심의·협의하고</text><text class="lbl" x="246" y="413" text-anchor="start">대통령의 자문에 응하는 기구이며, 개별 노동 쟁의를 조정·중재하지 않는다.</text></svg></div>
+  </div>
+
+  <h3 class="subh">4. 조정 역할의 첫 문장 &#8212; 이 한 줄이 반복 출제된다</h3>
+  <p class="plain"><span class="flag">교재</span>노동위원회는 관계 당사자의 <b>일방</b>이 노동 쟁의의 조정을 신청한 때에는 <span class="num">⑥</span><input class="blank" data-a="지체 없이|지체없이" placeholder="⑥" aria-label="빈칸 6"> 조정을 개시한다.</p>
+
+  <div class="memo">
+    <div class="mt">［혼동 주의］노동위원회 &#8800; 경제사회노동위원회</div>
+    <ul>
+      <li><b>노동위원회</b> &#8212; 노동 쟁의를 <em>조정 &#183; 중재</em>하고 부당 노동 행위 &#183; 부당 해고를 <em>심판</em>한다.</li>
+      <li><b>경제사회노동위원회</b> &#8212; 고용 노동 정책과 관련 경제·사회 정책을 <em>심의 &#183; 협의</em>하고 <em>대통령의 자문</em>에 응한다. 개별 쟁의를 조정하지 않는다.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+<section class="part" id="p2">
+  <h2>&#8545;. 노동 쟁의 조정 절차 &#8212; 흐름도 완성하기 <span class="rng">빈칸 ⑦~㉗ · 교재 ［심화 자료］</span></h2>
+  <p class="plain">교재 19강 ［심화 자료］의 흐름도다. 번호가 붙은 칸을 아래 표에서 채우고, 채점하면 <b>흐름도 안의 번호가 정답으로 바뀐다.</b> 절차는 <b>세 트랙이 나란히</b> 놓여 있다는 점을 먼저 잡아야 한다 &#8212; 왼쪽 긴급 조정, 가운데 조정, 오른쪽 중재.</p>
+  <p class="plain"><b>특히 ⑧ &#183; ⑪ &#183; ⑫의 &#8216;신청 요건&#8217;에 눈을 두자.</b> 누가 신청해야 절차가 열리는지가 이 단원 최다 출제 지점이다. 아울러 <b>㉒ &#183; ㉗의 &#8216;쟁의행위 금지 기간&#8217;</b>은 두 숫자를 서로 바꿔 놓는 선지로 반복 출제된다.</p>
+
+  <div class="figbox wideonly">
+    <div class="figt">노동 쟁의 조정 절차</div>
+    <div class="scroll"><svg viewBox="0 0 1020 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="노동 쟁의 조정 절차 흐름도"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="ahd"/></marker></defs><rect class="nbox" x="40" y="26" width="150" height="30" rx="0"/><text class="nt" x="115" y="46" text-anchor="middle">노동조합</text><rect class="nbox" x="810" y="26" width="150" height="30" rx="0"/><text class="nt" x="885" y="46" text-anchor="middle">사용자</text><path class="ln" d="M190 41 L810 41"/><text class="lbl" x="500" y="20" text-anchor="middle">교섭 결렬</text><path class="ln" d="M430 41 L430 168" marker-end="url(#ah)"/><path class="ln" d="M660 41 L660 168" marker-end="url(#ah)"/><text class="lbl" x="672" y="84" text-anchor="start"><tspan>(</tspan><tspan class="nf nfs" data-n="⑪" data-ans="쌍방">⑪</tspan><tspan>이 신청 또는</tspan></text><text class="lbl" x="672" y="98" text-anchor="start"><tspan class="nf nfs" data-n="⑫" data-ans="단체 협약">⑫</tspan><tspan>에 의한 일방 신청)</tspan></text><rect class="nbox ndash blankbox" x="40" y="95" width="170" height="30" rx="0"/><text class="nf" data-n="⑦" data-ans="조정 전 지원" x="125.0" y="115.0" text-anchor="middle">⑦</text><path class="ln dot" d="M210 110 L425 110"/><text class="lbl" x="40" y="145" text-anchor="start">(쌍방이 신청 또는</text><text class="lbl" x="40" y="159" text-anchor="start"><tspan>일방 신청·일방 </tspan><tspan class="nf nfs" data-n="⑧" data-ans="동의">⑧</tspan><tspan>)</tspan></text><rect class="nbox blankbox" x="355" y="168" width="150" height="32" rx="0"/><text class="nf" data-n="⑨" data-ans="조정 신청" x="430.0" y="189.0" text-anchor="middle">⑨</text><rect class="nbox blankbox" x="585" y="168" width="150" height="32" rx="0"/><text class="nf" data-n="⑩" data-ans="중재 신청" x="660.0" y="189.0" text-anchor="middle">⑩</text><path class="ln" d="M430 200 L430 226 L295 226 L295 262" marker-end="url(#ah)"/><path class="ln" d="M430 200 L430 226 L595 226 L595 262" marker-end="url(#ah)"/><text class="lbl" x="258" y="250" text-anchor="end">(일반 사업)</text><text class="lbl" x="632" y="250" text-anchor="start">(공익 사업)</text><rect class="nbox" x="180" y="262" width="230" height="74" rx="0"/><rect class="nfill" x="180" y="262" width="230" height="26" rx="0"/><text class="nf" data-n="⑬" data-ans="조정위원회" x="295" y="280" text-anchor="middle">⑬</text><text class="lbl" x="295" y="306" text-anchor="middle">사용자 위원, 근로자 위원,</text><text class="lbl" x="295" y="322" text-anchor="middle">공익 위원 각 1인으로 구성</text><rect class="nbox" x="480" y="262" width="230" height="74" rx="0"/><rect class="nfill" x="480" y="262" width="230" height="26" rx="0"/><text class="nf" data-n="⑭" data-ans="특별조정위원회" x="595" y="280" text-anchor="middle">⑭</text><text class="lbl" x="595" y="313" text-anchor="middle">공익 위원 3인으로 구성</text><rect class="nbox blankbox" x="50" y="390" width="150" height="30" rx="0"/><text class="nf" data-n="⑰" data-ans="조정 성립" x="125.0" y="410.0" text-anchor="middle">⑰</text><rect class="nbox blankbox" x="350" y="390" width="160" height="30" rx="0"/><text class="nf" data-n="⑱" data-ans="조정 불성립" x="430.0" y="410.0" text-anchor="middle">⑱</text><rect class="nbox" x="700" y="390" width="150" height="30" rx="0"/><text class="nt" x="775" y="410" text-anchor="middle">조정 성립</text><path class="ln" d="M230 336 L230 405 L200 405" marker-end="url(#ah)"/><path class="ln" d="M340 336 L340 405 L350 405" marker-end="url(#ah)"/><path class="ln" d="M540 336 L540 405 L510 405" marker-end="url(#ah)"/><path class="ln" d="M660 336 L660 405 L700 405" marker-end="url(#ah)"/><rect class="nbox blankbox" x="242" y="356" width="94" height="24" rx="0"/><text class="cap" x="264" y="373" text-anchor="middle">조정</text><text class="nf" data-n="⑮" data-ans="10일" x="308" y="373" text-anchor="middle">⑮</text><rect class="nbox blankbox" x="552" y="356" width="94" height="24" rx="0"/><text class="cap" x="574" y="373" text-anchor="middle">조정</text><text class="nf" data-n="⑯" data-ans="15일" x="618" y="373" text-anchor="middle">⑯</text><path class="ln" d="M430 420 L430 478" marker-end="url(#ah)"/><text class="lbl" x="442" y="440" text-anchor="start">(쌍방이 신청 또는</text><text class="lbl" x="442" y="454" text-anchor="start">일방 신청·일방 동의)</text><rect class="nbox blankbox" x="350" y="478" width="160" height="30" rx="0"/><text class="nf" data-n="⑲" data-ans="사후 조정" x="430.0" y="498.0" text-anchor="middle">⑲</text><path class="ln" d="M430 508 L430 546" marker-end="url(#ah)"/><rect class="nbox" x="350" y="546" width="160" height="30" rx="0"/><text class="nt" x="430" y="566" text-anchor="middle">조정위원회</text><path class="ln" d="M430 576 L430 622" marker-end="url(#ah)"/><text class="lbl" x="442" y="600" text-anchor="start">(조정 성립)</text><rect class="nbox blankbox" x="330" y="622" width="200" height="32" rx="0"/><text class="nf" data-n="⑳" data-ans="단체 협약 체결" x="430.0" y="643.0" text-anchor="middle">⑳</text><path class="ln" d="M735 184 L930 184 L930 440 L825 440 L825 470" marker-end="url(#ah)"/><rect class="nbox" x="700" y="470" width="250" height="62" rx="0"/><rect class="nfill" x="700" y="470" width="250" height="26" rx="0"/><text class="nf" data-n="㉑" data-ans="중재위원회" x="825" y="488" text-anchor="middle">㉑</text><text class="lbl" x="825" y="517" text-anchor="middle">공익 위원 3인으로 구성</text><path class="ln" d="M825 532 L825 612" marker-end="url(#ah)"/><text class="lbl" x="838" y="562" text-anchor="start"><tspan>(</tspan><tspan class="nf nfs" data-n="㉒" data-ans="15일">㉒</tspan><tspan>간 쟁의행위 금지)</tspan></text><rect class="nbox nfill blankbox" x="700" y="612" width="250" height="32" rx="0"/><text class="nf" data-n="㉓" data-ans="중재 재정" x="825.0" y="633.0" text-anchor="middle">㉓</text><path class="ln" d="M825 644 L825 706" marker-end="url(#ah)"/><text class="lbl" x="838" y="664" text-anchor="start">(위법·월권으로 이에 불복 시</text><text class="lbl" x="838" y="678" text-anchor="start">10일 이내에 중노위에 재심 신청)</text><rect class="nbox nfill blankbox" x="700" y="706" width="250" height="32" rx="0"/><text class="nf" data-n="㉔" data-ans="중재 재심" x="825.0" y="727.0" text-anchor="middle">㉔</text><path class="ln" d="M825 738 L825 845" marker-end="url(#ah)"/><text class="lbl" x="838" y="768" text-anchor="start">(15일 이내에</text><text class="lbl" x="838" y="782" text-anchor="start">소송 제기)</text><rect class="nbox nfill blankbox" x="700" y="845" width="250" height="32" rx="0"/><text class="nf" data-n="㉕" data-ans="행정 쟁송" x="825.0" y="866.0" text-anchor="middle">㉕</text><path class="ln" d="M700 628 L530 638" marker-end="url(#ah)"/><rect class="nbox" x="40" y="470" width="270" height="150" rx="0"/><rect class="nfill" x="40" y="470" width="270" height="26" rx="0"/><text class="nf" data-n="㉖" data-ans="긴급 조정" x="175" y="488" text-anchor="middle">㉖</text><text class="lbl" x="56" y="514" text-anchor="start">쟁의행위가 현저히 국민 경제를</text><text class="lbl" x="56" y="534" text-anchor="start">위태롭게 할 위험이 현존할 때</text><text class="lbl" x="56" y="554" text-anchor="start">중노위 위원장의 의견을 들어</text><text class="lbl" x="56" y="574" text-anchor="start">고용노동부 장관이 결정</text><text class="lbl em" x="56" y="594" text-anchor="start"><tspan>※ </tspan><tspan class="nf nfs" data-n="㉗" data-ans="30일">㉗</tspan><tspan>간 쟁의행위 금지</tspan></text><path class="ln" d="M230 620 L230 690" marker-end="url(#ah)"/><rect class="nfill" x="160" y="690" width="200" height="32" rx="0"/><text class="nt" x="260" y="711" text-anchor="middle">조정(중노위)</text><text class="lbl" x="160" y="748" text-anchor="start">(중노위 위원장이 조정 성립 가망이</text><text class="lbl" x="160" y="764" text-anchor="start">없다고 인정하면 공익 위원의 의견을 들어,</text><text class="lbl" x="160" y="780" text-anchor="start">긴급 조정 결정 통보일부터</text><text class="lbl" x="160" y="796" text-anchor="start">15일 이내에 중재 회부 여부를 결정)</text><path class="ln" d="M70 620 L70 845" marker-end="url(#ah)"/><text class="lbl" x="82" y="700" text-anchor="start">(당사자 일방 또는</text><text class="lbl" x="82" y="714" text-anchor="start">쌍방의 중재 신청)</text><path class="ln" d="M360 706 L420 706 L420 822 L240 822 L240 845" marker-end="url(#ah)"/><rect class="nfill" x="40" y="845" width="240" height="32" rx="0"/><text class="nt" x="160" y="866" text-anchor="middle">중재(중노위)</text><path class="ln" d="M280 861 L700 861" marker-end="url(#ah)"/><text class="lbl" x="340" y="890" text-anchor="start">(중재 재정이 위법·월권으로 이에 불복 시 15일 이내에 소송 제기)</text><text class="src" x="1000" y="940" text-anchor="end">— 출처 : 중앙노동위원회 —</text></svg></div>
+    <span class="cap">＊ 좌우로 넓은 도식입니다. 화면이 좁으면 도식을 옆으로 밀어 보십시오.</span>
+  </div>
+
+  <h3 class="subh">흐름도 채우기</h3>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:52px">번호</th><th style="width:190px">답</th><th>어디에 있는 칸인가</th></tr>
+    <tr><td class="n">⑦</td><td class="c"><input class="blank" data-a="조정 전 지원|조정전 지원" placeholder="⑦" aria-label="빈칸 7"></td><td>교섭 결렬 단계에서 점선으로 붙는 임의 절차</td></tr>
+    <tr><td class="n">⑧</td><td class="c"><input class="blank" data-a="동의|일방 동의" placeholder="⑧" aria-label="빈칸 8"></td><td><b>⑦의 요건</b> &#8212; 쌍방이 신청하거나, 일방이 신청하고 상대방이 이것을 하면 열린다 <span class="cap" style="display:inline;margin:0">(사후 조정도 같은 요건)</span></td></tr>
+    <tr><td class="n">⑨</td><td class="c"><input class="blank" data-a="조정 신청|조정신청" placeholder="⑨" aria-label="빈칸 9"></td><td>가운데 트랙의 출발점. <b>일방 신청만으로도</b> 열린다</td></tr>
+    <tr><td class="n">⑩</td><td class="c"><input class="blank" data-a="중재 신청|중재신청" placeholder="⑩" aria-label="빈칸 10"></td><td>오른쪽 트랙의 출발점</td></tr>
+    <tr><td class="n">⑪</td><td class="c"><input class="blank" data-a="쌍방|쌍방이|양쪽" placeholder="⑪" aria-label="빈칸 11"></td><td><b>⑩의 요건 첫째</b> &#8212; 관계 당사자가 <b>함께</b> 신청하는 경우</td></tr>
+    <tr><td class="n">⑫</td><td class="c"><input class="blank wide" data-a="단체 협약|단체협약|단협" placeholder="⑫" aria-label="빈칸 12"></td><td><b>⑩의 요건 둘째</b> &#8212; 일방이 단독으로 신청할 때 그 근거가 되는 것</td></tr>
+    <tr><td class="n">⑬</td><td class="c"><input class="blank" data-a="조정위원회|조정 위원회" placeholder="⑬" aria-label="빈칸 13"></td><td>일반 사업의 조정 담당. 사용자·근로자·공익 위원 각 1인</td></tr>
+    <tr><td class="n">⑭</td><td class="c"><input class="blank wide" data-a="특별조정위원회|특별 조정위원회" placeholder="⑭" aria-label="빈칸 14"></td><td>공익 사업의 조정 담당. 공익 위원 3인</td></tr>
+    <tr><td class="n">⑮</td><td class="c"><input class="blank narrow" data-a="10일|10" placeholder="⑮" aria-label="빈칸 15"></td><td>일반 사업의 조정 기간</td></tr>
+    <tr><td class="n">⑯</td><td class="c"><input class="blank narrow" data-a="15일|15" placeholder="⑯" aria-label="빈칸 16"></td><td>공익 사업의 조정 기간</td></tr>
+    <tr><td class="n">⑰</td><td class="c"><input class="blank" data-a="조정 성립|조정성립" placeholder="⑰" aria-label="빈칸 17"></td><td>조정안이 수락된 결과</td></tr>
+    <tr><td class="n">⑱</td><td class="c"><input class="blank" data-a="조정 불성립|조정불성립" placeholder="⑱" aria-label="빈칸 18"></td><td>기간 내에 해결되지 않은 결과</td></tr>
+    <tr><td class="n">⑲</td><td class="c"><input class="blank" data-a="사후 조정|사후조정" placeholder="⑲" aria-label="빈칸 19"></td><td>조정 불성립 뒤에도 다시 조정을 해 보는 절차</td></tr>
+    <tr><td class="n">⑳</td><td class="c"><input class="blank wide" data-a="단체 협약 체결|단체협약 체결|단체협약체결" placeholder="⑳" aria-label="빈칸 20"></td><td>가운데 트랙과 오른쪽 트랙이 함께 도달하는 종착점</td></tr>
+    <tr><td class="n">㉑</td><td class="c"><input class="blank" data-a="중재위원회|중재 위원회" placeholder="㉑" aria-label="빈칸 21"></td><td>공익 위원 3인으로 구성</td></tr>
+    <tr><td class="n">㉒</td><td class="c"><input class="blank narrow" data-a="15일|15" placeholder="㉒" aria-label="빈칸 22"></td><td><b>중재에 회부되면</b> 이 기간 동안 쟁의 행위를 할 수 없다</td></tr>
+    <tr><td class="n">㉓</td><td class="c"><input class="blank" data-a="중재 재정|중재재정" placeholder="㉓" aria-label="빈칸 23"></td><td>중재위원회가 내리는 결정</td></tr>
+    <tr><td class="n">㉔</td><td class="c"><input class="blank" data-a="중재 재심|중재재심" placeholder="㉔" aria-label="빈칸 24"></td><td>위법·월권을 다투어 중앙노동위원회에 올리는 단계</td></tr>
+    <tr><td class="n">㉕</td><td class="c"><input class="blank" data-a="행정 쟁송|행정쟁송|행정 소송|행정소송" placeholder="㉕" aria-label="빈칸 25"></td><td>법원으로 가는 마지막 단계</td></tr>
+    <tr><td class="n">㉖</td><td class="c"><input class="blank" data-a="긴급 조정|긴급조정" placeholder="㉖" aria-label="빈칸 26"></td><td>왼쪽 트랙. 고용노동부 장관이 결정하는 별도 처리 방법</td></tr>
+    <tr><td class="n">㉗</td><td class="c"><input class="blank narrow" data-a="30일|30" placeholder="㉗" aria-label="빈칸 27"></td><td><b>긴급 조정이 공표되면</b> 이 기간이 지나지 않으면 쟁의 행위를 재개할 수 없다</td></tr>
+  </table></div>
+
+  <div class="memo">
+    <div class="mt">［신청 요건 정리］&#8212; ⑧ &#183; ⑪ &#183; ⑫가 가리키는 것</div>
+    <ul>
+      <li><b>조정</b> &#8212; 관계 당사자 <em>일방</em>의 신청<b>만으로도</b> 열린다. 상대방의 동의도, 단체 협약의 근거도 필요 없다. 조문이 &#8216;일방&#8217;이라고 쓴 것은 <em>최소 요건</em>을 정한 것이므로, <b>쌍방이 함께 신청해도 당연히 조정은 개시된다.</b></li>
+      <li><b>중재</b> &#8212; <em>쌍방이 함께</em> 신청하거나, <em>단체 협약에 근거해 일방</em>이 신청해야 열린다. 그래서 최초의 단체 협약을 맺기 위한 협상에서는 일방의 단독 신청이 불가능하다.</li>
+    </ul>
+  </div>
+  <span class="cap">→ <b>열리는 데 필요한 최소 조건</b>으로 줄을 세우면 <b>조정(일방이면 충분) &#60; 중재(쌍방 또는 단협 근거가 있어야 함)</b> 순입니다. 조정 쪽이 낮다는 뜻이지, 조정을 쌍방이 신청하면 안 된다는 뜻이 아닙니다.</span>
+
+  <h3 class="subh">⑦ 조정 전 지원은 &#8216;조정&#8217;이 아니다</h3>
+  <p class="plain"><span class="flag sup">보충</span>도식에서 <b>조정 전 지원만 점선 상자</b>이고, 조정 신청으로 이어지는 연결선도 점선이다. <b>실선은 법정 절차, 점선은 임의 절차</b>라는 표시다. 두 제도는 근거를 둔 자리부터 다르다.</p>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:96px">구분</th><th>조정</th><th>조정 전 지원</th></tr>
+    <tr><td class="k">근거</td><td>「노동조합 및 노동관계조정법」<b>제53조~제61조</b></td><td>노조법에 <b>조문이 없음</b><br>&#8212; 노동위원회가 운영하는 분쟁 예방 지원</td></tr>
+    <tr><td class="k">시점</td><td>노동 쟁의가 발생해 신청한 때</td><td><b>조정 신청 전</b>, 분쟁이 감지된 단계</td></tr>
+    <tr><td class="k">개시 요건</td><td>당사자 <b>일방</b>의 신청만으로도 개시 <span class="cap" style="display:inline;margin:0">(제53조)</span><br>&#8212; 쌍방이 함께 신청해도 물론 개시된다</td><td><b>쌍방</b>이 요청, 또는 <b>일방 요청 + 상대방 동의</b></td></tr>
+    <tr><td class="k">기간</td><td>일반 10일 &#183; 공익 15일, 합의로 연장 <span class="cap" style="display:inline;margin:0">(제54조)</span></td><td><b>기간의 제한이 없음</b></td></tr>
+    <tr><td class="k">담당</td><td>조정위원회 &#183; 특별조정위원회</td><td>노동위원회가 지정한 전담 위원</td></tr>
+    <tr><td class="k">산출물</td><td>조정안 제시 &#8594; 수락 시 조정서 <span class="cap" style="display:inline;margin:0">(제60조 &#183; 제61조)</span></td><td>없음 &#8212; 노사의 <b>자율 타결</b>로 귀결</td></tr>
+    <tr><td class="k">효력</td><td>조정서는 <b>단체 협약과 동일한 효력</b> <span class="cap" style="display:inline;margin:0">(제61조)</span></td><td>법적 효력물 <b>없음</b></td></tr>
+    <tr><td class="k">쟁의 행위</td><td><b>조정 절차 경유 요건을 충족</b> <span class="cap" style="display:inline;margin:0">(제45조 제2항)</span></td><td>충족되지 <b>않음</b></td></tr>
+  </table></div>
+  <span class="cap">＊ 조정 전 지원의 목표는 <b>조정까지 가지 않게 만드는 것</b>입니다. 그래서 조정 성립 &#183; 불성립 같은 결과 상자가 도식에 붙어 있지 않습니다.</span>
+
+  <div class="memo">
+    <div class="mt">［함께 구분할 것］조정 전 지원 &#8800; 사후 조정</div>
+    <ul>
+      <li><b>사후 조정</b>은 <em>노조법 제61조의2</em>에 조문이 있는 <em>법정 절차</em>다. 조정 종료가 결정된 뒤에도 노동위원회가 해결을 위해 다시 조정을 할 수 있게 한 규정이다.</li>
+      <li><b>조정 전 지원</b>은 법률 조문이 없는 <em>운영 제도</em>다. 신청 요건(쌍방 또는 일방＋동의)이 서로 같아 보인다고 성격까지 같은 것이 아니다.</li>
+      <li>다만 <em>둘 다 쟁의 행위의 &#8216;조정 절차 경유&#8217; 요건은 채워 주지 못한다.</em> 사후 조정은 법이 그 요건에서 명시적으로 제외하고 있고, 조정 전 지원은 애초에 조정이 아니다.</li>
+    </ul>
+  </div>
+
+  <div class="memo">
+    <div class="mt">［도식을 읽는 세 가지 눈］</div>
+    <ul>
+      <li><b>갈림길은 사업의 성격</b> &#8212; 조정 신청 뒤 <em>일반 사업이면 조정위원회, 공익 사업이면 특별조정위원회</em>로 갈린다. 기간도 각각 10일·15일로 따라 붙는다.</li>
+      <li><b>종착점은 하나</b> &#8212; 조정이 성립하든 중재 재정이 내려지든 결국 <em>단체 협약</em>과 같은 효력으로 수렴한다.</li>
+      <li><b>긴급 조정은 옆길이 아니라 다른 길</b> &#8212; 조정·중재를 다 거친 뒤에 오는 마지막 단계가 아니다. 장관이 결정하면 <em>중앙노동위원회</em>가 곧바로 조정·중재를 맡는 <em>병렬적인 처리 방법</em>이다.</li>
+    </ul>
+  </div>
+
+  <p class="fnote">&#8212; 교재 도식의 오른쪽 중간, 중재 재심으로 가는 설명이 “위법 <b>원권</b>”으로 인쇄되어 있으나 <b>위법·월권</b>의 오식입니다. 바로 아래 화살표에는 “위법 월권”으로 제대로 적혀 있습니다.</p>
+</section>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+<section class="part" id="p3">
+  <h2>&#8546;. 조정 &#8212; 신청부터 조정서까지 <span class="rng">빈칸 ㉘~㉟</span></h2>
+
+  <h3 class="subh">1. 개시 &#8212; 혼자서도 신청할 수 있다</h3>
+  <p class="line"><span class="flag">교재</span>관계 당사자의 <span class="num">㉘</span><input class="blank" data-a="일방|한쪽|일방이" placeholder="㉘" aria-label="빈칸 28">이 조정을 신청하면 노동위원회는 지체 없이 조정을 개시한다. 쌍방이 함께 신청할 필요가 없고, <b>단체 협약에 근거를 둘 필요도 없다.</b></p>
+  <p class="fnote">&#8212; 조문이 &#8220;일방이 신청한 때&#8221;라고 쓴 것은 <b>최소 요건</b>을 정한 것입니다. <b>쌍방이 함께 신청한 경우에도 노동위원회는 지체 없이 조정을 개시해야 합니다</b> &#8212; 2025학년도 6월 모평 6번에서 이 문장이 그대로 <b>정선택지</b>(&#12596;)로 출제되었습니다.</p>
+  <p class="fnote">&#8212; 이 점이 중재와 갈리는 첫 지점입니다. 조정은 문턱이 낮고, 중재는 문턱이 높습니다.</p>
+
+  <h3 class="subh">2. 기간 &#8212; 10일 / 15일, 그리고 연장</h3>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:130px">구분</th><th style="width:150px">조정 기간</th><th>연장</th></tr>
+    <tr><td class="k">일반 사업</td><td class="c">신청일부터 <b>10일</b> 이내</td><td>당사자 <span class="num">㉙</span><input class="blank" data-a="합의|당사자 합의|관계 당사자의 합의" placeholder="㉙" aria-label="빈칸 29">로 <b>10일</b> 이내에서 연장 가능</td></tr>
+    <tr><td class="k">공익 사업</td><td class="c">신청일부터 <b>15일</b> 이내</td><td>당사자 <b>합의</b>로 <b>15일</b> 이내에서 연장 가능</td></tr>
+  </table></div>
+  <span class="cap">＊ 연장까지 교재 본문(「노동위원회의 특징」표)에 명시되어 있습니다. 연장은 <b>노동위원회가 정하는 것이 아니라 당사자 합의</b>로 한다는 점을 함께 외우십시오.</span>
+
+  <h3 class="subh">3. 조정위원회 &#8212; 셋으로 구성</h3>
+  <p class="line"><span class="flag">교재</span>조정위원회는 조정위원 <span class="num">㉚</span><input class="blank narrow" data-a="3|3인|삼" placeholder="㉚" aria-label="빈칸 30">인으로 구성하며, 사용자를 대표하는 자 &#183; 근로자를 대표하는 자 &#183; 공익을 대표하는 자 <b>각 1인</b>을 <span class="num">㉛</span><input class="blank wide" data-a="노동위원회 위원장|노동위원회의 위원장|위원장" placeholder="㉛" aria-label="빈칸 31">이 지명한다.</p>
+  <p class="line"><span class="flag sup">보충</span>조정위원회의 위원장은 <span class="num">㉜</span><input class="blank" data-a="공익|공익 위원|공익위원" placeholder="㉜" aria-label="빈칸 32">을 대표하는 조정위원이 된다.</p>
+  <p class="fnote">&#8212; 근로자 대표 조정위원은 <b>사용자가</b>, 사용자 대표 조정위원은 <b>노동조합이</b> 추천합니다. 서로 엇갈려 추천하게 해서 중립성을 확보하는 구조입니다.</p>
+
+  <h3 class="subh">4. 조정안 &#8594; 조정서 &#8212; 효력이 갈리는 한 걸음</h3>
+  <p class="line">조정위원회가 <span class="num">㉝</span><input class="blank" data-a="조정안" placeholder="㉝" aria-label="빈칸 33">을 작성해 제시한다. 이 단계에서는 <b>아무 효력이 없다.</b></p>
+  <p class="line">관계 당사자가 이를 <span class="num">㉞</span><input class="blank" data-a="수락|수락함|받아들임" placeholder="㉞" aria-label="빈칸 34">하면 조정서를 작성하고 서명한다.</p>
+  <p class="line">이 조정서의 내용은 <span class="num">㉟</span><input class="blank wide" data-a="단체 협약|단체협약" placeholder="㉟" aria-label="빈칸 35">과 동일한 효력을 갖는다.</p>
+  <div class="memo">
+    <div class="mt">［조정 &#183; 사후 조정과 쟁의 행위］</div>
+    <ul>
+      <li>쟁의 행위를 하려면 <em>조정 절차를 거칠 것</em><span class="cap" style="display:inline;margin:0">(제45조 제2항)</span> + <em>직접 &#183; 비밀 &#183; 무기명투표에 의한 조합원 과반수 찬성</em><span class="cap" style="display:inline;margin:0">(제41조 제1항)</span>이라는 두 요건을 <b>모두</b> 갖춰야 한다. 어느 하나만으로는 쟁의 행위를 할 수 없다.</li>
+      <li><span class="flag sup">보충</span>다만 <b>조정 기간 안에 조정이 끝나지 않으면</b> 조정을 거친 것으로 보아 쟁의 행위를 할 수 있다. 노동위원회가 시간을 끌어 쟁의권이 막히는 일을 방지하는 규정이다.</li>
+      <li><span class="flag sup">보충</span><b>사후 조정</b>(조정 종료 결정 후의 조정)은 법에서 이 “조정 절차”에 넣지 않는다. 사후 조정을 했다는 사실만으로 쟁의 행위 요건이 채워지지는 않는다.</li>
+    </ul>
+  </div>
+
+  <h3 class="subh"><span class="flag sup">보충</span>쟁의 행위 찬반 투표 &#8212; 「노동조합 및 노동관계조정법」 제41조 제1항</h3>
+  <div class="memo">
+    <div class="mt">조문 원문</div>
+    <p class="plain">노동조합의 쟁의행위는 그 조합원<span class="cap" style="display:inline;margin:0">(제29조의2에 따라 교섭대표노동조합이 결정된 경우에는 그 절차에 참여한 노동조합의 전체 조합원)</span>의 <b>직접 &#183; 비밀 &#183; 무기명투표</b>에 의한 <b>조합원 과반수의 찬성</b>으로 결정하지 아니하면 이를 행할 수 없다. 이 경우 조합원 수 산정은 <b>종사근로자인 조합원</b>을 기준으로 한다.</p>
+  </div>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:104px">따질 것</th><th>내용</th></tr>
+    <tr><td class="k">투표 방식</td><td><b>직접 &#183; 비밀 &#183; 무기명</b> 세 가지를 <b>모두</b> 갖춘 투표여야 한다. 조문이 &#8216;투표에 의한&#8217;이라고 못 박았으므로 <b>대의원회 의결이나 거수로 갈음할 수 없다</b></td></tr>
+    <tr><td class="k">가결 기준</td><td>투표에 참여한 사람의 과반수가 아니라 <b>조합원 과반수</b>의 찬성이다. 기권 &#183; 불참은 사실상 반대와 같은 효과를 낸다</td></tr>
+    <tr><td class="k">모수(母數)</td><td><b>종사근로자인 조합원</b>이 기준이다. 해고자처럼 그 사업에 종사하지 않는 조합원은 조합원 수 산정에서 빠진다</td></tr>
+    <tr><td class="k">복수 노조</td><td>교섭대표노동조합이 결정된 경우에는 <b>교섭 절차에 참여한 노동조합의 전체 조합원</b>을 기준으로 한다</td></tr>
+  </table></div>
+  <p class="fnote">&#8212; 이 절차를 어긴 쟁의 행위는 <b>정당성을 잃습니다.</b> 대법원은 이 규정을 노동조합의 자주적 &#183; 민주적 운영을 도모하고 쟁의 행위 개시에 관한 조합 의사 결정에 신중을 기하기 위한 것으로 보아, 절차를 따를 수 없는 객관적 사정이 인정되지 않는 한 위반 시 정당성이 상실된다고 판시했습니다(대법원 2001. 10. 25. 선고 99도4837 전원합의체 판결).</p>
+  <p class="fnote">&#8212; 조문에서 <b>&#8216;과반수&#8217;가 두 번 나오지 않는다</b>는 점을 짚어 두십시오. 노사협의회 설치 기준의 30명, 조정위원회의 3인 같은 숫자와 달리 여기서는 <b>모수가 무엇인가</b>가 승부처입니다.</p>
+</section>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p4">
+  <h2>&#8547;. 중재 &#8212; 개시 요건과 불복 <span class="rng">빈칸 ㊱~㊸</span></h2>
+
+  <h3 class="subh">1. 개시 &#8212; 둘 중 하나여야 한다</h3>
+  <p class="line"><span class="flag">교재</span>관계 당사자의 <span class="num">㊱</span><input class="blank" data-a="쌍방|쌍방이|양쪽" placeholder="㊱" aria-label="빈칸 36">이 <b>함께</b> 중재를 신청한 때</p>
+  <p class="line"><span class="flag">교재</span>관계 당사자의 <b>일방</b>이 <span class="num">㊲</span><input class="blank wide" data-a="단체 협약|단체협약" placeholder="㊲" aria-label="빈칸 37">에 의하여 중재를 신청한 때</p>
+  <p class="fnote">&#8212; 그래서 <b>최초의 단체 협약을 맺기 위한 협상</b>에서는 근거로 삼을 단협이 없어 일방이 단독으로 중재를 신청할 수 없습니다(2027학년도 6월 모평 13번).</p>
+
+  <div class="memo">
+    <div class="mt"><span class="flag sup">보충</span>또 다른 중재의 유형 &#8212; 강제 중재</div>
+    <ul>
+      <li>위 두 가지<span class="cap" style="display:inline;margin:0">(제62조)</span>는 모두 <em>당사자의 신청</em>으로 열리는 중재다. 그런데 신청이 없어도 열리는 길이 하나 더 있다.</li>
+      <li><b>긴급 조정에 있어 중앙노동위원회의 위원장이 조정이 성립될 가망이 없다고 인정한 경우, 공익 위원의 의견을 들어 중재 회부 결정을 한 때</b><span class="cap" style="display:inline;margin:0">(제79조 제1항)</span></li>
+      <li>당사자가 원하지 않아도 절차가 시작되므로 이를 <em>강제 중재</em>라 한다. 흐름도 왼쪽 아래의 <b>조정(중노위) &#8594; 중재(중노위)</b> 화살표가 바로 이 경로다.</li>
+    </ul>
+  </div>
+  <p class="fnote">&#8212; 이 결정은 긴급 조정 결정을 <b>통고받은 날부터 15일 이내</b>에 해야 하고(제79조 제2항), 결정이 내려지면 중앙노동위원회는 <b>지체 없이 중재를 행합니다</b>(제80조). 제80조는 &#8216;당사자 일방 또는 쌍방의 중재 신청이 있거나&#8217; 중재 회부 결정이 있는 때를 함께 규정하므로, 긴급 조정 국면에서는 <b>일방의 신청만으로도</b> 중재가 열립니다.</p>
+  <p class="fnote">&#8212; 예전에는 필수공익사업에 대한 <b>직권 중재</b>라는 강제 중재가 하나 더 있었습니다. 2006년 12월 30일 개정으로 폐지되고 <b>필수유지업무 제도</b>가 그 자리에 들어섰습니다(2008. 1. 1. 시행). 그래서 <b>현행법에 남은 강제 중재는 긴급 조정에 따른 중재 회부 하나뿐</b>입니다.</p>
+
+  <h3 class="subh">2. 중재에 회부되면 &#8212; 쟁의 행위가 멈춘다</h3>
+  <p class="line">노동쟁의가 중재에 회부된 때에는 그날부터 <span class="num">㊳</span><input class="blank narrow" data-a="15|15일" placeholder="㊳" aria-label="빈칸 38">일간 쟁의 행위를 할 수 없다.</p>
+
+  <h3 class="subh">3. 중재위원회 &#8212; 조정위원회와 구성이 다르다</h3>
+  <p class="line">중재위원회는 <span class="num">㊴</span><input class="blank" data-a="공익|공익 위원|공익위원" placeholder="㊴" aria-label="빈칸 39"> 위원 <b>3인</b>으로 구성한다.</p>
+
+  <h3 class="subh">4. 중재 재정의 효력과 불복 &#8212; 두 갈래</h3>
+  <p class="line"><b>중재 재정</b>은 당사자의 <span class="num">㊵</span><input class="blank wide" data-a="수락 여부|수락|수락 여부와 관계없이" placeholder="㊵" aria-label="빈칸 40">와 <b>관계없이</b> 단체 협약과 동일한 효력을 갖는다. 조정안과 정반대다.</p>
+  <p class="line"><span class="flag sup">보충</span>지방노동위원회 &#183; 특별노동위원회의 중재 재정이 <span class="num">㊶</span><input class="blank wide" data-a="위법 또는 월권|위법·월권|위법 월권|위법이거나 월권" placeholder="㊶" aria-label="빈칸 41">이라고 인정되면, 재정서를 받은 날부터 <span class="num">㊷</span><input class="blank narrow" data-a="10|10일" placeholder="㊷" aria-label="빈칸 42">일 이내에 중앙노동위원회에 <b>재심</b>을 신청할 수 있다.</p>
+  <p class="line"><span class="flag sup">보충</span>재심 결정이 위법 &#183; 월권이라고 인정되면 <span class="num">㊸</span><input class="blank narrow" data-a="15|15일" placeholder="㊸" aria-label="빈칸 43">일 이내에 <b>행정 소송</b>을 제기할 수 있다.</p>
+
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:200px">어디서 나온 재정인가</th><th>불복 경로</th></tr>
+    <tr><td class="k">지방노동위원회<br>특별노동위원회</td><td>10일 이내 <b>중앙노동위원회 재심</b> &#8594; 15일 이내 <b>행정 소송</b> <span class="cap" style="display:inline;margin:0">(두 단계)</span></td></tr>
+    <tr><td class="k">중앙노동위원회<br>(긴급 조정에 따른 중재 등)</td><td>재심 없이 곧바로 15일 이내 <b>행정 소송</b> <span class="cap" style="display:inline;margin:0">(한 단계)</span></td></tr>
+  </table></div>
+  <span class="cap">＊ 이미 최상급 기관이 내린 결정이므로 그 위에 올릴 곳이 없어 바로 법원으로 갑니다. 흐름도 아래쪽에서 <b>중재(중노위) &#8594; 행정 쟁송</b>으로 곧장 이어지는 화살표가 바로 이 경로입니다.</span>
+  <p class="fnote">&#8212; 불복하더라도 그 사이에 중재 재정의 효력은 <b>정지되지 않습니다.</b> “다투는 중이니 따르지 않아도 된다”는 선지는 틀립니다.</p>
+</section>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p5">
+  <h2>&#8548;. 공익사업 특칙과 긴급 조정 <span class="rng">빈칸 ㊹~㊿</span></h2>
+
+  <h3 class="subh">1. 공익 사업 &#8212; 왜 따로 두는가</h3>
+  <p class="plain">국민의 일상생활과 국민 경제에 미치는 영향이 큰 사업이어서 조정 기간을 <b>15일</b>로 늘리고, 조정을 <b>특별조정위원회</b>(공익 위원 3인)가 맡는다. 긴급 조정의 대상이 되기도 쉽다.</p>
+
+  <h3 class="subh">2. 긴급 조정 &#8212; 누가, 언제, 어떻게</h3>
+  <div class="scroll"><table class="ex">
+    <tr><th style="width:110px">항목</th><th>내용</th></tr>
+    <tr><td class="k">결정 주체</td><td><span class="num">㊹</span><input class="blank wide" data-a="고용노동부 장관|고용노동부장관|고용 노동부 장관" placeholder="㊹" aria-label="빈칸 44"></td></tr>
+    <tr><td class="k">요건</td><td>쟁의 행위가 <b>공익 사업</b>에 관한 것이거나 그 <b>규모가 크거나</b> 그 <b>성질이 특별한 것</b>으로서, 현저히 국민 경제를 해하거나 국민의 일상생활을 위태롭게 할 <b>위험이</b> <span class="num">㊺</span><input class="blank" data-a="현존|현존하는|현존할" placeholder="㊺" aria-label="빈칸 45">할 때</td></tr>
+    <tr><td class="k">사전 절차</td><td>미리 <span class="num">㊻</span><input class="blank wide" data-a="중앙노동위원회 위원장|중노위 위원장|중앙 노동위원회 위원장" placeholder="㊻" aria-label="빈칸 46">의 의견을 들어야 한다</td></tr>
+    <tr><td class="k">공표의 효과</td><td>즉시 쟁의 행위를 중지해야 하며, 공표일부터 <span class="num">㊼</span><input class="blank narrow" data-a="30|30일" placeholder="㊼" aria-label="빈칸 47">일이 지나지 않으면 쟁의 행위를 재개할 수 없다</td></tr>
+  </table></div>
+  <p class="fnote">&#8212; 결정은 <b>장관</b>, 의견은 <b>중앙노동위원회 위원장</b>입니다. 이 둘을 뒤집은 선지가 반복 출제됩니다(2025학년도 수능 14번 ④).</p>
+
+  <h3 class="subh">3. 긴급 조정 다음에 벌어지는 일</h3>
+  <p class="line"><span class="flag sup">보충</span>중앙노동위원회는 긴급 조정 결정을 통고받으면 <b>지체 없이</b> <span class="num">㊽</span><input class="blank" data-a="조정" placeholder="㊽" aria-label="빈칸 48">을 <b>개시</b>한다.</p>
+  <p class="line"><span class="flag sup">보충</span>중앙노동위원회 위원장이 조정이 성립될 가망이 없다고 인정하면, <b>공익 위원의 의견</b>을 들어 중재에 회부할 것인지를 통고받은 날부터 <span class="num">㊾</span><input class="blank narrow" data-a="15|15일" placeholder="㊾" aria-label="빈칸 49">일 이내에 결정한다.</p>
+  <p class="line"><span class="flag sup">보충</span>당사자 일방 또는 쌍방의 중재 신청이 있거나 중재 회부 결정이 있으면 중앙노동위원회는 지체 없이 <b>중재</b>를 행하며, 그 중재 재정은 단체 협약과 같은 효력을 갖는다.</p>
+
+  <div class="memo">
+    <div class="mt">［교재에 실린 긴급 조정권 발동 사례］</div>
+    <ul>
+      <li>1969년 대한조선공사 파업</li>
+      <li>1993년 현대자동차 노동조합 파업</li>
+      <li>2005년 아시아나항공 조종사 파업 &#183; 2005년 대한항공 조종사 노동조합 파업</li>
+    </ul>
+  </div>
+  <span class="cap">＊ 발동 사례가 손에 꼽을 정도라는 사실 자체가 긴급 조정이 <b>예외적 수단</b>임을 보여 줍니다.</span>
+
+  <h3 class="subh">4. 사적 조정 &#183; 중재 &#8212; 노동위원회 밖에서 해결하기</h3>
+  <p class="plain"><span class="flag sup">보충</span>당사자는 쌍방의 <span class="num">㊿</span><input class="blank" data-a="합의|쌍방의 합의" placeholder="㊿" aria-label="빈칸 50"> 또는 단체 협약이 정한 바에 따라 <b>노동위원회가 아닌 제3자</b>에게 조정·중재를 맡길 수 있다. 이렇게 이루어진 조정·중재의 내용도 <b>단체 협약과 동일한 효력</b>을 갖는다.</p>
+</section>
+
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+<section class="part" id="p6">
+  <h2>&#8549;. 기출 확인 O/X 12 <span class="rng">2023~2027학년도 실제 출제 지문·선지</span></h2>
+  <p class="plain">아래 12문항은 <b>수능 &#183; 모평 &#183; 학평에 실제로 나온 선지</b>를 O/X로 바꾼 것이다. 각 해설 끝에 출처를 붙여 두었으니, 틀린 문항의 출처를 표시해 두고 그 회차를 다시 풀어 보자.</p>
+
+  <div class="oxwrap">
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">1</span><span class="qt">노동조합은 사용자의 동의가 없어도 단독으로 노동위원회에 노동 쟁의의 조정을 신청할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>조정은 세 절차 중 문턱이 가장 낮다. <b>관계 당사자 일방</b>이 신청하면 노동위원회는 지체 없이 조정을 개시한다. 상대방의 동의도, 단체 협약의 근거도 필요 없다.<span class="from">2026학년도 9월 모평 6번 ㄴ &#183; 2024학년도 수능 16번 &#9315;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">2</span><span class="qt">조합원 과반수의 찬성을 얻었다면, 조정 절차를 거치지 않고 한 쟁의 행위도 적법하다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>두 요건은 <b>둘 다</b> 갖춰야 한다 &#8212; <b>조정 절차 경유 + 조합원 과반수 찬성</b>. 한쪽만 갖춘 쟁의 행위는 적법하지 않다. 실제 기출에서는 교섭 결렬(7/24) 직후, 조정 신청(8/12) 전에 파업한 사례로 물었다.<span class="from">2026학년도 9월 모평 6번 &#12593;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">3</span><span class="qt">조정은 쟁의 행위를 거치지 아니하면 신청할 수 없다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>순서가 거꾸로다. <b>조정을 거쳐야 쟁의 행위를 할 수 있는</b> 것이지, 쟁의 행위를 해야 조정을 신청할 수 있는 것이 아니다.<span class="from">2025학년도 6월 모평 6번 &#12593;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">4</span><span class="qt">관계 당사자 일방이 단체 협약에 의하여 중재를 신청한 경우, 고용노동부 장관이 지체 없이 중재를 행한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>신청 요건은 맞지만 <b>주체가 바뀌었다.</b> 중재를 행하는 곳은 <b>노동위원회</b>다. 이 단원에서 고용노동부 장관이 직접 하는 일은 <b>긴급 조정의 결정</b>뿐이다.<span class="from">2025학년도 6월 모평 6번 &#12599;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">5</span><span class="qt">조정위원회가 제시한 조정안은 관계 당사자의 의사와 상관없이 단체 협약과 동일한 효력을 갖는다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>“<span class="hl">당사자의 의사와 상관없이</span>”가 붙으면 <b>중재</b>가 맞고 <b>조정은 틀린다.</b> 조정안은 제시된 상태에서는 아무 효력이 없고, 수락해 <b>조정서</b>를 작성해야 효력이 생긴다.<span class="from">2026학년도 9월 모평 6번 &#12599;</span></div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">6</span><span class="qt">조정서의 내용과 중재 재정의 내용은 모두 단체 협약과 동일한 효력을 가진다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>효력이 없는 것은 <b>조정‘안’</b>뿐이다. 수락 후 작성한 <b>조정‘서’</b>와 <b>중재 재정</b>은 둘 다 단체 협약과 같은 효력을 갖는다. 한 글자 차이를 노린 선지다.<span class="from">2025학년도 6월 모평 6번 &#12601; &#183; 2026학년도 10월 학평 16번</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">7</span><span class="qt">중재 재정은 관계 당사자가 수락하여야 단체 협약과 동일한 효력이 생긴다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>중재 재정은 <b>수락 여부와 관계없이</b> 효력이 생긴다. 수락이 필요한 쪽은 조정이다. 두 제도의 성격을 맞바꿔 놓는 최다 출제 유형이다.<span class="from">2025학년도 수능 14번 &#9316; &#183; 2025학년도 10월 학평 17번 &#12599;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">8</span><span class="qt">중재는 조정을 반드시 거친 뒤에만 신청할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>조정 &#183; 중재 &#183; 긴급 조정은 <b>순서가 아니라 서로 다른 처리 방법</b>이다. 중재는 요건(쌍방 신청 또는 단협 근거 일방 신청)만 갖추면 조정을 거치지 않아도 신청할 수 있다.<span class="from">2025학년도 9월 모평 15번 &#9316;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">9</span><span class="qt">최초의 단체 협약 체결을 위한 협상이 결렬된 뒤 노동조합이 단독으로 중재를 신청하였다면, 노동 쟁의 조정 절차를 준수한 것이다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>일방의 단독 중재 신청은 <b>단체 협약에 근거가 있을 때만</b> 가능하다. 그런데 지금은 <b>최초의</b> 단협을 맺으려는 협상이므로 근거로 삼을 단협이 아직 없다. 따라서 이 신청 자체가 적법하지 않고, 조정 절차를 준수한 것도 아니다.<span class="from">2027학년도 6월 모평 13번 &#12593;</span></div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">10</span><span class="qt">노동 쟁의가 중재에 회부되면 그날부터 15일간 쟁의 행위를 할 수 없다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>중재 회부 &#8594; <b>15일</b>, 긴급 조정 공표 &#8594; <b>30일</b>이다. 이 두 숫자를 맞바꿔 놓는 선지가 반복 출제된다.<span class="from">2025학년도 수능 14번 &#9314;</span></div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">11</span><span class="qt">긴급 조정의 결정은 노동위원회가 한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag t">함정</span>결정은 <b>고용노동부 장관</b>이 하고, 그 전에 <b>중앙노동위원회 위원장의 의견</b>을 듣는다. 노동위원회가 맡는 것은 결정 이후의 <b>조정 &#183; 중재</b>다.<span class="from">2025학년도 수능 14번 &#9315;</span></div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">12</span><span class="qt">노동위원회의 판정에 이의가 있는 당사자는 판정서를 받은 날부터 10일 이내에 중앙노동위원회에 재심을 신청할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span><b>재심 10일 &#8594; 행정 소송 15일</b> 순서다. 기출에서는 노동위원회 판정서를 그대로 제시문으로 넣어 이 문장을 읽게 했다.<span class="from">2023학년도 9월 모평 20번</span></div>
+    </div>
+  </div>
+
+  <span class="cap">＊ 출처 표기의 &#8216;&#12593;~&#12601;&#8217;은 &#60;보 기&#62;의 선택지, &#8216;&#9312;~&#9316;&#8217;는 답지 번호입니다.</span>
+</section>
+
+<div class="pagemark"><div class="pgend">- 6 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+<section class="part" id="p7">
+  <h2>&#8550;. 확인 O/X 20 <span class="rng">기출에 아직 안 나온 지점 위주</span></h2>
+  <p class="plain">앞의 빈칸을 채운 뒤 풀어 보자. O 또는 X를 누르면 바로 채점되고 해설이 열린다.</p>
+
+  <div class="oxwrap">
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">1</span><span class="qt">노동위원회는 관계 당사자의 일방이 조정을 신청한 때에도 지체 없이 조정을 개시해야 한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>조정은 <b>일방 신청만으로 개시</b>된다. 단체 협약에 근거를 둘 필요도 없다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">2</span><span class="qt">조정 기간은 일반 사업 10일, 공익 사업 15일이며, 당사자 합의로 각각 10일 &#183; 15일 이내에서 연장할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>교재 본문에 연장까지 명시되어 있다. 연장의 주체는 <b>노동위원회가 아니라 당사자의 합의</b>다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">3</span><span class="qt">조정위원회의 위원장은 근로자를 대표하는 조정위원이 된다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>위원장은 <b>공익을 대표하는 조정위원</b>이 된다. 중립적 위치에 있는 위원이 회의를 주재해야 하기 때문이다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">4</span><span class="qt">공익 사업의 노동쟁의 조정은 특별조정위원회가 담당하며, 특별조정위원회는 공익 위원 3인으로 구성된다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>교재 흐름도에 그대로 나온다. <b>공익 사업 &#8594; 특별조정위원회 &#8594; 공익 위원 3인</b>으로 묶어 외운다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">5</span><span class="qt">중재위원회는 근로자 위원 &#183; 사용자 위원 &#183; 공익 위원 각 1인으로 구성된다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>그것은 <b>조정위원회</b>의 구성이다. 중재위원회는 <b>공익 위원 3인</b>이다. <span class="tag t">함정</span>“각 1인”과 “공익 3인”을 서로 바꿔 놓는 선지가 반복된다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">6</span><span class="qt">노동위원회의 근로자 위원과 사용자 위원은 같은 수로 둔다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>각 10명 이상 50명 이하이면서 <b>서로 같은 수</b>여야 한다. 노사 균형을 맞추기 위한 장치다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">7</span><span class="qt">노동위원회의 공익 위원은 10명 이상 50명 이하로 한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>공익 위원은 <b>10명 이상 70명 이하</b>다. 50은 근로자 위원 &#183; 사용자 위원의 상한이다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">8</span><span class="qt">노동쟁의가 중재에 회부되면 그날부터 15일간 쟁의 행위를 할 수 없다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>중재 절차가 진행되는 동안 분쟁을 얼려 두는 규정이다. 30일은 <b>긴급 조정</b>의 숫자다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">9</span><span class="qt">조정위원회가 제시한 조정안은 제시된 즉시 단체 협약과 동일한 효력을 갖는다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>조정<b>안</b>은 당사자가 <b>수락</b>해야 하고, 수락 후 작성 &#183; 서명한 <b>조정서</b>부터 단체 협약과 동일한 효력이 생긴다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">10</span><span class="qt">중재 재정은 당사자의 수락 여부와 관계없이 단체 협약과 동일한 효력을 갖는다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>“의사와 상관없이”라는 표현이 붙으면 <b>중재</b>가 맞고 조정은 틀린다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">11</span><span class="qt">지방노동위원회의 중재 재정이 위법 &#183; 월권이라고 인정되면 30일 이내에 중앙노동위원회에 재심을 신청할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>재심 신청은 <b>10일</b> 이내다. 30일은 긴급 조정 공표 후 쟁의 행위 재개 금지 기간이다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">12</span><span class="qt">중재 재심 결정이 위법 &#183; 월권이라고 인정되면 15일 이내에 행정 소송을 제기할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span><b>재심 10일 &#8594; 소송 15일</b>. 뒤로 갈수록 기간이 늘어난다고 기억하면 순서가 흔들리지 않는다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">13</span><span class="qt">긴급 조정은 중앙노동위원회 위원장이 결정한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>결정 주체는 <b>고용노동부 장관</b>이다. 중앙노동위원회 위원장은 <b>의견을 제시</b>할 뿐이다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">14</span><span class="qt">고용노동부 장관은 긴급 조정을 결정할 때 미리 중앙노동위원회 위원장의 의견을 들어야 한다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>결정권은 장관에게 있지만 <b>사전 의견 청취는 의무</b>다. “들을 수 있다”가 아니라 “들어야 한다”.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">15</span><span class="qt">긴급 조정의 결정이 공표되면 즉시 쟁의 행위를 중지해야 하고, 공표일부터 30일이 지나지 않으면 재개할 수 없다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span><b>즉시 중지 + 30일 재개 금지</b>가 한 묶음이다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">16</span><span class="qt">긴급 조정은 조정과 중재를 모두 거친 뒤에 마지막으로 밟는 단계이다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>긴급 조정은 조정 &#183; 중재와 <b>나란히 놓인 별개의 처리 방법</b>이다. <span class="tag t">함정</span>흐름도에서 긴급 조정이 아래쪽에 그려져 있어 마지막 단계로 오해하기 쉽다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">17</span><span class="qt">조정 전 지원은 쌍방이 신청하거나, 일방이 신청하고 상대방이 동의하면 이루어진다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>흐름도에서 점선으로 붙어 있는 <b>임의 절차</b>다. 조정 신청 전에 노동위원회가 대화를 돕는 단계다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">18</span><span class="qt">사후 조정을 거치면 그것만으로 쟁의 행위의 &#8216;조정 절차를 거칠 것&#8217; 요건이 충족된다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span><span class="flag sup">보충</span>법은 쟁의 행위의 요건이 되는 조정 절차에서 <b>사후 조정을 제외</b>한다. 사후 조정은 이미 조정이 끝난 뒤 다시 대화를 시도하는 절차이기 때문이다.</div>
+    </div>
+
+    <div class="ox" data-ans="X">
+      <div class="qrow"><span class="qn">19</span><span class="qt">경제사회노동위원회는 개별 사업장의 노동 쟁의를 조정 &#183; 중재하는 기관이다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span>경제사회노동위원회는 고용 노동 정책 등을 <b>심의 &#183; 협의</b>하고 <b>대통령의 자문</b>에 응하는 기구다. 조정 &#183; 중재는 <b>노동위원회</b>의 일이다.</div>
+    </div>
+
+    <div class="ox" data-ans="O">
+      <div class="qrow"><span class="qn">20</span><span class="qt">조정 기간 안에 조정이 종료되지 않으면 노동조합은 쟁의 행위를 할 수 있다.</span>
+        <span class="btns"><button class="oxb" data-v="O">O</button><button class="oxb" data-v="X">X</button></span></div>
+      <div class="oxsol"><span class="tag">해설</span><span class="flag sup">보충</span>조정 절차 경유 요건의 예외다. 절차가 늦어져 쟁의권이 무력화되는 일을 막기 위한 규정이며, 물론 <b>조합원 과반수 찬성</b>은 별도로 갖춰야 한다.</div>
+    </div>
+  </div>
+</section>
+<section class="appx" id="appx">
+  <h2>［부록］이 단원 함정 포인트 7</h2>
+
+  <details class="pit"><summary><span class="n">1</span>숫자 세트 총정리 &#8212; 이 단원은 숫자가 승부처다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:66px">숫자</th><th style="width:210px">무엇의 기간인가</th><th>주의할 점</th></tr>
+        <tr><td class="k">10일</td><td>일반 사업의 조정 기간</td><td>합의로 <b>10일</b> 더 연장 가능</td></tr>
+        <tr><td class="k">15일</td><td>공익 사업의 조정 기간</td><td>합의로 <b>15일</b> 더 연장 가능</td></tr>
+        <tr><td class="k">15일</td><td>중재 회부 후 쟁의 행위 금지</td><td>30일과 바꿔 놓는 선지 주의</td></tr>
+        <tr><td class="k">30일</td><td>긴급 조정 공표 후 재개 금지</td><td>이 단원에서 <b>30이 붙는 곳은 여기뿐</b></td></tr>
+        <tr><td class="k">10일</td><td>중재 재정 불복 &#8594; 재심 신청</td><td>지노위 &#183; 특노위 재정에 대해서만</td></tr>
+        <tr><td class="k">15일</td><td>재심 결정 불복 &#8594; 행정 소송</td><td><b>재심 10 &#8594; 소송 15</b> 순서</td></tr>
+        <tr><td class="k">15일</td><td>긴급 조정 시 중재 회부 여부 결정</td><td>통고받은 날부터 기산</td></tr>
+      </table></div>
+      <span class="cap">＊ 노사협의회의 30인 &#183; 3개월 &#183; 3~10인과 섞이지 않게, <b>조정 제도의 숫자는 &#8216;일(日)&#8217; 단위</b>라는 점을 표지로 삼으십시오.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">2</span>위원회 넷 &#8212; 구성 인원을 바꿔치기하는 선지</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:180px">위원회</th><th>구성</th></tr>
+        <tr><td class="k">조정위원회</td><td>근로자 &#183; 사용자 &#183; 공익 위원 <span class="hl">각 1인</span> (위원장은 공익 위원)</td></tr>
+        <tr><td class="k">특별조정위원회</td><td><span class="hl">공익 위원 3인</span> (공익 사업)</td></tr>
+        <tr><td class="k">중재위원회</td><td><span class="hl">공익 위원 3인</span></td></tr>
+        <tr><td class="k">노동위원회 전체</td><td>근로자 &#183; 사용자 위원 각 10~50명(같은 수), 공익 위원 10~70명</td></tr>
+      </table></div>
+      <span class="cap">→ 셋 다 <b>3인</b>이라는 점은 같고, <b>누구로 채우는지</b>만 다릅니다. “조정위원회 = 공익 위원 3인”은 <span class="no-ok">오답</span>입니다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">3</span>누가 하는가 &#8212; 주체를 뒤집는 선지</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:210px">행위</th><th>주체</th></tr>
+        <tr><td class="k">조정 &#183; 중재를 행함</td><td><b>노동위원회</b></td></tr>
+        <tr><td class="k">긴급 조정을 결정</td><td><b>고용노동부 장관</b> (중앙노동위원회 위원장의 의견을 미리 들음)</td></tr>
+        <tr><td class="k">긴급 조정 시 중재 회부 결정</td><td><b>중앙노동위원회 위원장</b> (공익 위원의 의견을 들어)</td></tr>
+        <tr><td class="k">조정위원 지명</td><td><b>노동위원회 위원장</b></td></tr>
+        <tr><td class="k">조정 기간 연장</td><td><b>관계 당사자의 합의</b></td></tr>
+      </table></div>
+      <span class="cap">→ 지문에 “고용노동부 장관 <b>소속의</b> 노동위원회”라고 적혀 있어도, 장관의 권한이 노동위원회로 옮겨 오지는 않습니다(2025학년도 수능 14번 ④의 함정).</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">4</span>불복 경로가 비대칭이다 &#8212; 아직 출제되지 않은 지점</summary>
+    <div class="bd">
+      지방노동위원회 &#183; 특별노동위원회의 중재 재정은 <b>재심(10일) &#8594; 행정 소송(15일)</b>의 두 단계를 밟는다. 반면 <b>중앙노동위원회</b>가 내린 재정은 그 위에 올릴 기관이 없어 <b>재심 없이 곧바로 행정 소송(15일)</b>으로 간다.<br>
+      → 흐름도 아래쪽에서 <b>중재(중노위) &#8594; 행정 쟁송</b>으로 직진하는 화살표가 그 근거다. 이 비대칭은 15문항 기출에 아직 등장하지 않았으므로 <span class="hl">새 유형으로 나올 여지</span>가 있다.<br>
+      또한 불복 절차가 진행되는 동안에도 중재 재정의 <b>효력은 정지되지 않는다.</b>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">5</span>효력 3단 &#8212; 조정안 / 조정서 / 중재 재정</summary>
+    <div class="bd">
+      <b>조정안</b> &#8212; 제시만 된 상태. <span class="no-ok">효력 없음</span><br>
+      <b>조정서</b> &#8212; 수락 후 작성 &#183; 서명. <span class="yes-ok">단체 협약과 동일한 효력</span><br>
+      <b>중재 재정</b> &#8212; 수락 여부와 무관. <span class="yes-ok">단체 협약과 동일한 효력</span><br>
+      <b>사적 조정 &#183; 중재</b> &#8212; 노동위원회 밖에서 이루어져도 <span class="yes-ok">단체 협약과 동일한 효력</span><br>
+      → 판별어는 하나다. 선지에 <span class="hl">“당사자의 의사와 상관없이”</span>가 붙으면 중재가 맞고 조정은 틀린다.
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">6</span>사후 조정의 함정 &#8212; 절차인데 요건은 아니다</summary>
+    <div class="bd">
+      흐름도만 보면 <b>조정 불성립 &#8594; 사후 조정 &#8594; 조정위원회 &#8594; 단체 협약 체결</b>이 정규 경로처럼 보인다. 그러나 법은 쟁의 행위의 요건인 “조정 절차”에서 <b>사후 조정을 명시적으로 제외</b>한다.<br>
+      → 즉 <b>사후 조정에 들어갔다는 사실로 쟁의 행위를 정당화할 수는 없다.</b> 조정 절차 경유 요건은 앞의 조정(또는 조정 기간 경과)으로 이미 충족되거나 되지 않은 상태다.
+      <span class="sub">한 줄로</span>
+      사후 조정은 <b>분쟁 해결을 위한 추가 기회</b>일 뿐, 쟁의권을 새로 열어 주는 문이 아니다.
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">7</span>이름이 비슷한 기관 &#8212; 노동위원회 / 경제사회노동위원회 / 노사협의회</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:170px">기관</th><th style="width:120px">근거 법률</th><th>하는 일</th></tr>
+        <tr><td class="k">노동위원회</td><td class="c">노동위원회법</td><td>노동 쟁의 <b>조정 &#183; 중재</b>, 부당 노동 행위 &#183; 부당 해고 <b>심판</b></td></tr>
+        <tr><td class="k">경제사회노동위원회</td><td class="c">경제사회노동위원회법</td><td>고용 노동 정책 <b>심의 &#183; 협의</b>, <b>대통령 자문</b></td></tr>
+        <tr><td class="k">노사협의회</td><td class="c">근로자참여법</td><td>사업장 내 <b>노사 협의</b>. 조정 권한 없음, 단체 교섭권 &#183; 단체 행동권 없음</td></tr>
+      </table></div>
+      <span class="cap">→ “위원회”가 붙었다고 다 조정하는 곳이 아닙니다. <b>조정 &#183; 중재를 하는 위원회는 노동위원회 하나</b>입니다.</span>
+    </div>
+  </details>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 19강 협력적인 노사 관계 &#183; 도식 출처 중앙노동위원회</span>
+    <span>은또링쌤의 행성 연구소</span>
+  </div>
+</section>
+
+<div class="pagemark"><div class="pgend">- 7 -</div><div class="pgcut"></div></div>
+
+<section class="appx" id="keypage" style="border-top:none;margin-top:20px;padding-top:0">
+  <div class="pghead"><span class="l">［정답지］19강 &#9313; 노동위원회와 조정 제도</span><span class="r">은또링쌤의 행성 연구소</span></div>
+
+  <div class="keysheet">
+    <div class="kt">빈칸 정답 50</div>
+    <div class="scroll"><table class="ans">
+      <tr><th style="width:38px">번호</th><th>정답</th><th style="width:38px">번호</th><th>정답</th><th style="width:38px">번호</th><th>정답</th></tr>
+      <tr><td class="n">①</td><td class="a">중앙노동위원회</td><td class="n">⑱</td><td class="a">조정 불성립</td><td class="n">㉟</td><td class="a">단체 협약</td></tr>
+      <tr><td class="n">②</td><td class="a">특별노동위원회</td><td class="n">⑲</td><td class="a">사후 조정</td><td class="n">㊱</td><td class="a">쌍방</td></tr>
+      <tr><td class="n">③</td><td class="a">50</td><td class="n">⑳</td><td class="a">단체 협약 체결</td><td class="n">㊲</td><td class="a">단체 협약</td></tr>
+      <tr><td class="n">④</td><td class="a">같은 수(동수)</td><td class="n">㉑</td><td class="a">중재위원회</td><td class="n">㊳</td><td class="a">15</td></tr>
+      <tr><td class="n">⑤</td><td class="a">70</td><td class="n">㉒</td><td class="a">15일</td><td class="n">㊴</td><td class="a">공익</td></tr>
+      <tr><td class="n">⑥</td><td class="a">지체 없이</td><td class="n">㉓</td><td class="a">중재 재정</td><td class="n">㊵</td><td class="a">수락 여부(수락)</td></tr>
+      <tr><td class="n">⑦</td><td class="a">조정 전 지원</td><td class="n">㉔</td><td class="a">중재 재심</td><td class="n">㊶</td><td class="a">위법 또는 월권</td></tr>
+      <tr><td class="n">⑧</td><td class="a">동의</td><td class="n">㉕</td><td class="a">행정 쟁송</td><td class="n">㊷</td><td class="a">10</td></tr>
+      <tr><td class="n">⑨</td><td class="a">조정 신청</td><td class="n">㉖</td><td class="a">긴급 조정</td><td class="n">㊸</td><td class="a">15</td></tr>
+      <tr><td class="n">⑩</td><td class="a">중재 신청</td><td class="n">㉗</td><td class="a">30일</td><td class="n">㊹</td><td class="a">고용노동부 장관</td></tr>
+      <tr><td class="n">⑪</td><td class="a">쌍방</td><td class="n">㉘</td><td class="a">일방</td><td class="n">㊺</td><td class="a">현존</td></tr>
+      <tr><td class="n">⑫</td><td class="a">단체 협약</td><td class="n">㉙</td><td class="a">합의</td><td class="n">㊻</td><td class="a">중앙노동위원회 위원장</td></tr>
+      <tr><td class="n">⑬</td><td class="a">조정위원회</td><td class="n">㉚</td><td class="a">3</td><td class="n">㊼</td><td class="a">30</td></tr>
+      <tr><td class="n">⑭</td><td class="a">특별조정위원회</td><td class="n">㉛</td><td class="a">노동위원회 위원장</td><td class="n">㊽</td><td class="a">조정</td></tr>
+      <tr><td class="n">⑮</td><td class="a">10일</td><td class="n">㉜</td><td class="a">공익</td><td class="n">㊾</td><td class="a">15</td></tr>
+      <tr><td class="n">⑯</td><td class="a">15일</td><td class="n">㉝</td><td class="a">조정안</td><td class="n">㊿</td><td class="a">합의</td></tr>
+      <tr><td class="n">⑰</td><td class="a">조정 성립</td><td class="n">㉞</td><td class="a">수락</td><td class="n"></td><td class="a"></td></tr>
+    </table></div>
+  </div>
+
+  <div class="keysheet" style="margin-top:14px">
+    <div class="kt">기출 확인 O/X 정답 12</div>
+    <div class="scroll"><table class="ans">
+      <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr>
+      <tr><td class="n">O</td><td class="n">X</td><td class="n">X</td><td class="n">X</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">X</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">O</td></tr>
+    </table></div>
+    <span class="cap">출처 &#8212; 1 26년 9월 &#183; 24년 수능 / 2 &#183; 5 26년 9월 / 3 &#183; 4 &#183; 6 25년 6월 / 7 &#183; 10 &#183; 11 25년 수능 / 8 25년 9월 / 9 27년 6월 / 12 23년 9월 &#183; 틀린 문항의 회차를 다시 풀게 하십시오.</span>
+  </div>
+
+  <div class="keysheet" style="margin-top:14px">
+    <div class="kt">확인 O/X 정답 20</div>
+    <div class="scroll"><table class="ans">
+      <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+      <tr><td class="n">O</td><td class="n">O</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">O</td></tr>
+      <tr><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th></tr>
+      <tr><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">O</td><td class="n">O</td><td class="n">X</td><td class="n">O</td><td class="n">X</td><td class="n">X</td><td class="n">O</td></tr>
+    </table></div>
+    <span class="cap">X인 문항의 오류 지점 &#8212; 3 위원장은 공익 위원 / 5 중재위원회는 공익 3인 / 7 공익 위원은 70명 이하 / 9 조정안은 수락해야 효력 / 11 재심은 10일 / 13 결정은 고용노동부 장관 / 16 긴급 조정은 병렬적 처리 방법 / 18 사후 조정은 조정 절차에서 제외 / 19 경제사회노동위원회는 심의·협의·자문 기구</span>
+  </div>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 19강 &#183; 법령 근거는 「노동조합 및 노동관계조정법」 &#183; 「노동위원회법」</span>
+    <span>은또링쌤의 행성 연구소</span>
+  </div>
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 8 -</div></div>
+</section>
+
+</div><!-- /sheet -->
+
+<div id="toast"></div>
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">&#8593;</button>
+
+<script>
+(function(){
+  var blanks = Array.prototype.slice.call(document.querySelectorAll('input.blank'));
+  var nodes  = Array.prototype.slice.call(document.querySelectorAll('svg .nf'));
+  var solShown = false, tt;
+
+  function norm(s){ return (s||'').replace(/[\s().\u00B7,'\u2019\u2018%\uFF05]/g,'').toLowerCase(); }
+  function answerOf(b){ return b.dataset.a.split('|')[0]; }
+  function userVal(b){ return ('userans' in b.dataset) ? b.dataset.userans : b.value; }
+  function fitWidth(b){ b.style.width = Math.max(4, Array.from(b.value).length + 1.5) + 'em'; }
+  function clearState(b){
+    b.classList.remove('correct','reveal','peek');
+    b.style.width=''; b.removeAttribute('title');
+    if('userans' in b.dataset){ b.value=b.dataset.userans; delete b.dataset.userans; }
+  }
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){t.classList.remove('show');},3400);
+  }
+  /* 도식 안의 번호 칸을 정답 텍스트로 바꾼다 */
+  function fillNodes(on){
+    nodes.forEach(function(n){
+      if(on){ n.textContent = n.dataset.ans; n.classList.add('filled'); }
+      else  { n.textContent = n.dataset.n;   n.classList.remove('filled'); }
+    });
+  }
+  function updateFilled(){
+    var n = blanks.filter(function(b){ return userVal(b).trim()!==''; }).length;
+    document.getElementById('filled').textContent = n;
+    document.getElementById('bar').style.width = (n/blanks.length*100)+'%';
+  }
+  blanks.forEach(function(b){
+    b.addEventListener('input',function(){
+      b.classList.remove('correct','reveal','peek');
+      b.style.width=''; b.removeAttribute('title'); delete b.dataset.userans;
+      updateFilled();
+    });
+  });
+  function isCorrect(b){
+    var got = norm(userVal(b)); if(!got) return null;
+    return b.dataset.a.split('|').some(function(a){ return norm(a)===got; });
+  }
+  window.grade = function(){
+    var correct=0;
+    blanks.forEach(function(b){
+      var uv = userVal(b);
+      b.classList.remove('correct','reveal','peek'); b.removeAttribute('title');
+      var r = isCorrect(b);
+      b.dataset.userans = uv;
+      b.value = answerOf(b);
+      fitWidth(b);
+      if(r===null){ b.title='내가 쓴 답: (빈칸)'; b.classList.add('reveal'); }
+      else if(r){ correct++; b.classList.add('correct'); }
+      else { b.title='내가 쓴 답: '+uv; b.classList.add('reveal'); }
+    });
+    fillNodes(true);
+    solShown = true; document.getElementById('solBtn').textContent='정답 숨기기';
+    document.getElementById('scoretxt').innerHTML =
+      ' · 정답 <b style="color:#1F6B45">'+correct+'</b>';
+    var pct = Math.round(correct/blanks.length*100);
+    var msg = correct===blanks.length ? blanks.length+'개 전부 정답입니다.'
+            : pct>=80 ? '거의 다 왔습니다 — 빨강 칸이 정답입니다.'
+            : pct>=50 ? '절반은 넘겼습니다. 빨강 칸을 확인하세요.'
+            : '빨강 칸에 정답을 채워 두었습니다. 다시 도전해 보세요.';
+    toast('채점 결과 — '+correct+' / '+blanks.length+'  ('+pct+'%)  '+msg);
+  };
+  window.toggleSol = function(){
+    solShown = !solShown;
+    if(solShown){
+      blanks.forEach(function(b){
+        if(!('userans' in b.dataset)) b.dataset.userans=b.value;
+        b.value=answerOf(b);
+        b.classList.remove('correct','reveal'); b.classList.add('peek');
+        b.removeAttribute('title'); fitWidth(b);
+      });
+      fillNodes(true);
+      document.getElementById('solBtn').textContent='정답 숨기기';
+    } else {
+      blanks.forEach(clearState);
+      fillNodes(false);
+      document.getElementById('solBtn').textContent='정답 보기';
+      document.getElementById('scoretxt').textContent='';
+    }
+    updateFilled();
+  };
+  window.resetAll = function(){
+    blanks.forEach(function(b){
+      delete b.dataset.userans; b.value='';
+      b.classList.remove('correct','reveal','peek');
+      b.style.width=''; b.removeAttribute('title');
+    });
+    fillNodes(false);
+    solShown=false; document.getElementById('solBtn').textContent='정답 보기';
+    document.getElementById('scoretxt').textContent='';
+    document.querySelectorAll('.ox').forEach(function(q){
+      q.classList.remove('answered','ok','no');
+      q.querySelectorAll('.oxb').forEach(function(x){ x.classList.remove('sel','hit','miss'); });
+    });
+    document.querySelectorAll('details.pit[open]').forEach(function(d){ d.open=false; });
+    updateFilled();
+    toast('처음부터 다시 풀어 보세요.');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  /* 확인 O/X */
+  document.querySelectorAll('.ox').forEach(function(q){
+    var ans=q.dataset.ans;
+    q.querySelectorAll('.oxb').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('answered')) return;
+        var ok = btn.dataset.v===ans;
+        btn.classList.add('sel', ok?'hit':'miss');
+        if(!ok) q.querySelector('.oxb[data-v="'+ans+'"]').classList.add('hit');
+        q.classList.add('answered', ok?'ok':'no');
+        if(!ok){ q.classList.remove('shake'); void q.offsetWidth; q.classList.add('shake'); }
+      });
+    });
+  });
+  /* 학번 칸 */
+  var cells=Array.prototype.slice.call(document.querySelectorAll('.fld .cell'));
+  cells.forEach(function(c,i){
+    c.addEventListener('input',function(){
+      c.value=c.value.replace(/[^0-9]/g,'').slice(0,1);
+      if(c.value && cells[i+1]) cells[i+1].focus();
+    });
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Backspace' && !c.value && cells[i-1]) cells[i-1].focus();
+    });
+  });
+  /* 인쇄 시 아코디언을 모두 펼치고, 인쇄가 끝나면 원래대로 되돌린다 */
+  var pitList = Array.prototype.slice.call(document.querySelectorAll('details.pit'));
+  var wasOpen = [];
+  function openForPrint(){
+    wasOpen = pitList.map(function(d){ return d.open; });
+    pitList.forEach(function(d){ d.open = true; });
+  }
+  function restoreAfterPrint(){
+    pitList.forEach(function(d,i){ d.open = !!wasOpen[i]; });
+  }
+  window.addEventListener('beforeprint', openForPrint);
+  window.addEventListener('afterprint', restoreAfterPrint);
+  if(window.matchMedia){
+    var mq = window.matchMedia('print');
+    var onMQ = function(e){ e.matches ? openForPrint() : restoreAfterPrint(); };
+    if(mq.addEventListener) mq.addEventListener('change', onMQ);
+    else if(mq.addListener) mq.addListener(onMQ);
+  }
+  window.addEventListener('scroll',function(){
+    document.getElementById('top').classList.toggle('show', window.scrollY>420);
+  });
+  document.getElementById('total').textContent = blanks.length;
+  updateFilled();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18강 산업 안전과 재해 예방 · 빈칸 학습지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F0E7; --card:#FFFFFF; --ink:#16243F; --ink2:#3A4A66;
+    --stamp:#B23A2E; --ok:#2E7D5B; --okbg:#E6F1EB; --wrongbg:#FBEAE7;
+    --line:#D8D2C4; --gold:#A8842C; --muted:#7C7768;
+    --sans:'Noto Sans KR',system-ui,sans-serif; --serif:'Noto Serif KR',serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:80px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px}
+  header.masthead{padding:34px 0 22px;border-bottom:3px double var(--ink);margin-bottom:6px}
+  .eyebrow{font-size:.74rem;letter-spacing:.32em;color:var(--stamp);font-weight:700;text-transform:uppercase}
+  h1.title{font-family:var(--serif);font-weight:900;font-size:2.5rem;line-height:1.15;margin:.18em 0 .1em;letter-spacing:-.01em}
+  h1.title .ch{color:var(--stamp)}
+  .sub{color:var(--muted);font-size:.95rem}
+  .sub b{color:var(--ink2)}
+  .scorebar{position:sticky;top:0;z-index:50;background:rgba(243,240,231,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:8px}
+  .scorebar .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .meter{flex:1;min-width:160px;height:10px;background:#E4DFD2;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+  .meter > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ink),var(--gold));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+  .score{font-family:var(--serif);font-weight:700;font-size:.96rem;white-space:nowrap}
+  .score b{color:var(--stamp);font-size:1.2rem}
+  .btns{display:flex;gap:8px}
+  button.act{font-family:var(--sans);font-weight:700;font-size:.85rem;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:8px 15px;border-radius:7px;transition:.18s;letter-spacing:.02em}
+  button.act:hover{transform:translateY(-1px)}
+  button.ghost{background:transparent;color:var(--ink)}
+  button.ghost:hover{background:var(--ink);color:#fff}
+  button.act:focus-visible,.optbtn:focus-visible,.blank:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  section.unit{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px 22px;margin:22px 0;box-shadow:0 1px 0 rgba(0,0,0,.02);position:relative}
+  .unit-tag{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+  .unit-tag .no{font-family:var(--serif);font-weight:900;font-size:1.05rem;color:#fff;background:var(--ink);width:34px;height:34px;display:grid;place-items:center;border-radius:8px;letter-spacing:-.02em}
+  .unit-tag h2{font-family:var(--serif);font-size:1.42rem;font-weight:700;letter-spacing:-.01em}
+  .sub-h{font-weight:700;color:var(--ink);margin:18px 0 8px;font-size:1.02rem;padding-left:11px;border-left:4px solid var(--gold)}
+  .sub-h:first-of-type{margin-top:4px}
+  p.line{margin:7px 0;color:var(--ink2)}
+  p.line::before{content:"—";color:var(--gold);margin-right:7px;font-weight:700}
+  .note{font-size:.82rem;color:var(--muted);font-style:italic}
+  .num{font-family:var(--serif);font-weight:700;color:var(--stamp);font-size:.82em;vertical-align:.12em;margin-right:1px}
+  input.blank{font-family:var(--sans);font-weight:700;font-size:.96em;color:var(--ink);border:none;border-bottom:2px solid var(--ink2);background:#FAF8F2;text-align:center;min-width:62px;width:74px;padding:1px 4px;margin:0 2px;border-radius:3px 3px 0 0;transition:.18s}
+  input.blank.wide{width:128px}
+  input.blank::placeholder{color:#C7C0AE;font-weight:400}
+  input.blank:focus{background:#fff;border-bottom-color:var(--gold);outline:none}
+  input.blank.correct{background:var(--okbg);border-bottom-color:var(--ok);color:var(--ok)}
+  input.blank.wrong{background:var(--wrongbg);border-bottom-color:var(--stamp);color:var(--stamp)}
+  input.blank.reveal{background:#FBE9E7;border-bottom-color:var(--stamp);color:var(--stamp);font-weight:700}
+  input.blank.peek{background:#EAF1FB;border-bottom-color:var(--gold);color:var(--ink);font-weight:700}
+  .sol{display:none;font-weight:700;color:var(--ok);font-size:.88em;margin-left:3px;white-space:nowrap}
+  .sol.show{display:inline}
+  .sol::before{content:"→ ";color:var(--muted)}
+  table.t{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:.92rem}
+  .t th,.t td{border:1px solid var(--line);padding:9px 11px;vertical-align:middle;word-break:keep-all}
+  .t th{background:var(--ink);color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.01em}
+  .t td.k{background:#F6F3EA;font-weight:700;color:var(--ink);text-align:center;width:88px;white-space:nowrap}
+  .t td.k small{white-space:normal;display:block}
+  .t td.c{text-align:center}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .gichul{background:#11203A;color:#EDEAE0;border-radius:16px;padding:24px 22px 20px;margin:22px 0}
+  .gichul h2{font-family:var(--serif);font-size:1.32rem;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .gichul .lead{color:#B9C2D4;font-size:.85rem;margin-bottom:16px}
+  .q{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:15px 16px;margin-bottom:11px;transition:background .25s,border-color .25s}
+  .q:last-child{margin-bottom:0}
+  .q.answered.ok{background:rgba(46,125,91,.16);border-color:rgba(46,125,91,.5)}
+  .q.answered.no{background:rgba(178,58,46,.15);border-color:rgba(178,58,46,.5)}
+  .q .lab{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:.86rem}
+  .q .src{font-size:.7rem;color:#E7E3D8;background:rgba(255,255,255,.13);padding:2px 9px;border-radius:11px;margin-left:7px;font-style:normal;vertical-align:1px}
+  .q p{color:#E7E3D8;margin:8px 0 11px;font-size:.96rem;line-height:1.55}
+  .ox{display:flex;gap:10px;flex-wrap:wrap}
+  .optbtn{font-family:var(--sans);font-weight:700;font-size:.9rem;cursor:pointer;color:#EDEAE0;background:rgba(255,255,255,.04);border:1.5px solid #46577A;padding:9px 20px;border-radius:9px;transition:.16s}
+  .optbtn:hover{border-color:var(--gold);transform:translateY(-1px)}
+  .optbtn.correct{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:0 3px 12px rgba(46,125,91,.35)}
+  .optbtn.wrong{background:var(--stamp);border-color:var(--stamp);color:#fff;animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .fe021{font-size:.83rem;color:#CBD3E0;margin-top:11px;display:none;padding:10px 13px;background:rgba(255,255,255,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;line-height:1.55}
+  .fe021.show{display:block;animation:feIn .3s ease}
+  @keyframes feIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+  .fe021 b{color:#FFD9A0}
+  .pit{background:linear-gradient(180deg,#FBF3E4,#FBFAF5);border:1px solid var(--gold);border-radius:16px;padding:22px 20px;margin:22px 0}
+  .pit h2{font-family:var(--serif);font-size:1.26rem;color:var(--stamp);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+  .pit details{background:#fff;border:1px solid #ECDFC4;border-radius:11px;margin-bottom:9px;transition:border-color .16s,box-shadow .16s}
+  .pit details:last-child{margin-bottom:0}
+  .pit details[open]{border-color:var(--stamp);box-shadow:0 4px 14px rgba(178,58,46,.09)}
+  .pit summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none;display:flex;gap:11px;align-items:center;padding:13px 15px}
+  .pit summary::-webkit-details-marker{display:none}
+  .pit summary .n{flex-shrink:0;width:25px;height:25px;display:grid;place-items:center;background:var(--stamp);color:#fff;border-radius:50%;font-family:var(--sans);font-size:.74rem;font-weight:700}
+  .pit summary::after{content:"+";margin-left:auto;color:var(--stamp);font-weight:700;font-size:1.35rem;line-height:1}
+  .pit details[open] summary::after{content:"–"}
+  .pit .body{padding:0 16px 14px 51px;color:var(--ink2);font-size:.9rem;line-height:1.6}
+  .pit .body b{color:var(--stamp)}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:13px 24px;border-radius:30px;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s;z-index:99;font-size:.92rem;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #toast .stamp{color:#FFD9A0}
+  @media(max-width:560px){h1.title{font-size:1.95rem}section.unit{padding:20px 16px}.gichul,.pit{padding:20px 16px}input.blank{min-width:54px;width:64px}input.blank.wide{width:104px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  .secnav{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 2px}
+  .secnav a{font-size:.8rem;font-weight:700;text-decoration:none;color:var(--ink2);border:1.5px solid var(--line);padding:6px 13px;border-radius:20px;transition:.16s;background:#fff}
+  .secnav a:hover{border-color:var(--ink);color:var(--ink)}
+  .anchor{scroll-margin-top:80px}
+  .band{font-family:var(--serif);font-weight:900;font-size:1.5rem;color:var(--ink);margin:34px 0 4px;padding-bottom:6px;border-bottom:3px double var(--ink);display:flex;align-items:center;gap:10px}
+  .band .ic{font-size:1.1rem}
+  .band small{font-family:var(--sans);font-weight:500;font-size:.82rem;color:var(--muted);margin-left:auto}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px;margin:14px 0}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:0;cursor:pointer;min-height:96px;position:relative;perspective:800px}
+  .fcard .inner{padding:14px 14px;height:100%;display:flex;flex-direction:column;justify-content:center;transition:.2s}
+  .fcard .term{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.02rem;text-align:center}
+  .fcard .hint{font-size:.72rem;color:var(--muted);text-align:center;margin-top:6px}
+  .fcard .def{display:none;font-size:.82rem;color:var(--ink2);line-height:1.55}
+  .fcard.open{background:#FBF8F0;border-color:var(--gold)}
+  .fcard.open .term{font-size:.86rem;color:var(--gold);margin-bottom:6px;text-align:left}
+  .fcard.open .hint{display:none}
+  .fcard.open .def{display:block}
+  .reftbl{width:100%;border-collapse:collapse;margin:10px 0;font-size:.88rem}
+  .reftbl th,.reftbl td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+  .reftbl th{background:#F6F3EA;color:var(--ink);font-weight:700;text-align:left}
+  .reftbl td.k{font-weight:700;color:var(--ink);background:#FBF8F0;white-space:nowrap}
+  .reftbl .hl{color:var(--stamp);font-weight:700}
+  .deck{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+  .deck h3{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-bottom:4px}
+  .deck .cap{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .arb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:8px 0 2px}
+  .arb-card{border:1px solid var(--line);border-radius:13px;padding:18px 15px 16px;text-align:center;background:linear-gradient(180deg,#FFFFFF,#FBFAF5);display:flex;flex-direction:column;align-items:center;transition:transform .18s, box-shadow .18s}
+  .arb-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(22,36,63,.10)}
+  .arb-ill{width:86px;height:86px;margin-bottom:4px}
+  .arb-card h4{font-family:var(--serif);font-size:1.18rem;color:var(--ink);margin:2px 0 9px;font-weight:700}
+  .arb-card p{font-size:.85rem;color:var(--ink2);line-height:1.55;flex:1;margin-bottom:13px}
+  .arb-card p b{color:var(--ink)}
+  .arb-badge{display:inline-block;font-size:.76rem;font-weight:700;padding:6px 13px;border-radius:20px;border:1.5px solid;line-height:1.3}
+  .arb-badge.none{color:var(--muted);border-color:var(--line);background:#F4F1E8}
+  .arb-badge.bind{color:var(--stamp);border-color:var(--stamp);background:#FBE9E7}
+  .arb-badge.stop{color:#9A4A0A;border-color:#C2710E;background:#FBE7C8}
+  @media(max-width:600px){.arb-cards{grid-template-columns:1fr;gap:11px}.arb-card{flex-direction:row;text-align:left;gap:14px;align-items:center;padding:14px}.arb-ill{width:62px;height:62px;margin-bottom:0;flex-shrink:0}.arb-card .arb-txt{flex:1;display:flex;flex-direction:column;align-items:flex-start}.arb-card h4{margin:0 0 4px}.arb-card p{margin-bottom:8px}}
+  .wt-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin:4px 0 16px}
+  .wt-toggle button{font-family:var(--sans);font-weight:700;font-size:.82rem;padding:7px 15px;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:.18s}
+  .wt-toggle button.on{background:var(--ink);color:#fff}
+  .wt-row{display:flex;align-items:center;gap:13px;padding:12px 0;border-top:1px solid var(--line)}
+  .wt-row:first-of-type{border-top:none}
+  .wt-ico{width:44px;height:44px;flex-shrink:0}
+  .wt-label{width:108px;flex-shrink:0;font-weight:700;font-size:.88rem;color:var(--ink)}
+  .wt-label small{display:block;font-weight:400;font-size:.7rem;color:var(--muted);margin-top:1px}
+  .wt-barwrap{flex:1;display:flex;align-items:center;gap:10px}
+  .wt-bar{flex:1;display:flex;height:25px;border-radius:6px;overflow:hidden;background:#EEE8DB;min-width:80px}
+  .wt-seg{height:100%;transition:width .55s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  .wt-seg.base{background:var(--ink)}
+  .wt-seg.ext{background:#C2710E}
+  .wt-total{font-weight:700;font-size:.84rem;color:var(--ink);min-width:42px;text-align:right}
+  .wt-total b{color:#C2710E}
+  .wt-total small{display:block;font-weight:400;font-size:.66rem;color:var(--muted)}
+  .wt-na{flex:1;font-size:.82rem;color:var(--ink2)}
+  .wt-na b{color:var(--stamp)}
+  @media(max-width:600px){.wt-label{width:84px;font-size:.8rem}.wt-row{gap:9px}.wt-ico{width:38px;height:38px}}
+  .wage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:10px 0 4px}
+  .wage-card{height:104px;cursor:pointer;perspective:1000px;background:none;border:none;padding:0}
+  .wage-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1)}
+  .wage-card.flip .wage-inner{transform:rotateY(180deg)}
+  .wage-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .wage-front{background:linear-gradient(180deg,#fff,#F8F4EA);border:1px solid var(--line)}
+  .wage-front .wn{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink)}
+  .wage-front .wk{font-size:.76rem;color:var(--ink2);margin-top:4px}
+  .wage-front .wh{font-size:.68rem;color:var(--gold);margin-top:8px;font-weight:700}
+  .wage-back{background:var(--ink);color:#EDEAE0;transform:rotateY(180deg);border:1px solid var(--ink)}
+  .wage-back p{font-size:.82rem;line-height:1.5}
+  .wage-back .x{color:#F3B0A6;font-size:.74rem;display:block;margin-top:5px}
+  @media(max-width:600px){.wage-grid{grid-template-columns:1fr}.wage-card{height:92px}}
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:10px 0 4px}
+  .cmp-card{border-radius:13px;padding:17px 16px;border:1px solid var(--line);transition:transform .18s,box-shadow .18s}
+  .cmp-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(22,36,63,.08)}
+  .cmp-card.avg{background:linear-gradient(180deg,#F1F6FC,#fff)}
+  .cmp-card.ord{background:linear-gradient(180deg,#FBEEEB,#fff);border-color:#E6C3BB}
+  .cmp-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .cmp-ico{width:42px;height:42px;flex-shrink:0}
+  .cmp-head h4{font-family:var(--serif);font-size:1.16rem;font-weight:700;color:var(--ink)}
+  .cmp-card.ord .cmp-head h4{color:var(--stamp)}
+  .cmp-def{font-size:.83rem;color:var(--ink2);line-height:1.55;margin-bottom:12px}
+  .cmp-def b{color:var(--ink)}
+  .cmp-label{font-size:.68rem;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.05em}
+  .cmp-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .cmp-chip{font-size:.76rem;font-weight:600;padding:4px 11px;border-radius:16px;background:#fff;border:1.5px solid var(--line);color:var(--ink2);transition:.16s}
+  .cmp-card.avg .cmp-chip{border-color:#B9CDE5}
+  .cmp-card.ord .cmp-chip{border-color:#E0A99F;color:var(--stamp);font-weight:700}
+  .cmp-chip:hover{transform:translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,.08)}
+  @media(max-width:600px){.cmp-grid{grid-template-columns:1fr}}
+  .rx-item{border:1px solid var(--line);border-radius:11px;margin-bottom:9px;background:#fff;transition:.16s}
+  .rx-item[open]{border-color:var(--gold);box-shadow:0 3px 12px rgba(168,132,44,.10)}
+  .rx-sum{cursor:pointer;list-style:none;padding:13px 15px;display:flex;align-items:center;gap:11px}
+  .rx-sum::-webkit-details-marker{display:none}
+  .rx-num{flex-shrink:0;font-size:.67rem;font-weight:700;color:#fff;background:var(--gold);padding:3px 9px;border-radius:12px;white-space:nowrap}
+  .rx-title{font-weight:700;color:var(--ink);font-size:.95rem;flex:1}
+  .rx-sum::after{content:"+";color:var(--gold);font-weight:700;font-size:1.3rem;line-height:1;margin-left:4px}
+  .rx-item[open] .rx-sum::after{content:"\2013"}
+  .rx-body{padding:0 15px 14px 15px;font-size:.88rem;color:var(--ink2);line-height:1.6}
+  .rx-body b{color:var(--stamp)}
+  .rx-body .em{color:var(--ink);font-weight:700}
+  .reftbl tr.spot td{background:linear-gradient(90deg,#FBF0D4,#FCF8EC);border-color:#E8D49C}
+  .reftbl tr.spot td.k{color:var(--stamp);position:relative;box-shadow:inset 4px 0 0 var(--gold);animation:spotPulse 2.4s ease-in-out infinite}
+  @keyframes spotPulse{0%,100%{box-shadow:inset 4px 0 0 var(--gold)}50%{box-shadow:inset 4px 0 0 var(--stamp)}}
+  .spot-badge{display:inline-block;font-size:.64rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;margin-left:7px;vertical-align:2px;white-space:nowrap}
+  .reftbl tr.spot:hover td{background:linear-gradient(90deg,#FBEAC2,#FCF5E2)}
+  .totop{display:flex;justify-content:center;margin:32px 0 0}
+  .totop button{font-family:var(--sans);font-weight:700;font-size:.86rem;color:#EDEAE0;background:linear-gradient(180deg,#1F3357,#13233F);border:1.5px solid rgba(168,132,44,.55);border-radius:30px;padding:7px 20px 7px 8px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 14px rgba(17,32,58,.22);transition:.22s}
+  .totop button:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(17,32,58,.34);border-color:var(--gold);color:#fff}
+  .totop button .ar{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#11203A;display:grid;place-items:center;font-size:1.02rem;font-weight:900;line-height:1;transition:transform .25s}
+  .totop button:hover .ar{animation:bounceUp .7s ease infinite}
+  @keyframes bounceUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @media(prefers-reduced-motion:reduce){.totop button:hover .ar{animation:none}}
+  .lab-sign{margin:14px 0 8px;padding:16px 22px 14px;border-radius:16px;background:radial-gradient(120% 160% at 50% 0%,#1A2C4D 0%,#11203A 60%,#0D1A30 100%);text-align:center;position:relative;overflow:hidden;color:#EDEAE0}
+  .lab-stars span{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF2C8;box-shadow:0 0 6px 1px rgba(255,228,160,.85);opacity:.6;animation:twinkle 2.3s ease-in-out infinite}
+  .lab-stars span:nth-child(1){top:24%;left:11%;animation-delay:0s}
+  .lab-stars span:nth-child(2){top:34%;left:30%;animation-delay:.4s;width:2px;height:2px}
+  .lab-stars span:nth-child(3){top:66%;left:18%;animation-delay:1.1s}
+  .lab-stars span:nth-child(4){top:72%;left:38%;animation-delay:1.6s;width:2px;height:2px}
+  .lab-stars span:nth-child(5){top:20%;left:62%;animation-delay:2s}
+  .lab-stars span:nth-child(6){top:58%;left:70%;animation-delay:.8s;width:2px;height:2px}
+  .lab-stars span:nth-child(7){top:30%;left:88%;animation-delay:1.3s}
+  .lab-stars span:nth-child(8){top:74%;left:84%;animation-delay:.2s}
+  .lab-stars span:nth-child(9){top:46%;left:95%;animation-delay:1.9s;width:4px;height:4px}
+  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.55)}50%{opacity:1;transform:scale(1.45)}}
+  .lab-head{display:flex;align-items:center;justify-content:center;gap:13px;position:relative;z-index:1}
+  .lab-planet-wrap{position:relative;width:46px;height:46px;flex-shrink:0;animation:floaty 4.5s ease-in-out infinite}
+  .lab-planet{width:46px;height:46px;display:block}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .lab-sign:hover .lab-stars span{animation-duration:1s}
+  .lab-text{text-align:left}
+  .lab-name{font-family:var(--serif);font-weight:900;font-size:1.2rem;color:#fff;letter-spacing:.01em;line-height:1.2}
+  .lab-name .em{color:var(--gold)}
+  .lab-tag{font-size:.66rem;color:#9FB0CC;margin-top:2px;letter-spacing:.22em}
+  .lab-meta{font-size:.72rem;color:#7C8BA8;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);position:relative;z-index:1}
+  @media(prefers-reduced-motion:reduce){.lab-planet,.lab-stars span{animation:none}}
+  /* ===== 표준근로계약서 양식 ===== */
+  .ct-wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+  .ct-wrap > h3{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-bottom:4px}
+  .ct-wrap > .cap{font-size:.78rem;color:var(--muted);margin-bottom:12px}
+  .ct-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .ct-tools button{font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;border:1.5px solid var(--ink);background:#fff;color:var(--ink);padding:7px 13px;border-radius:8px;transition:.16s}
+  .ct-tools button:hover{background:#ECE6D7}
+  .ct-tools button.on{background:var(--ink);color:#fff}
+  .ct-paper{position:relative;background:#FCFBF6;border:1px solid #CFC8B6;border-radius:6px;padding:24px 24px 20px;box-shadow:0 2px 10px rgba(22,36,63,.07);overflow:hidden}
+  .ct-paper::before{content:"";position:absolute;inset:7px;border:1px solid #E3DCC9;border-radius:3px;pointer-events:none}
+  .ct-doc-title{font-family:var(--serif);font-weight:900;font-size:1.3rem;text-align:center;color:var(--ink);letter-spacing:.06em;position:relative;z-index:1}
+  .ct-doc-sub{text-align:center;font-size:.74rem;color:var(--muted);margin:2px 0 16px;position:relative;z-index:1}
+  .ct-intro{font-size:.82rem;color:var(--ink2);border-bottom:1.5px solid #DAD2BE;padding-bottom:12px;margin-bottom:6px;position:relative;z-index:1}
+  .ct-intro b{color:var(--ink)}
+  .ct-item{position:relative;z-index:1;border-bottom:1px dashed #DDD6C3}
+  .ct-item:last-of-type{border-bottom:none}
+  .ct-row{display:flex;gap:0;align-items:stretch;cursor:pointer;border-radius:4px;transition:background .15s}
+  .ct-row:hover{background:#F6F2E4}
+  .ct-chev{align-self:center;color:var(--gold);font-size:.78rem;font-weight:700;padding:0 2px 0 6px;transition:transform .2s;flex:none}
+  .ct-item.open .ct-chev{transform:rotate(180deg)}
+  .ct-detail{display:none;font-size:.8rem;color:var(--ink2);background:#F6F2E6;border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:9px 12px;margin:0 2px 11px 24px;line-height:1.58}
+  .ct-item.open .ct-detail{display:block;animation:feIn .25s ease}
+  .ct-detail b{color:var(--stamp)}
+  .ct-detail .ok{color:var(--ok);font-weight:700}
+  .ct-no{flex:none;width:24px;font-family:var(--serif);font-weight:700;color:var(--stamp);font-size:.86rem;padding:9px 0 9px 2px}
+  .ct-k{flex:none;width:118px;font-weight:700;color:var(--ink);font-size:.84rem;padding:9px 8px 9px 0;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+  .ct-v{flex:1;color:var(--ink2);font-size:.84rem;padding:9px 0;line-height:1.5}
+  .ct-v .fillin{display:inline-block;min-width:30px;border-bottom:1px solid #B7AE96;color:#9A917A;font-size:.8em;padding:0 6px;margin:0 2px}
+  .ct-v .pick{display:inline-block;font-size:.78rem;border:1px solid #C6BEA8;border-radius:4px;padding:1px 7px;margin:0 2px;color:var(--ink2)}
+  .ct-v .pick.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .ct-badge{display:inline-block;font-size:.62rem;font-weight:700;color:#fff;background:var(--gold);padding:1px 6px;border-radius:9px;white-space:nowrap;vertical-align:1px}
+  .ct-badge.give{background:var(--stamp)}
+  .ct-row.req{transition:background .25s,box-shadow .25s;border-radius:4px}
+  .ct-paper.showreq .ct-row.req{background:#FBF3DE;box-shadow:inset 3px 0 0 var(--gold)}
+  .ct-paper.showgive .ct-row.give{background:#FBE9E7;box-shadow:inset 3px 0 0 var(--stamp)}
+  .ct-sign{display:flex;justify-content:flex-end;gap:26px;margin-top:18px;padding-top:14px;border-top:1.5px solid #DAD2BE;position:relative;z-index:1;flex-wrap:wrap}
+  .ct-sign .s{font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:8px}
+  .ct-sign .s b{color:var(--ink)}
+  .ct-stamp{display:inline-grid;place-items:center;width:38px;height:38px;border:2px solid var(--stamp);color:var(--stamp);border-radius:50%;font-family:var(--serif);font-weight:700;font-size:.6rem;transform:rotate(-12deg);line-height:1.1;text-align:center;opacity:.85}
+  .void-box{margin-top:16px;background:linear-gradient(180deg,#FBEEEB,#FCF7F5);border:1px solid #E6C3BB;border-radius:12px;padding:16px 18px}
+  .void-box h4{font-family:var(--serif);font-size:1rem;color:var(--stamp);margin-bottom:3px;display:flex;align-items:center;gap:7px}
+  .void-box .vcap{font-size:.76rem;color:var(--muted);margin-bottom:11px}
+  .void-item{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #E8D0CB;border-radius:9px;padding:11px 13px;margin-bottom:8px}
+  .void-item:last-child{margin-bottom:0}
+  .void-clause{flex:1;font-size:.84rem;color:var(--ink2)}
+  .void-clause .strike{text-decoration:line-through;text-decoration-color:#D88;text-decoration-thickness:1.5px}
+  .void-clause b{color:var(--stamp);display:block;font-size:.72rem;font-weight:700;margin-top:3px}
+  .void-tag{flex:none;font-size:.62rem;font-weight:700;color:#fff;background:var(--stamp);padding:3px 8px;border-radius:9px;transform:rotate(-6deg);white-space:nowrap}
+  @media(max-width:560px){.ct-k{width:92px;font-size:.78rem}.ct-no{width:18px}.ct-v{font-size:.8rem}.ct-sign{justify-content:flex-start;gap:18px}}
+  /* ===== 권익 침해 유형 일러스트 / 구제 플로우 ===== */
+  .harm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:12px 0 6px}
+  @media(max-width:560px){.harm-grid{grid-template-columns:1fr}}
+  .harm-card{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:linear-gradient(180deg,#fff,#FBFAF5);transition:transform .16s,box-shadow .16s}
+  .harm-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(22,36,63,.08)}
+  .harm-ill{width:54px;height:54px;flex:none}
+  .harm-tx h5{font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin-bottom:2px}
+  .harm-tx p{font-size:.8rem;color:var(--ink2);line-height:1.45}
+  .harm-tx .ko{font-size:.66rem;font-weight:700;color:#fff;background:var(--gold);padding:1px 7px;border-radius:9px;display:inline-block;margin-bottom:4px}
+  .proc{margin:12px 0 4px}
+  .proc-flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+  .proc-step{flex:1;min-width:150px;background:linear-gradient(180deg,#1A2C4D,#11203A);color:#EDEAE0;border-radius:12px;padding:13px 14px;text-align:center}
+  .proc-step .pno{font-size:.66rem;color:#9FB0CC;font-weight:700;letter-spacing:.04em}
+  .proc-step .pic{width:34px;height:34px;margin:5px auto 6px;display:block}
+  .proc-step .pname{font-family:var(--serif);font-weight:700;font-size:1rem;color:#fff}
+  .proc-step .psub{font-size:.72rem;color:#B9C2D4;margin-top:3px}
+  .proc-arrow{align-self:center;color:var(--stamp);font-weight:900;font-size:1.4rem;flex:none}
+  @media(max-width:560px){.proc-arrow{transform:rotate(90deg);width:100%;text-align:center}.proc-step{min-width:0}}
+  .proc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+  .proc-tag{font-size:.74rem;font-weight:700;border:1.5px solid var(--line);border-radius:16px;padding:4px 11px;background:#fff;color:var(--ink2)}
+  .proc-tag b{color:var(--stamp)}
+  /* ===== 초단시간 근로자 인터랙티브 ===== */
+  .short-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+  .short-ill{width:72px;height:72px;flex:none}
+  .short-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+  .short-toggle button{font-family:var(--sans);font-weight:700;font-size:.85rem;padding:9px 18px;background:#fff;color:var(--ink);border:none;cursor:pointer;line-height:1.2;text-align:center;transition:.16s}
+  .short-toggle button small{display:block;font-size:.66rem;font-weight:500;color:var(--muted);margin-top:2px}
+  .short-toggle button.on{background:var(--ink);color:#fff}
+  .short-toggle button.on small{color:#C9D2E2}
+  .short-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:560px){.short-grid{grid-template-columns:1fr}}
+  .si{border:1px solid var(--line);border-radius:11px;padding:11px 12px;display:flex;align-items:center;gap:9px;background:#fff;transition:background .3s,border-color .3s}
+  .si .si-nm{flex:1;font-size:.84rem;font-weight:700;color:var(--ink);line-height:1.3}
+  .si .si-nm small{display:block;font-size:.66rem;font-weight:500;color:var(--muted)}
+  .si .si-stat{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:.92rem;transition:.3s;background:#ccc;color:#fff}
+  .si.ok{background:var(--okbg);border-color:#A9D2BC}
+  .si.ok .si-stat{background:var(--ok)}
+  .si.no{background:var(--wrongbg);border-color:#E2B6AE}
+  .si.no .si-stat{background:var(--stamp)}
+  .si.always{background:#F4F6FA;border-color:#C7D2E2}
+  .si.always .si-stat{background:var(--ink)}
+  .si.always .si-nm small{color:#6E7C95}
+  .si.cond{background:#FBF1DC;border-color:#E3C98A}
+  .si.cond .si-stat{background:#C2710E}
+  .si.cond .si-nm small{color:#9A6A22}
+  @keyframes pop{0%{transform:scale(.55)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+  .si.flash .si-stat{animation:pop .36s ease}
+  .short-note{margin-top:13px;font-size:.84rem;color:var(--ink2);background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 13px;line-height:1.55;transition:.2s}
+  .short-note b{color:var(--stamp)}
+  .short-label{display:inline-block;font-family:var(--serif);font-weight:700;font-size:.92rem;color:var(--ink);margin:2px 0 8px;padding:3px 12px;border-radius:20px;border:1.5px dashed var(--gold);background:#FCF8EC}
+  /* ===== 간접 고용 관계도 ===== */
+  .ig-tools{display:inline-flex;border:1.5px solid var(--ink);border-radius:9px;overflow:hidden;margin:4px 0 14px}
+  .ig-tools button{font-family:var(--sans);font-weight:700;font-size:.85rem;padding:8px 22px;background:#fff;color:var(--ink);border:none;border-right:1px solid var(--line);cursor:pointer;transition:.16s}
+  .ig-tools button:last-child{border-right:none}
+  .ig-tools button.on{background:var(--ink);color:#fff}
+  .ig-stage{background:#FCFBF6;border:1px solid #CFC8B6;border-radius:12px;padding:10px 8px 6px}
+  .ig-stage svg{width:100%;height:auto;display:block}
+  .ig-tip{margin-top:11px;background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:11px 14px;font-size:.9rem;color:var(--ink2);line-height:1.55}
+  .ig-tip b{color:var(--stamp)}
+  .ig-tip .hd{font-family:var(--serif);font-weight:700;color:var(--ink);margin-right:4px}
+  .ig-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:11px;font-size:.78rem;color:var(--ink2)}
+  .ig-legend span{display:inline-flex;align-items:center;gap:6px}
+  .ig-legend i{width:22px;border-top-width:3px;border-top-style:solid;display:inline-block}
+  .ig-legend i.emp{border-color:#2E7D5B}
+  .ig-legend i.cmd{border-color:#B23A2E}
+  .ig-legend i.no{border-color:#AA9988;border-top-style:dashed}
+  /* ===== 기간제 → 무기계약 전환 ===== */
+  .ot-flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:10px 0 8px}
+  .ot-box{flex:1;min-width:128px;border:1.5px solid var(--line);border-radius:11px;padding:12px;text-align:center;background:#fff}
+  .ot-box .y{font-size:.7rem;color:var(--muted);font-weight:700}
+  .ot-box .n{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:.98rem;margin-top:3px}
+  .ot-box.res{background:linear-gradient(180deg,#E9F4EE,#fff);border-color:#9CCBAF}
+  .ot-box.res .n{color:var(--ok)}
+  .ot-arrow{align-self:center;color:var(--gold);font-weight:900;font-size:1.35rem;flex:none;text-align:center}
+  .ot-arrow small{display:block;font-family:var(--sans);font-size:.62rem;color:var(--stamp);font-weight:700;white-space:nowrap}
+  @media(max-width:600px){.ot-arrow{transform:rotate(90deg);width:100%}}
+  .ot-note{font-size:.84rem;color:var(--ink2);background:#FBF3DE;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 13px;margin:6px 0 14px;line-height:1.55}
+  .ot-note b{color:var(--stamp)}
+  .ot-exc-h{font-weight:700;color:var(--stamp);margin:4px 0 9px;font-size:.95rem;display:flex;align-items:center;gap:7px}
+  .ot-exc{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  @media(max-width:600px){.ot-exc{grid-template-columns:1fr}}
+  .ot-card{border:1px solid #E2B0A8;border-radius:12px;padding:14px 13px;background:linear-gradient(180deg,#FBEEEB,#fff);text-align:center;display:flex;flex-direction:column;align-items:center}
+  .ot-card .oic{width:42px;height:42px;margin-bottom:5px}
+  .ot-card h5{font-family:var(--serif);font-size:1rem;color:var(--ink);margin:1px 0 5px}
+  .ot-card p{font-size:.77rem;color:var(--ink2);line-height:1.45;flex:1}
+  .ot-card .xb{margin-top:9px;font-size:.7rem;font-weight:700;color:#fff;background:var(--stamp);padding:3px 11px;border-radius:14px}
+
+  /* ===== 18강 전용 ===== */
+  .sgn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 4px}
+  @media(max-width:640px){.sgn-grid{grid-template-columns:repeat(2,1fr)}}
+  .sgn{border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#fff,#FBFAF5);padding:14px 10px 12px;text-align:center;cursor:pointer;transition:transform .16s,box-shadow .16s,border-color .16s}
+  .sgn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(22,36,63,.10)}
+  .sgn.on{border-color:var(--gold);box-shadow:0 6px 18px rgba(168,132,44,.18)}
+  .sgn svg{width:66px;height:66px;display:block;margin:0 auto 7px}
+  .sgn .nm{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1rem}
+  .sgn .hint{font-size:.7rem;color:var(--muted);margin-top:2px}
+  .sgn-info{margin-top:12px;background:#FBF8F0;border:1px solid #ECDFC4;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:13px 15px;font-size:.87rem;color:var(--ink2);line-height:1.6;min-height:64px}
+  .sgn-info b{color:var(--stamp)}
+  .sgn-info .hd{font-family:var(--serif);font-weight:700;color:var(--ink);display:block;margin-bottom:4px}
+  .dom-stage{position:relative;background:radial-gradient(120% 150% at 50% 0%,#1F3357 0%,#16243F 55%,#101C33 100%);border:1px solid #2A3C5E;border-radius:16px;padding:22px 14px 14px;margin:12px 0 6px;overflow:hidden}
+  .dom-stage::after{content:"";position:absolute;left:6%;right:6%;bottom:64px;height:2px;background:linear-gradient(90deg,transparent,rgba(168,132,44,.55),transparent)}
+  .dom-legend{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:6px;position:relative;z-index:1}
+  .dom-legend span{font-size:.68rem;font-weight:700;padding:3px 11px;border-radius:13px;border:1px solid}
+  .dom-legend .lg1{color:#9FB0CC;border-color:#3B4D6B;background:rgba(255,255,255,.05)}
+  .dom-legend .lg2{color:#FFC9C0;border-color:#8A3A30;background:rgba(178,58,46,.22)}
+  .dom-legend .lg3{color:#EAD9A6;border-color:#7A6220;background:rgba(168,132,44,.18)}
+  .dom-row{display:flex;align-items:flex-end;justify-content:center;gap:9px;flex-wrap:nowrap;overflow-x:auto;padding:16px 4px 10px;position:relative;z-index:1}
+  .dom{flex:0 0 auto;width:106px;height:124px;border-radius:11px;border:1.5px solid rgba(255,255,255,.28);background:linear-gradient(180deg,#FFFFFF,#EDE7D8);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;padding:11px 8px 9px;transition:transform .45s cubic-bezier(.3,.9,.4,1),opacity .35s,background .25s,box-shadow .2s,border-color .2s;transform-origin:bottom left;position:relative;box-shadow:0 6px 14px rgba(0,0,0,.28)}
+  .dom .dn{font-size:.6rem;font-weight:700;color:#fff;background:var(--ink);border-radius:10px;padding:2px 9px;letter-spacing:.02em}
+  .dom .de{font-size:1.45rem;line-height:1;transition:transform .28s cubic-bezier(.3,1.4,.5,1)}
+  .dom:hover .de{transform:scale(1.16) rotate(-6deg)}
+  .dom .dt{font-size:.73rem;font-weight:700;color:var(--ink);text-align:center;line-height:1.32;word-break:keep-all}
+  .dom:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:var(--gold)}
+  .dom.g3{background:linear-gradient(180deg,#FFF3F1,#F6DED9);border-color:#D9A79E}
+  .dom.g3 .dn{background:var(--stamp)}
+  .dom.g3 .dt{color:#7A2B23}
+  .dom.g3::before{content:"직접 원인";position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:.58rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:10px;white-space:nowrap;box-shadow:0 3px 8px rgba(178,58,46,.4)}
+  .dom.gr{background:linear-gradient(180deg,#F5F7FA,#E2E6ED)}
+  .dom.gr .dn{background:#3B4D6B}
+  .dom.removed{opacity:.22;transform:scale(.84);background:#3A465E;border-style:dashed;border-color:#5B6A87;box-shadow:none}
+  .dom.removed .dt,.dom.removed .dn,.dom.removed .de{opacity:.5}
+  .dom.removed::before{display:none}
+  .dom.fallen{transform:rotate(-74deg) translateY(3px);background:linear-gradient(180deg,#FBEAE7,#EFCFC9);border-color:var(--stamp);box-shadow:0 3px 10px rgba(0,0,0,.3)}
+  .dom.fallen .dn{background:var(--stamp)}
+  .dom-msg{text-align:center;font-size:.86rem;font-weight:700;color:#EDEAE0;margin-top:16px;min-height:24px;position:relative;z-index:1;line-height:1.5;padding:0 6px}
+  .dom-msg.stop{color:#8FE0B8}
+  .dom-msg.boom{color:#FFB0A4}
+  .dom-tools{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap;position:relative;z-index:1}
+  .dom-tools button{font-family:var(--sans);font-weight:700;font-size:.81rem;cursor:pointer;border:1.5px solid rgba(168,132,44,.6);background:rgba(255,255,255,.06);color:#EDEAE0;padding:8px 16px;border-radius:9px;transition:.16s}
+  .dom-tools button:hover{background:var(--gold);border-color:var(--gold);color:#11203A;transform:translateY(-2px)}
+  /* 시험 포인트 카드 */
+  .dpt{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+  @media(max-width:640px){.dpt{grid-template-columns:1fr}}
+  .dpt-c{border-radius:13px;padding:14px 15px;border:1.5px solid #E6C3BB;background:linear-gradient(180deg,#FBEEEB,#FDFAF9)}
+  .dpt-c.b{border-color:#C9DAEC;background:linear-gradient(180deg,#F3F7FC,#FCFDFE)}
+  .dpt-c h6{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-size:.93rem;color:var(--stamp);margin-bottom:7px}
+  .dpt-c.b h6{color:#1B4E86}
+  .dpt-c p{font-size:.83rem;color:var(--ink2);line-height:1.62}
+  .dpt-c p b{color:var(--stamp)}
+  .dpt-c.b p b{color:#1B4E86}
+  .ratio{margin-top:14px;border-radius:13px;border:1.5px solid var(--line);background:linear-gradient(180deg,#FFF,#FAF8F2);padding:14px 15px}
+  .ratio h6{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-size:.93rem;color:var(--ink);margin-bottom:10px}
+  .ratio-bar{display:flex;height:30px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .ratio-bar i{display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;font-style:normal;white-space:nowrap;transition:filter .18s}
+  .ratio-bar i:hover{filter:brightness(1.12)}
+  .ratio-bar .r1{width:88%;background:linear-gradient(180deg,#C24A3C,#A83226)}
+  .ratio-bar .r2{width:10%;background:linear-gradient(180deg,#C2710E,#9A5A0A);font-size:.66rem}
+  .ratio-bar .r3{width:2%;background:#7C7768}
+  .ratio-lg{display:flex;gap:14px;flex-wrap:wrap;margin-top:9px;font-size:.75rem;color:var(--ink2)}
+  .ratio-lg span{display:inline-flex;align-items:center;gap:6px}
+  .ratio-lg i{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .ratio-note{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);font-size:.78rem;color:var(--ink2);line-height:1.6}
+  .ratio-note b{color:var(--stamp)}
+  .kind-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 4px}
+  .kind-div{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin:6px 0 2px}
+  .kind-div::before,.kind-div::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .kind-div span{font-family:var(--serif);font-weight:700;font-size:.82rem;color:var(--gold);white-space:nowrap;background:#FBF6E9;border:1px solid #EADFC2;border-radius:14px;padding:4px 14px}
+  @media(max-width:640px){.kind-list{grid-template-columns:1fr}}
+  .kind{position:relative;border:1.5px solid var(--line);border-radius:15px;background:linear-gradient(180deg,#FFFFFF 0%,#FAF8F2 100%);padding:15px 16px 14px 16px;cursor:pointer;overflow:hidden;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,border-color .2s,background .3s}
+  .kind::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),#D8C386);opacity:.55;transition:.3s}
+  .kind:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 24px rgba(22,36,63,.11)}
+  .kind:hover::before{opacity:1}
+  .kind-hd{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .kind-no{flex:none;width:23px;height:23px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--sans);font-size:.66rem;font-weight:700}
+  .kind-emo{font-size:1.5rem;line-height:1;flex:none;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
+  .kind:hover .kind-emo{transform:scale(1.15) rotate(-6deg)}
+  .kind.open .kind-emo{transform:scale(1.18)}
+  .kind .cs{font-size:.855rem;color:var(--ink2);line-height:1.62}
+  .kind .cs b{color:var(--ink)}
+  .kind .hintk{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:.7rem;font-weight:700;color:var(--gold);background:#FBF6E9;border:1px solid #EADFC2;border-radius:14px;padding:3px 11px;transition:.2s}
+  .kind:hover .hintk{background:var(--gold);border-color:var(--gold);color:#fff}
+  .kind.open .hintk{display:none}
+  .kind .ansline{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed #C9DDD2;font-size:.83rem;color:var(--ink2);line-height:1.62}
+  .kind.open{border-color:var(--ok);background:linear-gradient(180deg,#F2FAF6 0%,#FBFDFC 100%);box-shadow:0 6px 20px rgba(46,125,91,.13)}
+  .kind.open::before{background:linear-gradient(180deg,var(--ok),#4E9E7C);opacity:1}
+  .kind.open .kind-no{background:var(--ok)}
+  .kind.open .ansline{display:block;animation:kindIn .32s cubic-bezier(.2,.8,.2,1)}
+  @keyframes kindIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .kind .tagk{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--ok),#3F8F6C);padding:5px 13px;border-radius:15px;margin-bottom:8px;box-shadow:0 3px 10px rgba(46,125,91,.28)}
+  .kind .tagk::before{content:"✓";font-size:.8rem}
+  .kind .ansline b{color:var(--ok)}
+  .kind .why{display:block;margin-top:2px}
+  .cd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin:10px 0 4px}
+  @media(max-width:600px){.cd-grid{grid-template-columns:1fr}}
+  .mdbox{border:1px solid #E6C3BB;background:linear-gradient(180deg,#FBEEEB,#FCF9F7);border-radius:12px;padding:14px 16px;margin:12px 0 4px}
+  .mdbox h5{font-family:var(--serif);font-size:1rem;color:var(--stamp);margin-bottom:7px;display:flex;align-items:center;gap:7px}
+  .mdbox ul{margin:0 0 0 4px;list-style:none}
+  .mdbox li{font-size:.86rem;color:var(--ink2);line-height:1.6;padding-left:16px;position:relative}
+  .mdbox li::before{content:"▪";position:absolute;left:0;color:var(--stamp)}
+  .mdbox li b{color:var(--stamp)}
+  .srcbadge{display:inline-block;font-size:.63rem;font-weight:700;padding:2px 8px;border-radius:11px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+  .srcbadge.book{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+  .srcbadge.law{background:#FBE9E7;color:var(--stamp);border:1.5px solid var(--stamp)}
+
+  /* ===== 산재 급여 판정소 ===== */
+  .cs-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+  .cs-pill{font-size:.72rem;font-weight:700;color:#fff;background:var(--ink);padding:4px 12px;border-radius:14px;white-space:nowrap}
+  .cs-pill.sc{background:var(--gold)}
+  .cs-track{flex:1;min-width:110px;height:8px;background:#E4DFD2;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .cs-track > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ink),var(--gold));transition:width .45s cubic-bezier(.2,.8,.2,1)}
+  .cs-story{background:linear-gradient(180deg,#FCFBF6,#F7F4EA);border:1px solid #CFC8B6;border-left:5px solid var(--ink);border-radius:0 12px 12px 0;padding:16px 18px;position:relative;min-height:96px}
+  .cs-story .who{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .cs-story .emo{font-size:1.9rem;line-height:1;filter:saturate(.95)}
+  .cs-story .ttl{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.06rem}
+  .cs-story .src{font-size:.68rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 9px;border-radius:11px;margin-left:auto;white-space:nowrap}
+  .cs-story p{font-size:.9rem;color:var(--ink2);line-height:1.65}
+  .cs-story p b{color:var(--ink)}
+  .cs-ask{margin:13px 0 7px;font-size:.84rem;font-weight:700;color:var(--stamp)}
+  .cs-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .cs-chip{font-family:var(--sans);font-size:.83rem;font-weight:700;color:var(--ink2);background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:8px 14px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:6px}
+  .cs-chip .ce{font-size:1rem;line-height:1}
+  .cs-chip:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .cs-chip.sel{background:var(--ink);border-color:var(--ink);color:#fff}
+  .cs-chip.hit{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:0 3px 12px rgba(46,125,91,.3)}
+  .cs-chip.miss{background:#fff;border-color:var(--gold);color:var(--gold);border-style:dashed;animation:pulseMiss 1.1s ease-in-out 2}
+  .cs-chip.bad{background:var(--stamp);border-color:var(--stamp);color:#fff;animation:shake .35s}
+  @keyframes pulseMiss{0%,100%{box-shadow:0 0 0 0 rgba(168,132,44,.45)}50%{box-shadow:0 0 0 7px rgba(168,132,44,0)}}
+  .cs-chip.lock{pointer-events:none}
+  .cs-tools{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}
+  .cs-tools button{font-family:var(--sans);font-weight:700;font-size:.83rem;cursor:pointer;border:1.5px solid var(--ink);background:var(--ink);color:#fff;padding:8px 16px;border-radius:8px;transition:.16s}
+  .cs-tools button.gh{background:transparent;color:var(--ink)}
+  .cs-tools button.gh:hover{background:var(--ink);color:#fff}
+  .cs-tools button:disabled{opacity:.35;cursor:default}
+  .cs-fb{display:none;margin-top:12px;border-radius:0 12px 12px 0;padding:13px 16px;font-size:.87rem;line-height:1.62}
+  .cs-fb.show{display:block;animation:feIn .3s ease}
+  .cs-fb.ok{background:var(--okbg);border-left:4px solid var(--ok);color:#22513C}
+  .cs-fb.no{background:var(--wrongbg);border-left:4px solid var(--stamp);color:#6E2A22}
+  .cs-fb .fh{font-family:var(--serif);font-weight:700;display:block;margin-bottom:5px}
+  .cs-fb b{color:var(--stamp)}
+  .cs-fb.ok b{color:var(--ok)}
+  .cs-done{text-align:center;padding:22px 14px}
+  .cs-done .big{font-family:var(--serif);font-weight:900;font-size:1.6rem;color:var(--ink)}
+  .cs-done .sm{font-size:.86rem;color:var(--ink2);margin-top:6px}
+
+  /* ===== 중대 재해 판정기 ===== */
+  .mj{background:linear-gradient(180deg,#FCFBF6,#F7F4EA);border:1px solid #CFC8B6;border-radius:14px;padding:16px 16px 14px;margin:10px 0 6px}
+  .mj-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px dashed #DDD6C3}
+  .mj-row:first-of-type{border-top:none}
+  .mj-emo{font-size:1.75rem;line-height:1;flex:none;width:38px;text-align:center;transition:transform .25s}
+  .mj-row.on .mj-emo{transform:scale(1.22)}
+  .mj-lb{flex:1;min-width:0}
+  .mj-lb .t{font-weight:700;color:var(--ink);font-size:.9rem}
+  .mj-lb .s{font-size:.72rem;color:var(--muted);margin-top:1px}
+  .mj-step{display:flex;align-items:center;gap:6px;flex:none}
+  .mj-step button{width:30px;height:30px;border-radius:8px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-weight:900;font-size:1.05rem;line-height:1;cursor:pointer;transition:.14s}
+  .mj-step button:hover{background:var(--ink);color:#fff}
+  .mj-step .v{min-width:46px;text-align:center;font-family:var(--serif);font-weight:900;font-size:1.15rem;color:var(--ink)}
+  .mj-row.on .mj-step .v{color:var(--stamp)}
+  .mj-chips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 0}
+  .mj-chip{font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:16px;border:1.5px dashed var(--line);color:var(--muted);background:#fff;transition:.2s}
+  .mj-chip.hit{border-style:solid;border-color:var(--stamp);background:#FBE9E7;color:var(--stamp);box-shadow:0 3px 10px rgba(178,58,46,.18)}
+  .mj-out{margin-top:13px;border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:13px;transition:.25s}
+  .mj-out.no{background:var(--okbg);border:1.5px solid var(--ok)}
+  .mj-out.yes{background:var(--wrongbg);border:1.5px solid var(--stamp);animation:mjPop .4s ease}
+  @keyframes mjPop{0%{transform:scale(.96)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
+  .mj-out .ico{font-size:2rem;line-height:1;flex:none}
+  .mj-out .vd{font-family:var(--serif);font-weight:900;font-size:1.12rem}
+  .mj-out.no .vd{color:#22513C}
+  .mj-out.yes .vd{color:var(--stamp)}
+  .mj-out .rs{font-size:.82rem;color:var(--ink2);margin-top:3px;line-height:1.5}
+  .mj-pre{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+  .mj-pre button{font-family:var(--sans);font-size:.76rem;font-weight:700;color:var(--ink2);background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:6px 12px;cursor:pointer;transition:.16s}
+  .mj-pre button:hover{border-color:var(--gold);color:var(--ink);transform:translateY(-2px)}
+  @media(max-width:560px){.mj-lb .s{display:none}.mj-emo{width:30px;font-size:1.5rem}}
+
+  /* ===== 산재 신청 절차 순서 맞추기 ===== */
+  .fl-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+  .fl-track{min-height:74px;background:linear-gradient(180deg,#F7F4EA,#FCFBF6);border:1.5px dashed var(--line);border-radius:12px;padding:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;transition:border-color .2s}
+  .fl-track.full{border-style:solid;border-color:var(--ok);background:linear-gradient(180deg,#EFF7F2,#FBFDFC)}
+  .fl-track .ph{color:var(--muted);font-size:.82rem;align-self:center;padding:8px 4px}
+  .fl-pool{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+  .fl-c{flex:1 1 150px;min-width:140px;background:linear-gradient(180deg,#1A2C4D,#11203A);color:#EDEAE0;border:1.5px solid rgba(168,132,44,.35);border-radius:12px;padding:12px 12px 11px;text-align:center;cursor:pointer;transition:transform .18s,box-shadow .18s,opacity .25s}
+  .fl-c:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(17,32,58,.28);border-color:var(--gold)}
+  .fl-c .fe{font-size:1.6rem;line-height:1;display:block;margin-bottom:5px}
+  .fl-c .fn{font-family:var(--serif);font-weight:700;font-size:.96rem;color:#fff;line-height:1.3}
+  .fl-c .fs{font-size:.71rem;color:#B9C2D4;margin-top:4px;display:none}
+  .fl-c.shake{animation:shake .35s;border-color:var(--stamp);background:linear-gradient(180deg,#7A2B23,#5A1F19)}
+  .fl-c.gone{display:none}
+  .fl-track .fl-c{cursor:default;flex:1 1 150px;background:linear-gradient(180deg,#1F6B45,#175134);border-color:rgba(255,255,255,.22);animation:mjPop .35s ease}
+  .fl-track .fl-c:hover{transform:none;box-shadow:none;border-color:rgba(255,255,255,.22)}
+  .fl-track .fl-c .fs{display:block;color:#CDE7DA}
+  .fl-track .fl-c .bd{display:inline-block;font-size:.64rem;font-weight:700;color:#175134;background:#EAD9A6;border-radius:11px;padding:2px 9px;margin-bottom:5px}
+  .fl-msg{margin-top:11px;font-size:.85rem;font-weight:700;color:var(--ink);min-height:22px}
+  .fl-msg.no{color:var(--stamp)}
+  .fl-msg.ok{color:var(--ok)}
+  .fl-tools{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .fl-tools button{font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;border:1.5px solid var(--ink);background:#fff;color:var(--ink);padding:7px 14px;border-radius:8px;transition:.16s}
+  .fl-tools button:hover{background:var(--ink);color:#fff}
+
+  /* ===== 두 법 비교 토글 ===== */
+  .lw-tabs{display:inline-flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;margin:10px 0 12px}
+  .lw-tabs button{font-family:var(--sans);font-weight:700;font-size:.82rem;padding:8px 15px;background:#fff;color:var(--ink);border:none;cursor:pointer;transition:.18s;display:inline-flex;align-items:center;gap:6px}
+  .lw-tabs button.on{background:var(--ink);color:#fff}
+  .lw-panel{border-radius:14px;padding:16px 18px;transition:.25s;border:1.5px solid}
+  .lw-panel.a{background:linear-gradient(180deg,#F4F7FC,#FCFDFE);border-color:#B9CDE5}
+  .lw-panel.b{background:linear-gradient(180deg,#FBEEEB,#FDF9F8);border-color:#E6C3BB}
+  .lw-hd{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+  .lw-hd .ic{font-size:1.6rem;line-height:1}
+  .lw-hd .nm{font-family:var(--serif);font-weight:900;font-size:1.1rem;color:var(--ink)}
+  .lw-panel.b .lw-hd .nm{color:var(--stamp)}
+  .lw-hd .tag{font-size:.66rem;font-weight:700;color:#fff;background:var(--ink);padding:2px 9px;border-radius:11px;margin-left:auto}
+  .lw-panel.b .lw-hd .tag{background:var(--stamp)}
+  .lw-goal{font-size:.8rem;color:var(--ink2);margin-bottom:10px}
+  .lw-list{list-style:none}
+  .lw-list li{font-size:.87rem;color:var(--ink2);line-height:1.6;padding:7px 0 7px 30px;position:relative;border-top:1px dashed rgba(0,0,0,.09)}
+  .lw-list li:first-child{border-top:none}
+  .lw-list li .e{position:absolute;left:0;top:6px;font-size:1.05rem}
+  .lw-list li b{color:var(--stamp)}
+  .lw-panel.a .lw-list li b{color:#1B4E86}
+  .lw-foot{margin-top:11px;padding-top:9px;border-top:1.5px solid rgba(0,0,0,.08);font-size:.78rem;color:var(--muted)}
+  .lw-foot b{color:var(--ink)}
+  /* ===== 기관 매칭 ===== */
+  .ag-q{background:linear-gradient(180deg,#FCFBF6,#F7F4EA);border:1px solid #CFC8B6;border-left:5px solid var(--ink);border-radius:0 12px 12px 0;padding:14px 16px;min-height:64px}
+  .ag-q .t{display:flex;align-items:center;gap:10px}
+  .ag-q .em{font-size:1.6rem;line-height:1}
+  .ag-q .tx{font-size:.92rem;color:var(--ink);font-weight:700;line-height:1.5}
+  .ag-opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .ag-opt{font-family:var(--sans);font-size:.82rem;font-weight:700;color:var(--ink2);background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:8px 14px;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:6px}
+  .ag-opt:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .ag-opt.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+  .ag-opt.bad{background:var(--stamp);border-color:var(--stamp);color:#fff;animation:shake .35s}
+  .ag-opt.lock{pointer-events:none}
+  .ag-fb{display:none;margin-top:11px;font-size:.85rem;line-height:1.6;padding:11px 14px;border-radius:0 10px 10px 0}
+  .ag-fb.show{display:block;animation:feIn .3s ease}
+  .ag-fb.ok{background:var(--okbg);border-left:4px solid var(--ok);color:#22513C}
+  .ag-fb.no{background:var(--wrongbg);border-left:4px solid var(--stamp);color:#6E2A22}
+  .ag-fb b{color:var(--stamp)}
+  .ag-fb.ok b{color:var(--ok)}
+
+  /* ===== 5단계 스트립 · 혼동 주의 카드 ===== */
+  .stp{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0 4px}
+  @media(max-width:700px){.stp{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:400px){.stp{grid-template-columns:1fr}}
+  .stp-c{position:relative;border-radius:13px;padding:13px 10px 12px;text-align:center;background:linear-gradient(180deg,#FFFFFF,#FAF8F2);border:1.5px solid var(--line);transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,border-color .2s}
+  .stp-c:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(22,36,63,.12);border-color:var(--gold)}
+  .stp-c .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:.66rem;font-weight:700;margin-bottom:6px}
+  .stp-c .e{display:block;font-size:1.45rem;line-height:1;margin-bottom:5px;transition:transform .28s cubic-bezier(.3,1.4,.5,1)}
+  .stp-c:hover .e{transform:scale(1.18) rotate(-5deg)}
+  .stp-c .nm{display:block;font-family:var(--serif);font-weight:700;font-size:.87rem;color:var(--ink);line-height:1.3;min-height:2.6em;display:flex;align-items:center;justify-content:center}
+  .stp-c .vb{display:inline-block;margin-top:7px;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:13px;background:#F1F5FA;color:#1B4E86;border:1px solid #C9DAEC}
+  .stp-c.hot{border-color:var(--stamp);background:linear-gradient(180deg,#FDF4F2,#FFFDFC)}
+  .stp-c.hot .n{background:var(--stamp)}
+  .stp-c.hot .vb{background:#FBE9E7;color:var(--stamp);border-color:#E6C3BB}
+  .stp-c .flag{position:absolute;top:-8px;right:-6px;font-size:.6rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;box-shadow:0 3px 8px rgba(178,58,46,.3)}
+  .swp{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+  @media(max-width:620px){.swp{grid-template-columns:1fr}}
+  .swp-c{border-radius:13px;padding:14px 15px;border:1.5px solid #E6C3BB;background:linear-gradient(180deg,#FBEEEB,#FDFAF9)}
+  .swp-c.good{border-color:#B9CDE5;background:linear-gradient(180deg,#F2F7FC,#FBFDFE)}
+  .swp-c h6{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-size:.94rem;color:var(--stamp);margin-bottom:9px}
+  .swp-c.good h6{color:#1B4E86}
+  .swp-line{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink2);padding:6px 0;border-top:1px dashed rgba(0,0,0,.09);line-height:1.5}
+  .swp-line:first-of-type{border-top:none}
+  .swp-line .mk{flex:none;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;font-size:.68rem;font-weight:900;color:#fff}
+  .swp-line .mk.x{background:var(--stamp)}
+  .swp-line .mk.o{background:var(--ok)}
+  .swp-line b{color:var(--ink)}
+  .prin{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px}
+  @media(max-width:620px){.prin{grid-template-columns:1fr}}
+  .prin-c{border-radius:13px;padding:14px 15px;background:linear-gradient(180deg,#FBF6E9,#FEFCF7);border:1.5px solid #EADFC2;transition:transform .18s,box-shadow .18s}
+  .prin-c:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(168,132,44,.15)}
+  .prin-c .hd{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+  .prin-c .hd .e{font-size:1.35rem;line-height:1}
+  .prin-c .hd .t{font-family:var(--serif);font-weight:700;font-size:.98rem;color:var(--gold)}
+  .prin-c p{font-size:.83rem;color:var(--ink2);line-height:1.6}
+  .prin-c p b{color:var(--ink)}
+  .prin-c .key{display:block;margin-top:7px;font-size:.74rem;font-weight:700;color:var(--stamp)}
+
+  /* ===== 장해등급별 지급 형태 보충 ===== */
+  .gbox{margin-top:11px;border:1px solid #C9DAEC;border-left:4px solid #1B4E86;border-radius:0 10px 10px 0;background:linear-gradient(180deg,#F4F8FC,#FCFDFE);padding:11px 13px 10px}
+  .gbox .gh{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-weight:700;font-size:.86rem;color:#1B4E86;margin-bottom:8px;flex-wrap:wrap}
+  .gbox .gh .bg{font-size:.6rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;margin-left:auto;white-space:nowrap}
+  .grade-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+  @media(max-width:620px){.grade-strip{grid-template-columns:1fr}}
+  .gr{border-radius:10px;padding:9px 10px;text-align:center;border:1.5px solid;background:#fff;transition:transform .18s,box-shadow .18s}
+  .gr:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(22,36,63,.1)}
+  .gr .lv{font-family:var(--serif);font-weight:900;font-size:.92rem;display:block}
+  .gr .em{font-size:1.15rem;display:block;margin-bottom:2px}
+  .gr .fm{font-size:.73rem;font-weight:700;margin-top:4px;display:block}
+  .gr .ex{font-size:.66rem;color:var(--muted);margin-top:3px;display:block;line-height:1.4}
+  .gr.p1{border-color:#B23A2E}.gr.p1 .lv{color:#B23A2E}.gr.p1 .fm{color:#B23A2E}
+  .gr.p2{border-color:#A8842C}.gr.p2 .lv{color:#A8842C}.gr.p2 .fm{color:#A8842C}
+  .gr.p3{border-color:#2E7D5B}.gr.p3 .lv{color:#2E7D5B}.gr.p3 .fm{color:#2E7D5B}
+  .gbox .gnote{margin-top:9px;padding-top:8px;border-top:1px dashed #C9DAEC;font-size:.75rem;color:var(--ink2);line-height:1.6}
+  .gbox .gnote b{color:#1B4E86}
+  .gbox .gnote .ln{display:block;padding-left:15px;position:relative;margin-top:3px}
+  .gbox .gnote .ln::before{content:"▪";position:absolute;left:2px;color:#1B4E86}
+  .gbox .gsrc{margin-top:7px;font-size:.68rem;color:var(--muted);font-style:italic}
+
+  /* ===== 특별 급여 중복 수급 ===== */
+  .dup{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:12px 0 4px}
+  @media(max-width:720px){.dup{grid-template-columns:1fr;gap:8px}.dup .dup-ar{transform:rotate(90deg);justify-self:center}}
+  .dup-box{border-radius:13px;padding:13px 14px;border:1.5px solid}
+  .dup-box.cond{background:linear-gradient(180deg,#FBEEEB,#FDFAF9);border-color:#E6C3BB}
+  .dup-box.res{background:linear-gradient(180deg,#EFF7F2,#FBFDFC);border-color:#9FCDB6}
+  .dup-box h6{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-size:.9rem;margin-bottom:9px}
+  .dup-box.cond h6{color:var(--stamp)}
+  .dup-box.res h6{color:var(--ok)}
+  .dup-it{display:flex;align-items:center;gap:8px;font-size:.83rem;color:var(--ink2);padding:6px 0;border-top:1px dashed rgba(0,0,0,.09);line-height:1.5}
+  .dup-it:first-of-type{border-top:none}
+  .dup-it .n{flex:none;width:19px;height:19px;display:grid;place-items:center;border-radius:50%;font-size:.64rem;font-weight:900;color:#fff;background:var(--stamp)}
+  .dup-box.res .dup-it .n{background:var(--ok)}
+  .dup-it b{color:var(--ink)}
+  .dup-it .law{display:block;font-size:.68rem;color:var(--muted);margin-top:1px}
+  .dup-ar{font-size:1.6rem;color:var(--gold);font-weight:900}
+  .dup-key{margin-top:13px;border-radius:0 12px 12px 0;border-left:4px solid var(--gold);background:linear-gradient(180deg,#FBF6E9,#FEFCF7);padding:12px 15px}
+  .dup-key .kh{display:flex;align-items:center;gap:7px;font-family:var(--serif);font-weight:700;font-size:.9rem;color:var(--gold);margin-bottom:6px;flex-wrap:wrap}
+  .dup-key .kh .bg{font-size:.6rem;font-weight:700;color:#fff;background:var(--stamp);padding:2px 8px;border-radius:11px;margin-left:auto;white-space:nowrap}
+  .dup-key p{font-size:.84rem;color:var(--ink2);line-height:1.62}
+  .dup-key p b{color:var(--stamp)}
+  .dup-key .sub{display:block;padding-left:15px;position:relative;margin-top:6px;font-size:.79rem}
+  .dup-key .sub::before{content:"▪";position:absolute;left:2px;color:var(--gold)}
+  .dup-formula{margin-top:11px;background:#11203A;color:#EDEAE0;border-radius:11px;padding:12px 14px;font-size:.82rem;line-height:1.6;overflow-x:auto}
+  .dup-formula .fl{font-family:var(--serif);font-weight:700;color:#FFD9A0;display:block;margin-bottom:5px;font-size:.86rem}
+  .dup-formula code{font-family:var(--sans);background:rgba(255,255,255,.09);padding:2px 7px;border-radius:5px;white-space:nowrap}
+  .dup-src{margin-top:8px;font-size:.7rem;color:var(--muted);font-style:italic}
+
+  /* ===== 요건 나열 리스트 ===== */
+  .reqs{margin:7px 0 6px;padding:9px 11px;background:#FAF8F2;border:1px solid var(--line);border-radius:9px}
+  .reqs li{list-style:none;display:flex;gap:7px;font-size:.88rem;color:var(--ink2);line-height:1.55;padding:4px 0;border-top:1px dashed rgba(0,0,0,.08)}
+  .reqs li:first-child{border-top:none}
+  .reqs li .rn{flex:none;font-weight:700;color:var(--stamp)}
+  .reqs li b{color:var(--ink)}
+  .reqs-end{display:block;margin-top:3px;font-size:.88rem;color:var(--ink2)}
+  .reqs-end b{color:var(--stamp)}
+</style>
+<body>
+
+<div class="scorebar">
+  <div class="wrap">
+    <div class="meter"><i id="bar"></i></div>
+    <div class="score">완성 <b id="filled">0</b> / 50<span id="scoretxt"></span></div>
+    <div class="btns">
+      <button class="act" onclick="grade()">채점하기</button>
+      <button class="act ghost" onclick="toggleSol()" id="solBtn">정답 보기</button>
+      <button class="act ghost" onclick="resetAll()">다시 풀기</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">성공적인 직업생활 · EBS 수능특강 2027</div>
+  <h1 class="title"><span class="ch">18강</span> 산업 안전과 재해 예방</h1>
+  <div class="sub">수능특강 본문 + <b>EBS Plus</b> 용어·심화 자료까지 모두 수록. 빈칸을 채우고 <b>채점하기</b>를 누르세요. <span class="note">(사고의 종류·숫자·급여 요건 정확히!)</span></div>
+  <nav class="secnav">
+    <a href="#fill">① 본문 빈칸</a>
+    <a href="#terms">② 용어 사전</a>
+    <a href="#deep">③ 심화 자료</a>
+    <a href="#exam">④ 기출·함정</a>
+  </nav>
+</header>
+
+<div class="band anchor" id="fill"><span class="ic">✎</span> 본문 빈칸 채우기 <small>① ~ ㊿</small></div>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">01</span><h2>안전사고의 유형과 원인·대책</h2></div>
+
+  <div class="sub-h">1. 안전사고와 산업 안전</div>
+  <p class="line">안전사고란 공장이나 공사장 등에서 인간의 <span class="num">①</span><input class="blank wide" data-a="불안전한 행동|불안전한행동|불안전행동" placeholder="①"><span class="sol"></span> 및 물리적 환경 조건 등이 원인이 되어 <b>인명 피해와 재산상의 손실</b>이 발생하는 사건이다.</p>
+  <p class="line">산업 안전이란 산업 재해를 <b>예방</b>하거나 최소화하려는 모든 활동을 말한다.</p>
+  <p class="line">안전 수칙이란 위험이 생기거나 사고가 나지 않도록 행동이나 <b>절차</b>에서 지켜야 할 사항을 정한 규칙이다.</p>
+  <p class="line">안전사고에는 <b>인적</b> 사고와 물적 사고가 있으며, 산업 현장에서는 끼임·넘어짐·떨어짐·날아옴·얽힘·질식 등의 사고가 주로 발생한다.</p>
+  <p class="line">산업 안전이 중요한 이유의 하나로, 재해가 줄면 기업의 <b>신용도</b>가 향상되고 근로자는 사기가 높아져 생산 의욕이 향상된다.</p>
+
+  <div class="sub-h">2. 안전사고의 직접적인 원인</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:150px">구분</th><th>내용(예시)</th></tr>
+    <tr><td class="k">불안전한 행동<br><small>(인적 원인)</small></td><td>위험 장소 접근 · 위험물 취급 부주의 · <b>안전장치</b> 기능 제거 · 복장, 보호구의 미착용 · 기계·기구의 잘못된 사용 · 운전 중인 기계 장치 정비 · 불안전한 자세·상태 방치 등</td></tr>
+    <tr><td class="k"><span class="num">②</span><input class="blank wide" data-a="불안전한 상태|불안전한상태|불안전상태" placeholder="②"><span class="sol"></span><br><small>(물적 원인)</small></td><td>설비 자체의 결함 · 작업 장소의 불량 · 작업 환경의 결함 · <b>생산 공정</b>의 결함 · 물체 자체의 결함 · 복장, 보호구의 결함 · 안전 방호 장치의 결함 등</td></tr>
+  </table></div>
+
+  <div class="sub-h">3. 안전사고의 간접적인 원인</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:170px">구분</th><th>내용</th></tr>
+    <tr><td class="k"><span class="num">③</span><input class="blank" data-a="기술적" placeholder="③"><span class="sol"></span> 원인</td><td>생산 공정의 부적합, 구조 및 재료의 부적합, 건물 및 기계 장치 <b>설계 불량</b> 등</td></tr>
+    <tr><td class="k"><span class="num">④</span><input class="blank" data-a="교육적" placeholder="④"><span class="sol"></span> 원인</td><td>안전 의식의 부족, <b>경험이나 훈련의 미숙</b>, 안전 교육 불충분 등</td></tr>
+    <tr><td class="k"><span class="num">⑤</span><input class="blank" data-a="관리적" placeholder="⑤"><span class="sol"></span> 원인</td><td><b>작업 준비 불충분</b>, 작업 지시 부적합, <b>안전 관리 조직 결함</b> 등</td></tr>
+  </table></div>
+  <p class="line note" style="margin-top:10px">보호구의 구비 조건 — 착용이 간편할 것 / 외양·외관이 양호할 것 / 재료의 품질이 양호할 것 / 구조와 끝마무리가 양호할 것 / 작업에 방해가 되지 않을 것 / 유해·위험 요소에 대한 방호 성능이 충분할 것</p>
+</section>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">02</span><h2>산업 재해의 분류 — 사고의 종류</h2></div>
+  <p class="line"><b>출처</b> : 한국산업안전보건공단 KOSHA GUIDE G-83-2016 「산업 재해 기록·분류에 관한 지침」 <span class="srcbadge book">교재 수록</span></p>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:150px">사고의 종류</th><th>특징</th></tr>
+    <tr><td class="k"><span class="num">⑥</span><input class="blank" data-a="떨어짐|추락" placeholder="⑥"><span class="sol"></span></td><td>사람이 <b>인력(중력)</b>에 의하여 건축물, 구조물, 가설물, 수목, <b>사다리</b> 등의 <b>높은 장소</b>에서 떨어지는 경우</td></tr>
+    <tr><td class="k"><span class="num">⑦</span><input class="blank" data-a="넘어짐|전도" placeholder="⑦"><span class="sol"></span></td><td>사람이 거의 <b>평면 또는 경사면, 층계</b> 등에서 구르거나 넘어지는 경우</td></tr>
+    <tr><td class="k"><span class="num">⑧</span><input class="blank wide" data-a="깔림·뒤집힘|깔림뒤집힘|깔림 뒤집힘|깔림/뒤집힘" placeholder="⑧"><span class="sol"></span></td><td>기대어져 있거나 세워져 있는 물체 등이 쓰러져 깔린 경우 및 <b>지게차</b> 등의 건설 기계 등이 운행 또는 작업 중 뒤집어진 경우</td></tr>
+    <tr><td class="k"><span class="num">⑨</span><input class="blank wide" data-a="부딪힘·접촉|부딪힘접촉|부딪힘 접촉|부딪힘" placeholder="⑨"><span class="sol"></span></td><td><b>재해자 자신의 움직임·동작</b>으로 인하여 기인물에 접촉 또는 부딪치거나, 물체가 고정부에서 <b>이탈하지 않은 상태</b>로 움직임 등에 의하여 부딪히거나 접촉한 경우</td></tr>
+    <tr><td class="k"><span class="num">⑩</span><input class="blank" data-a="맞음|낙하|비래" placeholder="⑩"><span class="sol"></span></td><td>구조물, 기계 등에 <b>고정되어 있던 물체</b>가 중력, 원심력, 관성력 등에 의하여 <b>고정부에서 이탈</b>하거나 설비 등으로부터 물질이 분출되어 사람을 가해하는 경우</td></tr>
+    <tr><td class="k"><span class="num">⑪</span><input class="blank" data-a="끼임|협착" placeholder="⑪"><span class="sol"></span></td><td>두 물체 사이의 움직임에 의하여 일어난 것으로, 직선 운동을 하는 물체 사이의 끼임, <b>회전부와 고정체 사이</b>의 끼임, 롤러 등 <b>회전체 사이에 물리거나 회전체·돌기부 등에 감긴</b> 경우</td></tr>
+    <tr><td class="k"><span class="num">⑫</span><input class="blank" data-a="무너짐|붕괴|도괴" placeholder="⑫"><span class="sol"></span></td><td>토사, 적재물, 구조물, 건축물, 가설물 등이 <b>전체적으로 허물어져 내리거나</b> 주요 부분이 꺾여 무너지는 경우</td></tr>
+    <tr><td class="k"><span class="num">⑬</span><input class="blank wide" data-a="신체 반작용|신체반작용" placeholder="⑬"><span class="sol"></span></td><td>물체의 취급과 관련 없이 <b>일시적이고 급격한</b> 행위·동작, 균형 상실에 따른 반사적 행위 또는 놀람, 정신적 충격, 스트레스 등</td></tr>
+    <tr><td class="k"><span class="num">⑭</span><input class="blank" data-a="감전|전류접촉" placeholder="⑭"><span class="sol"></span></td><td>전기 설비의 <b>충전부</b> 등에 신체의 일부가 직접 접촉하거나 유도 전류의 통전으로 근육의 수축, 호흡 곤란, <b>심실세동</b> 등이 발생한 경우</td></tr>
+    <tr><td class="k">화재</td><td>가연물에 <b>점화원</b>이 가해져 <b>비의도적으로</b> 불이 일어난 경우를 말하며, <b>방화</b>는 의도적이기는 하나 관리할 수 없으므로 화재에 <b>포함</b></td></tr>
+  </table></div>
+  <p class="line note">그 밖에 — 압박·진동 / 부자연스러운 자세 / 과도한 힘·동작(근육의 힘을 <b>많이</b> 사용) / 반복적인 동작(근육의 힘을 <b>많이 쓰지 않고</b> 반복) / 이상 온도 노출·접촉 / 이상 기압 노출 / 유해·위험 물질 노출·접촉 / 소음 노출 / 유해 광선 노출 / 산소 결핍·질식 / 폭발 / 폭력 행위</p>
+</section>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">03</span><h2>산업 재해의 예방</h2></div>
+
+  <div class="sub-h">1. 산업 재해의 이해</div>
+  <p class="line"><span class="num">⑮</span><input class="blank wide" data-a="산업 재해|산업재해|업무상 재해|업무상재해" placeholder="⑮"><span class="sol"></span>란 일을 하다가 또는 일이 원인이 되어 근로자가 다치거나 병에 걸리는 경우 등 <b>일을 하다가 생기는 사고나 질병</b>을 말하며, ‘업무상 재해’라고도 한다.</p>
+  <p class="line">「산업안전보건법」 제2조의 법률적 정의 — 노무를 제공하는 사람이 업무에 관계되는 건설물·설비·원재료·가스·증기·<b>분진</b> 등에 의하거나 작업 또는 그 밖의 업무로 인하여 <b>사망 또는 부상하거나 질병에 걸리는 것</b> <span class="srcbadge law">법령 원문</span></p>
+  <p class="line">산업 재해는 근로자를 고용하고 있는 회사에는 <b>모두 적용</b>되므로 1명의 근로자라도 고용된 사업장은 의무적으로 산재 보험에 가입해야 하고, 보험료는 <span class="num">⑯</span><input class="blank" data-a="사업주|회사|사용자" placeholder="⑯"><span class="sol"></span>가 <b>전액</b> 납부한다.</p>
+
+  <div class="sub-h">2. 하인리히의 재해 예방 4원칙</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:215px">원칙</th><th>내용</th></tr>
+    <tr><td class="k"><span class="num">⑰</span><input class="blank wide" data-a="손실 우연|손실우연" placeholder="⑰"><span class="sol"></span>의 원칙</td><td>손실과 재해의 정도는 <b>예측할 수 없이 우연히</b> 결정되므로 재해를 사전에 예방하는 것이 중요함.</td></tr>
+    <tr><td class="k"><span class="num">⑱</span><input class="blank wide" data-a="원인 계기(연계)|원인계기|원인 계기|원인연계|원인 연계" placeholder="⑱"><span class="sol"></span>의 원칙</td><td>사고는 여러 원인이 <b>복합적으로 연계</b>하여 결정적 순간에 발생함. 사고는 <b>직접 원인</b>에 의해 발생하고 직접 원인은 <b>간접 원인</b>에 의해 발생함.</td></tr>
+    <tr><td class="k"><span class="num">⑲</span><input class="blank wide" data-a="예방 가능|예방가능" placeholder="⑲"><span class="sol"></span>의 원칙</td><td>인재(人災)의 발생 원인을 조사하고 보호구 착용 등이 필요함. 즉 <b>사전 예방 대책에 중점</b>을 두고 재해 요인이 될 요소를 미리 제거하면 재해를 예방할 수 있음.</td></tr>
+    <tr><td class="k"><span class="num">⑳</span><input class="blank wide" data-a="대책 선정|대책선정" placeholder="⑳"><span class="sol"></span>의 원칙</td><td>재해 발생 요소 제거를 위해 사전에 <b>원인별 대책</b>을 적절하게 선택하여 추진해야 함. 여러 위험 요인이 복합적으로 작용하므로 <b>종합적 연계 대책</b>이 강구되어야 함.</td></tr>
+  </table></div>
+
+  <div class="sub-h">3. 하인리히의 도미노 이론 — 재해 발생의 5단계</div>
+  <p class="line">① 사회적 환경 및 유전적 요소 → ② 개인적 결함 → <b>③</b> <span class="num">㉑</span><input class="blank wide" data-a="불안전한 행동 및 상태|불안전한행동및상태|불안전한 행동과 상태|불안전한 행동·상태" placeholder="㉑"><span class="sol"></span> <b>← 직접 원인</b> → ④ 사고 → ⑤ 재해</p>
+  <p class="line">각 단계는 상호 연결되어 있어 한 단계에서 불안 요소가 발생하면 다음 단계도 연속적으로 영향을 받아 재해가 연쇄적으로 발생한다. 도미노 <b>하나를 없애면 연쇄성이 중단</b>된다.</p>
+  <p class="line">하인리히는 사고의 <b>98</b>%는 예방이 가능하며 피할 수 없는 사고는 <b>2%</b>에 불과하다고 주장하였다.</p>
+  <p class="line">구체적으로 인적 원인인 ‘불안전한 행동’에 의한 것이 전체의 <b>88</b>%, 물적 원인인 ‘불안전한 상태’가 <b>10%</b>, 나머지 <b>2%</b>는 불가항력적 원인(자연 현상)이라고 하였다. <span class="srcbadge book">2027 교재 보충 자료</span></p>
+
+  <div class="sub-h">4. 사고 예방 대책 5단계</div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:170px">단계</th><th>내용</th></tr>
+    <tr><td class="k">1단계<br><span class="num">㉒</span><input class="blank wide" data-a="안전 관리 조직|안전관리조직|안전관리 조직" placeholder="㉒"><span class="sol"></span><br><small>(Organization)</small></td><td>재해를 예방하기 위해 <b>가장 먼저</b> 안전 관리 조직을 구성하여 안전 활동 <b>방침 및 계획</b>을 수립하고 안전 활동을 전개함.</td></tr>
+    <tr><td class="k">2단계<br><span class="num">㉓</span><input class="blank wide" data-a="사실의 발견|사실의발견|사실발견" placeholder="㉓"><span class="sol"></span><br><small>(Fact Finding)</small></td><td>안전 활동에 대한 <b>기록을 검토</b>하고 현장의 불안전한 요소를 안전 점검, <b>사고 조사</b>, 관찰 보고서의 연구, 안전 토의·회의 등으로 찾음.</td></tr>
+    <tr><td class="k">3단계<br>평가·분석<br><small>(Analysis)</small></td><td>현장 조사 결과를 바탕으로 분석·검토하여 사고가 발생한 <b>직접 원인</b>과 <b>간접</b> 원인을 찾음.</td></tr>
+    <tr><td class="k">4단계<br>시정책의 <b>선정</b><br><small>(Selection of Remedy)</small></td><td>분석을 통하여 알아낸 원인을 토대로 <b>기술적 개선, 교육이나 훈련 방법의 개선</b> 등을 통해 위험 요소를 제거할 개선 방법을 선정함.</td></tr>
+    <tr><td class="k">5단계<br>시정책의 <b>적용</b><br><small>(Application of Remedy)</small></td><td>선정만으로 문제가 해결되지 않으므로 <b>반드시 적용</b>해야 함. 또한 <b>목표를 설정</b>하여 실시하고 <b>결과를 재평가</b>하여 불합리한 점은 재조정하여 실시함.</td></tr>
+  </table></div>
+
+  <div class="sub-h">5. 안전 보건 표지 <span class="spot-badge">색·모양 단골 출제</span></div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:150px">종류</th><th style="width:205px">바탕 · 기본 모형</th><th>내용</th></tr>
+    <tr><td class="k">( <span class="num">㉔</span><input class="blank" data-a="금지" placeholder="㉔"><span class="sol"></span> ) 표지</td><td>흰색 바탕 + <span class="num">㉕</span><input class="blank" data-a="빨간색|빨강|적색" placeholder="㉕"><span class="sol"></span> 원과 45° 각도의 사선</td><td>어떤 <b>특정한 행위가 허용되지 않음</b>을 나타냄. 금지할 내용은 원의 중앙에 <b>검은색</b>으로 표현. <small>(출입금지·보행금지·차량통행금지·사용금지·탑승금지·금연·화기금지·물체이동금지)</small></td></tr>
+    <tr><td class="k">( <span class="num">㉖</span><input class="blank" data-a="경고" placeholder="㉖"><span class="sol"></span> ) 표지</td><td><span class="num">㉗</span><input class="blank" data-a="노란색|노랑|황색" placeholder="㉗"><span class="sol"></span> 바탕 + 검은색 삼각 테</td><td>일정한 <b>위험에 따른 경고</b>. 노란색 면적이 전체의 <b>50% 이상</b>. 단, <b>위험 물질</b>의 경우 바탕은 <b>무색</b>, 기본 모형은 <b>붉은색 마름모</b> 형태임. <small>(인화성·산화성·폭발성·급성독성·부식성·방사성물질경고, 고압전기·매달린물체·낙하물·고온·저온·몸균형상실·레이저광선·위험장소경고)</small></td></tr>
+    <tr><td class="k">( <span class="num">㉘</span><input class="blank" data-a="지시" placeholder="㉘"><span class="sol"></span> ) 표지</td><td><span class="num">㉙</span><input class="blank" data-a="파란색|파랑|청색" placeholder="㉙"><span class="sol"></span>의 원형</td><td>일정한 <b>행동을 취할 것을 지시</b>. 각종 안전·보건 <b>보호구의 착용</b>을 지시함. 지시 내용은 <b>흰색</b>으로 표현하며 흰색 그림은 전체 규격의 <b>30% 이상</b>. <small>(보안경·방독마스크·방진마스크·보안면·안전모·귀마개·안전화·안전장갑·안전복 착용)</small></td></tr>
+    <tr><td class="k">( <span class="num">㉚</span><input class="blank" data-a="안내" placeholder="㉚"><span class="sol"></span> ) 표지</td><td><span class="num">㉛</span><input class="blank" data-a="녹색|초록색|초록" placeholder="㉛"><span class="sol"></span> 바탕의 정방형 또는 장방형</td><td>안전에 관한 <b>정보를 제공</b>. <b>구명·구호, 피난의 방향</b> 등을 안내함. 표현 내용은 <b>흰색</b>이며 녹색은 전체 면적의 <b>50% 이상</b>. <small>(녹십자표지·응급구호표지·들것·세안장치·비상용기구·비상구·좌측비상구·우측비상구)</small></td></tr>
+    <tr><td class="k">관계자 외<br>출입 금지</td><td>—</td><td>유해·위험 물질 및 석면 등 근로자의 건강 장해를 유발하는 환경의 작업장 출입을 금지하기 위해 설치하는 표지로 <b>출입구에 설치</b>. 단, 실외이거나 출입구가 없을 시 근로자의 식별이 용이한 장소에 설치. <small>(허가대상물질작업장·석면취급/해체작업장·금지대상물질의 취급 실험실 등)</small></td></tr>
+  </table></div>
+  <p class="line note">출처 : 「산업안전보건법」 시행규칙 제38조 제1항 별표 6</p>
+</section>
+
+<section class="unit">
+  <div class="unit-tag"><span class="no">04</span><h2>산업 재해의 종류 및 산재 처리 · 보상 서비스</h2></div>
+
+  <div class="sub-h">1. 산업 재해 인정</div>
+  <p class="line">「산업재해보상보험법」에서는 사고가 <b>업무로 인해</b> 발생한 경우에만 산업 재해로 인정하고 있다.</p>
+  <p class="line">재해가 발생했더라도 노동자의 <b>고의</b>나 자해 행위 등으로 발생한 경우는 <b>인정하지 않는다</b>.</p>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:120px">구분</th><th>인정 기준(「산업재해보상보험법」 제37조)</th></tr>
+    <tr><td class="k"><span class="num">㉜</span><input class="blank wide" data-a="업무상 사고|업무상사고" placeholder="㉜"><span class="sol"></span></td><td>· 근로 계약에 따른 업무나 그에 따르는 행위를 하던 중 발생한 사고<br>· 사업주가 제공한 <b>시설물</b> 등을 이용하던 중 그 시설물 등의 결함이나 관리 소홀로 발생한 사고<br>· 사업주가 <b>주관</b>하거나 사업주의 지시에 따라 참여한 <b>행사나 행사 준비</b> 중에 발생한 사고<br>· <b>휴게 시간</b> 중 사업주의 지배 관리하에 있다고 볼 수 있는 행위로 발생한 사고<br>· 그 밖에 업무와 관련하여 발생한 사고</td></tr>
+    <tr><td class="k"><span class="num">㉝</span><input class="blank wide" data-a="업무상 질병|업무상질병" placeholder="㉝"><span class="sol"></span></td><td>· 업무 수행 과정에서 물리적 인자, 화학 물질, 분진, 병원체, 신체에 부담을 주는 업무 등에 노출되어 발생한 질병<br>· <b>업무상 부상이 원인</b>이 되어 발생한 질병<br>· <b>직장 내 괴롭힘</b> 또는 <b>고객의 폭언</b> 등으로 인한 업무상 정신적 스트레스가 원인이 되어 발생한 질병<br>· 그 밖에 업무와 관련하여 발생한 질병</td></tr>
+    <tr><td class="k"><span class="num">㉞</span><input class="blank wide" data-a="출퇴근 재해|출퇴근재해" placeholder="㉞"><span class="sol"></span></td><td>· 사업주가 제공한 <b>교통수단</b>이나 그에 준하는 교통수단을 이용하는 등 사업주의 지배 관리하에서 출퇴근하는 중 발생한 사고<br>· 그 밖에 <b>통상적인 <b>경로</b>와 방법</b>으로 출퇴근하는 중 발생한 사고</td></tr>
+  </table></div>
+
+  <div class="sub-h">2. 산업 재해 처리 방법</div>
+  <p class="line">일하다 다치거나 아프게 되었다면 산재 보험 <b>가입 여부와 상관없이</b> 산재 보험 보상을 받을 수 있다.</p>
+  <p class="line"><b>1인 이상</b>이 일하는 곳이라면 <b>본인의 실수</b>로 다치거나 일을 그만두었더라도 <span class="num">㉟</span><input class="blank" data-a="3" placeholder="㉟"><span class="sol"></span>일을 <b>초과</b>하는 요양을 받아야 하는 경우 산재 보험 보상을 받을 수 있다.</p>
+  <p class="line">산업 재해 발생 시 처리 요령 : 업무상 재해 발생 → 응급조치 후 병원으로 이송 → 사업주에게 보고 → 병원의 협조로 <b>요양 급여 신청서</b> 작성 → 회사의 확인 후 <span class="num">㊱</span><input class="blank wide" data-a="근로복지공단" placeholder="㊱"><span class="sol"></span>에 제출 → 심사 및 결과 통보</p>
+  <p class="line">요양 급여나 휴업 급여는 근로복지공단에 청구서 제출 후 <b>7</b>일 이내 지급 여부를 통보받는다. 산업 재해 보상 서비스의 종류와 산정 기준은 「산업재해보상보험법」 <b>제36조</b>를 따른다.</p>
+
+  <div class="sub-h">3. 산업 재해 보상 서비스 <span class="spot-badge">최다 출제</span></div>
+  <div class="scroll"><table class="t">
+    <tr><th style="width:130px">구분</th><th>내용</th></tr>
+    <tr><td class="k"><span class="num">㊲</span><input class="blank wide" data-a="요양 급여|요양급여" placeholder="㊲"><span class="sol"></span></td><td>업무상 재해로 요양 기간이 <b>3일을 초과</b>하는 경우 치료 비용을 <b>국민 건강 보험의 진료 수가</b>를 기준으로 지급. 간병료·이송(통원)료·보조기·MRI 검사비 등도 지급. 산재 보험 혜택이 되지 않는 <b>비급여</b> 부분도 있음.</td></tr>
+    <tr><td class="k"><span class="num">㊳</span><input class="blank wide" data-a="휴업 급여|휴업급여" placeholder="㊳"><span class="sol"></span></td><td>업무상 재해로 <b>취업하지 못해 임금을 받을 수 없는</b> 근로자에게 지급. <b>1일</b>에 대하여 평균 임금의 <span class="num">㊴</span><input class="blank" data-a="70" placeholder="㊴"><span class="sol"></span>% 상당액 지급. 단, 취업하지 못한 기간이 <b>3일 이내</b>이면 지급하지 않음.</td></tr>
+    <tr><td class="k"><span class="num">㊵</span><input class="blank wide" data-a="장해 급여|장해급여" placeholder="㊵"><span class="sol"></span></td><td>부상·질병이 <b>치유되었으나</b> 신체에 장해가 남은 경우 <b>장해 보상 연금 또는 장해 보상 일시금</b> 형태로 지급. 제1급에서 제<b>14</b>급까지의 장해 등급 중 판정되며 등급별 지급 금액이 다름.
+      <div class="gbox">
+        <div class="gh">🎚️ 등급에 따라 ‘받는 형태’가 달라집니다<span class="bg">교재 미수록 · 법령 보충</span></div>
+        <div class="grade-strip">
+          <div class="gr p1"><span class="em">🔴</span><span class="lv">제1급 ~ 제3급</span><span class="fm">연금만</span><span class="ex">노동력을 <b>완전히 상실</b>한 등급 — 일시금 선택 불가</span></div>
+          <div class="gr p2"><span class="em">🟡</span><span class="lv">제4급 ~ 제7급</span><span class="fm">연금 ↔ 일시금 선택</span><span class="ex">수급권자가 <b>고른 쪽</b>으로 지급</span></div>
+          <div class="gr p3"><span class="em">🟢</span><span class="lv">제8급 ~ 제14급</span><span class="fm">일시금만</span><span class="ex">연금 선택 불가 — 기출의 <b>14급</b>이 여기</span></div>
+        </div>
+        <div class="gnote">
+          <span class="ln"><b>연금 선급</b> — 장해 보상 연금 수급권자가 신청하면 최초 <b>1년분 또는 2년분</b>(제3항 단서에 따른 근로자, 즉 <b>제1급~제3급</b>은 최초 <b>1년분~4년분</b>)의 <b>2분의 1</b>에 상당하는 금액을 <b>미리 지급할 수 있습니다</b>(권리가 아니라 재량 규정).</span>
+          <span class="ln"><b>외국 거주 예외</b> — 청구 사유 발생 당시 대한민국 국민이 아닌 사람으로서 <b>외국에 거주</b>하는 근로자에게는 <b>일시금으로만</b> 지급합니다.</span>
+        </div>
+        <div class="gsrc">근거 : 「산업재해보상보험법」 제57조 제2·3·4항 및 별표 2, 같은 법 시행령 제53조 제1·5항</div>
+      </div></td></tr>
+    <tr><td class="k"><span class="num">㊶</span><input class="blank wide" data-a="간병 급여|간병급여" placeholder="㊶"><span class="sol"></span></td><td>요양 급여를 받은 사람 중 <span class="num">㊷</span><input class="blank" data-a="치유" placeholder="㊷"><span class="sol"></span> <b>후</b> 의학적으로 상시 또는 수시로 간병이 필요하여 <b>실제로 간병을 받는</b> 사람에게 지급.</td></tr>
+    <tr><td class="k"><span class="num">㊸</span><input class="blank wide" data-a="유족 급여|유족급여" placeholder="㊸"><span class="sol"></span></td><td>근로자가 업무상 재해로 <b>사망하거나 사망한 것으로 추정</b>될 때 유족에게 유족 보상 연금, 유족 보상 일시금, <b>진폐 유족 연금</b> 등으로 지급.</td></tr>
+    <tr><td class="k"><span class="num">㊹</span><input class="blank wide" data-a="상병 보상 연금|상병보상연금" placeholder="㊹"><span class="sol"></span></td><td>요양 급여를 받는 근로자가 요양을 시작한 지 <span class="num">㊺</span><input class="blank" data-a="2" placeholder="㊺"><span class="sol"></span><b>년</b>이 지난 날 이후에도 다음 요건이 <b>모두</b> 계속되는 경우에 지급.<ul class="reqs"><li><span class="rn">①</span><span>치유되지 아니한 상태일 것</span></li><li><span class="rn">②</span><span>중증 요양 상태의 정도가 <b>제1급~제3급</b> 장해 등급에 해당할 것</span></li><li><span class="rn">③</span><span>요양으로 <b>취업하지 못하였을 것</b></span></li></ul><span class="reqs-end">→ 세 요건이 모두 갖춰지면 <b>휴업 급여 대신</b> 상병 보상 연금을 지급한다.</span></td></tr>
+    <tr><td class="k"><span class="num">㊻</span><input class="blank wide" data-a="장례비|장례비" placeholder="㊻"><span class="sol"></span></td><td>업무상 재해로 사망한 경우 <b>평균 임금의 <b>120</b>일분</b>에 상당하는 금액을 장례를 지낸 유족에게 지급. 고용노동부 장관이 고시하는 최고·최저 금액을 벗어나면 그 금액을 장례비로 함.</td></tr>
+    <tr><td class="k"><span class="num">㊼</span><input class="blank wide" data-a="직업 재활 급여|직업재활급여" placeholder="㊼"><span class="sol"></span></td><td>업무상 재해로 <b>장해 급여 또는 진폐 보상 연금을 받은 사람</b>이나 장해 급여를 받을 것이 명백한 사람이 직업 훈련·재활 등이 필요할 경우 지급(직업 훈련 비용·훈련 수당, 직장 복귀 지원금, 직장 적응 훈련비, 재활 운동비).</td></tr>
+    <tr><td class="k"><span class="num">㊽</span><input class="blank wide" data-a="장해 특별 급여|장해특별급여" placeholder="㊽"><span class="sol"></span></td><td>사업주의 <b>고의 또는 과실</b>로 발생한 업무상 재해로 근로자가 <b>제1급~제3급</b> 장해 등급(진폐 장해 등급 포함)에 해당하는 장해를 입은 경우, <b>민법</b>에 따른 손해 배상 청구를 <b>갈음</b>하여 지급할 수 있음.</td></tr>
+    <tr><td class="k"><span class="num">㊾</span><input class="blank wide" data-a="유족 특별 급여|유족특별급여" placeholder="㊾"><span class="sol"></span></td><td>사업주의 <b>고의 또는 과실</b>로 발생한 업무상 재해로 근로자가 <b>사망</b>했을 때, 유족과 사업주가 민법에 따른 손해 배상 청구를 대신하는 것으로 <b>합의한 경우</b> 유족에게 지급할 수 있음.</td></tr>
+  </table></div>
+
+  <div class="sub-h">4. 중대 재해(「산업안전보건법」) <span class="spot-badge">계산 함정</span></div>
+  <p class="line">· 사망자가 <b>1명 이상</b> 발생한 재해</p>
+  <p class="line">· <b>3개월 이상</b>의 요양이 필요한 부상자가 <b>동시에 2명 이상</b> 발생한 재해</p>
+  <p class="line">· 부상자 또는 직업성 질병자가 동시에 <span class="num">㊿</span><input class="blank" data-a="10" placeholder="㊿"><span class="sol"></span><b>명 이상</b> 발생한 재해</p>
+  <p class="line note">근거 : 「산업안전보건법」 제2조 제2호 · 같은 법 시행규칙 제3조 <span class="srcbadge law">법령 원문 확인</span></p>
+</section>
+
+<div class="band anchor" id="terms"><span class="ic">▤</span> EBS Plus 용어 사전 <small>카드를 누르면 뜻이 펼쳐집니다</small></div>
+<div class="cards" id="cards"></div>
+
+<div class="band anchor" id="deep"><span class="ic">◆</span> 심화 자료 <small>EBS Plus 보충 · 인터랙티브</small></div>
+
+<div class="deck">
+  <h3>🚧 안전 보건 표지 4종 — 색과 모양으로 외우기</h3>
+  <div class="cap">표지를 <b>누르면</b> 색·모양 규정과 대표 표지가 펼쳐집니다. 기출은 “이 상황에 붙일 표지는?”을 묻습니다.</div>
+  <div class="sgn-grid" id="sgnGrid"></div>
+  <div class="sgn-info" id="sgnInfo"><span class="hd">쉽게!</span>표지를 눌러 보세요. <b>금지=빨강 원+사선</b>, <b>경고=노랑 삼각</b>, <b>지시=파랑 원</b>, <b>안내=녹색 사각</b> — 색과 도형만 알면 절반은 끝납니다.</div>
+</div>
+
+<div class="deck">
+  <h3>🁢 하인리히 도미노 이론 — 하나만 빼면 멈춘다</h3>
+  <div class="cap">도미노를 <b>클릭해 제거</b>한 뒤 <b>[첫 도미노 밀기]</b>를 눌러 보세요. 어느 단계를 없애야 재해까지 가지 않는지 직접 확인할 수 있습니다.</div>
+  <div class="dom-stage">
+    <div class="dom-legend"><span class="lg1">1·2단계 · 간접 원인 쪽</span><span class="lg2">3단계 · 직접 원인</span><span class="lg3">4·5단계 · 결과</span></div>
+    <div class="dom-row" id="domRow"></div>
+    <div class="dom-msg" id="domMsg">제거할 도미노를 고른 뒤 밀어 보세요.</div>
+    <div class="dom-tools">
+      <button onclick="domPush()">▶ 첫 도미노 밀기</button>
+      <button onclick="domReset()">↺ 처음으로</button>
+    </div>
+  </div>
+  <div class="dpt">
+    <div class="dpt-c">
+      <h6>⚠️ 직접 원인은 <b>3단계</b></h6>
+      <p>산업 재해의 <b>직접적인 원인</b>은 3단계인 <b>불안전한 행동 및 상태</b>입니다. 1·2단계(사회적 환경·유전적 요소, 개인적 결함)는 <b>간접 원인</b> 쪽에 가깝습니다.</p>
+    </div>
+    <div class="dpt-c b">
+      <h6>🎯 그래서 대책도 3단계</h6>
+      <p>하인리히는 “<b>3단계를 철저히 관리하면</b> 대부분 사고와 재해로 이어지지 않는다”고 했습니다. 현장 대책이 <b>보호구 착용·안전장치 점검</b>에 집중되는 이유입니다.</p>
+    </div>
+  </div>
+  <div class="ratio">
+    <h6>📊 하인리히가 본 재해 원인의 비율 <span class="note" style="font-weight:400;font-size:.75rem">— 사고의 98%는 예방 가능, 불가항력은 2%</span></h6>
+    <div class="ratio-bar">
+      <i class="r1">불안전한 행동 88%</i><i class="r2">10%</i><i class="r3"></i>
+    </div>
+    <div class="ratio-lg">
+      <span><i style="background:#A83226"></i>불안전한 행동(인적) <b>88%</b></span>
+      <span><i style="background:#9A5A0A"></i>불안전한 상태(물적) <b>10%</b></span>
+      <span><i style="background:#7C7768"></i>불가항력(자연 현상) <b>2%</b></span>
+    </div>
+    <div class="ratio-note">인적 원인과 물적 원인을 합치면 <b>98%</b> — 이것이 곧 <b>직접 원인(3단계)</b>이고, 관리하면 <b>예방 가능</b>하다는 뜻입니다.</div>
+  </div>
+</div>
+
+<div class="deck">
+  <h3>🔍 사고의 종류 판정 연습</h3>
+  <div class="cap">기출은 사례를 주고 <b>사고의 종류</b>를 묻습니다. 카드를 눌러 정답과 판정 기준을 확인하세요. 앞 <b>10개</b>는 산업 현장의 주요 사고, 뒤 <b>9개</b>는 KOSHA GUIDE의 ‘그 밖의 사고’입니다.</div>
+  <div class="kind-list" id="kindList"></div>
+</div>
+
+<div class="deck">
+  <h3>🏥 산재 급여 판정소 <span class="note" style="font-weight:400">— 사례를 읽고 받을 수 있는 급여를 <b>모두</b> 고르세요</b></span></h3>
+  <div class="cap">기출은 늘 이런 방식으로 묻습니다. 급여 칩을 눌러 고르고 <b>[판정하기]</b>를 누르세요. <span style="color:var(--ok);font-weight:700">초록=맞게 고름</span> / <span style="color:var(--stamp);font-weight:700">빨강=잘못 고름</span> / <span style="color:var(--gold);font-weight:700">금색 점선=놓친 정답</span></div>
+  <div class="cs-bar">
+    <span class="cs-pill" id="csNo">사례 1 / 9</span>
+    <div class="cs-track"><i id="csTrack"></i></div>
+    <span class="cs-pill sc" id="csScore">맞힌 사례 0</span>
+  </div>
+  <div class="cs-story" id="csStory"></div>
+  <div class="cs-ask">▸ 이 근로자가 받을 수 있는 보상 급여를 모두 고르세요.</div>
+  <div class="cs-chips" id="csChips"></div>
+  <div class="cs-tools">
+    <button id="csJudge" onclick="csJudge()">판정하기</button>
+    <button class="gh" id="csNext" onclick="csNext()" disabled>다음 사례 →</button>
+    <button class="gh" onclick="csReset()">↺ 처음부터</button>
+  </div>
+  <div class="cs-fb" id="csFb"></div>
+</div>
+
+<div class="deck" style="border-color:var(--stamp)">
+  <h3>💡 특별 급여는 ‘대신’이 아니라 ‘덤’입니다 <span class="note" style="font-weight:400">— 장해 급여 + 장해 특별 급여 동시 수급</span></h3>
+  <div class="cap">교재는 “민법에 따른 손해 배상 청구를 <b>갈음</b>하여 지급”이라고만 적혀 있어, 장해 급여 <b>대신</b> 받는 것으로 오해하기 쉽습니다. 조문은 “제57조의 장해급여 <b>외에</b>”라고 못 박고 있습니다.</div>
+  <div class="dup">
+    <div class="dup-box cond">
+      <h6>🔒 세 요건을 모두 갖추면</h6>
+      <div class="dup-it"><span class="n">1</span><span>사업주(보험가입자)의 <b>고의 또는 과실</b>로 발생한 업무상 재해</span></div>
+      <div class="dup-it"><span class="n">2</span><span>근로자가 <b>제1급~제3급</b> 장해 등급(진폐 장해 등급 포함)<span class="law">시행령 제73조 제1항 · 별표 6</span></span></div>
+      <div class="dup-it"><span class="n">3</span><span>근로자와 사업주 사이에 <b>합의</b>가 이루어질 것<span class="law">법 제78조 제1항 단서 — 교재에는 없는 요건</span></span></div>
+    </div>
+    <div class="dup-ar">➜</div>
+    <div class="dup-box res">
+      <h6>✅ 둘 다 받습니다</h6>
+      <div class="dup-it"><span class="n">○</span><span><b>장해 보상 연금</b> (1~3급이므로 일시금 선택 불가)<span class="law">법 제57조</span></span></div>
+      <div class="dup-it"><span class="n">＋</span><span><b>장해 특별 급여</b><span class="law">법 제78조 — “장해급여 … 외에”</span></span></div>
+      <div class="dup-it"><span class="n">○</span><span>요양 급여 · 휴업 급여 등 <b>다른 급여도 그대로</b></span></div>
+    </div>
+  </div>
+  <div class="dup-key">
+    <div class="kh">🔑 ‘갈음’의 대상을 정확히<span class="bg">교재 미수록 · 법령 보충</span></div>
+    <p>갈음하는 것은 <b>민법상 손해 배상 청구</b>이지 <b>장해 급여가 아닙니다.</b> 그래서 특별 급여를 받으면 그 대가로 두 가지가 따라옵니다.
+      <span class="sub">동일한 사유로 사업주에게 <b>민법상 손해 배상을 청구할 수 없습니다</b>(법 제78조 제2항).</span>
+      <span class="sub">공단은 지급한 특별 급여 <b>전액을 사업주로부터 징수</b>합니다(제78조 제3항). 사업주는 1년에 걸쳐 <b>4회 분할 납부</b>할 수 있습니다(시행령 제75조).</span>
+      <span class="sub"><b>유족 특별 급여</b>도 구조가 같습니다 — 유족 급여·장례비를 받으면서 유족 특별 급여를 <b>추가로</b> 받습니다(법 제79조).</span>
+    </p>
+  </div>
+  <div class="dup-formula">
+    <span class="fl">📐 장해 특별 급여액 산정 (시행령 제73조 제2항)</span>
+    <code>평균임금 30일분</code> × <code>장해등급별 노동력 상실률</code> × <code>취업가능기간 라이프니츠 계수</code> − <code>장해 보상 일시금</code>
+    <span style="display:block;margin-top:6px;color:#B9C2D4;font-size:.78rem">이미 받는 장해 보상 일시금 상당액을 <b style="color:#FFD9A0">빼고</b> 지급하므로, 실제로는 ‘민법상 배상액과의 차액’을 메워 주는 성격입니다.</span>
+  </div>
+  <div class="dup-src">근거 : 「산업재해보상보험법」 제78조·제79조, 같은 법 시행령 제73조·제75조 — 법령 원문 확인</div>
+</div>
+
+<div class="deck">
+  <h3>📄 산업 재해 신청 절차 <span class="note" style="font-weight:400">— 순서 맞추기</span></h3>
+  <div class="cap">기출에 그림 문항으로 그대로 나옵니다. 아래 카드를 <b>올바른 순서대로</b> 눌러 절차를 완성하세요. <b>제출처 = 근로복지공단</b>이 핵심.</div>
+  <div class="fl-bar"><span class="cs-pill" id="flNo">0 / 5 단계</span><div class="cs-track"><i id="flTrackBar"></i></div></div>
+  <div class="fl-track" id="flTrack"><span class="ph">여기에 순서대로 채워집니다 ▸</span></div>
+  <div class="fl-pool" id="flPool"></div>
+  <div class="fl-msg" id="flMsg">첫 단계부터 눌러 보세요.</div>
+  <div class="fl-tools"><button type="button" onclick="flReset()">↺ 섞어서 다시</button><button type="button" onclick="flShow()">▶ 정답 순서 보기</button></div>
+  <h4 style="font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin:18px 0 4px">🏢 어디로 가야 할까? — 기관 이름 함정 깨기</h4>
+  <div class="cap" style="margin-bottom:8px">기관 이름을 바꿔 내는 것이 단골 오답입니다. 상황을 읽고 <b>맞는 기관</b>을 고르세요. <span id="agSc" style="font-weight:700;color:var(--gold)">0 / 6</span></div>
+  <div class="ag-q" id="agQ"></div>
+  <div class="ag-opts" id="agOpts"></div>
+  <div class="ag-fb" id="agFb"></div>
+  <div class="fl-tools"><button type="button" id="agNext" onclick="agNext()" disabled>다음 상황 →</button><button type="button" onclick="agReset()">↺ 처음부터</button></div>
+</div>
+
+<div class="deck" style="border-color:var(--stamp)">
+  <h3>🧮 중대 재해 판정기 <span class="note" style="font-weight:400">— 숫자를 바꿔 보며 직접 확인</span></h3>
+  <div class="cap">숫자를 서로 바꿔 내는 함정이 매우 잦습니다. <b>사망 1명 · 3개월 2명 · 10명</b> 세 덩어리로 외우세요. 아래 <b>+ / −</b>로 인원을 바꾸면 즉시 판정됩니다.</div>
+  <div class="mj">
+    <div class="mj-row" id="mjr0">
+      <span class="mj-emo">🕯️</span>
+      <div class="mj-lb"><div class="t">사망자</div><div class="s">1명 이상이면 그 자체로 중대 재해</div></div>
+      <div class="mj-step"><button type="button" onclick="mjSet(0,-1)">−</button><span class="v" id="mjv0">0</span><button type="button" onclick="mjSet(0,1)">+</button></div>
+    </div>
+    <div class="mj-row" id="mjr1">
+      <span class="mj-emo">🩹</span>
+      <div class="mj-lb"><div class="t">3개월 이상 요양이 필요한 부상자</div><div class="s">동시에 2명 이상이어야 함</div></div>
+      <div class="mj-step"><button type="button" onclick="mjSet(1,-1)">−</button><span class="v" id="mjv1">0</span><button type="button" onclick="mjSet(1,1)">+</button></div>
+    </div>
+    <div class="mj-row" id="mjr2">
+      <span class="mj-emo">👥</span>
+      <div class="mj-lb"><div class="t">부상자 또는 직업성 질병자 (전체)</div><div class="s">요양 기간과 무관하게 동시 10명 이상</div></div>
+      <div class="mj-step"><button type="button" onclick="mjSet(2,-1)">−</button><span class="v" id="mjv2">0</span><button type="button" onclick="mjSet(2,1)">+</button></div>
+    </div>
+    <div class="mj-chips">
+      <span class="mj-chip" id="mjc0">🕯️ 사망 1명 이상</span>
+      <span class="mj-chip" id="mjc1">🩹 3개월 이상 요양 2명 이상</span>
+      <span class="mj-chip" id="mjc2">👥 부상·직업성 질병 10명 이상</span>
+    </div>
+    <div class="mj-out no" id="mjOut"><span class="ico">🟢</span><div><div class="vd">중대 재해가 아닙니다</div><div class="rs" id="mjRs">세 요건 중 어느 것도 충족하지 않았습니다.</div></div></div>
+    <div class="mj-pre">
+      <button type="button" onclick="mjPre(0,2,2,'26·10월 학평 — 프레스 끼임, 2명이 6개월 이상 요양')">📌 26·10월 학평</button>
+      <button type="button" onclick="mjPre(0,1,1,'23·10월 학평 — 1명이 3개월 요양')">📌 23·10월 학평</button>
+      <button type="button" onclick="mjPre(0,3,4,'25·10월 학평 — 깔림 3명이 6개월째 치료 + 넘어짐 1명 4주')">📌 25·10월 학평</button>
+      <button type="button" onclick="mjPre(1,0,0,'업무 중 사망 1명')">📌 사망 1명</button>
+      <button type="button" onclick="mjPre(0,0,12,'경상자 12명 동시 발생')">📌 경상 12명</button>
+      <button type="button" onclick="mjPre(0,0,0,'')">↺ 초기화</button>
+    </div>
+  </div>
+  <h4 style="font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin:18px 0 0">⚖️ 두 법의 ‘중대’는 기준이 다릅니다 <span class="srcbadge law">법령 원문 확인</span></h4>
+  <div class="lw-tabs" id="lwTabs">
+    <button class="on" onclick="lwSet('a',this)">🏭 산업안전보건법</button>
+    <button onclick="lwSet('b',this)">⚖️ 중대재해처벌법</button>
+  </div>
+  <div class="lw-panel a" id="lwPanel"></div>
+</div>
+
+<div class="deck" style="border-color:var(--gold)">
+  <h3>🔀 4원칙 · 5단계 · 도미노 5단계 — 헷갈리지 않게</h3>
+  <div class="cap">모두 하인리히가 제시했지만 <b>쓰임이 다릅니다.</b></div>
+  <div class="scroll"><table class="reftbl">
+    <tr><th style="width:130px">구분</th><th style="width:110px">개수</th><th>내용</th><th style="width:150px">문항에서 묻는 것</th></tr>
+    <tr><td class="k">재해 예방 4원칙</td><td>4개</td><td>손실 우연 · 원인 계기(연계) · 예방 가능 · 대책 선정</td><td>“어떤 <b>원칙</b>을 지키지 않았나”</td></tr>
+    <tr><td class="k">사고 예방 대책 5단계</td><td>5단계</td><td>안전 관리 조직 → 사실의 발견 → 평가·분석 → 시정책의 선정 → 시정책의 적용</td><td>“각 <b>단계</b>의 활동이 맞나”</td></tr>
+    <tr><td class="k">도미노 이론 5단계</td><td>5단계</td><td>사회적 환경 및 유전적 요소 → 개인적 결함 → 불안전한 행동 및 상태 → 사고 → 재해</td><td>“사고 원인이 <b>몇 단계</b>인가”</td></tr>
+  </table></div>
+  <h4 style="font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin:18px 0 0">🪜 사고 예방 5단계 — 단계마다 ‘하는 일’이 다릅니다</h4>
+  <div class="stp">
+    <div class="stp-c"><span class="n">1</span><span class="e">🏗️</span><span class="nm">안전 관리 조직</span><span class="vb">조직·계획</span></div>
+    <div class="stp-c hot"><span class="flag">혼동 주의</span><span class="n">2</span><span class="e">🔎</span><span class="nm">사실의 발견</span><span class="vb">자료 수집</span></div>
+    <div class="stp-c hot"><span class="flag">혼동 주의</span><span class="n">3</span><span class="e">🧪</span><span class="nm">평가·분석</span><span class="vb">원인 찾기</span></div>
+    <div class="stp-c"><span class="n">4</span><span class="e">🛠️</span><span class="nm">시정책의 선정</span><span class="vb">방법 고르기</span></div>
+    <div class="stp-c"><span class="n">5</span><span class="e">✅</span><span class="nm">시정책의 적용</span><span class="vb">적용 + 재평가</span></div>
+  </div>
+  <div class="swp">
+    <div class="swp-c">
+      <h6>🚫 이렇게 붙이면 오답</h6>
+      <div class="swp-line"><span class="mk x">✕</span><span>“사고 <b>원인을 분석</b>했다” → 4·5단계에 붙이면 오답</span></div>
+      <div class="swp-line"><span class="mk x">✕</span><span>“<b>안전 관리팀을 구성</b>했다” → 2·3단계에 붙이면 오답</span></div>
+      <div class="swp-line"><span class="mk x">✕</span><span>“<b>추락 방지 장비 미착용 데이터를 수집</b>했다” → 3단계에 붙이면 오답</span></div>
+    </div>
+    <div class="swp-c good">
+      <h6>✅ 이렇게 붙어야 정답</h6>
+      <div class="swp-line"><span class="mk o">○</span><span><b>2단계</b> = 점검·사고 조사·관찰 보고서로 <b>사실을 모은다</b></span></div>
+      <div class="swp-line"><span class="mk o">○</span><span><b>3단계</b> = 모은 자료로 <b>직접·간접 원인</b>을 찾는다</span></div>
+      <div class="swp-line"><span class="mk o">○</span><span><b>5단계</b> = 대책을 <b>실행하고 결과를 재평가</b>해 재조정한다</span></div>
+    </div>
+  </div>
+  <h4 style="font-family:var(--serif);font-size:1.02rem;color:var(--ink);margin:20px 0 0">🎯 4원칙 중 가장 헷갈리는 두 가지</h4>
+  <div class="prin">
+    <div class="prin-c">
+      <div class="hd"><span class="e">🎲</span><span class="t">손실 우연의 원칙</span></div>
+      <p>같은 사고라도 <b>손실의 크기는 우연히</b> 결정된다. 그래서 결과에 기대지 말고 <b>사전에 예방</b>해야 한다.
+      <span class="key">→ “각도·위치에 따라 결과가 달라진다”가 나오면 이것</span></p>
+    </div>
+    <div class="prin-c">
+      <div class="hd"><span class="e">🛡️</span><span class="t">예방 가능의 원칙</span></div>
+      <p>인재(人災)의 원인을 조사하고 보호구 착용 등 <b>사전 예방 대책에 중점</b>을 두어 재해 요인을 <b>미리 제거</b>하면 예방할 수 있다.
+      <span class="key">→ “안전 조치를 안 해서 사고가 났다”가 나오면 이것</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="deck" style="border-color:var(--stamp)">
+  <h3>🎯 실전문제가 짚어준 핵심 <span class="note" style="font-weight:400">— 본문엔 없지만 해설에 나온 부분</span></h3>
+  <div class="cap">제목을 누르면 핵심이 펼쳐집니다.</div>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 1번</span><span class="rx-title">간접 원인 3종 구별</span></summary>
+    <div class="rx-body">“장구 착용 <b>규정이 없어서</b>”, “충분한 휴식 없이 <b>회사의 지시</b>로 투입” → 모두 <span class="em">관리적 원인</span>. <b>작업 준비 불충분 · 작업 지시 부적합 · 안전 관리 조직 결함</b>이 관리적 원인의 3대 키워드다. ‘경험·훈련 미숙’은 교육적, ‘설계 불량’은 기술적.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 3번</span><span class="rx-title">손실 우연의 원칙 판별</span></summary>
+    <div class="rx-body">“같은 공구라도 떨어진 <b>각도나 위치에 따라</b> 찰과상일 수도, 심각한 손상일 수도 있다” → <span class="em">손실 우연의 원칙</span>. 결과의 <b>크기가 우연</b>이라는 진술이 나오면 이 원칙이다.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 4번</span><span class="rx-title">고온·반복 작업의 재해 분류</span></summary>
+    <div class="rx-body">여름철 40℃ 넘는 오븐 작업으로 생긴 온열 질환 → <span class="em">이상 온도 노출·접촉</span>. 반복 동작으로 생긴 손목 통증 → <span class="em">반복적인 동작</span>(신체 반작용 ✕). 대책은 <b>국소 냉방기 설치·작업 시간 조정</b> 같은 <b>환경 개선</b>이 핵심.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 6번</span><span class="rx-title">외국인·비정규직도 대상</span></summary>
+    <div class="rx-body">근무 중 상해로 <b>3일을 초과</b>하는 치료가 필요하면 <b>정규직·비정규직·일용직·외국인 근로자</b>까지 모두 산업 재해 보상 서비스 대상이다. “외국인은 제외”는 오답.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">실전 8번</span><span class="rx-title">호흡 보조 기구 구입비</span></summary>
+    <div class="rx-body">보조기·간병료·이송료·MRI 검사비 등은 <span class="em">요양 급여</span>로 청구한다. <b>장해 급여</b>는 치유 후 남은 <b>장해</b>에 대한 보상이므로 기구 구입비를 장해 급여로 청구한다는 진술은 오답.</div></details>
+  <details class="rx-item"><summary class="rx-sum"><span class="rx-num">보충</span><span class="rx-title">진폐 보상 연금 · 평균 임금</span></summary>
+    <div class="rx-body"><b>진폐 보상 연금</b> = 업무상 질병인 진폐에 걸린 근로자에게 지급. 평균 임금 기준 <b>등급별 진폐 장해 연금 + 기초 연금</b>. 기초 연금은 <b>최저임금액의 60%×365</b>. <br><b>평균 임금</b> = 사유 발생일 <b>이전 3개월</b> 동안 지급된 임금 총액 ÷ 그 기간의 총 일수. 취업 후 3개월 미만도 동일하게 <b>일급 단위</b>로 산정. <span class="srcbadge book">EBS Plus 보충</span></div></details>
+</div>
+
+<div class="band anchor" id="exam"><span class="ic">★</span> 기출 연계 · 함정 포인트</div>
+
+<div class="gichul">
+  <h2>★ 기출 연계 확인</h2>
+  <div class="lead">선택지를 눌러 O / X 를 판단하세요. (수능·모평·학평 실제 출제 포인트)</div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 1.</span><span class="src">22·10월 학평</span>
+    <p>폐수 집수조 내부에서 <b>유독 가스에 중독</b>되어 의식을 잃은 사고의 종류는 ‘감전’이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">‘감전’은 <b>전기 충전부 접촉·통전</b>이다. 밀폐 공간의 유독 가스 중독은 <b>유해·위험 물질 노출·접촉</b> 또는 <b>산소 결핍·질식</b>. 이때 붙일 표지는 방독마스크 착용 → <b>지시 표지</b>다.</div>
+  </div>
+  <div class="q" data-ans="O">
+    <span class="lab">기출 2.</span><span class="src">23·10월 학평</span>
+    <p>곡물 수확기의 <b>회전하는 체인에 손이 말려 들어간</b> 사고는 사고 유형상 ‘끼임’으로 분류된다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021"><b>회전체 사이에 물리거나 회전체·돌기부에 감긴</b> 경우는 ‘끼임’이다. 안전장치가 파손된 상태 + 장갑 착용 후 작업 → 직접 원인은 <b>불안전한 행동 및 상태</b>.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 3.</span><span class="src">23·10월 학평</span>
+    <p>작업자 <b>1명</b>이 <b>3개월</b>간 요양 치료를 받은 재해는 「산업안전보건법」상 중대 재해에 해당한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">3개월 이상 요양은 <b>동시에 2명 이상</b>이어야 중대 재해다. 1명이면 해당하지 않는다. 사망은 1명만 있어도 중대 재해.</div>
+  </div>
+  <div class="q" data-ans="O">
+    <span class="lab">기출 4.</span><span class="src">26·10월 학평</span>
+    <p>프레스 기계에 손이 끼어 <b>2명 모두 6개월 이상</b>의 요양이 필요한 재해는 「산업안전보건법」상 중대 재해에 해당한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">3개월 이상 요양 부상자가 <b>동시에 2명</b> → 중대 재해 ○. 참고로 안전장치가 작동하지 않은 상태였으므로 직접 원인은 <b>불안전한 상태</b>이고, 낙하 위험 구역에는 <b>경고 표지</b>(낙하물경고)를 붙여야 한다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 5.</span><span class="src">24 수능 · 26·6월 모평</span>
+    <p>휴업 급여는 취업하지 못한 기간에 대하여 <b>통상임금의 100분의 60</b>에 상당하는 금액을 지급한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021"><b>평균 임금의 70%</b>다. ‘통상임금 60%’는 「근로기준법」의 <b>휴업수당</b>과 섞은 대표 함정. 수능·모평에서 반복 출제됐다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 6.</span><span class="src">25·9월 모평</span>
+    <p>2개월 입원 후 <b>장해 없이 완치</b>되어 직장에 복귀한 근로자는 <b>직업 재활 급여</b>를 받을 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">직업 재활 급여는 <b>장해 급여(또는 진폐 보상 연금)를 받은 사람</b>이거나 장해 급여를 받을 것이 명백한 사람이 대상이다. 장해가 없으면 대상이 아니다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 7.</span><span class="src">26·6월 모평</span>
+    <p><b>장해 14급</b> 판정을 받은 근로자는 <b>장해 특별 급여</b>를 받을 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">장해 특별 급여는 ① 사업주의 <b>고의 또는 과실</b> ② <b>제1급~제3급</b> 장해 두 요건을 모두 충족해야 한다. 14급은 대상이 아니다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 8.</span><span class="src">24·9월 모평 · 24·10월 학평</span>
+    <p>요양 급여는 <b>국민연금공단</b>에 신청하여 지급받는다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">산업 재해 보상 서비스는 모두 <b>근로복지공단</b>이 담당한다. 국민연금공단·국민건강보험공단·한국산업인력공단은 오답 선택지 단골.</div>
+  </div>
+  <div class="q" data-ans="O">
+    <span class="lab">기출 9.</span><span class="src">26·9월 모평</span>
+    <p><b>사내 체육 대회</b>에서 넘어져 다친 것도 ‘업무상 사고’에 해당할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">사업주가 <b>주관</b>하거나 지시에 따라 참여한 <b>행사나 행사 준비</b> 중 사고는 업무상 사고다. 다만 <b>일주일간 통원 치료</b>만 받고 계속 근무해 임금 손실이 없다면 <b>휴업 급여는 받지 못한다</b>.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">기출 10.</span><span class="src">26 수능 · 26·6월 모평</span>
+    <p>4주간 <b>입원 중 받은 간병</b>에 대하여 <b>간병 급여</b>를 지급받을 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">간병 급여는 <b>치유된 뒤</b> 상시·수시 간병이 필요해 실제 간병을 받는 경우에 지급한다. <b>요양 기간 중의 간병료</b>는 <b>요양 급여</b>로 지급된다.</div>
+  </div>
+</div>
+
+<div class="gichul" style="background:#1A2E1F">
+  <h2>✔ 수능특강 실전문제 체크</h2>
+  <div class="lead">18강 실전문제에서 꼭 짚어야 할 함정. O / X 로 판단하세요.</div>
+  <div class="q" data-ans="O">
+    <span class="lab">실전 1번.</span><span class="src">간접 원인</span>
+    <p>‘보호 장구 착용 <b>규정이 없어서</b>’ 발생한 사고와 ‘회사의 <b>지시</b>로 휴식 없이 운행하다’ 발생한 사고의 공통 간접 원인은 <b>관리적 원인</b>이다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">작업 준비 불충분·작업 지시 부적합·안전 관리 조직 결함 = <b>관리적 원인</b>. ‘경험 및 훈련 미숙’(교육적), ‘기계 장치 설계 불량’(기술적)은 답이 아니다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 2번.</span><span class="src">사고의 종류</span>
+    <p>고온 작업장에서 <b>동일 동작을 매일 반복</b>하여 생긴 손목 통증은 사고의 종류 중 <b>신체 반작용</b>에 해당한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021"><b>반복적인 동작</b>이다. ‘신체 반작용’은 <b>일시적이고 급격한</b> 행위·동작이나 균형 상실에 따른 반사적 행위, 놀람·정신적 충격을 말한다.</div>
+  </div>
+  <div class="q" data-ans="O">
+    <span class="lab">실전 3번.</span><span class="src">재해 예방 4원칙</span>
+    <p>“같은 공구가 떨어져도 <b>각도나 위치에 따라</b> 찰과상일 수도, 심각한 손상일 수도 있다”는 사례는 <b>손실 우연의 원칙</b>에 해당한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">손실의 <b>크기가 우연히</b> 결정된다는 진술 → 손실 우연의 원칙. 그래서 사전 예방이 중요하다는 결론으로 이어진다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 5번.</span><span class="src">사고 예방 5단계</span>
+    <p>하인리히 사고 예방 대책의 <b>마지막 단계</b>에서 사고의 원인을 분석하여 직접 원인과 간접 원인을 파악한다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">원인 분석은 <b>3단계 평가·분석</b>이다. 마지막 <b>5단계는 시정책의 적용</b>(적용 + 결과 재평가 + 재조정).</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 6번.</span><span class="src">청구 기관·기한</span>
+    <p>요양 급여나 휴업 급여는 <b>국민건강보험공단</b>에 청구서를 제출하면 <b>7일</b> 이내에 지급 여부를 통보받는다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">기한 <b>7일은 맞지만</b> 기관이 틀렸다. <b>근로복지공단</b>에 제출한다. 이렇게 ‘숫자는 맞고 기관만 바꾸는’ 선택지가 자주 나온다.</div>
+  </div>
+  <div class="q" data-ans="X">
+    <span class="lab">실전 8번.</span><span class="src">급여의 종류</span>
+    <p><b>호흡 보조 기구 구입비</b>는 <b>장해 급여</b>로 청구할 수 있다.</p>
+    <div class="ox"><button class="optbtn" data-v="O">O (옳다)</button><button class="optbtn" data-v="X">X (틀리다)</button></div>
+    <div class="fe021">보조기·간병료·이송료·MRI 검사비는 <b>요양 급여</b>. 장해 급여는 치유 후 <b>남은 장해</b>에 대한 보상이다.</div>
+  </div>
+</div>
+
+<div class="pit">
+  <h2>▶ 함정 포인트</h2>
+  <details><summary><span class="n">01</span> 떨어짐 · 넘어짐 · 깔림 — 높이와 자세로 가른다</summary>
+    <div class="body"><b>떨어짐</b>=사다리·구조물 등 <b>높은 곳</b>에서 아래로 / <b>넘어짐</b>=거의 평면·경사면·층계에서 <b>구르거나</b> 넘어짐 / <b>깔림·뒤집힘</b>=세워진 물체가 쓰러져 <b>깔림</b>, 지게차 등이 <b>뒤집힘</b>. 미끄러져 넘어진 것은 ‘떨어짐’이 아니라 <b>넘어짐</b>이다.</div></details>
+  <details><summary><span class="n">02</span> 맞음 vs 부딪힘·접촉 — 누가 움직였나</summary>
+    <div class="body"><b>맞음</b>=고정되어 있던 <b>물체가 이탈</b>해 사람을 가해(낙하물·분출물). <b>부딪힘·접촉</b>=<b>재해자 자신의 움직임</b>으로 기인물에 부딪히거나, 물체가 <b>고정부에서 이탈하지 않은 채</b> 움직여 부딪힘. “튕겨 나온 볼트에 맞았다”=맞음, “이동 중 기계에 부딪혔다”=부딪힘·접촉.</div></details>
+  <details><summary><span class="n">03</span> 중대 재해 숫자 3종 세트</summary>
+    <div class="body"><b>사망 1명 이상</b> / <b>3개월 이상 요양 부상자 동시 2명 이상</b> / <b>부상자·직업성 질병자 동시 10명 이상</b>. ‘3개월 1명’, ‘2개월 3명’ 같은 변형은 모두 <b>중대 재해가 아니다</b>. 근거는 「산업안전보건법」 시행규칙 제3조. <span class="srcbadge law">법령 확인</span></div></details>
+  <details><summary><span class="n">04</span> 휴업 급여 = 평균 임금의 70%</summary>
+    <div class="body"><b>휴업 급여</b>(산재) = <b>평균 임금 × 70%</b>, 취업하지 못한 기간이 <b>3일 이내</b>면 미지급. <b>휴업수당</b>(「근로기준법」, 사용자 귀책의 휴업) = <b>평균 임금의 70% 이상</b>(평균 임금의 70%가 통상임금을 초과하면 통상임금 가능). ‘통상임금의 60%’는 어디에도 없는 조합이다.</div></details>
+  <details><summary><span class="n">05</span> 간병 급여 = ‘치유 후’에만</summary>
+    <div class="body">입원·요양 <b>중</b>의 간병료는 <b>요양 급여</b>로 나간다. <b>간병 급여</b>는 <b>치유된 뒤</b>에도 상시·수시 간병이 필요해 <b>실제로 간병을 받는</b> 경우에 지급한다. “입원 기간 중 간병급여”는 오답.</div></details>
+  <details><summary><span class="n">06</span> 특별 급여 2종 — 요건이 두 겹</summary>
+    <div class="body"><b>장해 특별 급여</b> = 사업주의 <b>고의 또는 과실</b> + 장해 <b>1~3급</b> + 근로자·사업주의 <b>합의</b>(법 제78조 단서). <b>유족 특별 급여</b> = 사업주의 고의 또는 과실 + <b>사망</b> + 유족과 사업주의 <b>합의</b>. 둘 다 민법상 손해 배상 청구를 <b>갈음</b>한다. 장해 14급은 해당 없음.</div></details>
+  <details><summary><span class="n">07</span> 직업 재활 급여 = 장해가 있어야</summary>
+    <div class="body"><b>장해 급여 또는 진폐 보상 연금을 받은 사람</b>, 또는 장해 급여를 받을 것이 <b>명백한 사람</b>이 대상. 완치되어 장해가 없으면 대상이 아니다. 반대로 <b>상병 보상 연금</b>은 요양 <b>2년 경과 + 1~3급 중증 요양 상태 + 미취업</b> 세 요건을 모두 갖춰야 한다.</div></details>
+  <details><summary><span class="n">08</span> 표지의 색·모양은 예외까지</summary>
+    <div class="body">경고 표지는 <b>노란 바탕 + 검은 삼각 테</b>가 원칙이지만, <b>위험 물질</b>은 <b>무색 바탕 + 붉은색 마름모</b>다. 지시 표지의 흰색 그림은 <b>30% 이상</b>, 경고의 노란색과 안내의 녹색은 <b>50% 이상</b>. ‘녹십자 표지’는 <b>안내 표지</b>다.</div></details>
+  <details><summary><span class="n">09</span> 직접 원인 vs 간접 원인</summary>
+    <div class="body"><b>직접</b> = 불안전한 행동 · 불안전한 상태(도미노 3단계). <b>간접</b> = 기술적 · 교육적 · 관리적 원인. 사례에서 “안전장치가 작동하지 않은 상태” → 직접(상태), “안전 교육 미실시” → 간접(교육적), “작업 계획 수립 미흡” → 간접(관리적).</div></details>
+  <details><summary><span class="n">10</span> 산재로 인정되지 않는 경우</summary>
+    <div class="body">노동자의 <b>고의·자해 행위</b>로 발생한 경우는 인정하지 않는다. 반면 <b>본인의 실수(과실)</b>로 다친 경우는 <b>인정된다</b>. ‘작업자 과실이므로 산재로 인정받을 수 없다’는 선택지는 <b>오답</b>(23·10월 학평 출제).</div></details>
+</div>
+
+<div class="totop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="ar">↑</span> 맨 위로</button></div>
+<div class="lab-sign">
+  <div class="lab-stars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lab-head">
+    <div class="lab-planet-wrap">
+      <svg class="lab-planet" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#A8842C" stroke-width="2.4" transform="rotate(-20 40 42)"/>
+        <circle cx="40" cy="38" r="16" fill="#EAD9A6"/>
+        <path d="M40 22 a16 16 0 0 1 0 32 a16 16 0 0 1 0 -32 z" fill="#D8C386" opacity=".55"/>
+        <circle cx="34" cy="33" r="3" fill="#C9B273" opacity=".8"/>
+        <circle cx="46" cy="42" r="2.2" fill="#C9B273" opacity=".7"/>
+        <circle cx="40" cy="38" r="16" fill="none" stroke="#fff" stroke-width="1" opacity=".25"/>
+        <ellipse cx="40" cy="42" rx="34" ry="11" fill="none" stroke="#EAD9A6" stroke-width="2.4" stroke-dasharray="2 60" transform="rotate(-20 40 42)"/>
+        <circle cx="68" cy="34" r="3.4" fill="#FFE6A8"/>
+      </svg>
+    </div>
+    <div class="lab-text">
+      <div class="lab-name">은또링샘의 <span class="em">행성 연구소</span></div>
+      <div class="lab-tag">P L A N E T &nbsp; L A B</div>
+    </div>
+  </div>
+  <div class="lab-meta">성공적인 직업생활 · 18강 산업 안전과 재해 예방 · EBS 수능특강 2027 + EBS Plus 수록</div>
+</div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ===== EBS Plus 용어 사전 ===== */
+const TERMS = [
+  ["안전사고","공장·공사장 등에서 인간의 불안전한 행동 및 물리적 환경 조건 등이 원인이 되어 인명 피해와 재산상의 손실이 발생하는 사건."],
+  ["산업 안전","산업 재해를 예방하거나 최소화하려는 모든 활동."],
+  ["안전 수칙","위험이 생기거나 사고가 나지 않도록 행동이나 절차에서 지켜야 할 사항을 정한 규칙."],
+  ["불안전한 행동","사고의 직접적 원인 중 인적 원인. 위험 장소 접근, 안전장치 기능 제거, 보호구 미착용, 운전 중인 기계 정비 등."],
+  ["불안전한 상태","사고의 직접적 원인 중 물적 원인. 설비 자체의 결함, 작업 장소 불량, 작업 환경·생산 공정의 결함, 안전 방호 장치의 결함 등."],
+  ["산업 재해","일을 하다가 또는 일이 원인이 되어 근로자가 다치거나 병에 걸리는 것. 「산업안전보건법」 제2조는 노무를 제공하는 사람이 업무에 관계되는 건설물·설비·원재료·가스·증기·분진 등에 의하거나 작업 등으로 사망·부상·질병에 걸리는 것으로 정의."],
+  ["중대 재해","「산업안전보건법」상 ① 사망자 1명 이상 ② 3개월 이상 요양이 필요한 부상자 동시 2명 이상 ③ 부상자 또는 직업성 질병자 동시 10명 이상인 재해."],
+  ["하인리히","미국의 산업 안전 연구자. 여러 사고 통계로 사고의 인과 관계를 계량적으로 분석하여 재해 예방 4원칙·사고 예방 대책 5단계·도미노 이론을 제시함."],
+  ["도미노 이론","재해 발생을 ① 사회적 환경 및 유전적 요소 ② 개인적 결함 ③ 불안전한 행동 및 상태 ④ 사고 ⑤ 재해의 5단계로 설명. 한 단계를 제거하면 연쇄가 중단됨."],
+  ["손실 우연의 원칙","손실과 재해의 정도는 예측할 수 없이 우연히 결정되므로 재해를 사전에 예방하는 것이 중요하다는 원칙."],
+  ["원인 계기(연계)의 원칙","사고는 여러 원인이 복합적으로 연계하여 결정적 순간에 발생하며, 사고는 직접 원인, 직접 원인은 간접 원인에 의해 발생한다는 원칙."],
+  ["예방 가능의 원칙","사전 예방 대책에 중점을 두고 재해 요인이 될 요소를 미리 제거하면 재해를 예방할 수 있다는 원칙."],
+  ["대책 선정의 원칙","재해 발생 요소 제거를 위해 사전에 원인별 대책을 적절히 선택해 추진해야 한다는 원칙. 종합적 연계 대책이 필요."],
+  ["안전 보건 표지","산업 재해 예방을 위해 유해하거나 위험한 시설 등에 설치하는 표지. 금지·경고·지시·안내·관계자 외 출입 금지로 구분(「산업안전보건법」 시행규칙 제38조 별표 6)."],
+  ["보호구","유해·위험 요소로부터 신체를 보호하는 장구. 착용이 간편하고 외양·재료·구조가 양호하며 작업에 방해되지 않고 방호 성능이 충분해야 함."],
+  ["산업재해보상보험법","약칭 「산재보험법」. 근로자의 업무상 재해를 신속·공정하게 보상하고 재활 및 사회 복귀를 촉진하며 재해 예방과 복지 증진 사업을 시행하여 근로자 보호에 이바지함을 목적으로 하는 법."],
+  ["업무상 사고","근로 계약에 따른 업무 중, 사업주 제공 시설물 결함·관리 소홀, 사업주 주관 행사·행사 준비 중, 휴게 시간 중 사업주 지배 관리하의 행위 등으로 발생한 사고."],
+  ["업무상 질병","유해 요인 취급·노출로 생긴 질병, 업무상 부상이 원인이 된 질병, 직장 내 괴롭힘이나 고객의 폭언 등에 따른 정신적 스트레스가 원인이 된 질병 등."],
+  ["출퇴근 재해","사업주가 제공한 교통수단 등 사업주의 지배 관리하 출퇴근 중 사고, 그 밖에 통상적인 경로와 방법으로 출퇴근하는 중 발생한 사고."],
+  ["직장 내 괴롭힘","직장에서의 지위·관계 우위를 이용해 업무상 적정 범위를 넘어 신체적·정신적 고통을 주거나 근무 환경을 악화시키는 행위. 「근로기준법」 제76조의2에서 금지."],
+  ["근로복지공단","산재 보험 요양 신청 접수·심사와 보상 급여 지급을 담당하는 기관. 요양·휴업 급여는 청구서 제출 후 7일 이내 지급 여부를 통보함."],
+  ["요양 급여","업무상 재해로 요양 기간이 3일을 초과할 때 치료비를 지급. 간병료·이송료·보조기·MRI 검사비 등도 포함. 원칙은 산재 보험 의료 기관 요양, 부득이하면 요양비를 직접 지급."],
+  ["휴업 급여","업무상 재해로 취업하지 못해 임금을 받지 못할 때 1일당 평균 임금의 70% 상당액 지급. 취업하지 못한 기간이 3일 이내이면 미지급."],
+  ["평균 임금","산정 사유 발생일 이전 3개월 동안 지급된 임금 총액을 그 기간의 총 일수로 나눈 금액. 취업 후 3개월 미만도 동일하게 일급 단위로 산정."],
+  ["장해 급여","치유 후 신체에 장해가 남았을 때 장해 보상 연금 또는 장해 보상 일시금으로 지급. 제1급~제14급의 장해 등급별로 금액이 다름."],
+  ["간병 급여","요양 급여를 받은 사람 중 치유 후 상시 또는 수시로 간병이 필요하여 실제로 간병을 받는 사람에게 지급."],
+  ["상병 보상 연금","요양 시작 후 2년이 지나도 ① 치유되지 않고 ② 중증 요양 상태가 제1급~제3급이며 ③ 취업하지 못한 상태가 계속될 때 휴업 급여 대신 지급."],
+  ["장례비","업무상 재해로 사망한 경우 평균 임금의 120일분에 상당하는 금액을 장례를 지낸 유족에게 지급."],
+  ["직업 재활 급여","장해 급여 또는 진폐 보상 연금을 받은 사람 등이 직업 훈련·재활이 필요할 때 지급. 직업 훈련 비용·수당, 직장 복귀 지원금, 직장 적응 훈련비, 재활 운동비."],
+  ["장해 특별 급여","사업주의 고의 또는 과실로 발생한 업무상 재해로 제1급~제3급 장해를 입은 경우 민법상 손해 배상 청구를 갈음하여 지급할 수 있는 급여."],
+  ["유족 특별 급여","사업주의 고의 또는 과실로 근로자가 사망했을 때 유족과 사업주가 민법상 손해 배상 청구를 대신하기로 합의한 경우 유족에게 지급할 수 있는 급여."],
+  ["진폐 보상 연금","업무상 질병인 진폐에 걸린 근로자에게 지급. 평균 임금 기준의 등급별 진폐 장해 연금 + 기초 연금(최저임금액의 60%×365)."]
+];
+const cardWrap = document.getElementById('cards');
+TERMS.forEach(([t,d])=>{
+  const el=document.createElement('div'); el.className='fcard';
+  el.innerHTML='<div class="inner"><div class="term">'+t+'</div><div class="hint">뜻 보기</div><div class="def">'+d+'</div></div>';
+  el.addEventListener('click',()=>el.classList.toggle('open'));
+  cardWrap.appendChild(el);
+});
+
+/* ===== 안전 보건 표지 4종 ===== */
+const SGN=[
+  {k:'금지 표지',hint:'하지 마!',
+   svg:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="96" height="96" rx="6" fill="#FFFFFF" stroke="#D8D2C4"/><circle cx="50" cy="50" r="34" fill="none" stroke="#D7192D" stroke-width="9"/><path d="M28 44 h44 v12 h-44 z" fill="#111"/><line x1="26" y1="74" x2="74" y2="26" stroke="#D7192D" stroke-width="9" stroke-linecap="round"/></svg>',
+   info:'<span class="hd">금지 표지 — 흰색 바탕 + 빨간색 원 + 45° 사선</span>어떤 <b>특정한 행위가 허용되지 않음</b>을 나타냅니다. 금지할 내용은 <b>원의 중앙에 검은색</b>으로 표현합니다.<br>대표: 출입금지 · 보행금지 · 차량통행금지 · 사용금지 · 탑승금지 · <b>금연</b> · 화기금지 · 물체이동금지'},
+  {k:'경고 표지',hint:'위험해!',
+   svg:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="96" height="96" rx="6" fill="#FFFFFF" stroke="#D8D2C4"/><path d="M50 12 L92 86 H8 Z" fill="#F5CB1F" stroke="#111" stroke-width="7" stroke-linejoin="round"/><rect x="45" y="40" width="10" height="24" rx="3" fill="#111"/><circle cx="50" cy="72" r="5" fill="#111"/></svg>',
+   info:'<span class="hd">경고 표지 — 노란색 바탕 + 검은색 삼각 테</span>일정한 <b>위험에 따른 경고</b>. 경고할 내용은 삼각형 중앙에 <b>검은색</b>으로 표현하며 <b>노란색 면적이 전체의 50% 이상</b>이어야 합니다.<br><b>예외</b> — <b>위험 물질</b>의 경우 바탕은 <b>무색</b>, 기본 모형은 <b>붉은색 마름모</b> 형태입니다.<br>대표: 인화성·산화성·폭발성·급성독성·부식성·방사성물질경고 / 고압전기 · 매달린물체 · <b>낙하물</b> · 고온 · 저온 · 몸균형상실 · 레이저광선 · 위험장소경고'},
+  {k:'지시 표지',hint:'착용해!',
+   svg:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="96" height="96" rx="6" fill="#FFFFFF" stroke="#D8D2C4"/><circle cx="50" cy="50" r="38" fill="#0F63A8"/><path d="M28 56 a22 22 0 0 1 44 0 z" fill="#fff"/><rect x="24" y="56" width="52" height="8" rx="4" fill="#fff"/><circle cx="50" cy="72" r="9" fill="#fff" opacity=".85"/></svg>',
+   info:'<span class="hd">지시 표지 — 파란색 원형</span>일정한 <b>행동을 취할 것을 지시</b>합니다. 각종 안전·보건 <b>보호구의 착용</b>을 지시하며, 지시 내용은 <b>흰색</b>으로 표현합니다. 흰색 그림은 표지 전체 규격의 <b>30% 이상</b>이어야 합니다.<br>대표: 보안경 · <b>방독마스크</b> · 방진마스크 · 보안면 · <b>안전모</b> · 귀마개 · 안전화 · 안전장갑 · 안전복 착용'},
+  {k:'안내 표지',hint:'이쪽으로!',
+   svg:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="96" height="96" rx="6" fill="#FFFFFF" stroke="#D8D2C4"/><rect x="10" y="10" width="80" height="80" rx="5" fill="#00844A"/><rect x="43" y="24" width="14" height="52" rx="3" fill="#fff"/><rect x="24" y="43" width="52" height="14" rx="3" fill="#fff"/></svg>',
+   info:'<span class="hd">안내 표지 — 녹색 바탕의 정방형 또는 장방형</span>안전에 관한 <b>정보를 제공</b>합니다. <b>구명·구호, 피난의 방향</b> 등을 안내하며 표현 내용은 <b>흰색</b>, 녹색은 전체 면적의 <b>50% 이상</b>이어야 합니다.<br>대표: <b>녹십자표지</b> · 응급구호표지 · 들것 · 세안장치 · 비상용기구 · <b>비상구</b> · 좌측비상구 · 우측비상구'}
+];
+const sgnGrid=document.getElementById('sgnGrid');
+SGN.forEach((s,i)=>{
+  const d=document.createElement('div'); d.className='sgn';
+  d.innerHTML=s.svg+'<div class="nm">'+s.k+'</div><div class="hint">'+s.hint+'</div>';
+  d.addEventListener('click',()=>{
+    document.querySelectorAll('#sgnGrid .sgn').forEach(x=>x.classList.remove('on'));
+    d.classList.add('on');
+    document.getElementById('sgnInfo').innerHTML=s.info;
+  });
+  sgnGrid.appendChild(d);
+});
+
+/* ===== 도미노 이론 ===== */
+const DOM=[
+  ['1단계','사회적 환경 및\n유전적 요소','🧬','gr'],
+  ['2단계','개인적 결함','🙍','gr'],
+  ['3단계','불안전한 행동\n및 상태','⚠️','g3'],
+  ['4단계','사고','💥',''],
+  ['5단계','재해','🏥','']
+];
+let domRemoved=-1, domTimer=[];
+function domBuild(){
+  const row=document.getElementById('domRow'); row.innerHTML='';
+  DOM.forEach(([n,t,e,g],i)=>{
+    const d=document.createElement('div'); d.className='dom '+g; d.id='dom'+i;
+    d.innerHTML='<span class="dn">'+n+'</span><span class="de">'+e+'</span><span class="dt">'+t.replace('\n','<br>')+'</span>';
+    d.addEventListener('click',()=>{
+      domClear();
+      domRemoved = (domRemoved===i)? -1 : i;
+      document.querySelectorAll('.dom').forEach((x,j)=>x.classList.toggle('removed', j===domRemoved));
+      const msg=document.getElementById('domMsg'); msg.className='dom-msg';
+      msg.textContent = domRemoved<0 ? '제거할 도미노를 고른 뒤 밀어 보세요.'
+        : DOM[domRemoved][0]+' 「'+DOM[domRemoved][1].replace('\n',' ')+'」 을(를) 제거했습니다. 이제 밀어 보세요.';
+    });
+    row.appendChild(d);
+  });
+}
+function domClear(){
+  domTimer.forEach(t=>clearTimeout(t)); domTimer=[];
+  document.querySelectorAll('.dom').forEach(x=>x.classList.remove('fallen'));
+}
+function domPush(){
+  domClear();
+  const msg=document.getElementById('domMsg');
+  let fell=0;
+  for(let i=0;i<DOM.length;i++){
+    if(i===domRemoved) break;
+    fell=i+1;
+    domTimer.push(setTimeout(()=>{ document.getElementById('dom'+i).classList.add('fallen'); }, i*330));
+  }
+  domTimer.push(setTimeout(()=>{
+    if(domRemoved<0){ msg.className='dom-msg boom'; msg.textContent='💥 5단계까지 전부 넘어졌습니다 — 재해 발생!'; }
+    else if(domRemoved===0){ msg.className='dom-msg stop'; msg.textContent='✅ 첫 도미노가 없으니 연쇄가 시작조차 되지 않습니다.'; }
+    else { msg.className='dom-msg stop';
+      msg.textContent='✅ '+fell+'개까지만 넘어지고 '+DOM[domRemoved][0]+'에서 연쇄가 중단 — 재해로 이어지지 않습니다.'
+        + (domRemoved===2 ? '  ← 직접 원인(3단계)을 없앤 가장 현실적인 대책!' : '');
+    }
+  }, Math.max(fell,1)*330+220));
+}
+function domReset(){ domClear(); domRemoved=-1;
+  document.querySelectorAll('.dom').forEach(x=>x.classList.remove('removed','fallen'));
+  const m=document.getElementById('domMsg'); m.className='dom-msg'; m.textContent='제거할 도미노를 고른 뒤 밀어 보세요.';
+}
+domBuild();
+
+/* ===== 사고의 종류 판정 연습 ===== */
+const KIND=[
+  ["🪜","아파트 신축 공사 현장에서 개구부 덮개를 들어 옮기다가 작업자가 지하 3층으로 추락했다.","떨어짐","높은 장소에서 <b>인력(중력)</b>에 의해 아래로 → 떨어짐. 개구부 덮개·안전난간 미설치는 <b>불안전한 상태</b>."],
+  ["💧","주방 바닥에 고인 물을 밟아 미끄러져 어깨가 골절되었다.","넘어짐","거의 <b>평면·경사면·층계</b>에서 구르거나 넘어짐. 높이가 없으므로 ‘떨어짐’이 아니다."],
+  ["🚜","자재를 상차한 뒤 후진하던 지게차에 이동 중이던 작업자가 깔렸다.","깔림·뒤집힘","물체가 쓰러져 깔리거나 <b>지게차 등 건설 기계</b>가 운행·작업 중 뒤집힌 경우."],
+  ["🔩","크레인 해체 작업 중 <b>튕겨 나온 볼트</b>가 작업자를 가격했다.","맞음","고정되어 있던 물체가 <b>고정부에서 이탈</b>해 사람을 가해 → 맞음(낙하·비래)."],
+  ["⚙️","곡물 수확기의 회전하는 체인에 장갑 낀 손이 말려 들어갔다.","끼임","<b>회전체 사이에 물리거나 감긴</b> 경우 → 끼임. 프레스에 손이 끼는 사고도 같다."],
+  ["🏗️","냉각탑 상부 지지대가 <b>부식되어 무너지며</b> 작업자가 바닥으로 떨어졌다.","무너짐 · 떨어짐","구조물이 <b>허물어져 내림</b>(무너짐)에 이어 사람이 아래로 떨어짐. 직접 원인은 부식 = <b>불안전한 상태</b>."],
+  ["☠️","폐수 집수조 내부에서 유독 가스에 중독되어 의식을 잃었다.","유해·위험 물질 노출·접촉 / 산소 결핍·질식","밀폐 공간의 가스 중독. <b>감전이 아니다.</b> 대책 표지는 방독마스크 착용 → <b>지시 표지</b>."],
+  ["🌡️","여름철 40℃가 넘는 오븐 앞에서 장시간 작업하다 온열 질환에 걸렸다.","이상 온도 노출·접촉","고온·저온 환경 또는 물체에 노출·접촉. 같은 사례의 손목 통증은 <b>반복적인 동작</b>."],
+  ["⚡","전기 설비의 충전부에 손이 닿아 근육 수축과 호흡 곤란이 발생했다.","감전","충전부 직접 접촉·유도 전류 통전·섬락 접촉 등. <b>심실세동</b>이 나오면 감전이다."],
+  ["💥","이동 중 재해자 자신이 기계 모서리에 부딪혔다.","부딪힘·접촉","<b>재해자 자신의 움직임</b>으로 기인물에 부딪히거나 접촉. 물체가 날아온 ‘맞음’과 구별."],
+  ["🔧","착암기·연삭기 등 <b>진동 공구</b>를 오래 사용해 손가락이 하얗게 변하고 저리는 증상이 나타났다.","압박·진동","신체가 <b>눌리거나 진동</b>에 노출된 경우. 진동 공구 사용에 따른 <b>진동 장해</b>가 대표 사례다."],
+  ["🧎","천장 배관 작업을 위해 <b>팔을 어깨 위로 든 자세</b>를 장시간 유지하다 어깨 통증이 생겼다.","부자연스러운 자세","무리한 자세를 <b>오래 유지</b>한 경우. 힘의 크기가 아니라 <b>자세</b>가 문제라는 점이 판정 기준."],
+  ["🏋️","혼자서 30kg 자재를 <b>무리하게 들어 올리다</b> 허리를 삐끗했다.","과도한 힘·동작","근육의 힘을 <b>많이 사용</b>해 발생한 경우. 힘을 많이 쓰지 않고 되풀이한 것은 ‘반복적인 동작’이다."],
+  ["🔁","포장 라인에서 <b>같은 손목 동작을 하루 수천 번</b> 되풀이해 손목 통증 진단을 받았다.","반복적인 동작","근육의 힘을 <b>많이 쓰지 않고</b> 되풀이한 경우. ‘신체 반작용’(일시적·급격한 동작)과 반드시 구별."],
+  ["🤿","수중 작업 후 <b>급하게 상승</b>하여 관절 통증과 어지럼증(감압병) 증상이 나타났다.","이상 기압 노출","고압·저압 등 <b>기압 변화</b>에 노출된 경우. 잠수·터널·고소 작업에서 발생한다."],
+  ["🔊","소음이 심한 공장에서 <b>귀마개 없이</b> 장기간 근무해 소음성 난청 진단을 받았다.","소음 노출","<b>소음</b>에 노출된 경우. 대책은 <b>귀마개 착용</b>이므로 붙일 표지는 <b>지시 표지</b>다."],
+  ["🥽","용접 작업 중 <b>보안면을 쓰지 않아</b> 아크 광선에 눈이 손상되었다.","유해 광선 노출","자외선·적외선·레이저 등 <b>유해 광선</b>에 노출된 경우. 대책 표지는 <b>보안면 착용(지시 표지)</b>."],
+  ["💣","가스 배관 용접 중 관 안에 남아 있던 <b>잔류 가스에 불이 붙어</b> 터졌다.","폭발","압력의 급격한 발생·개방으로 폭음을 수반한 팽창이 일어난 경우. <b>화재</b>(가연물+점화원)와 구별."],
+  ["🚷","응대 중 고객이 휘두른 물건에 맞아 다쳤다.","폭력 행위","사람·동물 등에 의한 <b>폭력·상해</b>. 신체 상해는 <b>업무상 사고</b>, 고객의 폭언 등에 따른 정신적 스트레스로 생긴 질병은 <b>업무상 질병</b>으로 인정된다."]
+];
+const kindList=document.getElementById('kindList');
+KIND.forEach(([emo,cs,ans,ex],n)=>{
+  if(n===10){ const sep=document.createElement('div'); sep.className='kind-div';
+    sep.innerHTML='<span>그 밖의 사고 · 노출형</span>'; kindList.appendChild(sep); }
+  const d=document.createElement('div'); d.className='kind';
+  d.innerHTML='<div class="kind-hd"><span class="kind-no">'+(n+1)+'</span><span class="kind-emo">'+emo+'</span></div>'
+    +'<div class="cs">'+cs+'</div><span class="hintk">\u25b8 \ub20c\ub7ec\uc11c \uc815\ub2f5 \ud655\uc778</span>'
+    +'<div class="ansline"><span class="tagk">'+ans+'</span><span class="why">'+ex+'</span></div>';
+  d.addEventListener('click',()=>d.classList.toggle('open'));
+  kindList.appendChild(d);
+});
+
+/* ===== 산재 급여 판정소 ===== */
+const BEN=[
+ ["요양 급여","🩺"],["휴업 급여","💸"],["장해 급여","🦿"],["간병 급여","🧑‍⚕️"],["유족 급여","🕊️"],
+ ["상병 보상 연금","📆"],["장례비","🌼"],["직업 재활 급여","🎓"],["장해 특별 급여","⚖️"],["유족 특별 급여","🤝"]
+];
+const CASES=[
+ {emo:"🏃",ttl:"사내 체육 대회에서 넘어진 A 씨",src:"26·9월 모평",
+  story:"사업주가 주관한 <b>사내 체육 대회</b>에서 넘어져 다쳤습니다. 일주일간 <b>근무 외 시간</b>에 통원 치료를 받았고, 치료 기간에도 성실히 <b>근무를 계속</b>했습니다. 장해 없이 완전히 치유되었습니다.",
+  ans:["요양 급여"],
+  fb:"사업주가 주관한 행사 중 사고이므로 <b>업무상 사고</b>가 맞습니다. 다만 <b>취업하지 못해 임금을 받지 못한 기간이 없으므로 휴업 급여는 받을 수 없고</b>, 장해가 없으니 장해 급여도 대상이 아닙니다."},
+ {emo:"🍕",ttl:"주방에서 미끄러진 A 씨",src:"24 수능",
+  story:"물이 고인 주방 바닥을 밟아 미끄러져 <b>어깨가 골절</b>되었습니다. 1주간 입원 치료를 받았고 <b>치료 기간 동안 임금을 받지 못했습니다.</b> 치료 후 부상은 치유되었으나 <b>장해 14급</b> 판정을 받았습니다.",
+  ans:["요양 급여","휴업 급여","장해 급여"],
+  fb:"3일 초과 요양 → <b>요양 급여</b>, 미취업·임금 미수령 → <b>휴업 급여</b>(평균 임금의 70%), 치유 후 남은 장해 → <b>장해 급여</b>. 14급이므로 <b>장해 특별 급여(1~3급)는 대상이 아닙니다.</b>"},
+ {emo:"🪜",ttl:"이동 사다리에서 떨어진 A 씨",src:"26·6월 모평",
+  story:"엘리베이터 LED 전등 교체 작업 중 이동 사다리에서 떨어져 <b>다리가 골절</b>되었습니다. 4주간 입원 치료 후 <b>장해 없이 완치</b>되었고, 치료 기간 동안 <b>임금을 받지 못했습니다.</b> 퇴원 후 직장에 복귀해 정상 근무 중입니다.",
+  ans:["요양 급여","휴업 급여"],
+  fb:"장해가 남지 않았으므로 <b>장해 급여·직업 재활 급여는 받을 수 없습니다.</b> ‘완치되었는데 직업 재활 급여를 받는다’는 선택지가 대표 함정입니다."},
+ {emo:"🧑‍⚕️",ttl:"치유 후에도 간병이 필요한 B 씨",src:"26 수능 유형",
+  story:"요양이 끝나 <b>치유 판정</b>을 받았지만, 의학적으로 <b>상시 간병이 필요</b>하다는 소견에 따라 현재 <b>실제로 간병을 받고</b> 있습니다.",
+  ans:["간병 급여"],
+  fb:"<b>간병 급여는 ‘치유 후’</b> 상시·수시 간병이 필요해 실제로 간병을 받을 때 지급합니다. <b>입원·요양 중의 간병료는 요양 급여</b>로 나가므로, ‘입원 기간 중 간병 급여’는 오답입니다."},
+ {emo:"📆",ttl:"요양이 2년을 넘긴 C 씨",src:"22·9월 모평 유형",
+  story:"요양 급여를 받으며 치료 중인데 <b>요양을 시작한 지 2년</b>이 지났습니다. 아직 <b>치유되지 않았고</b>, 중증 요양 상태가 <b>제2급</b>에 해당하며, 요양 때문에 <b>취업하지 못한</b> 상태가 계속되고 있습니다.",
+  ans:["요양 급여","상병 보상 연금"],
+  fb:"세 요건(2년 경과·미치유·1~3급·미취업)을 모두 갖추면 <b>휴업 급여 대신 상병 보상 연금</b>을 지급합니다. 따라서 <b>휴업 급여와 동시에 받을 수는 없습니다.</b>"},
+ {emo:"🕊️",ttl:"업무 중 사망한 D 씨",src:"기출 종합",
+  story:"업무 중 사고로 <b>사망</b>했습니다. 사고 원인을 조사한 결과 <b>사업주의 고의나 과실은 확인되지 않았습니다.</b> 유족이 장례를 지냈습니다.",
+  ans:["유족 급여","장례비"],
+  fb:"<b>유족 급여</b>(유족 보상 연금·일시금 등)와 <b>장례비</b>(평균 임금의 120일분). 사업주의 고의·과실이 없고 합의도 없으므로 <b>유족 특별 급여는 대상이 아닙니다.</b>"},
+ {emo:"🤝",ttl:"사업주 과실로 사망한 E 씨",src:"기출 종합",
+  story:"<b>사업주의 과실</b>로 발생한 재해로 <b>사망</b>했습니다. 유족과 사업주는 <b>민법에 따른 손해 배상 청구를 대신하기로 합의</b>했습니다.",
+  ans:["유족 급여","장례비","유족 특별 급여"],
+  fb:"사업주의 고의·과실 + 사망 + <b>유족과 사업주의 합의</b> 세 가지가 모두 갖춰지면 <b>유족 특별 급여</b>를 지급할 수 있습니다. 합의가 없으면 지급하지 않습니다."},
+ {emo:"⚖️",ttl:"사업주 과실로 중증 장해가 남은 F 씨",src:"24·9월 모평 유형",
+  story:"<b>사업주의 과실</b>로 발생한 재해로 크게 다쳤습니다. 치료 기간 동안 <b>임금을 받지 못했고</b>, 치유 후 <b>장해 제2급</b> 판정을 받았습니다.",
+  ans:["요양 급여","휴업 급여","장해 급여","장해 특별 급여"],
+  fb:"장해 특별 급여는 <b>사업주의 고의·과실</b> + <b>제1급~제3급</b> 장해 + 근로자·사업주의 <b>합의</b>를 모두 채워야 합니다. 2급이므로 해당하며, <b>장해 급여를 대신하는 것이 아니라 그 외에 추가로</b> 지급됩니다(법 제78조)."},
+ {emo:"🎓",ttl:"장해 급여를 받은 뒤 재취업을 준비하는 G 씨",src:"기출 종합",
+  story:"업무상 재해로 <b>장해 급여를 이미 받았습니다.</b> 이전 직무로 복귀하기 어려워 <b>재취업을 위한 직업 훈련</b>이 필요한 상황입니다.",
+  ans:["직업 재활 급여"],
+  fb:"<b>직업 재활 급여</b>는 장해 급여 또는 진폐 보상 연금을 받은 사람 등이 대상입니다. 직업 훈련 비용·훈련 수당, 직장 복귀 지원금, 직장 적응 훈련비, 재활 운동비가 지급됩니다."}
+];
+let csIdx=0, csSel=new Set(), csLocked=false, csHit=0;
+function csRender(){
+  const c=CASES[csIdx];
+  document.getElementById('csNo').textContent='사례 '+(csIdx+1)+' / '+CASES.length;
+  document.getElementById('csTrack').style.width=(csIdx/CASES.length*100)+'%';
+  document.getElementById('csScore').textContent='맞힌 사례 '+csHit;
+  document.getElementById('csStory').innerHTML=
+    '<div class="who"><span class="emo">'+c.emo+'</span><span class="ttl">'+c.ttl+'</span><span class="src">'+c.src+'</span></div><p>'+c.story+'</p>';
+  const wrap=document.getElementById('csChips'); wrap.innerHTML='';
+  BEN.forEach(([n,e])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='cs-chip';
+    b.innerHTML='<span class="ce">'+e+'</span>'+n;
+    b.addEventListener('click',()=>{
+      if(csLocked) return;
+      if(csSel.has(n)){ csSel.delete(n); b.classList.remove('sel'); }
+      else { csSel.add(n); b.classList.add('sel'); }
+    });
+    wrap.appendChild(b);
+  });
+  csSel.clear(); csLocked=false;
+  document.getElementById('csJudge').disabled=false;
+  document.getElementById('csNext').disabled=true;
+  const fb=document.getElementById('csFb'); fb.className='cs-fb'; fb.innerHTML='';
+}
+function csJudge(){
+  if(csLocked) return;
+  if(csSel.size===0){ toast('급여를 하나 이상 골라 주세요.'); return; }
+  csLocked=true;
+  const c=CASES[csIdx], ans=new Set(c.ans);
+  let wrong=0, missed=0;
+  document.querySelectorAll('#csChips .cs-chip').forEach(b=>{
+    const n=b.textContent.trim().replace(/^[^가-힣]*/,'');
+    b.classList.add('lock'); b.classList.remove('sel');
+    if(ans.has(n) && csSel.has(n)) b.classList.add('hit');
+    else if(ans.has(n)) { b.classList.add('miss'); missed++; }
+    else if(csSel.has(n)) { b.classList.add('bad'); wrong++; }
+  });
+  const perfect = (wrong===0 && missed===0);
+  if(perfect) csHit++;
+  document.getElementById('csScore').textContent='맞힌 사례 '+csHit;
+  const fb=document.getElementById('csFb');
+  fb.className='cs-fb show '+(perfect?'ok':'no');
+  fb.innerHTML='<span class="fh">'+(perfect?'✅ 정확합니다!':'❗ 다시 확인해 볼까요')+'</span>'
+    +'<b>정답 : '+c.ans.join(' · ')+'</b><br>'+c.fb
+    +(perfect?'':'<span style="display:block;margin-top:6px;font-size:.92em">'
+      +(wrong?'· 빨간 칩은 <b>받을 수 없는 급여</b>입니다. ':'')
+      +(missed?'· 금색 점선 칩은 <b>놓친 정답</b>입니다.':'')+'</span>');
+  document.getElementById('csJudge').disabled=true;
+  document.getElementById('csNext').disabled=false;
+  document.getElementById('csTrack').style.width=((csIdx+1)/CASES.length*100)+'%';
+}
+function csNext(){
+  if(csIdx<CASES.length-1){ csIdx++; csRender(); return; }
+  document.getElementById('csStory').innerHTML=
+    '<div class="cs-done"><div class="big">🎉 9개 사례 완료 — '+csHit+' / '+CASES.length+'</div>'
+    +'<div class="sm">'+(csHit===CASES.length?'모든 사례를 정확히 판정했습니다. 이 단원 최다 출제 유형을 완전히 잡았어요!'
+      :'놓친 사례는 [↺ 처음부터]로 다시 풀어 보세요. 요건 하나 차이로 급여가 갈립니다.')+'</div></div>';
+  document.getElementById('csChips').innerHTML='';
+  document.getElementById('csNext').disabled=true;
+  document.getElementById('csTrack').style.width='100%';
+}
+function csReset(){ csIdx=0; csHit=0; csRender(); }
+csRender();
+
+
+/* ===== 중대 재해 판정기 ===== */
+let MJ=[0,0,0], mjNote='';
+function mjSet(i,d){
+  MJ[i]=Math.max(0,Math.min(30,MJ[i]+d));
+  if(i===1 && MJ[2]<MJ[1]) MJ[2]=MJ[1];
+  if(i===2 && MJ[2]<MJ[1]) MJ[1]=MJ[2];
+  mjNote=''; mjDraw();
+}
+function mjPre(a,b,c,note){ MJ=[a,b,Math.max(b,c)]; mjNote=note; mjDraw(); }
+function mjDraw(){
+  const hit=[MJ[0]>=1, MJ[1]>=2, MJ[2]>=10];
+  for(let i=0;i<3;i++){
+    document.getElementById('mjv'+i).textContent=MJ[i];
+    document.getElementById('mjr'+i).classList.toggle('on',hit[i]);
+    document.getElementById('mjc'+i).classList.toggle('hit',hit[i]);
+  }
+  const out=document.getElementById('mjOut'), rs=document.getElementById('mjRs');
+  const names=['사망자 1명 이상','3개월 이상 요양 부상자 동시 2명 이상','부상자·직업성 질병자 동시 10명 이상'];
+  const met=names.filter((n,i)=>hit[i]);
+  const yes=met.length>0;
+  out.className='mj-out '+(yes?'yes':'no');
+  out.querySelector('.ico').textContent = yes?'🚨':'🟢';
+  out.querySelector('.vd').textContent = yes?'중대 재해에 해당합니다':'중대 재해가 아닙니다';
+  let msg;
+  if(yes) msg='충족한 요건 : <b>'+met.join('</b> / <b>')+'</b> — 세 요건 중 <b>하나만</b> 충족해도 중대 재해입니다.';
+  else if(MJ[1]===1) msg='3개월 이상 요양 부상자가 <b>1명</b>뿐입니다. <b>동시에 2명 이상</b>이어야 중대 재해입니다. — 23·10월 학평 대표 함정';
+  else if(MJ[2]>0 && MJ[2]<10 && MJ[1]===0) msg='부상자가 <b>'+MJ[2]+'명</b>이지만 3개월 이상 요양자가 없고 10명에도 못 미칩니다.';
+  else msg='세 요건 중 어느 것도 충족하지 않았습니다.';
+  rs.innerHTML = (mjNote? '<span style="display:block;font-weight:700;color:var(--ink);margin-bottom:3px">'+mjNote+'</span>':'') + msg;
+}
+mjDraw();
+
+
+/* ===== 산재 신청 절차 순서 맞추기 ===== */
+const FLOW=[
+ ["🚨","업무상 재해 발생","즉시 관리자에게 알림"],
+ ["🚑","응급조치 후 병원 이송","사업주에게 보고"],
+ ["📝","요양 급여 신청서 작성","병원의 협조로 작성"],
+ ["🏛️","근로복지공단에 제출","회사의 확인 후 제출"],
+ ["📬","심사 및 결과 통보","요양·휴업 급여는 7일 이내"]
+];
+let flNext=0;
+function flCard(i,inTrack){
+  const [e,n,su]=FLOW[i];
+  const d=document.createElement('div'); d.className='fl-c'; d.dataset.i=i;
+  d.innerHTML=(inTrack?'<span class="bd">STEP '+(i+1)+'</span>':'')
+    +'<span class="fe">'+e+'</span><span class="fn">'+n+'</span><span class="fs">'+su+'</span>';
+  return d;
+}
+function flDraw(){
+  flNext=0;
+  const tr=document.getElementById('flTrack');
+  tr.className='fl-track'; tr.innerHTML='<span class="ph">여기에 순서대로 채워집니다 ▸</span>';
+  const pool=document.getElementById('flPool'); pool.innerHTML='';
+  const order=[...FLOW.keys()].sort(()=>Math.random()-0.5);
+  order.forEach(i=>{
+    const c=flCard(i,false);
+    c.addEventListener('click',()=>flPick(c,i));
+    pool.appendChild(c);
+  });
+  flBar(); flMsg('첫 단계부터 눌러 보세요.','');
+}
+function flBar(){
+  document.getElementById('flNo').textContent=flNext+' / 5 단계';
+  document.getElementById('flTrackBar').style.width=(flNext/5*100)+'%';
+}
+function flMsg(t,cls){ const m=document.getElementById('flMsg'); m.className='fl-msg '+cls; m.innerHTML=t; }
+function flPick(card,i){
+  if(i!==flNext){
+    card.classList.add('shake');
+    setTimeout(()=>card.classList.remove('shake'),420);
+    const [,nm]=FLOW[flNext];
+    flMsg('❗ 순서가 다릅니다. 지금은 <b>'+(flNext+1)+'단계</b>를 골라야 해요.','no');
+    return;
+  }
+  const tr=document.getElementById('flTrack');
+  if(flNext===0) tr.innerHTML='';
+  tr.appendChild(flCard(i,true));
+  card.classList.add('gone');
+  flNext++; flBar();
+  if(flNext===5){
+    tr.classList.add('full');
+    flMsg('✅ 완성! 신청서는 <b>회사의 확인 후 근로복지공단</b>에 제출하고, 요양·휴업 급여는 <b>7일 이내</b>에 지급 여부를 통보받습니다.','ok');
+  } else {
+    flMsg('👍 좋아요 — 다음은 <b>'+(flNext+1)+'단계</b>입니다.','ok');
+  }
+}
+function flShow(){
+  const tr=document.getElementById('flTrack'); tr.innerHTML=''; tr.classList.add('full');
+  FLOW.forEach((f,i)=>tr.appendChild(flCard(i,true)));
+  document.getElementById('flPool').innerHTML='';
+  flNext=5; flBar();
+  flMsg('정답 순서입니다. <b>[↺ 섞어서 다시]</b>로 직접 맞춰 보세요.','ok');
+}
+function flReset(){ flDraw(); }
+flDraw();
+
+
+/* ===== 두 법의 '중대' 비교 토글 ===== */
+const LAW={
+ a:{ic:"🏭",nm:"「산업안전보건법」의 중대재해",tag:"교재 기준",
+    goal:"산업 재해 <b>예방</b>과 작업 환경 조성이 목적. 재해 발생 시 <b>작업 중지·보고</b> 등의 조치 기준이 된다.",
+    items:[["🕯️","사망자가 <b>1명 이상</b> 발생한 재해"],
+           ["🩹","<b>3개월 이상</b>의 요양이 필요한 부상자가 <b>동시에 2명 이상</b> 발생한 재해"],
+           ["👥","부상자 또는 직업성 질병자가 <b>동시에 10명 이상</b> 발생한 재해"]],
+    foot:"근거 : 「산업안전보건법」 제2조 제2호 · 같은 법 <b>시행규칙 제3조</b>  |  <b>수능특강 18강이 다루는 기준은 이쪽입니다.</b>"},
+ b:{ic:"⚖️",nm:"「중대재해처벌법」의 중대산업재해",tag:"참고 — 기준 다름",
+    goal:"경영책임자의 <b>안전보건 확보 의무 위반</b>을 <b>처벌</b>하는 것이 목적. 상시 근로자 <b>5명 미만</b> 사업장은 적용 제외.",
+    items:[["🕯️","사망자가 <b>1명 이상</b> 발생 <span style='color:var(--muted)'>(← 이 항목만 같음)</span>"],
+           ["🩹","<b>동일한 사고</b>로 <b>6개월 이상</b> 치료가 필요한 부상자가 <b>2명 이상</b> 발생"],
+           ["🧪","<b>동일한 유해요인</b>으로 급성중독 등 대통령령으로 정하는 직업성 질병자가 <b>1년 이내에 3명 이상</b> 발생"]],
+    foot:"근거 : 「중대재해 처벌 등에 관한 법률」 <b>제2조 제2호</b> · 제3조  |  숫자가 <b>3개월→6개월</b>, <b>10명→3명(1년 이내)</b>으로 달라집니다."}
+};
+function lwSet(k,btn){
+  const c=LAW[k], p=document.getElementById('lwPanel');
+  p.className='lw-panel '+k;
+  p.innerHTML='<div class="lw-hd"><span class="ic">'+c.ic+'</span><span class="nm">'+c.nm+'</span><span class="tag">'+c.tag+'</span></div>'
+    +'<div class="lw-goal">'+c.goal+'</div><ul class="lw-list">'
+    +c.items.map(([e,t])=>'<li><span class="e">'+e+'</span>'+t+'</li>').join('')
+    +'</ul><div class="lw-foot">'+c.foot+'</div>';
+  if(btn){ document.querySelectorAll('#lwTabs button').forEach(b=>b.classList.remove('on')); btn.classList.add('on'); }
+}
+lwSet('a',null);
+
+/* ===== 기관 매칭 ===== */
+const AGENCY=[
+ ["🏛️","근로복지공단"],["🏥","국민건강보험공단"],["🎫","한국산업인력공단"],["👴","국민연금공단"],["🦺","한국산업안전보건공단"]
+];
+const AGQ=[
+ ["📄","작업 중 다쳐 <b>요양 급여</b>를 청구하려고 한다. 신청서를 어디에 제출할까?","근로복지공단",
+  "산재 보험의 요양 신청 접수·심사와 급여 지급은 모두 <b>근로복지공단</b>이 담당합니다. ‘국민연금공단에 신청한다’는 24·9월 모평 오답 선택지였습니다."],
+ ["💸","입원 기간에 임금을 못 받아 <b>휴업 급여</b>를 청구한다. 어디로 갈까?","근로복지공단",
+  "요양·휴업 급여 모두 <b>근로복지공단</b>. 청구서 제출 후 <b>7일 이내</b>에 지급 여부를 통보받습니다."],
+ ["🧾","<b>4대 사회 보험료를 한꺼번에 징수</b>하는 통합 징수 업무는 어디에서 할까?","국민건강보험공단",
+  "4대 보험 통합 징수는 <b>국민건강보험공단</b>입니다. 징수는 여기, <b>산재 급여 지급은 근로복지공단</b> — 이 둘을 섞어 내는 문제가 잦습니다."],
+ ["🎓","재해 후 <b>국가 기술 자격 시험</b>에 응시해 새 일을 준비하려 한다. 시험을 시행하는 곳은?","한국산업인력공단",
+  "국가 기술 자격과 직업 능력 개발 훈련은 <b>한국산업인력공단</b>. 다만 <b>직업 재활 급여</b> 자체를 지급하는 곳은 근로복지공단입니다."],
+ ["📊","<b>산업 재해 기록·분류 지침(KOSHA GUIDE)</b>을 만들고 재해 예방 기술을 지원하는 곳은?","한국산업안전보건공단",
+  "교재의 사고 종류 분류표 출처인 <b>KOSHA GUIDE G-83-2016</b>을 발간한 기관입니다. 예방 기술 지원이 역할이고, 보상은 하지 않습니다."],
+ ["🏥","치료받은 병원이 <b>산재 보험 의료 기관</b>이다. 최초 요양 신청서는 어디서 작성할까?","병원 원무과",
+  "산재 보험 의료 기관이면 <b>병원 원무과</b>에서 작성해 관할 근로복지공단 지사와 회사에 각 1부씩 제출합니다. 일반 병원이라면 <b>근로복지공단 홈페이지</b>에서 서식을 내려받아 작성합니다."]
+];
+let agI=0, agSc=0, agLock=false;
+function agDraw(){
+  const q=AGQ[agI];
+  document.getElementById('agQ').innerHTML='<div class="t"><span class="em">'+q[0]+'</span><span class="tx">'+q[1]+'</span></div>';
+  const wrap=document.getElementById('agOpts'); wrap.innerHTML='';
+  let opts=AGENCY.map(a=>a);
+  if(q[2]==='병원 원무과') opts=[["🏛️","근로복지공단"],["🏥","국민건강보험공단"],["🩺","병원 원무과"],["🦺","한국산업안전보건공단"]];
+  opts.forEach(([e,n])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='ag-opt';
+    b.innerHTML='<span>'+e+'</span>'+n;
+    b.addEventListener('click',()=>agPick(b,n));
+    wrap.appendChild(b);
+  });
+  agLock=false;
+  const fb=document.getElementById('agFb'); fb.className='ag-fb'; fb.innerHTML='';
+  document.getElementById('agNext').disabled=true;
+  document.getElementById('agSc').textContent=agI+' / '+AGQ.length;
+}
+function agPick(btn,name){
+  if(agLock) return; agLock=true;
+  const q=AGQ[agI], ok=(name===q[2]);
+  document.querySelectorAll('#agOpts .ag-opt').forEach(b=>{
+    b.classList.add('lock');
+    const t=b.textContent.replace(/^[^가-힣]*/,'');
+    if(t===q[2]) b.classList.add('ok');
+    else if(b===btn) b.classList.add('bad');
+  });
+  if(ok) agSc++;
+  const fb=document.getElementById('agFb');
+  fb.className='ag-fb show '+(ok?'ok':'no');
+  fb.innerHTML='<b>'+(ok?'✅ 맞았습니다 — ':'❗ 정답은 ')+q[2]+'</b><br>'+q[3];
+  document.getElementById('agSc').textContent=(agI+1)+' / '+AGQ.length;
+  document.getElementById('agNext').disabled=false;
+}
+function agNext(){
+  if(agI<AGQ.length-1){ agI++; agDraw(); return; }
+  document.getElementById('agQ').innerHTML='<div class="cs-done"><div class="big">🏢 6개 상황 완료 — '+agSc+' / '+AGQ.length+'</div>'
+    +'<div class="sm">기억할 한 줄 : <b>산재 급여는 무조건 근로복지공단</b>, 4대 보험 징수는 국민건강보험공단, 자격·훈련은 한국산업인력공단, 예방 기술은 한국산업안전보건공단.</div></div>';
+  document.getElementById('agOpts').innerHTML='';
+  document.getElementById('agFb').className='ag-fb';
+  document.getElementById('agNext').disabled=true;
+}
+function agReset(){ agI=0; agSc=0; agDraw(); }
+agDraw();
+
+/* ===== 빈칸 채점 ===== */
+const blanks = [...document.querySelectorAll('input.blank')];
+const norm = s => (s||'').replace(/[\s().·,'’‘%]/g,'').toLowerCase();
+const answerOf = b => b.dataset.a.split('|')[0];
+const userVal = b => ('userans' in b.dataset) ? b.dataset.userans : b.value;
+function fitWidth(b){ b.style.width = Math.max(4, [...b.value].length + 1) + 'em'; }
+function clearState(b){
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title');
+  if('userans' in b.dataset){ b.value=b.dataset.userans; delete b.dataset.userans; }
+}
+function updateFilled(){
+  const n = blanks.filter(b=>userVal(b).trim()!=='').length;
+  document.getElementById('filled').textContent = n;
+  document.getElementById('bar').style.width = (n/blanks.length*100)+'%';
+}
+blanks.forEach(b=>b.addEventListener('input',()=>{
+  b.classList.remove('correct','wrong','reveal','peek');
+  b.style.width=''; b.removeAttribute('title'); delete b.dataset.userans;
+  updateFilled();
+}));
+function isCorrect(b){
+  const got = norm(userVal(b)); if(!got) return null;
+  return b.dataset.a.split('|').some(a=>norm(a)===got);
+}
+function grade(){
+  let correct=0, answered=0;
+  blanks.forEach(b=>{
+    const uv = userVal(b);
+    b.classList.remove('correct','wrong','reveal','peek'); b.removeAttribute('title');
+    const r = isCorrect(b);
+    b.dataset.userans = uv;
+    b.value = answerOf(b);
+    fitWidth(b);
+    if(r===null){ b.title='내가 쓴 답: (빈칸)'; b.classList.add('reveal'); }
+    else if(r){ correct++; answered++; b.classList.add('correct'); }
+    else { answered++; b.title='내가 쓴 답: '+uv; b.classList.add('reveal'); }
+  });
+  solShown = true; document.getElementById('solBtn').textContent='정답 숨기기';
+  document.getElementById('scoretxt').innerHTML = ' · 정답 <b style="color:var(--ok)">'+correct+'</b>';
+  const pct = Math.round(correct/blanks.length*100);
+  let msg = correct===blanks.length ? '완벽합니다! 전 항목 정답 🎉'
+          : pct>=80 ? '거의 다 왔어요 — 빨강 칸이 정답!'
+          : pct>=50 ? '절반 이상! 빨강 칸이 정답입니다.'
+          : answered===0 ? '빈칸엔 정답을 채워 표시했어요.' : '빨강 칸이 정답입니다. 다시 도전!';
+  toast('채점 결과 — '+correct+' / '+blanks.length+'  ('+pct+'%)  '+msg);
+}
+let solShown=false;
+function toggleSol(){
+  solShown=!solShown;
+  if(solShown){
+    blanks.forEach(b=>{
+      if(!('userans' in b.dataset)) b.dataset.userans=b.value;
+      b.value=answerOf(b); b.classList.remove('correct','wrong','reveal');
+      b.classList.add('peek'); b.removeAttribute('title'); fitWidth(b);
+    });
+    document.getElementById('solBtn').textContent='정답 숨기기';
+  } else {
+    blanks.forEach(b=>clearState(b));
+    document.getElementById('solBtn').textContent='정답 보기';
+    document.getElementById('scoretxt').textContent='';
+  }
+  updateFilled();
+}
+function resetAll(){
+  blanks.forEach(b=>{ delete b.dataset.userans; b.value='';
+    b.classList.remove('correct','wrong','reveal','peek'); b.style.width=''; b.removeAttribute('title'); });
+  solShown=false; document.getElementById('solBtn').textContent='정답 보기';
+  document.getElementById('scoretxt').textContent='';
+  document.querySelectorAll('.q').forEach(q=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    q.querySelector('.fe021').classList.remove('show');
+    q.classList.remove('answered','ok','no'); });
+  document.querySelectorAll('.fcard.open').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.kind.open').forEach(c=>c.classList.remove('open'));
+  csReset();
+  flReset();
+  agReset();
+  lwSet('a',document.querySelector('#lwTabs button'));
+  domReset();
+  updateFilled(); window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.q').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.optbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const ok = btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.optbtn[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.fe021').classList.add('show');
+    q.classList.remove('ok','no'); q.classList.add('answered', ok?'ok':'no');
+  }));
+});
+let toTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace('채점 결과','<span class="stamp">채점 결과</span>');
+  t.classList.add('show'); clearTimeout(toTimer);
+  toTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+updateFilled();
+</script>
+</body>
+</html>

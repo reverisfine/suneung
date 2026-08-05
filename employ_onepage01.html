@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>은또링쌤의 원페이지 성직 — 고용보험 '실업급여 신청 절차'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bgA:#5566CE; --bgB:#4050B4;
+  --paper:#F1F1F4; --paper2:#E4E4EA; --paper3:#D8D9E2;
+  --ink:#24242C; --ink2:#63636F; --muted:#9698A8;
+  --acc:#3B5AE0; --acc2:#8C9CEB; --accbg:#E9ECFA;
+  --rule:#445CD4; --rule2:#AEB8EA;
+  --line:#D6D7DE;
+  --ok:#1F7A57; --okbg:#E2F2EB; --wrong:#C8324C; --wrongbg:#FBE6EA;
+  --navy:#282D52;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);line-height:1.62;-webkit-text-size-adjust:100%;
+  font-family:'Noto Sans KR','Gothic A1',sans-serif;
+  background:linear-gradient(160deg,var(--bgA) 0%,#4A5AC4 45%,var(--bgB) 100%);
+  background-attachment:fixed}
+.wrap{max-width:1140px;margin:0 auto;padding:14px 20px 64px}
+
+/* ===== 용지 적층 + 클립 ===== */
+.stack{position:relative;margin-top:8px;padding-top:56px}
+.stack .sh-back{position:absolute;left:12px;right:-12px;top:68px;bottom:-12px;border-radius:8px;
+  background:#C9CBD8;box-shadow:0 10px 26px rgba(20,25,70,.22)}
+.stack .sh-back2{position:absolute;left:6px;right:-5px;top:62px;bottom:-5px;border-radius:8px;
+  background:var(--paper2);box-shadow:0 8px 20px rgba(20,25,70,.18)}
+.clip{position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;z-index:20;
+  filter:drop-shadow(0 6px 9px rgba(12,16,48,.42))}
+.clip svg{width:100%;height:auto;display:block}
+.sheet{position:relative;z-index:10;background:var(--paper);border-radius:8px;
+  padding:66px 30px 34px;box-shadow:0 16px 44px rgba(16,22,66,.3);overflow:hidden}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(#DCDCE4 1px,transparent 1px),linear-gradient(90deg,#DCDCE4 1px,transparent 1px);
+  background-size:27px 27px}
+.sheet-in{position:relative;z-index:2}
+.deco{display:none}
+
+/* ===== 뉴스 헤더 ===== */
+.nhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:7px;font-family:'Gothic A1',sans-serif;
+  font-weight:800;font-size:13.5px;letter-spacing:.6px;color:#4A4B58}
+.brand{color:#4A4B58}
+.brand .planet{width:21px;height:auto;display:block;flex:0 0 auto;overflow:visible}
+.issue{font-family:'Gothic A1',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:3px;color:#7C7E92}
+.rule2{margin-top:9px;height:0;border-top:3px solid var(--rule);position:relative}
+.rule2::after{content:"";position:absolute;left:0;right:0;top:4px;border-top:1px solid var(--rule2)}
+
+/* ===== 커버 ===== */
+.cover{padding:30px 0 4px;text-align:center}
+.cdate{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:clamp(17px,3.2vw,25px);
+  color:#9A9CAD;letter-spacing:1px}
+.ceyebrow{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(21px,4.4vw,34px);
+  color:var(--ink);letter-spacing:-.8px;margin-top:4px}
+.ctitle{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(23px,6.1vw,54px);
+  color:var(--acc);letter-spacing:-2px;line-height:1.12;margin-top:4px;white-space:nowrap}
+.hotbox{margin:24px auto 0;max-width:330px;background:#FBFBFD;border-radius:999px;padding:9px 22px;
+  box-shadow:0 2px 8px rgba(30,40,100,.09)}
+.hoth{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(14px,2.6vw,18px);color:var(--acc)}
+.hotlist{list-style:none;margin:12px 0 0;padding:0 6px;text-align:left;max-width:560px;margin-left:auto;margin-right:auto}
+.hotlist li{position:relative;padding-left:16px;margin:6px 0;font-size:14px;color:#6D6F80;font-weight:500}
+.hotlist li::before{content:"•";position:absolute;left:2px;color:var(--acc2);font-weight:900}
+
+/* ===== 섹션 = 기사 ===== */
+.sec{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);position:relative}
+.sec-h{display:block;margin-bottom:14px;padding-right:44px}
+.anum{position:absolute;right:0;top:22px;font-family:'Gothic A1',sans-serif;font-weight:800;
+  font-size:12.5px;letter-spacing:3px;color:#A6A9BE}
+.kicker,.tail{font-family:'Gothic A1',sans-serif;font-weight:900;
+  font-size:clamp(20px,4.1vw,31px);letter-spacing:-1px;line-height:1.26}
+.kicker{color:var(--acc);margin-right:.3em}
+.tail{color:var(--ink)}
+.memo{display:block;margin-top:9px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:-.2px}
+
+/* ===== 본문 박스 ===== */
+.bubble{background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 17px}
+.bubble.pk{background:#FBFBFD;border-left:4px solid var(--acc)}
+.bubble h4{margin:0 0 8px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:17px;color:var(--ink)}
+.bubble .big{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(16px,2.6vw,21px);
+  text-align:center;line-height:1.5;margin:6px 0 2px;color:var(--ink)}
+.topgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+
+ul.hl{list-style:none;margin:9px 0 0;padding:0}
+ul.hl li{position:relative;padding-left:17px;margin:7px 0;font-size:14px;color:var(--ink2);font-weight:500}
+ul.hl li::before{content:"";position:absolute;left:1px;top:9px;width:6px;height:6px;background:var(--acc2);border-radius:1px}
+ul.hl.pk li::before{background:var(--acc)}
+
+.hi{background:linear-gradient(180deg,transparent 55%,#CFD8F8 55%);font-weight:700;padding:0 1px;color:var(--ink)}
+.hi.pu{background:linear-gradient(180deg,transparent 55%,#DCD3F6 55%)}
+.hi.yl{background:linear-gradient(180deg,transparent 55%,#F5E6B4 55%)}
+.hi.bl{background:linear-gradient(180deg,transparent 55%,#C7E4F4 55%)}
+.chip{display:inline-block;background:var(--accbg);border:1px solid var(--acc2);color:#2F47B8;
+  border-radius:4px;padding:1px 8px;font-size:12px;font-weight:700;margin:0 2px}
+.chip.pk{background:#FFF0F3;border-color:#EEB6C2;color:#A82943}
+.law{font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:-.2px}
+
+/* 기자 메모 (구 손글씨) */
+.hand{display:inline-block;font-weight:700;font-size:13.5px;color:var(--acc);letter-spacing:-.2px;line-height:1.5}
+.hand::before{content:"✎ ";opacity:.75}
+.hand.tilt,.hand.tilt2{transform:none}
+.hand.pk,.hand.pu{color:var(--acc)}
+.handbox{display:inline-block;font-weight:800;font-size:12.5px;color:#2F47B8;background:var(--accbg);
+  border:1px solid var(--acc2);border-radius:4px;padding:1px 8px}
+
+/* ===== 신청 절차 3단계 카드 ===== */
+.stepgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.step{background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px 15px 13px;position:relative}
+.step.s1,.step.s2,.step.s3{border-color:var(--line)}
+.step-no{position:absolute;top:-1px;left:-1px;width:30px;height:26px;border-radius:6px 0 6px 0;
+  background:var(--acc);color:#fff;display:grid;place-items:center;font-family:'Gothic A1',sans-serif;
+  font-weight:900;font-size:13.5px}
+.step .tag{font-size:11.5px;font-weight:600;color:var(--muted);margin-left:34px}
+.step .ttl{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(18px,2.7vw,23px);
+  letter-spacing:-1px;color:var(--ink);margin:5px 0 9px;padding-bottom:9px;border-bottom:2px solid var(--rule)}
+.rowline{display:grid;grid-template-columns:52px 1fr;gap:9px;align-items:start;
+  padding:8px 0;border-top:1px solid #E7E7EE;font-size:13.5px}
+.rowline:first-of-type{border-top:0}
+.rowline .k{font-weight:800;color:#fff;font-size:11.5px;background:var(--acc2);
+  border-radius:3px;padding:2px 0;text-align:center;letter-spacing:-.3px}
+.rowline .k.pu{background:#9A8DDD}
+.rowline .v{color:var(--ink2);font-weight:500;line-height:1.58}
+
+/* ===== 빈칸 ===== */
+.num{color:var(--acc);font-weight:900;font-size:12.5px;margin-right:1px;font-family:'Gothic A1',sans-serif}
+.sel{appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  font-family:'Gothic A1',sans-serif;font-weight:800;font-size:14px;color:var(--acc);
+  background-color:#EAEDFA;background-repeat:no-repeat;background-position:right 7px center;background-size:9px 6px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%233B5AE0'/%3E%3C/svg%3E");
+  border:0;border-bottom:2px solid var(--acc2);border-radius:3px 3px 0 0;
+  padding:3px 23px 3px 10px;margin:0 3px;cursor:pointer;vertical-align:middle;line-height:1.4;
+  min-width:5.6em;max-width:100%;text-align:center;text-align-last:center;transition:.14s}
+.sel.wide{min-width:8.6em} .sel.xwide{min-width:11.4em}
+.sel.empty{color:#9BA4D6;font-weight:700}
+.sel:hover{background-color:#DDE3FA}
+.sel:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.sel.correct{color:var(--ok);background-color:var(--okbg);border-bottom-color:var(--ok);
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%231F7A57'/%3E%3C/svg%3E")}
+.sel.reveal{color:var(--wrong);background-color:var(--wrongbg);border-bottom-color:var(--wrong);cursor:help;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23C8324C'/%3E%3C/svg%3E")}
+.sel.peek{color:#5C46B8;background-color:#EDE8FA;border-bottom-color:#8C74DE;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%235C46B8'/%3E%3C/svg%3E")}
+.sel option{color:var(--ink);background:#fff;font-weight:600;text-align:left}
+.sel option[value=""]{color:#9BA4D6}
+
+/* ===== sticky HUD ===== */
+.hud{position:sticky;top:0;z-index:60;margin:0 0 4px;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);border-radius:8px;padding:10px 14px;
+  box-shadow:0 6px 20px rgba(16,22,66,.25);border-top:3px solid var(--rule)}
+.hud-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.hud .cnt{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:13.5px;color:var(--ink)}
+.hud .cnt b{color:var(--acc);font-size:16px}
+.bar-out{height:7px;background:#E2E3EC;border-radius:99px;overflow:hidden;margin-top:8px}
+.bar-in{height:100%;width:0;border-radius:99px;transition:width .3s;
+  background:linear-gradient(90deg,#8C9CEB,var(--acc))}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+button.b{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:12.5px;border-radius:5px;
+  padding:7px 15px;border:1.5px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer;transition:.15s}
+button.b:hover{filter:brightness(1.08)}
+button.b.g{background:#fff;color:var(--acc)}
+button.b.w{background:#fff;color:var(--muted);border-color:var(--line)}
+
+/* ===== 타임라인 ===== */
+.tl{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px 15px 10px}
+.tl-arrow{position:relative;height:30px;margin:74px 0 6px}
+.tl-arrow::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#CBD3F5 0%,#A9B5EE 38%,#7B8CE4 70%,var(--acc) 100%);
+  border-radius:3px;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 50%,calc(100% - 20px) 100%,0 100%)}
+.tl-pt{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:3}
+.tl-pt .star{width:11px;height:11px;display:block;background:#fff;border:2.5px solid var(--navy);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+.tl-pt .lab{position:absolute;left:50%;transform:translateX(-50%);top:20px;white-space:nowrap;
+  font-size:11px;font-weight:700;color:var(--ink2);text-align:center;line-height:1.35;
+  background:rgba(251,251,253,.92);border-radius:3px;padding:2px 5px}
+.tl-pt .up{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;white-space:nowrap;
+  font-weight:700;font-size:12px;color:var(--acc)}
+.tl-span{position:absolute;top:-42px;height:0;border-top:2px dashed var(--acc2)}
+.tl-span i{position:absolute;left:50%;transform:translateX(-50%);top:-11px;white-space:nowrap;
+  background:var(--accbg);border:1px solid var(--acc2);border-radius:3px;padding:1px 9px;
+  font-size:11.5px;font-weight:700;color:#2F47B8;font-style:normal}
+.tl-note{margin-top:52px;font-size:13px;color:var(--ink2);font-weight:500}
+
+/* ===== 급여 체계 / 교차점 / 표 ===== */
+.tree{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.tcard{border-radius:6px;padding:15px 16px;border:1px solid var(--line);background:#FBFBFD}
+.tcard.a{border-top:3px solid var(--acc)} .tcard.b{border-top:3px solid #9A8DDD}
+.tcard h5{margin:0 0 4px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:16.5px;letter-spacing:-.6px}
+.tcard.a h5{color:var(--acc)} .tcard.b h5{color:#6A57C4}
+.tcard .why{font-size:12.5px;color:var(--muted);font-weight:500;margin-bottom:9px}
+.tcard ol{margin:0;padding-left:19px;font-size:13.5px;color:var(--ink2);font-weight:500}
+.tcard ol li{margin:6px 0}
+.cross{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 16px}
+.cross-h{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15.5px;margin-bottom:8px;letter-spacing:-.5px}
+.cross svg{width:100%;height:auto;display:block}
+.cross-note{margin-top:10px;font-size:13px;color:var(--ink2);font-weight:500;line-height:1.75}
+.dtab{width:100%;border-collapse:collapse;font-size:13px}
+.dtab th,.dtab td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.dtab th{background:var(--accbg);font-weight:800;color:#2F47B8;font-size:12.5px}
+.dtab td:first-child{background:#F4F5FA;font-weight:800;color:var(--acc);width:62px;font-size:12.5px}
+
+/* 기산점 탭 */
+.cmp{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 16px}
+.cmp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tab{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:12.5px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);border-radius:4px;padding:6px 13px;cursor:pointer;transition:.15s}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.cmp-body{display:none;font-size:13.5px;color:var(--ink2)}
+.cmp-body.on{display:block}
+.rule{position:relative;height:52px;margin:13px 0 6px;background:#EFEFF4;border-radius:4px;overflow:hidden}
+.rule .zone{position:absolute;top:0;bottom:0;display:grid;place-items:center;font-size:11.5px;font-weight:800}
+.rule .z-pay{background:#D9EDE4;color:#1B6E4E}
+.rule .z-no{background:#F8DDE3;color:#A82943}
+.rule .z-out{background:repeating-linear-gradient(45deg,#E6E7EF 0 6px,#DBDCE6 6px 12px);color:#71738A}
+.rule .mk{position:absolute;top:0;bottom:0;width:2px;background:var(--navy)}
+.rule .mk i{position:absolute;top:2px;left:4px;font-size:10.5px;font-weight:800;color:var(--navy);font-style:normal;white-space:nowrap}
+
+/* ===== 판정기 ===== */
+.judge{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px}
+.jq{border-top:1px solid #E7E7EE;padding:12px 0}
+.jq:first-of-type{border-top:0;padding-top:2px}
+.jq .txt{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:9px}
+.jopts{display:flex;gap:6px;flex-wrap:wrap}
+.jopt{font-size:12.5px;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--ink2);
+  border-radius:4px;padding:6px 11px;cursor:pointer;transition:.15s;font-family:'Gothic A1',sans-serif}
+.jopt:hover{border-color:var(--acc2)}
+.jopt.correct{background:var(--okbg);border-color:var(--ok);color:#1B6E4E}
+.jopt.wrong{background:var(--wrongbg);border-color:var(--wrong);color:#A82943;animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.jfb{display:none;margin-top:9px;background:var(--accbg);border-left:3px solid var(--acc);
+  border-radius:0 4px 4px 0;padding:9px 12px;font-size:13px;color:var(--ink2);font-weight:500}
+.jfb.show{display:block}
+
+/* ===== 기출 O/X ===== */
+.gichul{margin-top:14px;background:var(--navy);border-radius:6px;padding:18px 17px;color:#E9EAF4}
+.gichul h5{margin:0 0 3px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:16.5px;color:#B9C4F5;letter-spacing:-.5px}
+.gichul .src{font-size:11.5px;color:#9A9EC0;font-weight:500;margin-bottom:10px}
+.q{border-top:1px solid rgba(255,255,255,.13);padding:12px 0}
+.q:first-of-type{border-top:0}
+.q .qt{font-size:13.5px;font-weight:500;margin-bottom:9px;line-height:1.6}
+.optbtn{width:42px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.09);color:#fff;font-family:'Gothic A1',sans-serif;font-weight:900;
+  font-size:14px;cursor:pointer;margin-right:6px;transition:.15s}
+.optbtn:hover{background:rgba(255,255,255,.2)}
+.optbtn.correct{background:#2A8E68;border-color:#2A8E68}
+.optbtn.wrong{background:#C8324C;border-color:#C8324C;animation:shake .3s}
+.fe021{display:none;margin-top:9px;background:rgba(255,255,255,.08);border-left:3px solid #7E8DE0;
+  border-radius:0 4px 4px 0;padding:9px 12px;font-size:12.5px;color:#DDE0F0;line-height:1.65}
+.fe021.show{display:block}
+.fe021 b{color:#B9C4F5}
+
+/* ===== 함정 아코디언 ===== */
+.pit{margin-top:14px}
+.pit details{background:#FBFBFD;border:1px solid var(--line);border-radius:5px;margin-bottom:8px;overflow:hidden}
+.pit details[open]{border-color:var(--acc2);border-left:3px solid var(--acc)}
+.pit summary{list-style:none;cursor:pointer;padding:11px 13px;display:flex;gap:10px;align-items:center;
+  font-weight:700;font-size:13.5px;color:var(--ink)}
+.pit summary::-webkit-details-marker{display:none}
+.pit summary .no{flex:0 0 20px;height:20px;border-radius:3px;background:var(--acc);color:#fff;
+  display:grid;place-items:center;font-size:11.5px;font-weight:900;font-family:'Gothic A1',sans-serif}
+.pit summary .pm{margin-left:auto;color:var(--acc);font-weight:900;font-size:16px}
+.pit details[open] summary .pm{transform:rotate(45deg)}
+.pit .in{padding:0 14px 13px 43px;font-size:13px;color:var(--ink2);font-weight:500;line-height:1.7}
+
+/* ===== 플래시카드 ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:10px;margin-top:14px}
+.fcard{background:#FBFBFD;border:1px solid var(--line);border-radius:5px;padding:12px 13px;cursor:pointer;transition:.16s}
+.fcard:hover{border-color:var(--acc2)}
+.fcard .term{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:14px;color:var(--ink);letter-spacing:-.4px}
+.fcard .hint{font-size:11.5px;color:var(--acc);font-weight:700;margin-top:4px}
+.fcard .def{display:none;margin-top:8px;font-size:12.5px;color:var(--ink2);font-weight:500;line-height:1.65}
+.fcard.open{border-left:3px solid var(--acc);background:#fff}
+.fcard.open .def{display:block} .fcard.open .hint{display:none}
+
+/* ===== CTA (마지막 면) ===== */
+.cta{margin-top:34px;padding-top:26px;border-top:3px solid var(--rule);position:relative;text-align:center}
+.cta::before{content:"";position:absolute;left:0;right:0;top:4px;border-top:1px solid var(--rule2)}
+.cta-k{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(16px,3vw,22px);color:var(--acc)}
+.cta-t{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(22px,4.6vw,34px);
+  color:var(--ink);letter-spacing:-1.4px;line-height:1.22;margin-top:10px}
+.cta-btn{display:block;margin:20px auto 0;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15px;color:#fff;
+  background:var(--acc);border:0;border-radius:999px;padding:13px 40px;cursor:pointer;transition:.15s;
+  box-shadow:0 5px 14px rgba(59,90,224,.32)}
+.cta-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.cta-url{margin-top:18px;font-family:'Gothic A1',sans-serif;font-weight:700;font-size:12.5px;
+  letter-spacing:1.4px;color:var(--muted);border-bottom:1px solid var(--line);display:inline-block;padding-bottom:4px}
+.lab-sign{margin:18px 0 0;text-align:center;color:var(--muted)}
+.lab-sign .nm{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:13px;letter-spacing:.6px;color:#6E7089}
+.lab-sign .sub{font-size:11.5px;margin-top:3px}
+.lab-stars{display:none}
+#top{position:fixed;right:16px;bottom:22px;z-index:70;width:42px;height:42px;border-radius:6px;
+  border:0;background:#fff;color:var(--acc);font-size:18px;font-weight:900;cursor:pointer;
+  box-shadow:0 6px 18px rgba(10,15,50,.3)}
+
+/* ===== 토스트 / 맨위로 ===== */
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:99;
+  background:var(--navy);color:#fff;border-radius:6px;padding:12px 20px;font-size:13px;font-weight:600;
+  box-shadow:0 10px 30px rgba(10,15,50,.45);transition:transform .32s;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+#toast .stamp{color:#B9C4F5;font-weight:900}
+
+
+@media (max-width:860px){
+  .stepgrid,.tree,.topgrid{grid-template-columns:1fr}
+  .sheet{padding:52px 16px 26px}
+  .stack .sh-back{left:7px;right:-6px;top:56px} .stack .sh-back2{left:3px;right:-3px;top:51px}
+  .clip{width:92px}
+  .stack{padding-top:45px}
+  .rowline{grid-template-columns:48px 1fr;font-size:13px}
+  .sel{min-width:5em;font-size:13px;padding:3px 20px 3px 8px}
+  .sel.wide{min-width:7.4em} .sel.xwide{min-width:9.4em}
+  .tl-pt .lab{font-size:10px;padding:1px 3px} .tl-pt .up{font-size:11px}
+  .tl-arrow{margin:78px 0 6px} .tl-note{margin-top:64px;font-size:12.5px}
+  .cards{grid-template-columns:1fr 1fr}
+  .rule .zone{font-size:9.5px} .rule .mk i{font-size:9px}
+  .sec-h{padding-right:0} .anum{position:static;display:block;margin-bottom:5px}
+  .dtab{font-size:12px} .dtab th,.dtab td{padding:6px 7px}
+}
+@media (max-width:420px){ .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hud">
+  <div class="hud-top">
+    <div class="cnt">빈칸 완성 <b id="filled">0</b> / 39<span id="scoretxt"></span></div>
+    <div class="btns">
+      <button class="b" onclick="grade()">채점하기</button>
+      <button class="b g" id="solBtn" onclick="toggleSol()">정답 보기</button>
+      <button class="b g" onclick="shuffleBank()">선택지 섞기</button>
+      <button class="b w" onclick="resetAll()">다시 풀기</button>
+    </div>
+  </div>
+  <div class="bar-out"><div class="bar-in" id="bar"></div></div>
+</div>
+
+<div class="stack">
+<div class="sh-back"></div><div class="sh-back2"></div>
+<div class="clip"><svg viewBox="0 0 280 258" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="cFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151515"/><stop offset="26%" stop-color="#5E5E5E"/>
+      <stop offset="52%" stop-color="#8A8A8A"/><stop offset="78%" stop-color="#3A3A3A"/>
+      <stop offset="100%" stop-color="#101010"/>
+    </linearGradient>
+    <linearGradient id="cWire" x1="0.1" y1="1" x2="0.9" y2="0">
+      <stop offset="0%" stop-color="#1B1B1B"/><stop offset="45%" stop-color="#4F4F4F"/>
+      <stop offset="72%" stop-color="#8C8C8C"/><stop offset="100%" stop-color="#3D3D3D"/>
+    </linearGradient>
+    <filter id="cSh" x="-40%" y="-120%" width="180%" height="340%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <linearGradient id="cGrip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A4A4A"/><stop offset="45%" stop-color="#1C1C1C"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <!-- 용지에 드리우는 그림자 -->
+  <ellipse cx="142" cy="250" rx="88" ry="10" fill="#141C46" opacity=".34" filter="url(#cSh)"/>
+  <!-- 금속 프레임 -->
+  <rect x="34" y="136" width="212" height="104" rx="22" fill="none" stroke="url(#cFrame)" stroke-width="11"/>
+  <!-- 와이어 다리 -->
+  <path d="M130,110 L108,206" fill="none" stroke="#0C0C0C" stroke-width="9" stroke-linecap="round"/>
+  <path d="M150,110 L172,206" fill="none" stroke="#0C0C0C" stroke-width="9" stroke-linecap="round"/>
+  <!-- 검정 그립 -->
+  <rect x="54" y="198" width="172" height="42" rx="15" fill="url(#cGrip)"/>
+  <rect x="60" y="203" width="160" height="9" rx="4.5" fill="#5A5A5A" opacity=".28"/>
+  <!-- 상단 와이어 루프 -->
+  <path d="M129,116 C120,98 100,92 100,70 C100,42 118,26 140,26 C162,26 180,42 180,70 C180,92 160,98 151,116"
+        fill="none" stroke="url(#cWire)" stroke-width="12" stroke-linecap="round"/>
+</svg></div>
+<div class="sheet">
+<div class="sheet-in">
+<div class="nhead">
+  <div class="brand"><svg class="planet" viewBox="0 0 28 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="14" cy="11" rx="13" ry="4.1" fill="none" stroke="currentColor" stroke-width="1.7" transform="rotate(-18 14 11)"/>
+    <circle cx="14" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.9"/>
+  </svg>은또링NEWS</div>
+  <div class="issue">제 01호</div>
+</div>
+<div class="rule2"></div>
+
+<div class="cover">
+  <div class="cdate">직업 탐구 영역</div>
+  <div class="ceyebrow">성직 개념 훑어보기 <span style="color:var(--muted)">&lsquo;</span>고용보험<span style="color:var(--muted)">&rsquo;</span></div>
+  <div class="ctitle">실업급여 신청 절차</div>
+  <div class="hotbox"><div class="hoth">이번 호 핵심 이슈</div></div>
+  <ul class="hotlist">
+    <li>신청 절차 3단계 — 실업 '신고' · 수급자격 '인정' · 실업의 '인정'</li>
+    <li>사업주가 할 일과 근로자가 할 일, 두 갈래가 만나는 단 한 곳</li>
+    <li>구직급여 4종과 취업촉진 수당 4종 — 26_6월 18번이 노린 지점</li>
+  </ul>
+</div>
+
+<!-- ===== 상단 개요 2박스 ===== -->
+<div class="topgrid">
+  <div class="bubble pk">
+    <h4><span class="hi">실업급여</span>는?</h4>
+    <div class="big">고용보험 가입 근로자가 <span class="hi">
+      <span class="num">①</span><select class="sel wide empty" data-a="비자발적|비자발적으로|비자발적 사유" data-n="①" aria-label="빈칸 ①"><option value="">①</option><option>비자발적</option><option>자발적</option><option>개인적</option></select></span>으로<br>이직한 경우 지급하는 급여</div>
+    <ul class="hl pk">
+      <li>단, 이직일 이전 <span class="num">②</span><select class="sel empty" data-a="18|18개월" data-n="②" aria-label="빈칸 ②"><option value="">②</option><option>18</option><option>12</option><option>24</option></select>개월간
+          피보험 단위기간 통산 <span class="num">③</span><select class="sel empty" data-a="180|180일" data-n="③" aria-label="빈칸 ③"><option value="">③</option><option>180</option><option>90</option><option>120</option></select>일 이상 필수</li>
+      <li>근로의 의사와 능력이 있음에도 취업하지 못한 상태일 것</li>
+      <li>신청: 거주지 관할 <span class="num">④</span><select class="sel wide empty" data-a="고용센터|고용복지플러스센터|고용복지센터" data-n="④" aria-label="빈칸 ④"><option value="">④</option><option>고용센터</option><option>근로복지공단</option><option>국민연금공단</option></select> 방문
+          or <span class="chip pk">고용24</span> 온라인</li>
+    </ul>
+    <div class="hand tilt" style="margin-top:8px">* 실업급여 = 구직급여 + 취업촉진 수당 (BONUS에서!)</div>
+  </div>
+
+  <div class="bubble">
+    <h4><span class="hi pu">수급기간</span>은? <span class="law">(제48조)</span></h4>
+    <div class="big"><span class="num">⑤</span><select class="sel xwide empty" data-a="이직일의 다음 날|이직일 다음 날|이직일의다음날" data-n="⑤" aria-label="빈칸 ⑤"><option value="">⑤</option><option>이직일의 다음 날</option><option>이직일</option><option>실업 신고일</option><option>수급자격 인정일</option></select>부터<br>
+      <span class="num">⑥</span><select class="sel empty" data-a="12|12개월" data-n="⑥" aria-label="빈칸 ⑥"><option value="">⑥</option><option>12</option><option>6</option><option>18</option></select>개월 이내</div>
+    <ul class="hl">
+      <li>이 창(窓)이 닫히면 <span class="hi yl">소정급여일수가 남아 있어도 못 받음</span></li>
+      <li>그래서 이직 후 <span class="num">⑦</span><select class="sel wide empty" data-a="지체 없이|지체없이|즉시" data-n="⑦" aria-label="빈칸 ⑦"><option value="">⑦</option><option>지체 없이</option><option>15일 이내</option><option>30일 이내</option></select> 실업 신고!</li>
+      <li>기산점 헷갈림 주의 → <span class="hi bl">대기기간은 '수급 자격 인정일'부터</span><br><span class="law">※ 「고용보험법」 제49조① 문언은 '실업의 신고일부터' — 교재와 표현이 다름</span></li>
+    </ul>
+    <div class="hand tilt2" style="margin-top:8px">→ 26_6월 18번 ③번 오답의 근거가 바로 이것!</div>
+  </div>
+</div>
+
+<!-- ===== 신청 절차 3단계 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">01</span>
+    <span class="kicker">신청 절차</span>
+    <span class="tail">3단계 — 신고 · 자격 · 인정</span>
+    <span class="memo">이름이 비슷해서 다 섞이는 구간. 성격·횟수로 구분하세요</span>
+  </div>
+
+  <div class="stepgrid">
+    <!-- STEP 1 -->
+    <div class="step s1">
+      <div class="step-no">1</div>
+      <div class="tag">「고용보험법」 제42조</div>
+      <div class="ttl">실업의 신고</div>
+      <div class="rowline"><div class="k">성격</div><div class="v">절차의 <span class="num">⑧</span><select class="sel empty" data-a="개시|시작" data-n="⑧" aria-label="빈칸 ⑧"><option value="">⑧</option><option>개시</option><option>종료</option><option>판정</option></select> — <span class="hand">문을 여는 행위</span></div></div>
+      <div class="rowline"><div class="k">횟수</div><div class="v"><span class="num">⑨</span><select class="sel empty" data-a="1|1회|한" data-n="⑨" aria-label="빈칸 ⑨"><option value="">⑨</option><option>1</option><option>2</option><option>4</option></select>회 <span class="chip pk">단발</span></div></div>
+      <div class="rowline"><div class="k">내용</div><div class="v">직업안정기관 출석 신고. 이 신고에는
+        <span class="num">⑩</span><select class="sel empty" data-a="구직|구직 신청" data-n="⑩" aria-label="빈칸 ⑩"><option value="">⑩</option><option>구직</option><option>상병</option><option>이직</option></select> 신청 + 수급자격 인정신청을 <b>포함</b> <span class="law">(제42조②)</span><br>
+        <span class="hand" style="font-size:15px">※ '포함'을 정한 정의 규정 — 시간 순서 아님!</span></div></div>
+      <div class="rowline"><div class="k">효과</div><div class="v">수급 절차 시작. 단 수급 자격 인정일부터
+        <span class="num">⑪</span><select class="sel empty" data-a="7|7일" data-n="⑪" aria-label="빈칸 ⑪"><option value="">⑪</option><option>7</option><option>14</option><option>30</option></select>일간은
+        <span class="num">⑫</span><select class="sel wide empty" data-a="대기기간|대기 기간" data-n="⑫" aria-label="빈칸 ⑫"><option value="">⑫</option><option>대기기간</option><option>수급기간</option><option>소정급여일수</option></select>으로 <span class="hi">부지급</span> <span class="law">(교재 기준 · 제49조① 문언은 '실업의 신고일부터')</span></div></div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step s2">
+      <div class="step-no">2</div>
+      <div class="tag">「고용보험법」 제43조</div>
+      <div class="ttl">수급자격 인정</div>
+      <div class="rowline"><div class="k pu">성격</div><div class="v"><span class="num">⑬</span><select class="sel empty" data-a="자격" data-n="⑬" aria-label="빈칸 ⑬"><option value="">⑬</option><option>자격</option><option>지급</option><option>개시</option></select> 판정 — <span class="hand pu">자격증을 받는 행위</span></div></div>
+      <div class="rowline"><div class="k pu">횟수</div><div class="v"><span class="num">⑭</span><select class="sel empty" data-a="1|1회|한" data-n="⑭" aria-label="빈칸 ⑭"><option value="">⑭</option><option>1</option><option>2</option><option>4</option></select>회 <span class="chip">단발</span></div></div>
+      <div class="rowline"><div class="k pu">내용</div><div class="v">이직사유(비자발적) + 피보험 단위기간
+        <span class="num">⑮</span><select class="sel empty" data-a="180|180일" data-n="⑮" aria-label="빈칸 ⑮"><option value="">⑮</option><option>180</option><option>120</option><option>270</option></select>일 이상 등 <span class="hi pu">요건 심사</span></div></div>
+      <div class="rowline"><div class="k pu">효과</div><div class="v"><span class="hi pu">수급자격자 지위 취득</span>. 불인정 시
+        <span class="num">⑯</span><select class="sel empty" data-a="90|90일" data-n="⑯" aria-label="빈칸 ⑯"><option value="">⑯</option><option>90</option><option>30</option><option>60</option></select>일 이내 심사·재심사 청구</div></div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step s3">
+      <div class="step-no">3</div>
+      <div class="tag">「고용보험법」 제44조</div>
+      <div class="ttl">실업의 인정</div>
+      <div class="rowline"><div class="k">성격</div><div class="v"><span class="num">⑰</span><select class="sel empty" data-a="지급" data-n="⑰" aria-label="빈칸 ⑰"><option value="">⑰</option><option>지급</option><option>자격</option><option>신고</option></select> 판정 — <span class="hand">매 회차 출석 도장</span></div></div>
+      <div class="rowline"><div class="k">횟수</div><div class="v"><span class="num">⑱</span><select class="sel empty" data-a="1~4|1-4|1~4주|일에서 사" data-n="⑱" aria-label="빈칸 ⑱"><option value="">⑱</option><option>1~4</option><option>1~2</option><option>2~8</option></select>주마다 <span class="hi">반복</span> <span class="chip pk">계속</span></div></div>
+      <div class="rowline"><div class="k">내용</div><div class="v">실업인정일에 출석 →
+        <span class="num">⑲</span><select class="sel xwide empty" data-a="재취업 활동|재취업활동|구직활동|재취업 노력" data-n="⑲" aria-label="빈칸 ⑲"><option value="">⑲</option><option>재취업 활동</option><option>직업능력개발 훈련</option><option>피보험자격 확인</option></select> 신고</div></div>
+      <div class="rowline"><div class="k">효과</div><div class="v">구직급여는 실업의 인정을 받은
+        <span class="num">⑳</span><select class="sel empty" data-a="날" data-n="⑳" aria-label="빈칸 ⑳"><option value="">⑳</option><option>날</option><option>주</option><option>개월</option></select>에 대하여 지급.<br>못 받으면 자격은
+        <span class="num">㉑</span><select class="sel empty" data-a="유지" data-n="㉑" aria-label="빈칸 ㉑"><option value="">㉑</option><option>유지</option><option>소멸</option><option>정지</option></select>되고 그 날치만
+        <span class="num">㉒</span><select class="sel empty" data-a="부지급|지급되지 않음|미지급" data-n="㉒" aria-label="빈칸 ㉒"><option value="">㉒</option><option>부지급</option><option>전액 지급</option><option>반환</option></select></div></div>
+    </div>
+  </div>
+
+  <div class="bubble pk" style="margin-top:14px;text-align:center">
+    <div class="big" style="margin:0"><span class="hi">자격 판정은 한 번, 지급 판정은 여러 번.</span></div>
+    <div class="hand tilt" style="font-size:19px;margin-top:6px">즉, "자격이 있다" ≠ "그 날 돈이 나온다"</div>
+  </div>
+</div>
+
+<!-- ===== 실무 절차 — 누가 먼저 움직이나 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">02</span>
+    <span class="kicker">실무</span>
+    <span class="tail">절차 — 누가 먼저 움직이나</span>
+    <span class="memo">조문의 '정의'와 절차도의 '순서'는 다릅니다</span>
+  </div>
+  <div class="bubble pk">
+    <div style="font-size:14.5px;font-weight:600">위 3단계 절차는 <span class="hi">근로자 본인이 하는 행위</span>를 조문 기준으로 정리한 것입니다.
+      실제로 서류가 오가는 현장에서는 <span class="hi pu">사업주가 해야 할 일</span>이 나란히 굴러갑니다.</div>
+  </div>
+  <div class="tree">
+    <div class="tcard a">
+      <h5>🏢 사업주가 할 일 — 자격을 '증명'하는 서류</h5>
+      <div class="why">이 서류가 없으면 고용센터는 판정할 자료가 없습니다</div>
+      <ol>
+        <li><b>피보험 자격 상실 신고서</b> → <span class="num">㉓</span><select class="sel xwide empty" data-a="근로복지공단|근로복지 공단" data-n="㉓" aria-label="빈칸 ㉓"><option value="">㉓</option><option>근로복지공단</option><option>고용센터</option><option>국민건강보험공단</option></select><br>
+          기한: 상실 사유가 발생한 날이 속하는 달의 <b>다음 달</b> <span class="num">㉔</span><select class="sel empty" data-a="15|15일" data-n="㉔" aria-label="빈칸 ㉔"><option value="">㉔</option><option>15</option><option>10</option><option>14</option></select>일까지
+          <span class="law">(제15조 · 시행령 제7조①)</span><br>
+          <span class="hand" style="font-size:15px">단, 근로자가 그 전에 신고를 요구하면 지체 없이!</span></li>
+        <li><b>이직확인서</b> → <span class="num">㉕</span><select class="sel wide empty" data-a="고용센터|고용복지플러스센터|고용복지센터" data-n="㉕" aria-label="빈칸 ㉕"><option value="">㉕</option><option>고용센터</option><option>근로복지공단</option><option>국세청</option></select><br>
+          근로자(또는 고용센터)의 <b>요청</b>을 받은 날부터 <span class="num">㉖</span><select class="sel empty" data-a="10|10일" data-n="㉖" aria-label="빈칸 ㉖"><option value="">㉖</option><option>10</option><option>7</option><option>15</option></select>일 이내 발급·제출
+          <span class="law">(제42조③ · 시행규칙 제82조의2)</span></li>
+      </ol>
+      <div class="hand tilt" style="margin-top:8px">이직확인서에 이직사유·평균임금·피보험 단위기간이 적힘 → 없으면 수급자격 판정 불가!</div>
+    </div>
+    <div class="tcard b">
+      <h5>🙋 근로자가 할 일 — EBS 17강 절차도 순서</h5>
+      <div class="why">고용센터 '방문'은 첫 단계가 아닙니다</div>
+      <ol>
+        <li>실업 상태(이직)</li>
+        <li><b>구직 등록</b> — 본인이 직접 <span class="num">㉗</span><select class="sel wide empty" data-a="고용24|고용24(work24)|work24" data-n="㉗" aria-label="빈칸 ㉗"><option value="">㉗</option><option>고용24</option><option>복지로</option><option>홈택스</option></select>를 통해 신청</li>
+        <li>수급자격 신청자 온라인 <span class="num">㉘</span><select class="sel empty" data-a="교육" data-n="㉘" aria-label="빈칸 ㉘"><option value="">㉘</option><option>교육</option><option>상담</option><option>검진</option></select> 이수 <span class="chip pk">필수</span> <span class="law">(방문 없이 온라인 수강 가능)</span></li>
+        <li>거주지 관할 <b>고용센터 방문</b> → 수급자격 인정 신청</li>
+        <li>수급자격 인정 → 구직급여 신청(실업인정 1~4주 반복) → 지급</li>
+      </ol>
+    </div>
+  </div>
+  <!-- 교차점 다이어그램 -->
+  <div class="cross">
+    <div class="cross-h">▸ 두 갈래는 <span class="hi">딱 한 곳</span>에서 만납니다</div>
+    <svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="사업주가 할 일과 근로자가 할 일이 수급자격 인정에서 합류하는 다이어그램">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#3B5AE0"/>
+        </marker>
+      </defs>
+      <rect x="6" y="12" width="192" height="62" rx="10" fill="#E9ECFA" stroke="#8C9CEB" stroke-width="2"/>
+      <text x="102" y="38" text-anchor="middle" font-size="15" font-weight="800" fill="#3B5AE0">🏢 사업주가 할 일</text>
+      <text x="102" y="58" text-anchor="middle" font-size="11.5" fill="#63636F">상실신고 · 이직확인서</text>
+      <rect x="6" y="132" width="192" height="62" rx="10" fill="#EDEAF9" stroke="#9A8DDD" stroke-width="2"/>
+      <text x="102" y="158" text-anchor="middle" font-size="15" font-weight="800" fill="#6A57C4">🙋 근로자가 할 일</text>
+      <text x="102" y="178" text-anchor="middle" font-size="11.5" fill="#63636F">구직 등록 · 교육 · 센터 방문</text>
+      <path d="M198,43 C258,43 258,103 306,103" fill="none" stroke="#8C9CEB" stroke-width="2.5" marker-end="url(#ar)"/>
+      <path d="M198,163 C258,163 258,103 306,103" fill="none" stroke="#9A8DDD" stroke-width="2.5" marker-end="url(#ar)"/>
+      <rect x="312" y="72" width="176" height="62" rx="10" fill="#fff" stroke="#3B5AE0" stroke-width="3"/>
+      <text x="400" y="98" text-anchor="middle" font-size="14.5" font-weight="900" fill="#3B2A4D">② 수급자격의 인정</text>
+      <text x="400" y="118" text-anchor="middle" font-size="11.5" fill="#3B5AE0">서류가 필요한 유일한 지점</text>
+      <path d="M488,103 L534,103" fill="none" stroke="#3B5AE0" stroke-width="2.5" marker-end="url(#ar)"/>
+      <rect x="540" y="72" width="154" height="62" rx="10" fill="#F4F5FA" stroke="#8C9CEB" stroke-width="2"/>
+      <text x="617" y="98" text-anchor="middle" font-size="14" font-weight="800" fill="#3B2A4D">③ 실업의 인정</text>
+      <text x="617" y="118" text-anchor="middle" font-size="11.5" fill="#63636F">1~4주 반복 → 지급</text>
+      <text x="102" y="107" text-anchor="middle" font-size="12" font-weight="700" fill="#9698A8">서로 독립 · 병행</text>
+    </svg>
+    <div class="cross-note">
+      ▸ <b>구직 등록 단계에서는 어떤 서류도 확인하지 않습니다.</b> 고용24에서 본인이 이력서를 올리는 행위이고, 재직 중에도 가능합니다.<br>
+      ▸ 서류가 실제로 쓰이는 곳은 <span class="hi pu">수급자격 인정</span> 한 곳입니다. 그마저도 자료가 없으면 센터가 사업주에게 제출을 요청합니다 <span class="law">(제43조④)</span>.
+    </div>
+  </div>
+
+  <div class="cmp" style="margin-top:12px">
+    <div style="font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15.5px;margin-bottom:9px">📄 두 서류는 서로 다른 것을 증명합니다</div>
+    <table class="dtab">
+      <tr><th></th><th>피보험 자격 상실 신고</th><th>이직확인서</th></tr>
+      <tr><td>제출처</td><td>근로복지공단</td><td>고용센터</td></tr>
+      <tr><td>증명</td>
+        <td>고용보험 <b>가입 여부</b> + <span class="num">㉙</span><select class="sel wide empty" data-a="피보험기간|가입기간|피보험 기간" data-n="㉙" aria-label="빈칸 ㉙"><option value="">㉙</option><option>피보험기간</option><option>소정급여일수</option><option>평균임금</option></select></td>
+        <td><span class="num">㉚</span><select class="sel wide empty" data-a="이직사유|이직 사유|퇴사 사유" data-n="㉚" aria-label="빈칸 ㉚"><option value="">㉚</option><option>이직사유</option><option>소정급여일수</option><option>구직급여일액</option></select> · 평균임금 · 피보험 단위기간</td></tr>
+      <tr><td>결정</td><td>소정급여일수(120~270일)</td><td>수급자격 유무 + 구직급여일액</td></tr>
+    </table>
+    <div class="hand tilt" style="margin-top:8px">둘 중 하나만으로는 판정 불가! 사업주가 신고를 안 하면 근로자가 근로복지공단에
+      <span class="num">㉛</span><select class="sel xwide empty" data-a="피보험자격 확인청구|피보험자격확인청구|확인청구" data-n="㉛" aria-label="빈칸 ㉛"><option value="">㉛</option><option>피보험자격 확인청구</option><option>심사·재심사 청구</option><option>부당해고 구제신청</option></select> 가능 <span class="law">(제17조)</span></div>
+  </div>
+
+  <div class="bubble" style="margin-top:12px">
+    <div style="font-size:14.5px;font-weight:600">⚠ 한 줄 정리 — 제42조 제2항의 "실업의 신고에는 구직 신청과 수급자격 인정신청을 <b>포함</b>하여야 한다"는
+      <span class="hi pu">하나의 행위에 무엇이 들어가는지</span>를 정한 규정입니다. 순서를 정한 조항이 아닙니다.</div>
+    <div class="hand tilt2" style="margin-top:7px;font-size:17px">→ 순서를 물으면 EBS 절차도(구직 등록 → 교육 → 센터 방문), 정의를 물으면 제42조!</div>
+    <div class="law" style="margin-top:6px">※ 이직확인서 '요청 시 10일 이내' 구조는 2020. 8. 28. 개정 사항으로, 교재 본문에는 명시되지 않은 법령 보충 내용입니다.
+      교재는 제출기관 구분(상실신고서=근로복지공단 / 이직확인서=고용센터)까지만 서술합니다.</div>
+  </div>
+</div>
+
+<!-- ===== 타임라인 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">03</span>
+    <span class="kicker">시간축</span>
+    <span class="tail">한눈에</span>
+    <span class="memo">기산점 두 개가 서로 다른 지점에서 출발합니다</span>
+  </div>
+  <div class="tl">
+    <div class="tl-arrow">
+      <div class="tl-span" style="left:6%;right:6%"><i>수급기간 12개월 — 이직일의 <b>다음 날</b>부터</i></div>
+      <div class="tl-pt" style="left:6%"><span class="star"></span><span class="lab">이직일</span></div>
+      <div class="tl-pt" style="left:24%"><span class="star"></span><span class="lab">실업 신고<br><small style="color:#9384A3">＋수급자격 인정신청</small></span></div>
+      <div class="tl-pt" style="left:44%"><span class="star"></span><span class="lab">수급 자격 인정<br><small style="color:#9384A3">＝최초 실업인정</small></span><span class="up" style="bottom:auto;top:-30px">여기서 대기 7일 시작</span></div>
+      <div class="tl-pt" style="left:62%"><span class="star"></span><span class="lab">2차 실업인정</span></div>
+      <div class="tl-pt" style="left:80%"><span class="star"></span><span class="lab">…1~4주마다 반복</span></div>
+      <div class="tl-pt" style="left:94%"><span class="star"></span><span class="lab">수급기간 종료</span></div>
+    </div>
+    <div class="tl-note">
+      ▸ 이직일 다음 날 ~ <span class="hi">12개월</span>이 전체 창(窓)이고, 그 안에서 <span class="hi pu">실업 신고 → 수급 자격 인정 → 대기 7일 → 실업인정 반복</span>이 진행됩니다.<br>
+      ▸ 신고를 늦추면 창은 그대로 줄어들기 때문에, 소정급여일수를 다 못 쓰고 창이 먼저 닫힐 수 있습니다.
+      <span class="handbox">이게 26_6월 18번 ③의 함정!</span>
+    </div>
+  </div>
+
+  <!-- 기산점 비교 토글 -->
+  <div class="cmp">
+    <div class="cmp-tabs">
+      <button class="tab on" onclick="setTab(0)">수급기간 12개월</button>
+      <button class="tab" onclick="setTab(1)">대기기간 7일</button>
+      <button class="tab" onclick="setTab(2)">둘을 겹쳐 보기</button>
+    </div>
+    <div class="cmp-body on" id="cb0">
+      <b style="color:var(--purple)">기산점 = 이직일의 다음 날</b> · 길이 = 12개월 · 근거 제48조<br>
+      이 기간이 끝나면 소정급여일수가 남아도 지급 종료. <span class="hand">2023.6 이직 → 2024.6까지!</span>
+      <div class="rule">
+        <div class="zone z-pay" style="left:0;width:78%">지급 가능 구간 (12개월)</div>
+        <div class="zone z-out" style="left:78%;width:22%">창 닫힘 · 잔여일수 소멸</div>
+        <div class="mk" style="left:0"><i>이직일 다음 날</i></div>
+        <div class="mk" style="left:78%"><i>+12개월</i></div>
+      </div>
+    </div>
+    <div class="cmp-body" id="cb1">
+      <b style="color:var(--acc)">기산점 = 수급 자격 인정일</b> · 길이 = 7일<br>
+      최초 실업인정 시 이 7일은 <span class="hi">구직급여를 지급하지 않는 대기기간</span>입니다.
+      <div class="law" style="margin-top:4px">※ EBS 교재 절차도 기준. 「고용보험법」 제49조① 문언은 '실업의 신고일부터 7일'로 되어 있어 두 날짜가 2주가량 벌어질 수 있습니다.</div>
+      <div class="rule">
+        <div class="zone z-no" style="left:0;width:22%">대기 7일 · 부지급</div>
+        <div class="zone z-pay" style="left:22%;width:78%">이후부터 구직급여 지급</div>
+        <div class="mk" style="left:0"><i>수급 자격 인정일</i></div>
+        <div class="mk" style="left:22%"><i>+7일</i></div>
+      </div>
+    </div>
+    <div class="cmp-body" id="cb2">
+      두 기산점은 <b>출발선이 다릅니다.</b> 신고가 늦어질수록 왼쪽 회색(허비 구간)이 길어집니다.
+      <div class="rule">
+        <div class="zone z-out" style="left:0;width:16%">신고·인정 전</div>
+        <div class="zone z-no" style="left:16%;width:12%">대기 7일</div>
+        <div class="zone z-pay" style="left:28%;width:52%">지급</div>
+        <div class="zone z-out" style="left:80%;width:20%">창 닫힘</div>
+        <div class="mk" style="left:0"><i>이직일 다음 날</i></div>
+        <div class="mk" style="left:16%"><i>수급 자격 인정일</i></div>
+        <div class="mk" style="left:80%"><i>+12개월</i></div>
+      </div>
+      <div class="hand tilt" style="margin-top:6px">→ "지체 없이 신고"라는 법 문구가 여기서 나옵니다</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BONUS: 실업급여 체계 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">04</span>
+    <span class="tail" style="color:var(--pink)">BONUS</span>
+    <span class="kicker">실업급여</span>
+    <span class="tail">체계</span>
+    <span class="memo">제37조 — 두 갈래로 딱 갈라집니다</span>
+  </div>
+  <div class="tree">
+    <div class="tcard a">
+      <h5>Ⓐ 구직급여</h5>
+      <div class="why">생활 안정 + 구직 활동 전념을 위한 '본체'</div>
+      <ol>
+        <li><b>훈련</b>연장급여 — 직업안정기관의 장의 <b>지시</b> 훈련 시 소정급여일수 <span class="hi pu">초과</span> 연장</li>
+        <li><b>개별</b>연장급여 — 취업이 특히 곤란·생활이 어려운 자 <span class="chip">70%</span></li>
+        <li><b>특별</b>연장급여 — 실업 급증 시 <span class="num">㉜</span><select class="sel empty" data-a="60|60일" data-n="㉜" aria-label="빈칸 ㉜"><option value="">㉜</option><option>60</option><option>30</option><option>90</option></select>일 범위 <span class="chip">70%</span></li>
+        <li><b><span class="num">㉝</span><select class="sel wide empty" data-a="상병|상병급여" data-n="㉝" aria-label="빈칸 ㉝"><option value="">㉝</option><option>상병</option><option>훈련</option><option>개별</option></select></b>급여 — 실업 신고 <u>이후</u> 질병·부상·출산으로 실업 인정을 못 받은 날, 구직급여일액을 구직급여에 <span class="num">㉞</span><select class="sel wide empty" data-a="갈음|갈음하여|대신" data-n="㉞" aria-label="빈칸 ㉞"><option value="">㉞</option><option>갈음</option><option>추가</option><option>병행</option></select>하여 지급</li>
+      </ol>
+    </div>
+    <div class="tcard b">
+      <h5>Ⓑ 취업촉진 수당</h5>
+      <div class="why">빨리·멀리·배워서 취업하도록 '밀어주는' 부가급여</div>
+      <ol>
+        <li><span class="num">㉟</span><select class="sel xwide empty" data-a="조기재취업|조기 재취업|조기재취업 수당" data-n="㉟" aria-label="빈칸 ㉟"><option value="">㉟</option><option>조기재취업</option><option>광역 구직활동</option><option>개별연장</option></select> 수당 — 소정급여일수 <span class="hi">1/2 이상</span> 남기고 재취업 후 <b>12개월 이상</b> 계속 고용</li>
+        <li><span class="num">㊱</span><select class="sel xwide empty" data-a="직업능력개발|직업 능력 개발" data-n="㊱" aria-label="빈칸 ㊱"><option value="">㊱</option><option>직업능력개발</option><option>조기재취업</option><option>이주</option></select> 수당 — 직업안정기관의 장이 <b>지시한</b> 훈련 기간에 지급</li>
+        <li><span class="num">㊲</span><select class="sel xwide empty" data-a="광역 구직활동비|광역구직활동비|광역 구직 활동비" data-n="㊲" aria-label="빈칸 ㊲"><option value="">㊲</option><option>광역 구직활동비</option><option>이주비</option><option>직업능력개발 수당</option></select> — 기관 소개로 광범위한 지역에서 구직</li>
+        <li><span class="num">㊳</span><select class="sel wide empty" data-a="이주비" data-n="㊳" aria-label="빈칸 ㊳"><option value="">㊳</option><option>이주비</option><option>광역 구직활동비</option><option>상병급여</option></select> — 취업 또는 지시 훈련을 위해 <b>주거를 이전</b>하는 경우</li>
+      </ol>
+    </div>
+  </div>
+  <div class="bubble pk" style="margin-top:12px">
+    <div style="font-size:15px;font-weight:700">⚠ 최대 함정 — 고용보험의 <span class="hi">상병급여</span> ↔ 산재보험의
+      <span class="num">㊴</span><select class="sel xwide empty" data-a="상병보상연금|상병 보상 연금" data-n="㊴" aria-label="빈칸 ㊴"><option value="">㊴</option><option>상병보상연금</option><option>상병급여</option><option>휴업급여</option></select></div>
+    <div class="hand tilt" style="margin-top:6px;font-size:18px">이름 한 글자 차이 · 소속 법률이 완전히 다름! (26_6월 18번 ②번이 딱 이걸 노렸음)</div>
+  </div>
+</div>
+
+<!-- ===== 판정기 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">05</span>
+    <span class="kicker">판정기</span>
+    <span class="tail">이 상황, 어떤 급여?</span>
+    <span class="memo">클릭하면 바로 채점됩니다</span>
+  </div>
+  <div class="judge" id="judge">
+    <div class="jq" data-ans="b">
+      <div class="txt">① 실업 신고를 한 뒤 부상으로 1개월간 취업이 불가능해 실업의 인정을 받지 못했다.</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">상병보상연금</button>
+        <button class="jopt" data-v="b">상병급여</button>
+        <button class="jopt" data-v="c">개별연장급여</button>
+        <button class="jopt" data-v="d">아무것도 못 받음</button>
+      </div>
+      <div class="jfb">고용보험은 <b>상병급여</b>. 구직급여일액에 해당하는 금액을 구직급여에 '갈음하여' 지급합니다. 상병보상연금은 「산업재해보상보험법」상 급여입니다.</div>
+    </div>
+    <div class="jq" data-ans="c">
+      <div class="txt">② 직업안정기관의 장이 <u>지시하지 않은</u> 훈련을 스스로 이수했다.</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">직업능력개발 수당 지급</button>
+        <button class="jopt" data-v="b">훈련연장급여 지급</button>
+        <button class="jopt" data-v="c">수당 없음(단, 국민내일배움카드는 활용 가능)</button>
+      </div>
+      <div class="jfb">직업능력개발 수당·훈련연장급여는 모두 <b>'장의 지시'</b>가 요건입니다. 다만 '지시 여부'는 <b>수당</b>을 가르는 기준이고, <b>훈련비 지원(국민내일배움카드)</b>과는 무관합니다.</div>
+    </div>
+    <div class="jq" data-ans="a">
+      <div class="txt">③ 소정급여일수 180일 중 60일분만 받고 재취업해 1년 넘게 근무 중이다.</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">조기재취업 수당</button>
+        <button class="jopt" data-v="b">이주비</button>
+        <button class="jopt" data-v="c">광역 구직활동비</button>
+      </div>
+      <div class="jfb">1/2(90일) 이상을 남기고 재취업 + 12개월 이상 계속 고용 → <b>조기재취업 수당</b>. 26_6월 18번 A 씨 사례입니다.</div>
+    </div>
+    <div class="jq" data-ans="b">
+      <div class="txt">④ 실업인정일에 출석하지 않아 그 회차 실업의 인정을 받지 못했다.</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">수급자격이 소멸한다</button>
+        <button class="jopt" data-v="b">자격은 유지, 그 날치 구직급여만 부지급</button>
+        <button class="jopt" data-v="c">전액 반환해야 한다</button>
+      </div>
+      <div class="jfb">실업의 인정은 <b>그 기간분의 지급 여부</b>를 판정하는 절차일 뿐입니다. 자격 자체가 박탈되지 않습니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 기출 O/X ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">06</span>
+    <span class="kicker">기출</span>
+    <span class="tail">O / X 체크</span>
+  </div>
+  <div class="gichul" id="ox">
+    <h5>★ 기출 연계 — 실업급여 절차</h5>
+    <div class="src">2026학년도 6월 모평 18번 / 2025 대수능 11번 / 2023 대수능 14번 / 2023 9월 모평 7번 계열</div>
+
+    <div class="q" data-ans="X">
+      <div class="qt">1. 실업 신고 후 질병으로 실업의 인정을 받지 못한 기간에 대해서는 <b>상병보상연금</b>을 지급받을 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 고용보험은 <b>상병급여</b>입니다. 상병보상연금은 산재보험 급여로, 소속 법률이 다릅니다. (26_6월 18번 ②)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">2. 실업의 인정을 받지 못한 날이 있으면 <b>수급자격 자체가 소멸</b>한다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 그 날에 대한 구직급여가 지급되지 않을 뿐, 수급자격자 지위는 유지됩니다.</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">3. 구직급여의 수급기간은 <b>이직일의 다음 날</b>부터 12개월 이내이다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — 제48조. 2023년 6월 이직이면 2024년 6월까지입니다. '2024년 12월 말까지'는 오답. (26_6월 18번 ③)</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">4. 최초 실업 인정의 경우 <b>수급 자격 인정일로부터 7일간</b>은 대기기간으로 구직급여를 지급하지 않는다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — EBS 교재 절차도 기준. 기산점이 <b>'이직일'이 아니라는 점</b>이 포인트입니다. 참고로 「고용보험법」 제49조① 문언은 '실업의 신고일부터'여서 교재와 다릅니다 — 시험에서는 <b>교재 표현</b>을 따르세요.</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">5. <b>훈련연장급여</b>는 취업촉진 수당에 해당한다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 훈련연장급여는 <b>구직급여</b>(연장급여)입니다. 취업촉진 수당은 조기재취업·직업능력개발·광역 구직활동비·이주비 4종. (23_대수능 14번 계열)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">8. <span style="color:#FFD9EF">[심화]</span> 사업주가 이직확인서를 제출한 뒤에야 근로자는 <b>구직 등록</b>을 할 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 구직 등록은 고용24에서 본인이 이력서를 올리는 행위로, <b>재직 중에도 가능</b>합니다. 두 갈래는 서로 독립적이며 <b>수급자격 인정</b>에서 처음 만납니다.</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">7. <span style="color:#FFD9EF">[심화]</span> 사업주는 근로자가 이직하면 <b>요청이 없어도</b> 이직확인서를 반드시 먼저 제출해야 한다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 2020. 8. 28. 개정으로 <b>근로자 또는 고용센터의 요청을 받은 날부터 10일 이내</b> 발급·제출하는 구조로 바뀌었습니다. 다만 상실신고서와 함께 다음 달 15일까지 내는 것도 가능해, 실무에서는 같이 제출하는 경우가 많습니다.</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">6. 직업안정기관의 장이 <b>지시한</b> 훈련을 받는 기간에는 훈련연장급여와 직업능력개발 수당을 <b>함께</b> 받을 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — 성격이 달라 병행됩니다. 다만 훈련연장급여는 <b>소정급여일수를 초과</b>한 뒤의 문제라 순서상 뒤에 옵니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 함정 포인트 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">07</span>
+    <span class="kicker">함정</span>
+    <span class="tail">포인트</span>
+    <span class="memo">시험은 늘 이 네 곳에서 갈립니다</span>
+  </div>
+  <div class="pit">
+    <details><summary><span class="no">1</span>실업 '신고' ≠ 실업의 '인정'<span class="pm">＋</span></summary>
+      <div class="in">신고는 <b>1회</b>(절차 개시), 인정은 <b>1~4주마다 반복</b>(지급 판정). 이름이 비슷해 학생들이 하나로 묶어 버립니다.
+        문제에서 "실업의 인정을 받지 못하였다"라는 표현이 나오면 <b>신고는 이미 했다</b>는 뜻입니다 — 인정 절차 자체가 신고를 전제하니까요.</div></details>
+    <details><summary><span class="no">2</span>상병급여(고용보험) vs 상병보상연금(산재보험)<span class="pm">＋</span></summary>
+      <div class="in">글자 두 개 차이. <b>상병급여</b>는 실업 신고 이후 질병·부상·출산으로 실업 인정을 못 받은 날에 구직급여를 '갈음'하는 것.
+        <b>상병보상연금</b>은 업무상 재해로 요양 2년 경과·중증요건 충족 시 지급되는 산재보험 급여입니다.</div></details>
+    <details><summary><span class="no">3</span>기산점 두 개 — 12개월 vs 7일<span class="pm">＋</span></summary>
+      <div class="in">수급기간 12개월은 <b>이직일의 다음 날</b>부터, 대기기간 7일은 <b>수급 자격 인정일</b>부터(교재 기준). 출발선이 다릅니다.
+        선택지가 '이직일부터 7일' 또는 '인정일부터 12개월'로 뒤섞여 나오면 즉시 오답 처리하세요.<br>
+        <b>교사용 참고</b> — 「고용보험법」 제49조① 조문은 '실업의 신고일부터 7일'입니다. 교재·고용보험 안내문은 '수급 자격 인정일'로 서술해 차이가 있으니, 아이들에게는 교재 표현으로 가르치시되 질문이 나오면 이 차이를 설명해 주세요.</div></details>
+    <details><summary><span class="no">6</span>"다음 달 15일까지" ≠ "15일 이내"<span class="pm">＋</span></summary>
+      <div class="in">상실신고 기한은 <b>사유 발생한 날이 속하는 달의 다음 달 15일까지</b>입니다(시행령 제7조①).
+        6월 1일 이직이면 7월 15일까지 — 약 45일 여유죠. '이직 후 15일 이내'로 외우면 틀립니다.
+        <b>건강보험이 퇴사일로부터 14일 이내</b>라서 섞이기 쉬운 지점입니다.
+        단, 근로자가 그 기일 이전에 신고를 요구하면 <b>지체 없이</b> 해야 합니다.</div></details>
+    <details><summary><span class="no">5</span>조문 순서 ≠ 실무 순서<span class="pm">＋</span></summary>
+      <div class="in">제42조는 '실업의 신고'에 구직 신청과 수급자격 인정신청이 <b>포함된다</b>고만 정합니다. 실제 절차도 순서는
+        <b>구직 등록(고용24) → 수급자격 신청자 온라인 교육 → 고용센터 방문</b>이고, 그 앞·옆에서 사업주의 상실신고서와 이직확인서가 움직입니다.
+        선택지가 "수급자격 신청 교육은 고용센터를 방문해서 수강해야 한다"처럼 나오면 즉시 오답 — 온라인 수강이 가능합니다.</div></details>
+    <details><summary><span class="no">4</span>'장의 지시' 여부가 가르는 것 — 수당이지 훈련비가 아님<span class="pm">＋</span></summary>
+      <div class="in">직업안정기관의 장이 지시했는가? → <b>직업능력개발 수당·훈련연장급여</b>의 요건.
+        국민내일배움카드로 훈련비를 지원받는 것은 지시 여부와 <b>무관</b>합니다. 26_6월 18번 ①번이 이 혼동을 노렸습니다.</div></details>
+  </div>
+</div>
+
+<!-- ===== 용어 플래시카드 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">08</span>
+    <span class="kicker">용어</span>
+    <span class="tail">플래시카드</span>
+    <span class="memo">카드를 눌러 뜻을 확인하세요</span>
+  </div>
+  <div class="cards" id="cards"></div>
+</div>
+
+<div class="cta">
+  <div class="cta-k">실업급여 절차, 아직 헷갈린다면?</div>
+  <div class="cta-t">빈칸을 직접 채우며<br>확인해 보세요!</div>
+  <button class="cta-btn" onclick="resetAll()">처음부터 다시 풀기</button>
+  <div class="cta-url">EBS 2027 수능특강 17강 · 고용 서비스와 사회 제도</div>
+</div>
+<div class="lab-sign">
+  <div class="lab-stars" id="stars"></div>
+  <div class="nm">은또링쌤의 행성 연구소</div>
+  <div class="sub">원페이지 성직 · 실업급여 신청 절차</div>
+</div>
+
+</div><!-- /sheet-in -->
+</div><!-- /sheet -->
+</div><!-- /stack -->
+</div><!-- /wrap -->
+
+<div id="toast"></div>
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+
+<script>
+/* ===== 용어 플래시카드 ===== */
+const TERMS = [
+  ["실업의 신고","이직 후 지체 없이 고용센터에 출석해 구직 신청과 수급자격 인정신청을 하는 절차. 전체 과정을 여는 1회성 행위(제42조)."],
+  ["수급자격의 인정","이직사유·피보험 단위기간 180일 등 요건을 심사해 '수급자격자' 지위를 부여하는 1회성 판정(제43조)."],
+  ["실업의 인정","실업인정일에 출석해 재취업 활동을 신고하고, 그 기간의 각 날에 대해 구직급여를 지급할지 판정하는 절차. 1~4주마다 반복(제44조)."],
+  ["피보험 단위기간","보수 지급의 기초가 된 날을 합산한 기간. 구직급여는 이직일 이전 18개월간 통산 180일 이상이 필요."],
+  ["소정급여일수","한 번의 수급자격으로 구직급여를 받을 수 있는 총 일수. 피보험기간과 이직 당시 연령으로 결정(120~270일)."],
+  ["수급기간","구직급여를 받을 수 있는 창(窓). 이직일의 다음 날부터 12개월 이내. 이 기간이 끝나면 잔여 일수도 소멸(제48조)."],
+  ["대기기간","수급 자격 인정일부터 7일. 최초 실업 인정 시 이 기간은 구직급여를 지급하지 않음(EBS 교재 기준). 「고용보험법」 제49조① 문언은 '실업의 신고일부터 7일'로 되어 있어 교재와 표현이 다름. 소정급여일수는 대기기간이 끝난 다음날부터 계산 시작(제50조①)."],
+  ["상병급여","실업 신고 이후 질병·부상·출산으로 취업이 불가능해 실업 인정을 받지 못한 날에 대해, 구직급여일액에 해당하는 금액을 구직급여에 갈음하여 지급."],
+  ["상병보상연금","「산업재해보상보험법」상 급여. 업무상 재해로 요양이 2년을 넘고 중증요양상태 등 요건을 충족할 때 휴업급여 대신 지급. 고용보험과 무관."],
+  ["조기재취업 수당","교재 기준: 실업 신고일부터 14일 경과 후 재취업 + 재취업한 날의 전날 기준 소정급여일수 1/2 이상 남김 + 12개월 이상 계속 고용(또는 사업 영위). 금액은 구직급여일액 × 미지급일수의 1/2(시행령 제85조①). ※ 현행 시행령 제84조①은 '14일' 대신 '제49조의 대기기간이 지난 후'로 개정되어 교재와 표현이 다름."],
+  ["직업능력개발 수당","수급자격자가 직업안정기관의 장이 '지시한' 훈련을 받는 기간에 대해 지급(교통비·식대 성격, 제65조)."],
+  ["이직확인서","이직사유·이직일·평균임금·피보험 단위기간·1일 소정근로시간이 기재된 서류. 수급자격 판단의 핵심 자료로, 근로자 또는 고용센터의 요청을 받은 날부터 10일 이내에 사업주가 발급·제출(제42조③). 처리기관은 고용센터."],
+  ["피보험 자격 상실 신고","사업주가 상실 사유 발생일이 속하는 달의 다음 달 15일까지 근로복지공단에 하는 신고(제15조·시행령 제7조①). 근로자가 그 전에 요구하면 지체 없이. 고용보험 가입 여부와 피보험기간을 증명."],
+  ["피보험자격 확인청구","사업주가 피보험자격 신고를 하지 않거나 내용이 사실과 다를 때, 근로자가 근로복지공단에 자격을 확인·정정해 달라고 청구하는 제도(제17조). 실업급여를 못 받는 일이 없도록 하는 안전장치."],
+  ["훈련연장급여","지시 훈련을 받는 기간 중 실업 인정을 받은 날에, 소정급여일수를 초과해 구직급여를 연장 지급하는 것. 취업촉진 수당이 아니라 구직급여."]
+];
+const cardWrap = document.getElementById('cards');
+TERMS.forEach(([t,d])=>{
+  const el=document.createElement('div'); el.className='fcard';
+  el.innerHTML='<div class="term">'+t+'</div><div class="hint">▸ 뜻 보기</div><div class="def">'+d+'</div>';
+  el.addEventListener('click',()=>el.classList.toggle('open'));
+  cardWrap.appendChild(el);
+});
+
+/* ===== 별 데코 ===== */
+const stars=document.getElementById('stars');
+for(let i=0;i<26;i++){const s=document.createElement('span');
+  s.style.left=(Math.random()*100)+'%'; s.style.top=(Math.random()*100)+'%';
+  s.style.animationDelay=(Math.random()*2.4)+'s'; stars.appendChild(s);}
+
+/* ===== 드롭다운 빈칸 ===== */
+const sels = [...document.querySelectorAll('select.sel')];
+const norm = s => (s||'').replace(/[\s().·,'’‘%~\-]/g,'').toLowerCase();
+const answerOf = d => d.dataset.a.split('|')[0];
+let solShown = false, snapshot = null;
+
+function shuffled(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* 선택지 순서 무작위화 (플레이스홀더는 고정) */
+function shuffleOptions(){
+  sels.forEach(d=>{
+    const keep=d.options[0];
+    const rest=[...d.options].slice(1);
+    shuffled(rest).forEach(o=>d.appendChild(o));
+    d.insertBefore(keep,d.firstChild);
+    d.value='';
+  });
+}
+function clearMarks(d){ d.classList.remove('correct','reveal','peek'); d.removeAttribute('title'); }
+function syncEmpty(d){ d.classList.toggle('empty', d.value===''); }
+
+sels.forEach(d=>d.addEventListener('change',()=>{ clearMarks(d); syncEmpty(d); updateFilled(); }));
+
+function updateFilled(){
+  const n = sels.filter(d=>d.value!=='').length;
+  document.getElementById('filled').textContent=n;
+  document.getElementById('bar').style.width=(n/sels.length*100)+'%';
+}
+function snap(){ return sels.map(d=>d.value); }
+function restore(st){
+  sels.forEach((d,i)=>{ clearMarks(d); d.value = st ? st[i] : ''; syncEmpty(d); });
+  updateFilled();
+}
+function revealAll(cls){
+  sels.forEach(d=>{ clearMarks(d); d.value=answerOf(d); syncEmpty(d); d.classList.add(cls); });
+  updateFilled();
+}
+function grade(){
+  snapshot=snap();
+  let correct=0, answered=0;
+  sels.forEach(d=>{
+    const v=d.value; clearMarks(d);
+    if(v) answered++;
+    const ok = v && d.dataset.a.split('|').some(x=>norm(x)===norm(v));
+    if(ok){ correct++; d.classList.add('correct'); }
+    else{
+      d.title = v ? '내가 고른 답: '+v : '내가 고른 답: (선택 안 함)';
+      d.value=answerOf(d); d.classList.add('reveal');
+    }
+    syncEmpty(d);
+  });
+  updateFilled();
+  solShown=true; document.getElementById('solBtn').textContent='내 답 보기';
+  document.getElementById('scoretxt').innerHTML=' · 정답 <b style="color:var(--ok)">'+correct+'</b>';
+  const pct=Math.round(correct/sels.length*100);
+  const msg = correct===sels.length ? '완벽합니다! 전 항목 정답 🎉'
+    : pct>=80 ? '거의 다 왔어요 — 빨간 칸이 정답!'
+    : pct>=50 ? '절반 이상! 빨간 칸이 정답입니다.'
+    : answered===0 ? '아직 고르지 않았어요. 정답을 채워 표시했습니다.'
+    : '빨간 칸이 정답입니다. 다시 도전!';
+  toast('채점 결과 — '+correct+' / '+sels.length+'  ('+pct+'%)  '+msg);
+}
+function toggleSol(){
+  solShown=!solShown;
+  const btn=document.getElementById('solBtn');
+  if(solShown){ snapshot=snap(); revealAll('peek'); btn.textContent='내 답 보기'; }
+  else { restore(snapshot); btn.textContent='정답 보기';
+    document.getElementById('scoretxt').textContent=''; }
+}
+function shuffleBank(){ shuffleOptions(); updateFilled(); toast('선택지 순서를 섞었습니다'); }
+function resetAll(){
+  shuffleOptions();
+  sels.forEach(d=>{ clearMarks(d); syncEmpty(d); });
+  solShown=false; snapshot=null;
+  document.getElementById('solBtn').textContent='정답 보기';
+  document.getElementById('scoretxt').textContent='';
+  document.querySelectorAll('.q').forEach(q=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('correct','wrong'));
+    q.querySelector('.fe021').classList.remove('show'); });
+  document.querySelectorAll('.jq').forEach(q=>{
+    q.querySelectorAll('.jopt').forEach(x=>x.classList.remove('correct','wrong'));
+    q.querySelector('.jfb').classList.remove('show'); });
+  document.querySelectorAll('.fcard.open').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.pit details[open]').forEach(d=>d.removeAttribute('open'));
+  updateFilled(); window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ===== O/X ===== */
+document.querySelectorAll('.q').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.optbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('correct','wrong'));
+    const ok=btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.optbtn[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.fe021').classList.add('show');
+  }));
+});
+
+/* ===== 판정기 ===== */
+document.querySelectorAll('.jq').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.jopt').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.jopt').forEach(x=>x.classList.remove('correct','wrong'));
+    const ok=btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.jopt[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.jfb').classList.add('show');
+  }));
+});
+
+/* ===== 기산점 탭 ===== */
+function setTab(i){
+  document.querySelectorAll('.cmp-tabs .tab').forEach((t,k)=>t.classList.toggle('on',k===i));
+  document.querySelectorAll('.cmp-body').forEach((b,k)=>b.classList.toggle('on',k===i));
+}
+
+/* ===== 토스트 ===== */
+let toTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace('채점 결과','<span class="stamp">채점 결과</span>');
+  t.classList.add('show'); clearTimeout(toTimer);
+  toTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+shuffleOptions();
+updateFilled();
+</script>
+</body>
+</html>

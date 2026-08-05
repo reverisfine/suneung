@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 17강 고용 서비스와 사회 제도 기출 21문항</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    --myeong:'Noto Serif KR',serif; --godic:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 상단 조작 바 (시험지 밖) ── */
+  .toolbar{position:sticky;top:0;z-index:60;background:rgba(233,231,226,.96);backdrop-filter:blur(5px);border-bottom:1px solid var(--line)}
+  .toolbar .in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .toolbar .prog{flex:1;min-width:120px;height:6px;background:#D6D3CC;border:1px solid var(--line);border-radius:0;overflow:hidden}
+  .toolbar .prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .45s ease}
+  .toolbar .stat{font-family:var(--godic);font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap}
+  .toolbar .stat b{font-family:var(--myeong);font-weight:700;font-size:1rem}
+  .tbtn{font-family:var(--godic);font-size:.76rem;font-weight:500;cursor:pointer;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 11px;border-radius:2px}
+  .tbtn:hover{background:var(--ink);color:#fff}
+  .tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+  .running{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--rule);padding-bottom:5px;margin-bottom:4px}
+  .running .l{font-family:var(--godic);font-weight:700;font-size:1.44rem;letter-spacing:-.02em}
+  .running .r{font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2)}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-bottom:1px solid var(--rule);padding:3px 0 6px;margin-bottom:16px}
+  /* ── 시험지 표지 머리 ── */
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld input{border:none;background:#fff;font-family:var(--myeong);font-size:.95rem;color:var(--ink);padding:0 8px;min-width:0}
+  .fld input:focus{outline:none;background:#FBFBF6}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;text-align:center;border-left:1.5px solid var(--ink);padding:0}
+  .fld .cell:first-of-type{border-left:none}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"◦";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+  .index{font-family:var(--godic);font-size:.78rem;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+  .index a{text-decoration:none;color:var(--ink2);border:1px solid var(--line);padding:4px 9px;background:#fff}
+  .index a:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* ── 단원 구분 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+  .part .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .part .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .part .memo ul{list-style:none}
+  .part .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .part .memo li::before{content:"·";position:absolute;left:3px;font-weight:700}
+  .part .memo b{font-weight:700}
+  .part .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+
+  /* ── 문항 ── */
+  .q{margin:22px 0 0;padding-bottom:20px;border-bottom:1px dashed var(--hair)}
+  .q:last-of-type{border-bottom:none}
+  .code{text-align:right;font-family:var(--godic);font-size:.7rem;color:var(--lgray);letter-spacing:-.01em;margin-bottom:1px}
+  .ask{font-family:var(--godic);font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:-.015em;text-indent:-1.35em;padding-left:1.35em}
+  .ask .n{font-weight:700}
+  .ask .pt{font-weight:700}
+  .ask .cond{font-weight:400;font-size:.88em}
+
+  .passage{border:1.2px solid var(--ink);padding:11px 14px;margin:11px 0 0;font-size:.87rem;line-height:1.68}
+  .passage .ttl{text-align:center;font-family:var(--godic);font-weight:700;font-size:.85rem;margin-bottom:7px}
+  .passage ul{list-style:none}
+  .passage li{margin:3px 0;padding-left:13px;position:relative}
+  .passage li::before{content:"◦";position:absolute;left:0;font-size:.85em}
+  .passage p{margin:3px 0;text-indent:.6em}
+  .passage .note{font-size:.8rem;color:var(--gray);margin-top:6px;text-indent:0}
+  .passage b{font-weight:700}
+
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:7px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.5}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+
+  .bogi{margin:12px 0 0;border:1.2px solid var(--ink);padding:0 15px 10px;font-size:.87rem}
+  .bogi .bt{display:block;width:-moz-fit-content;width:fit-content;margin:-11px auto 8px;background:#fff;padding:0 9px;
+    font-family:var(--godic);font-weight:500;font-size:.79rem;letter-spacing:.12em;color:var(--ink);line-height:1.5}
+  .bogi p{margin:3px 0;text-indent:-1.15em;padding-left:1.15em}
+
+  /* ── 선택지 ── */
+  ul.ch{list-style:none;margin-top:10px}
+  ul.ch li{margin:0}
+  .ch button{width:100%;text-align:left;font-family:var(--myeong);font-size:.885rem;line-height:1.6;color:var(--ink);background:transparent;border:1px solid transparent;padding:4px 7px;cursor:pointer;display:flex;gap:8px;align-items:flex-start;transition:background .12s,border-color .12s}
+  /* OMR 마킹 버블 */
+  .ch button .no{flex-shrink:0;width:19px;height:19px;margin-top:2px;border:1.3px solid #6E6E68;border-radius:50%;background:#fff;
+    display:inline-grid;place-items:center;font-family:var(--godic);font-size:.68rem;font-weight:500;color:#55554F;line-height:1;
+    transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+  .ch button:hover{background:#F2F1ED}
+  .ch button:hover .no{border-color:var(--ink);color:var(--ink)}
+  .ch.inline{display:flex;flex-wrap:wrap;gap:3px 8px;justify-content:flex-start}
+  .ch.inline li{flex:0 0 auto}
+  .ch.inline button{width:auto;padding:4px 10px;white-space:nowrap}
+  .q.done .ch button{cursor:default;pointer-events:none}
+  /* 채점 전: 마킹만 된 상태 (정오 표시 없음) */
+  .ch button.marked{background:#EFEEE9;border-color:#6E6E68}
+  .ch button.marked .no{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.06)}
+  /* 문항별 채점 버튼 */
+  .qact{display:flex;justify-content:flex-end;margin-top:11px}
+  .gradebtn{font-family:var(--godic);font-size:.78rem;font-weight:500;cursor:pointer;
+    border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 15px;border-radius:2px;transition:.14s}
+  .gradebtn:hover{background:var(--ink);color:#fff}
+  .gradebtn:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+  .gradebtn.graded{border-color:var(--line);color:var(--gray);font-size:.76rem}
+  .gradebtn.graded:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .ch.nudge{animation:nudge .34s}
+  @keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  /* 마킹한 답이 정답 */
+  .ch button.pick-ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .ch button.pick-ok .no{background:var(--ok);border-color:var(--ok);color:#fff;transform:scale(1.06)}
+  /* 마킹한 답이 오답 */
+  .ch button.pick-no{background:var(--nobg);border-color:var(--no);color:var(--no)}
+  .ch button.pick-no .no{background:var(--no);border-color:var(--no);color:#fff;transform:scale(1.06)}
+  .ch button.pick-no .tx{text-decoration:line-through;text-decoration-thickness:1px}
+  /* 마킹하지 않았지만 정답인 칸 */
+  .ch button.mark-ok{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+  .ch button.mark-ok .no{background:#fff;border:2px solid var(--ok);color:var(--ok);font-weight:700}
+  .ch button:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 정답과 해설 ── */
+  .sol{display:none;margin-top:13px;border:1px solid var(--line);border-left:4px solid var(--ink);background:#FBFBF9;padding:12px 15px}
+  .sol.open{display:block}
+  .sol .hd{font-family:var(--godic);font-weight:700;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sol .hd .ans{font-family:var(--myeong);font-size:1.1rem;color:var(--no)}
+  .sol .hd .via{margin-left:auto;font-weight:400;font-size:.7rem;color:var(--lgray)}
+  .sol .link{font-family:var(--godic);font-size:.75rem;color:var(--gray);margin-bottom:8px}
+  .sol .link b{color:var(--ink2)}
+  .sol .lab{font-family:var(--godic);font-weight:700;font-size:.78rem;background:var(--ink);color:#fff;padding:1px 7px;margin-right:6px;vertical-align:1px}
+  .sol .lab.w{background:#7A7A7A}
+  .sol .lab.t{background:var(--no)}
+  .sol p{font-size:.855rem;line-height:1.68;margin:6px 0}
+  .sol ul{list-style:none;margin:5px 0}
+  .sol ul li{font-size:.845rem;line-height:1.62;margin:4px 0;padding-left:1.5em;text-indent:-1.5em}
+  .sol ul li .x{font-weight:700;color:var(--no);margin-right:4px}
+  .sol .trap{margin-top:9px;border-top:1px dotted var(--line);padding-top:8px}
+  .sol b{font-weight:700}
+  .sol .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+
+  /* ── 부록 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  details.pit{border:1px solid var(--line);margin-bottom:6px;background:#fff}
+  details.pit[open]{border-color:var(--ink)}
+  details.pit summary{cursor:pointer;list-style:none;font-family:var(--godic);font-weight:500;font-size:.86rem;padding:9px 13px;display:flex;gap:9px;align-items:center}
+  details.pit summary::-webkit-details-marker{display:none}
+  details.pit summary .n{flex-shrink:0;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--ink);font-size:.7rem;font-weight:700;font-family:var(--myeong)}
+  details.pit summary::after{content:"＋";margin-left:auto;font-size:.85rem;color:var(--gray)}
+  details.pit[open] summary::after{content:"－"}
+  details.pit .bd{padding:0 14px 12px 42px;font-size:.85rem;line-height:1.68;color:var(--ink2)}
+  details.pit .bd b{font-weight:700;color:var(--ink)}
+  details.pit .bd table.ex{font-size:.78rem;margin:9px 0 6px}
+  details.pit .bd table.ex td,details.pit .bd table.ex th{padding:4px 7px}
+  details.pit .bd .sub{display:block;font-family:var(--godic);font-weight:700;font-size:.79rem;color:var(--ink);margin:11px 0 3px;padding-left:9px;border-left:3px solid var(--ink)}
+  details.pit .bd .cap{display:block;font-size:.77rem;color:var(--gray);margin-top:5px}
+  details.pit .bd .no-ok{color:var(--no);font-weight:700}
+  details.pit .bd .yes-ok{color:var(--ok);font-weight:700}
+  details.pit .bd .hl{font-weight:700;border-bottom:2px solid #E3DCC8}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-weight:700;font-size:.95rem}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .caution{margin-top:14px;border:1px solid var(--no);padding:10px 13px;font-size:.82rem;line-height:1.68;color:var(--ink2)}
+  .caution b{color:var(--no);font-weight:700}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 20px;font-family:var(--godic);font-size:.83rem;font-weight:500;box-shadow:0 6px 22px rgba(0,0,0,.25);transition:transform .35s ease,opacity .25s;z-index:99;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #top{position:fixed;right:14px;bottom:20px;z-index:60;width:36px;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:none;font-size:.9rem}
+  #top.show{display:block}
+
+  @media(max-width:640px){
+    .sheet{padding:22px 16px 18px;margin:10px auto 30px;border-left:none;border-right:none}
+    .running .l{font-size:1.15rem}
+    .cover h1{font-size:2.05rem}
+    .cover .titlerow{flex-direction:column;gap:10px;min-height:0}
+    .cover .form{position:static;transform:none}
+    .cover .fields{gap:12px}
+    .fld .nm{width:120px}
+    .fld .cell{width:24px}
+    .pagemark .pgcut{margin-left:-16px;margin-right:-16px}
+    .ch.inline{flex-direction:column;gap:0}
+    .ch.inline button{width:100%;white-space:normal}
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar,#top,#toast,.index,.lead,.qact{display:none!important}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .sol{display:none!important}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    @page{size:A4;margin:14mm}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 계산 문항 단계별 풀이표 (17강 추가) ── */
+  table.calc{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:9px 0 4px;background:#fff}
+  .calc th,.calc td{border:1px solid #A5A5A0;padding:6px 9px;line-height:1.55}
+  .calc th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.78rem;border-bottom:2px solid var(--ink)}
+  .calc td.s{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;width:52px;font-family:var(--godic);font-size:.76rem}
+  .calc td.f{font-family:var(--godic);font-size:.83rem;letter-spacing:-.01em}
+  .calc td.r{text-align:right;white-space:nowrap;font-weight:700}
+  .calc tr.fin td{background:#F2F0E8;border-top:2px solid var(--ink)}
+  .calc tr.fin td.r{color:var(--no);font-size:.92rem}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <div class="prog"><i id="bar"></i></div>
+  <div class="stat">푼 문항 <b id="done">0</b>/21 · 정답 <b id="hit">0</b></div>
+  <button class="tbtn" onclick="showAll()">정답·해설 전체 보기</button>
+  <button class="tbtn" onclick="resetAll()">다시 풀기</button>
+  <button class="tbtn" onclick="window.print()">인쇄</button>
+</div></div>
+
+<div class="sheet">
+  <div class="cover">
+    <div class="org">은또링샘의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 기출 문제지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">17강</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><input class="nm" type="text" aria-label="성명"></div>
+      <div class="fld"><span class="lb">학번</span><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 첫째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 둘째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 셋째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 넷째 자리"></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>17강 고용 서비스와 사회 제도</span>
+    <span>고용보험 기출 21문항</span>
+  </div>
+
+  <div class="lead">
+    <ul>
+      <li>선택지를 눌러 답을 표시한 뒤, 문항 아래 <b>채점하기</b>를 누르면 정답과 해설이 나타납니다.</li>
+      <li>제시문은 판단에 필요한 조건만 옮겼으므로, 원문 지문은 인쇄 학습지(12.5차시)와 함께 보십시오.</li>
+      <li>문항은 <b>개념 그룹별로 재배열</b>되어 있으며, 각 문항 우측 상단에 출처를 표기하였습니다.</li>
+    </ul>
+  </div>
+
+  <nav class="index">
+    <a href="#p1">Ⅰ. 적용 대상과 보험료</a>
+    <a href="#p2">Ⅱ. 수급 요건과 소정급여일수</a>
+    <a href="#p3">Ⅲ. 연장급여·상병급여·취업촉진수당</a>
+    <a href="#p4">Ⅳ. 모성보호급여와 급여액 산정</a>
+    <a href="#p5">Ⅴ. 보강 세트</a>
+    <a href="#appx">［부록］함정 정리·정답표</a>
+  </nav>
+
+<section class="part" id="p1">
+  <h2>Ⅰ. 고용보험의 적용 대상과 보험료 <span class="rng">1~4번 · 적용 제외 / 65세 / 초단시간 / 보험료 요율</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>적용 범위</b> 근로자 <em>1인 이상</em>을 사용하는 모든 사업·사업장. “5인 이상만 적용”은 언제나 오답</li>
+      <li><b>실업급여 적용 제외</b> ① <em>65세 이후에 새로 고용</em>되거나 자영업을 개시한 자 ② 1개월 소정근로시간 <em>60시간 미만</em>(1주 15시간 미만) ③ 공무원 ④ 사립학교교직원연금법 적용자 ⑤ 별정우체국 직원</li>
+      <li><b>65세의 예외</b> 65세 <em>이전부터 같은 사업장에서 계속</em> 일해 왔다면 65세 이후 이직해도 실업급여를 받을 수 있다</li>
+      <li><b>초단시간의 예외</b> 주 15시간 미만이라도 <em>3개월 이상 계속 근로</em>를 제공하면 적용 대상이다 ［법령 보충］</li>
+      <li><b>보험료 요율</b> 실업급여 <em>0.9%씩 노사 절반</em> / 고용안정·직업능력개발사업 <em>0.25~0.85% 사업주 전액</em> → 사업주 부담액이 근로자보다 항상 크다</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2027학년도 6월 모의평가 15번</div>
+  <p class="ask"><span class="n">1.</span> 다음은 구직급여의 수급자격 판단에 대한 수행 평가 활동지이다. 판단 결과에 대한 내용으로 옳은 것은? <span class="cond">(단, 사례 (가)~(다)를 각각의 요건에 따라 판단하고, 요건 상호 간의 관계는 고려하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">수행 평가 활동지</div>
+    <p style="text-indent:0">◦ 주제 : 구직급여 수급자격 판단 활동</p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">(가)</td><td>아파트 관리 근로자로 <b>68세에 채용</b>되어 주 5일 40시간의 근로계약에 따라 1년간 결근 없이 근무하다가 <b>근로계약 기간이 만료</b>되어 퇴사함.</td></tr>
+      <tr><td class="k">(나)</td><td>커피 전문점 근로자로 43세에 채용되어 <b>1주 소정근로시간이 14시간</b>인 근로계약에 따라 <b>2년간</b> 결근 없이 근무하다가 <b>자발적으로</b> 퇴사함.</td></tr>
+      <tr><td class="k">(다)</td><td>중소기업 근로자로 33세에 채용되어 주 5일 40시간의 근로계약에 따라 2년간 결근 없이 근무하던 중, 최근 1년 이내에 <b>2개월 이상 임금 체불</b>이 발생하여 자발적으로 퇴사함.</td></tr>
+    </table></div>
+    <p class="note">◦ 판단 결과 — 충족 시 ‘○’, 미충족 시 ‘×’를 표기. (단, 이전 근무 경력은 고려하지 않음.)<br>요건 1. 고용보험 적용 대상자 해당 / 요건 2. 피보험 단위기간 충족 / 요건 3. 수급자격 요건 해당 이직 사유</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)의 요건 1을 ‘○’로 작성해야 한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(나)의 요건 1을 ‘○’로 작성해야 한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(다)의 요건 2를 ‘×’로 작성해야 한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(나)의 요건 2와 (다)의 요건 1을 ‘×’로 작성해야 한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가)~(다)의 요건 3을 ‘○’로 작성해야 한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 1 고용보험 적용 제외 근로자 / 구직급여 지급 요건 3종</div>
+    <p><span class="lab">해설</span>공식 해설의 판정표는 다음과 같다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th>사례</th><th>요건 1<br>적용 대상자</th><th>요건 2<br>피보험 단위기간</th><th>요건 3<br>이직 사유</th></tr>
+      <tr><td class="k">(가) 68세 채용</td><td style="text-align:center">×</td><td style="text-align:center">○</td><td style="text-align:center">○</td></tr>
+      <tr><td class="k">(나) 주 14시간·2년</td><td style="text-align:center">○</td><td style="text-align:center">○</td><td style="text-align:center">×</td></tr>
+      <tr><td class="k">(다) 임금 체불</td><td style="text-align:center">○</td><td style="text-align:center">○</td><td style="text-align:center">○</td></tr>
+    </table></div>
+    <p>(나)는 1주 소정근로시간이 15시간 미만이지만 <b>3개월 이상 계속 근로를 제공</b>하였으므로 고용보험 적용 대상자에 해당한다. 따라서 요건 1은 ‘○’이다.</p>
+    <ul>
+      <li><span class="x">①</span> (가)는 <b>65세 이후에 새로 고용</b>된 자이므로 실업급여가 적용되지 않는다. 요건 1은 ‘×’.</li>
+      <li><span class="x">③</span> (다)는 2년간 근무하여 이직일 이전 18개월간 피보험 단위기간이 통산 180일 이상이다. 요건 2는 ‘○’.</li>
+      <li><span class="x">④</span> (나)도 2년간 근무하였으므로 요건 2는 ‘○’, (다)는 적용 대상자이므로 요건 1도 ‘○’이다.</li>
+      <li><span class="x">⑤</span> (나)는 단순 자발적 퇴사이므로 요건 3은 ‘×’이다. (가)의 계약기간 만료와 (다)의 2개월 이상 임금 체불은 정당한 이직 사유에 해당한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>학습지 POINT란에는 “1개월 소정 근로 시간이 60시간(1주 15시간) 미만”만 적용 제외로 적혀 있다. 그러나 「고용보험법 시행령」 제3조 제1항 단서는 <span class="hl">3개월 이상 계속하여 근로를 제공하는 자는 제외</span>한다고 규정한다. 즉 <b>주 14시간이라도 3개월을 넘겨 일했으면 적용 대상</b>이다. 교재만 외운 학생이 ①이나 ④로 끌려가는 지점이다. ［법령 보충］</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2025학년도 6월 모의평가 15번</div>
+  <p class="ask"><span class="n">2.</span> 다음의 사회 보험 관련 기사를 분석한 후, 이를 ［(주)△△기업 사례］에 적용한 내용으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p><b>(가)</b> 은/는 구직급여와 취업촉진 수당으로 구분한다. 주변에서는 65세를 넘으면 <b>(가)</b> 을/를 받을 수 없다는데 정말 그럴까? 결론적으로 말하면 그렇지 않다. <b>65세 이전부터 동일 사업장에서 일했다면</b> 예외를 인정하여 수급 요건을 갖출 경우 65세 미만인 경우와 동일하게 혜택을 받을 수 있다.</p>
+    <p class="note">－ ○○신문, 2023년 8월 28일 자 －</p>
+    <div class="ttl" style="margin-top:9px">［(주)△△ 기업 사례］</div>
+    <div class="scroll"><table class="ex">
+      <tr><th>대상자</th><th>이직 나이</th><th>이직 전 소정근로시간</th><th>입사 나이</th><th>이직 사유</th><th>실업 신고 직후 상황</th></tr>
+      <tr><td class="k">A</td><td style="text-align:center">69세</td><td style="text-align:center">주당 20시간</td><td style="text-align:center">63세</td><td>직제 개편에 따른 조직 축소로 <b>권고사직</b></td><td><b>질병으로 6개월간 취업이 불가능</b>한 상태</td></tr>
+      <tr><td class="k">B</td><td style="text-align:center">68세</td><td style="text-align:center">주당 40시간</td><td style="text-align:center">31세</td><td><b>식당 창업을 위해 사직</b></td><td>요리 학원 수강 예정</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 고용보험 보험료 중 (가)에 드는 비용을 충당하기 위한 보험료는 사업주와 근로자가 절반씩 부담한다.</p>
+    <p>ㄴ. A 씨의 이직 사유는 ‘부당노동행위’에 해당하는 근로자 권익 침해이다.</p>
+    <p>ㄷ. A 씨가 구직급여의 수급자격을 인정받을 경우 상병급여를 지급받을 수 있다.</p>
+    <p>ㄹ. B 씨는 요리 학원에 등록하여 수강할 경우 훈련연장급여를 지급받을 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 고용 보험료 요율 / POINT 1 65세 예외 / 상병급여</div>
+    <p><span class="lab">해설</span>(가)는 <b>실업급여</b>이다. A 씨는 63세에 입사해 65세 이전부터 같은 사업장에서 계속 일했으므로 <b>69세 이직이어도 예외로 적용 대상</b>이고, 권고사직이라 비자발적 이직에 해당한다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 옳다. 실업급여에 드는 비용을 충당하기 위한 보험료는 <b>사업주와 근로자가 각각 0.9%씩 절반</b>을 부담한다.</li>
+      <li><span class="x">ㄷ.</span> 옳다. A 씨는 <b>질병으로 6개월간 취업이 불가능</b>하므로, 수급자격을 인정받으면 구직급여에 갈음하여 <b>상병급여</b>를 받는다.</li>
+    </ul>
+    <p><span class="lab w">오답</span>ㄴ. 부당노동행위는 <b>노동조합 가입·활동을 이유로 한 불이익</b>을 말한다. A 씨의 이직 사유는 직제 개편에 따른 조직 축소로 인한 권고사직이므로 부당노동행위가 아니다.<br>ㄹ. B 씨는 <b>창업을 위한 자발적 사직</b>이라 실업급여 수급 대상이 아니다. 또한 훈련연장급여는 <b>직업안정기관의 장이 지시한</b> 훈련에만 적용되므로 스스로 등록한 요리 학원은 해당하지 않는다.</p>
+    <div class="trap"><span class="lab t">함정</span>“65세 넘으면 실업급여 못 받는다”를 통째로 외우면 A를 곧바로 탈락시켜 ㄷ을 놓친다. 판정 기준은 나이가 아니라 <span class="hl">언제 그 사업장에 들어왔는가</span>다. <b>65세 전 입사 → 계속 근로 → 65세 후 이직 = 수급 가능</b>, <b>65세 후 신규 채용 = 불가</b>(1번 (가)).</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="2">
+  <div class="code">2024학년도 9월 모의평가 12번</div>
+  <p class="ask"><span class="n">3.</span> 다음 사례에서 A 씨의 근로 관계를 분석한 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>22세 A 씨는 <b>직무가 적성에 맞지 않아</b> 다니던 회사에 <b>사직서를 제출</b>하였다. 1년 동안 결근 없이 성실히 일해 온 A 씨의 갑작스런 사직서 제출에 사용자 B 씨는 퇴사를 만류하였지만 결국 A 씨의 뜻에 따라 퇴직을 처리하였다. 퇴직 후 A 씨는 적성에 맞는 직장으로의 재취업을 위하여 온라인 사이트를 활용해 구직 활동을 하며, 관계 기관에 실업급여를 신청하려고 한다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. A 씨는 구직급여를 받을 수 있다.</p>
+    <p>ㄴ. A 씨는 구직 활동을 위해 워크넷(https://www.work.go.kr)을 활용할 수 있다.</p>
+    <p>ㄷ. A 씨가 신청하려고 하는 사회보험의 보험료는 근로자가 전액 부담해야 한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 구직급여 지급 요건(비자발적 이직) / 보험료 요율 / 고용 서비스</div>
+    <p><span class="lab">해설</span>ㄴ만 옳다. <b>워크넷</b>은 고용노동부가 운영하는 취업 정보 사이트로, 구직 등록과 일자리 검색에 활용할 수 있다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> A 씨는 적성 불일치를 이유로 <b>스스로 사직</b>하였다. 구직급여는 폐업·감원·구조조정 등 <b>불가피하게 실직</b>한 경우에 지급되므로 받을 수 없다.</li>
+      <li><span class="x">ㄷ.</span> 고용보험료는 요율에 따라 <b>근로자와 사업주가 0.9%씩</b> 부담한다. 근로자 전액 부담이 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“1년 동안 결근 없이 성실히”라는 문구가 <span class="hl">피보험 단위기간은 충족</span>시킨다는 착시를 만든다. 그러나 수급 요건은 <b>기간 요건과 이직 사유 요건이 AND</b>다. 사유가 자발적이면 아무리 오래 일했어도 탈락이다. 반대로 8번(2026 6월 18번)의 B 씨처럼 사유가 정당해도 기간이 모자라면 역시 탈락이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2026학년도 대학수학능력시험 5번</div>
+  <p class="ask"><span class="n">4.</span> 다음 드라마 인물들이 처한 상황을 통해 알 수 있는 고용보험에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">A<br>(60세)</td><td>○○식품의 <b>사용자</b>로서 조직을 개편하며 사무직 B를 해고하고, 기술직 C를 채용하였다.</td></tr>
+      <tr><td class="k">B<br>(33세)</td><td>○○식품에서 <b>3개월간 근무</b>하였으나, 2024년 12월 실직하였다. 그 직후 2개월째 실업급여를 받고 있던 중, 불의의 교통사고로 <b>4주간 입원</b>하여 구직 활동을 하지 못하고 있어 고민에 빠져 있다.</td></tr>
+      <tr><td class="k">C<br>(28세)</td><td>생애 첫 직장인 △△유통에서 <b>2024년 2월부터 6월까지</b> 근무하던 중 전직을 하기 위해 <b>자발적으로 이직</b>(離職)<sup>*</sup>하였다. 이후 7월부터 직업훈련을 받아 2025년 1월 1일 ○○식품에 채용되어 3개월째 근무하고 있다.</td></tr>
+    </table></div>
+    <p class="note">* 이직 : 고용보험 피보험자인 근로자와 사업주 사이의 고용관계가 끝나게 되는 것</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. B는 입원으로 인해 실업의 인정을 받지 못한 날에 대해 구직급여일액에 해당하는 금액을 구직급여에 갈음하여 지급받을 수 있다.</p>
+    <p>ㄴ. C가 2024년 6월에 이직할 때, 그의 이직 사유와 피보험 단위기간은 구직급여의 수급 요건을 충족하지 못한다.</p>
+    <p>ㄷ. 2025년 1월 이후 A와 C는 고용보험료 중 실업급여 지급에 드는 비용을 충당하기 위한 보험료를 동일한 비율로 부담한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 상병급여 / 구직급여 지급 요건 / 보험료 요율 0.9%</div>
+    <p><span class="lab">해설</span>ㄱ·ㄴ·ㄷ 모두 옳다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 실업급여를 받던 수급자가 질병·부상으로 구직 활동을 할 수 없게 되면, 그 기간에 대하여 <b>구직급여일액에 해당하는 금액을 구직급여에 갈음하여</b> 지급하는 <b>상병급여</b>를 받을 수 있다. 4주 입원은 7일 이상 요건을 충족한다.</li>
+      <li><span class="x">ㄴ.</span> C는 <b>자발적 이직</b>인 데다 2024년 2~6월 근무로 <b>피보험 단위기간 180일(6개월)</b>에도 미달한다. 두 요건 모두 불충족이다.</li>
+      <li><span class="x">ㄷ.</span> 실업급여 지급에 드는 비용의 보험료는 사업주와 근로자가 <b>각각 0.9%</b>로 동일한 비율을 부담한다. 사용자 A와 근로자 C가 같은 비율이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄱ에서 “B는 3개월밖에 안 일했으니 수급자격이 없고 따라서 상병급여도 안 된다”고 판단하는 학생이 많다. 그러나 이 문항은 제시문이 <span class="hl">“실업급여를 받고 있던 중”</span>이라고 상태를 확정해 두었으므로, <b>수급자격은 이미 주어진 전제</b>로 놓고 상병급여 요건만 따지면 된다. 반대로 <b>C처럼 요건 판정 자체를 묻는 선지</b>에서는 근무 기간을 반드시 계산해야 한다. 같은 지문 안에서 <b>‘주어진 사실’과 ‘판정 대상’을 구분</b>하는 것이 이 문항의 핵심이다.<br>참고로 학습지에는 이 문항이 ‘2026학년도 수능 14번’으로 적혀 있으나, 원본 시험지와 EBS 해설지 모두 <b>5번</b>이다.</div>
+  </div>
+</article>
+
+<section class="part" id="p2">
+  <h2>Ⅱ. 구직급여 수급 요건과 소정급여일수 <span class="rng">5~8번 · 180일 / 12개월 / 소정급여일수 표</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>지급 요건 4가지(AND)</b> ① 이직일 이전 <em>18개월간 피보험 단위기간 통산 180일 이상</em> ② 취업 의사와 능력이 있음에도 취업하지 못한 상태 ③ 재취업을 위한 적극적 노력 ④ <em>비자발적 이직</em></li>
+      <li><b>수급 기간</b> 이직일의 <em>다음 날부터 12개월 이내</em>. 이 기간이 지나면 소정급여일수가 남아 있어도 받을 수 없다</li>
+      <li><b>소정급여일수</b> 나이(이직 당시)와 피보험기간에 따라 <em>120일~270일</em></li>
+      <li><b>신청 기관</b> 거주지 관할 <em>고용센터(직업안정기관)</em>. 근로복지공단·한국산업인력공단은 오답</li>
+      <li><b>정당한 이직 사유(예시)</b> 폐업 · 감원 · 구조조정 · 권고사직 · 계약기간 만료 · 2개월 이상 임금 체불</li>
+    </ul>
+  </div>
+  <div class="memo" style="margin-top:8px">
+    <div class="mt">［소정급여일수 표］ 실전 계산용</div>
+    <div class="scroll"><table class="ex">
+      <tr><th rowspan="2">이직 당시 연령</th><th colspan="5">피보험기간</th></tr>
+      <tr><th>1년 미만</th><th>1~3년</th><th>3~5년</th><th>5~10년</th><th>10년 이상</th></tr>
+      <tr><td class="k">50세 미만</td><td style="text-align:center">120일</td><td style="text-align:center">150일</td><td style="text-align:center">180일</td><td style="text-align:center">210일</td><td style="text-align:center">240일</td></tr>
+      <tr><td class="k">50세 이상·장애인</td><td style="text-align:center">120일</td><td style="text-align:center">180일</td><td style="text-align:center">210일</td><td style="text-align:center">240일</td><td style="text-align:center">270일</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<article class="q" data-a="4">
+  <div class="code">2025학년도 대학수학능력시험 4번</div>
+  <p class="ask"><span class="n">5.</span> 다음 고용보험 Q&amp;A 게시판의 (가)에 들어갈 수 있는 내용으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">고용보험 Q&amp;A 게시판</div>
+    <p class="note" style="text-align:right;margin:0 0 4px">등록일 : 2024년 8월 1일</p>
+    <p>［질의］ 저는 26세이며, <b>2022년 1월 1일</b> 첫 직장인 ○○전자(주)에 입사하여 주 5일 40시간, 결근 없이 근무하였으나 <b>2023년 6월 30일에 회사가 폐업</b>하여 일을 그만두게 되었습니다. 이직<sup>*</sup> 후 직무 전문성 향상을 위해 자비 부담으로 학원에서 1년 넘게 공부해 왔고, 현재 재취업을 준비 중입니다. 고용보험에 대하여 처음으로 알아보고 있는데, 구직급여 수급 자격 요건과 수급 가능 여부가 궁금합니다.</p>
+    <p class="note">* 이직(離職) : 고용보험 피보험자인 근로자와 사업주 사이의 고용관계가 끝나게 되는 것</p>
+    <p class="note" style="text-align:right;margin:6px 0 4px">등록일 : 2024년 8월 2일</p>
+    <p style="text-indent:0">［답변］ <b>(가)</b></p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 현재 구직급여를 신청하면 실업의 인정을 받은 날에 대해 구직급여를 지급받을 수 있습니다.</p>
+    <p>ㄴ. 2023년 6월 30일에 이직한 것은 구직급여의 수급자격이 제한되지 않는 정당한 이직 사유에 해당됩니다.</p>
+    <p>ㄷ. 이직일 이전 18개월 동안의 피보험 단위기간이 합산하여 180일 이상이어야 하는 구직급여의 수급 요건은 충족합니다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 구직급여 지급 요건 / 신청 절차 도해의 수급 기간 12개월</div>
+    <p><span class="lab">해설</span>ㄴ·ㄷ이 옳다. <b>회사 폐업</b>은 비자발적 이직이므로 수급자격이 제한되지 않는 정당한 사유이며, 2022년 1월 1일부터 2023년 6월 30일까지 근무하여 <b>이직일 이전 18개월간 피보험 단위기간 180일 이상</b>도 충족한다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 이직일이 2023년 6월 30일인데 질의일은 <b>2024년 8월</b>이다. 수급 기간 <b>12개월을 이미 초과</b>하였으므로 지금 신청해도 구직급여를 받을 수 없다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“요건을 다 갖췄으니 언제든 신청하면 된다”가 최다 오답 경로다. <span class="hl">수급 요건 충족과 수급 기간 잔존은 별개</span>다. 이 문항처럼 <b>이직일과 질의일 사이가 1년을 넘으면</b> 다른 조건을 볼 것도 없이 ㄱ은 탈락이다. 지문에 날짜가 두 개 이상 찍혀 있으면 반드시 개월 수부터 세라.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="5">
+  <div class="code">2023학년도 6월 모의평가 15번</div>
+  <p class="ask"><span class="n">6.</span> 다음 사례에서 A, B 씨에게 적용될 사회 보험에 대해 분석한 내용으로 적절한 것은? <span class="cond">(단, A, B 씨는 「장애인고용촉진 및 직업재활법」 제2조 제1호에 따른 장애인에 해당하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>A 씨와 B 씨는 4대 사회 보험에 가입한 상태로 각각 <b>13년, 9년</b> 동안 무단결근 없이 성실하게 근무한 회사 동료이다. 하지만 최근 매출 급감으로 회사 운영이 어려워지자, 두 사람 모두 회사 측 권고에 따라 <b>비자발적으로 2021년 10월 1일 퇴사</b>하였다. A 씨와 B 씨는 퇴사 시점을 기준으로 각각 <b>만 45세, 만 55세</b>였다. 가입한 사회 보험의 혜택을 받기 위해 A 씨와 B 씨는 함께 <b>2021년 10월 8일 해당 웹사이트에 구직 등록</b>을 하였고, 관계 기관에 실업 급여 신청을 하여 실업 급여를 받게 되었다. 그 후 재취업을 위해 노력한 결과 A 씨는 <b>2022년 1월 3일</b>에, B 씨는 <b>2022년 3월 2일</b>에 안정적인 새 직장에 재취업하게 되었다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 특별 연장 급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨는 재취업 후에도 훈련 연장 급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨는 조기 재취업 수당을 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨는 근로복지공단에 직접 방문하여 실업 급여를 신청하였다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨가 재취업하지 않았을 때 수령할 수 있는 구직 급여의 소정 급여 일수는 같다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 소정급여일수 / 연장급여 3종 / 조기 재취업 수당 / 신청 기관</div>
+    <p><span class="lab">해설</span>소정급여일수를 표에 대입하면 두 사람이 같아진다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th>구분</th><th>이직 연령</th><th>피보험기간</th><th>적용 칸</th><th>소정급여일수</th></tr>
+      <tr><td class="s">A 씨</td><td style="text-align:center">만 45세 → <b>50세 미만</b></td><td style="text-align:center">13년 → <b>10년 이상</b></td><td class="f">50세 미만 × 10년 이상</td><td class="r">240일</td></tr>
+      <tr><td class="s">B 씨</td><td style="text-align:center">만 55세 → <b>50세 이상</b></td><td style="text-align:center">9년 → <b>5~10년</b></td><td class="f">50세 이상 × 5~10년</td><td class="r">240일</td></tr>
+      <tr class="fin"><td class="s">판정</td><td colspan="3" class="f">연령 구간과 피보험기간 구간이 서로 <b>한 칸씩 어긋나</b> 같은 값에 도달</td><td class="r">동일</td></tr>
+    </table></div>
+    <ul>
+      <li><span class="x">①</span> <b>특별 연장 급여</b>는 고용노동부 장관이 실업의 급증 등 사유가 발생한 경우 60일의 범위에서 지급하는 것으로, 개인이 신청해 받는 급여가 아니다.</li>
+      <li><span class="x">②</span> <b>훈련 연장 급여는 재취업 후에는 받을 수 없다.</b></li>
+      <li><span class="x">③</span> 조기 재취업 수당은 소정급여일수의 <b>절반이 지나기 전</b>에 재취업해야 한다. B 씨는 2021년 10월 8일부터 2022년 3월 2일까지 약 145일이 지나 <b>240일의 절반(120일)을 이미 넘겼다.</b></li>
+      <li><span class="x">④</span> 실업 급여는 <b>고용센터</b>에 신청한다. 또한 제시문에서 B 씨는 웹사이트로 구직 등록을 하였다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③이 최대 오답 유인이다. 조기 재취업 수당은 “빨리 취업했으니 준다”가 아니라 <span class="hl">소정급여일수를 2분의 1 이상 남긴 상태</span>여야 한다. 같은 사례에서 <b>A 씨(약 87일 경과, 153일 잔여)는 요건 충족, B 씨(약 145일 경과, 95일 잔여)는 미충족</b>으로 갈린다. 날짜가 주어지면 반드시 경과일을 세라.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2023학년도 대학수학능력시험 14번</div>
+  <p class="ask"><span class="n">7.</span> 다음 사례의 A, B 씨에게 적용될 수 있는 사회 보험에 대한 내용으로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <ul>
+      <li>A 씨는 <b>상시 근로자가 6명</b>인 커피 전문점에서 <b>5년 6개월간</b> 근무 후 <b>만 34세</b>에 실직하였다. 실직 직후 구직급여를 신청하여 한 달 동안 받고 있던 중 사고로 <b>대퇴부 골절</b>이라는 진단을 받았다. 담당 의사의 소견에 따라 즉시 병원에 입원하여 <b>2개월간 치료</b>를 받기로 하였다. 그 기간 동안은 구직 활동을 할 수 없는 상황이지만 지금 받고 있는 사회 보험의 혜택을 계속 받고자 한다.</li>
+      <li>B 씨는 직원이 125명인 자동차 부품 제조 기업에 재직하였으나, 회사 경영이 어려워 감원이 되면서 <b>비자발적으로 퇴직</b>하게 되었다. 퇴직일 기준으로 <b>7년 5개월간</b> 근무하였으며 나이는 <b>만 52세</b>다. 앞으로 동종 업계에서 구직 활동을 하며 재취업을 하기 전까지 구직급여와 취업촉진 수당을 받고자 한다.</li>
+    </ul>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 치료 기간에 대한 상병급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨가 받고자 하는 사회 보험은 상시 근로자가 5인 이상인 사업장에만 적용된다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨가 받고자 하는 취업촉진 수당에는 훈련연장급여가 포함된다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨가 재취업 전까지 받을 수 있는 구직급여의 소정급여일수는 270일이다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨는 보험의 수급자격을 인정받기 위해 관련 서류를 한국산업인력공단에 제출해야 한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 상병급여 / 적용 범위 / 취업촉진수당 4종 / 소정급여일수 / 신청 기관</div>
+    <p><span class="lab">해설</span>A 씨는 구직급여 수급 중 사고로 구직 활동이 불가능해졌다. 실업의 신고를 한 이후 질병·부상 또는 출산으로 취업이 불가능한 경우, 구직급여에 <b>갈음하여 상병급여</b>를 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">②</span> 고용보험은 근로자 <b>1인 이상</b>을 사용하는 모든 사업·사업장에 적용된다.</li>
+      <li><span class="x">③</span> 취업촉진 수당은 <b>조기 재취업 수당 · 직업 능력 개발 수당 · 광역 구직 활동비 · 이주비</b> 4종이다. <b>훈련연장급여는 구직급여(연장급여)</b>에 속한다.</li>
+      <li><span class="x">④</span> B 씨는 7년 5개월(5~10년)이고 만 52세(50세 이상)이므로 소정급여일수는 <b>240일</b>이다. 270일은 50세 이상 × 10년 이상인 경우다.</li>
+      <li><span class="x">⑤</span> 수급자격 인정은 거주지 관할 <b>고용센터</b>를 방문해 신청한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③은 6번 ②·11번과 함께 반복 출제되는 <span class="hl">‘연장급여 3종 ↔ 취업촉진수당 4종’ 경계</span> 문제다. 이름에 <b>‘연장’이 붙으면 구직급여</b>(훈련·개별·특별), <b>‘수당·활동비·이주비’면 취업촉진수당</b>이라고 갈라 두면 흔들리지 않는다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="5">
+  <div class="code">2026학년도 6월 모의평가 18번</div>
+  <p class="ask"><span class="n">8.</span> 다음 ［실업급여 수급 사례］를 분석한 내용으로 가장 적절한 것은? <span class="cond">(단, A, B 씨는 구직급여 수급자격자이다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［실업급여 수급 사례］</div>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">A 씨<br>(33세)</td><td>· 퇴직 전 근무 기간 : 2019. 3. ~ 2023. 6.<br>· (주)○○에서 퇴직 후 <b>직업안정기관의 장이 지시하지 않았으나</b> 「고용보험법」상 피보험자등에게 훈련비를 지원하는 직업능력개발 훈련을 이수한 결과, <b>구직급여 첫 수령 2개월 후 다른 사업주가 운영하는 기업에 취업하여 1년 이상 근무 중</b>임.</td></tr>
+      <tr><td class="k">B 씨<br>(24세)</td><td>· 퇴직 전 근무 기간 : 2021. 5. ~ 2023. 6.<br>· (주)△△에서 퇴직 후 1개월간 질병으로 취업이 불가능하여 실업의 인정을 받지 못하였으나 이후 <b>직업안정기관의 장이 지시한</b> 직업능력개발 훈련을 받고 있음.</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 직업능력개발 훈련을 이수할 때 ‘국민내일배움카드’를 활용할 수 없다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B 씨는 상병보상연금을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨는 이직일의 다음 날부터 2024년 12월 말까지 소정급여일수를 한도로 구직급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A 씨와 B 씨는 직업능력개발 수당을 지급 받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨가 지급받을 수 있는 수당은 취업촉진 수당에 해당한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 취업촉진수당 4종 / 수급 기간 12개월 / 직업능력개발사업(국민내일배움카드)</div>
+    <p><span class="lab">해설</span>A 씨가 받는 수당은 <b>조기 재취업 수당</b>, B 씨가 받는 수당은 <b>직업능력개발 수당</b>으로 <b>둘 다 취업촉진 수당</b>에 해당한다.</p>
+    <p><span class="lab">계산</span>A 씨가 조기 재취업 수당 요건을 갖추는지 확인해 두어야 ⑤가 확정된다. 33세(50세 미만), 피보험기간 2019. 3.~2023. 6.으로 <b>3년 이상 5년 미만</b> → <b>소정급여일수 180일</b>. 요건선은 그 <b>1/2인 90일</b>이다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th>단계</th><th>내용</th><th>판정</th></tr>
+      <tr><td class="s">①<br>잔여 일수</td><td class="f">첫 수령 후 <b>2개월</b>(약 60일) 시점에 재취업<br>→ 잔여 약 <b>120일</b> ≥ 기준선 <b>90일</b></td><td class="r">충족</td></tr>
+      <tr><td class="s">②<br>계속 고용</td><td class="f">재취업 후 <b>1년 이상 근무 중</b> → 12개월 요건</td><td class="r">충족</td></tr>
+      <tr class="fin"><td class="s">결론</td><td class="f">A 씨 = 조기 재취업 수당 / B 씨 = 직업능력개발 수당</td><td class="r">모두 취업촉진수당</td></tr>
+    </table></div>
+    <ul>
+      <li><span class="x">①</span> 국민내일배움카드는 직업능력개발 훈련을 지원하는 제도로, A 씨도 <b>활용할 수 있다.</b></li>
+      <li><span class="x">②</span> <b>상병보상연금은 산업재해보상보험</b>의 급여다. B 씨가 받을 수 있는 것은 고용보험의 <b>상병급여</b>이다.</li>
+      <li><span class="x">③</span> 구직급여는 이직일 다음 날부터 <b>12개월 이내</b>에 받을 수 있다. B 씨는 2023년 6월 이직이므로 <b>2024년 6월</b>까지다.</li>
+      <li><span class="x">④</span> A 씨의 훈련은 <b>직업안정기관의 장이 지시하지 않은</b> 것이므로 직업능력개발 수당을 받을 수 없다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 <span class="hl">“직업안정기관의 장이 지시”</span>라는 여섯 글자 하나로 A와 B의 운명을 갈랐다. <b>지시 있음 → 직업능력개발 수당·훈련연장급여 가능 / 지시 없음 → 불가</b>. ②의 <b>상병보상연금(산재) ↔ 상병급여(고용보험)</b> 혼동도 매년 나오는 단골이다. 두 글자 차이지만 보험이 다르다.</div>
+  </div>
+</article>
+
+<section class="part" id="p3">
+  <h2>Ⅲ. 연장급여·상병급여·취업촉진수당 <span class="rng">9~13번 · 급여 종류 구분과 지급 순서</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>구직급여의 연장급여 3종</b> <em>훈련</em>연장급여(직업안정기관장 지시 훈련 중) · <em>개별</em>연장급여(취업이 특히 곤란하고 생활이 어려운 자) · <em>특별</em>연장급여(실업 급증 등 대통령령이 정하는 사유)</li>
+      <li><b>상병급여</b> 실업 <em>신고 이후</em> 7일 이상의 질병·부상·출산으로 취업이 불가능하여 실업의 인정을 받지 못한 날에 대하여, <em>구직급여일액에 해당하는 금액을 구직급여에 갈음</em>하여 지급</li>
+      <li><b>취업촉진수당 4종</b> <em>조기 재취업 수당</em>(소정급여일수 1/2 이상 남기고 재취업 + 12개월 이상 계속 고용) · <em>직업능력개발 수당</em>(교통비·식대) · <em>광역 구직 활동비</em> · <em>이주비</em></li>
+      <li><b>구분 요령</b> 이름에 ‘<em>연장</em>’ → 구직급여 / ‘<em>수당·활동비·이주비</em>’ → 취업촉진수당</li>
+      <li><b>지급 순서</b> 연장급여 3종은 소정급여일수분 구직급여를 <em>다 받은 뒤에</em> 지급된다(법 제55조 ①)</li>
+      <li><b>그래서 갈리는 것</b> 훈련연장급여를 받는 단계 ＝ 잔여 일수 <em>0일</em> → <em>조기 재취업 수당 요건(1/2 이상 잔여) 충족 불가</em>.<br>&nbsp;&nbsp;다만 소정급여일수 <em>안에서</em> 훈련을 받는 것은 훈련연장급여가 아니라 <em>구직급여 ＋ 직업능력개발 수당</em>이며, 이때 1/2 이상 남기고 재취업하면 조기 재취업 수당도 받을 수 있다 → 부록 함정 4</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="3">
+  <div class="code">2025학년도 대학수학능력시험 11번</div>
+  <p class="ask"><span class="n">9.</span> 다음은 실업급여에 대한 내용이다. (가)의 종류에 해당하는 내용으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <ul>
+      <li>실업급여의 목적 : 근로자 실직 시, 생활 안정을 위해 지급</li>
+      <li>실업급여의 종류(「고용보험법」 제37조) : 구직급여와 <b>(가)</b> (으)로 구분됨.<br>&nbsp;&nbsp;1) 구직급여 : 소정급여일수가 정해져 있으며, 특정한 조건에 따라 연장 가능<br>&nbsp;&nbsp;2) <b>(가)</b> : 구직급여 수급자격자의 빠른 재취업 장려 목적</li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 취업하여 주거를 이전하는 자로서 직업안정기관의 장이 필요하다고 인정 시 그에 필요한 경비를 지급한다.</p>
+    <p>ㄴ. 직업안정기관의 소개에 따라 먼 거리에 있는 직장으로 구직 활동을 한 자에게 교통비, 숙박비 등의 소요 비용을 지급한다.</p>
+    <p>ㄷ. 취업이 특히 곤란하고 생활이 어려운 자로서 직업안정기관의 장이 인정 시 소정급여일수를 초과하여 일정 금액을 지급한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 취업 촉진 수당 4종 빈칸 / 개별연장급여</div>
+    <p><span class="lab">해설</span>(가)는 <b>취업 촉진 수당</b>이며 조기 재취업 수당, 이주비, 광역 구직 활동비, 직업 능력 개발 수당 네 가지가 있다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> 취업하여 주거를 이전하는 경우의 경비 → <b>이주비</b>. 옳다.</li>
+      <li><span class="x">ㄴ.</span> 먼 거리 직장으로 구직 활동 시 교통비·숙박비 → <b>광역 구직 활동비</b>. 옳다.</li>
+      <li><span class="x">ㄷ.</span> 취업이 특히 곤란하고 생활이 어려운 자에게 소정급여일수를 초과하여 지급 → <b>개별연장급여</b>로, 취업촉진 수당이 아니라 <b>구직급여</b>에 속한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄷ의 <span class="hl">“소정급여일수를 초과하여”</span>가 결정적 표지다. 소정급여일수를 <b>넘겨서</b> 주면 연장급여, <b>남기고</b> 빨리 취업해서 주면 조기 재취업 수당이다. 문장에 ‘초과’가 보이면 취업촉진수당 후보에서 즉시 제외하라.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2025학년도 9월 모의평가 19번</div>
+  <p class="ask"><span class="n">10.</span> 다음 사회보험 상담사의 답변에 나타난 실업급여 (가), (나)가 바르게 적용된 사례로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>상담사</b> : 안녕하세요. 고용보험은 실업으로 인한 생계 불안을 극복하고, 생활의 안정을 도와주며 재취업의 기회를 지원해 주는 사회보험입니다.</p>
+    <p style="text-indent:0"><b>○○ 씨</b> : 다치거나 아프게 돼서 재취업 활동이 불가능한 경우에도 받을 수 있나요?</p>
+    <p style="text-indent:0"><b>상담사</b> : 실업의 신고를 한 이후에 <b>7일 이상의 질병, 부상 또는 출산</b>으로 취업이 불가능한 경우에는 <b>(가)</b> 을/를 지급받지 못하지만, <b>(가)</b> 에 갈음하여 <b>(나)</b> 을/를 지급받을 수 있습니다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">업무상 재해로 인해 60일간 취업을 하지 못한 재직 근로자는 (나)의 수급 요건을 충족한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">실업급여 수급자격을 인정받은 사람은 실업의 인정을 받은 날에 대하여만 (가)를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">실업의 인정을 받았으나 취업이 특히 곤란하고 생활이 어려운 수급자격자는 (나)를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">첫 직장에서 실직 전 120일간 근무하다가 구조 조정으로 불가피하게 퇴직한 근로자는 (가)를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">첫 직장에서 5개월, 두 번째 직장에서 계약 기간 1개월(월 소정근로시간 55시간)을 근무하고 퇴직한 근로자는 (가)를 지급받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 구직급여 / 상병급여 / 실업의 인정 / 피보험 단위기간 180일</div>
+    <p><span class="lab">해설</span>(가)는 <b>구직급여</b>, (나)는 <b>상병급여</b>이다. 구직급여는 수급자격을 인정받은 사람이 <b>실업의 인정을 받은 날</b>에 대하여만 지급된다.</p>
+    <ul>
+      <li><span class="x">①</span> 업무상 재해로 취업하지 못한 <b>재직</b> 근로자는 <b>산재보험의 휴업급여</b> 대상이다. 상병급여는 실업 신고를 한 <b>구직급여 수급자격자</b>에게 적용된다.</li>
+      <li><span class="x">③</span> 취업이 특히 곤란하고 생활이 어려운 수급자격자에게 지급하는 것은 <b>개별연장급여</b>이다.</li>
+      <li><span class="x">④</span> 120일 근무는 피보험 단위기간 <b>180일에 미달</b>한다.</li>
+      <li><span class="x">⑤</span> 두 번째 직장은 <b>월 소정근로시간 55시간(60시간 미만)</b>이고 계약 기간도 1개월이라 적용 제외다. 첫 직장 5개월만으로는 180일에 미달한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>①은 <span class="hl">‘재직’</span> 두 글자를 놓치면 걸린다. 상병급여는 <b>실직 후</b> 실업 신고를 마친 사람의 급여이므로, 회사에 다니고 있는 사람에게는 적용 자체가 안 된다. ⑤는 1번 (나)와 반대 방향의 함정이다. 주 15시간 미만이라도 <b>3개월 이상 계속</b>이면 적용되지만, 여기는 <b>계약 기간이 1개월</b>이라 예외가 성립하지 않는다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="4">
+  <div class="code">2024학년도 대학수학능력시험 15번</div>
+  <p class="ask"><span class="n">11.</span> 다음 사례에 나타난 근로자 A 씨의 근로 관계와 사회 보험을 분석한 내용으로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>A 씨(24세)는 첫 직장인 ○○의류(<b>상시 근로자 7명</b>)에서 <b>2020년 1월 1일부터 2021년 6월 30일까지</b> 주 5일 40시간의 근로 계약에 따라 결근 없이 성실히 근무하였으나 연장 계약 요청이 없어 퇴사하였다. 퇴사 후 A 씨는 소정급여일수에 해당하는 <b>150일분의 구직급여</b>를 지급받았다. 또한 그 기간 동안 <b>직업안정기관의 장이 지시한 직업능력개발 훈련을 이수</b>하였다. 훈련 이수 직후 △△의류에 재취업하여 관할 고용센터에 그 사실을 통보하고, <b>4개월 동안 근무하다 퇴사</b>하였다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">훈련연장급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">조기재취업 수당을 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">△△의류 퇴사 후 구직급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">구직급여를 받는 동안 직업능력개발 수당을 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">2021년에 최대 12일의 연차 유급휴가를 ○○의류로부터 받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 직업능력개발 수당 / 훈련연장급여 / 조기재취업 수당 / 소정급여일수 150일</div>
+    <p><span class="lab">해설</span><b>직업안정기관의 장이 지시한</b> 직업능력개발 훈련을 받는 동안에는 <b>직업능력개발 수당</b>(교통비·식대)을 신청하여 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> A 씨는 훈련을 이수한 <b>직후 재취업</b>하였으므로 훈련연장급여를 받을 수 없다.</li>
+      <li><span class="x">②</span> 조기재취업 수당은 재취업 후 <b>12개월 이상 계속 고용</b>되어야 한다. A 씨는 <b>4개월</b>만 근무했다.</li>
+      <li><span class="x">③</span> △△의류에서 <b>4개월</b> 근무는 피보험 단위기간 180일에 미달하므로 구직급여를 받을 수 없다.</li>
+      <li><span class="x">⑤</span> EBS 공식 해설은 2021년에 받을 수 있는 연차 유급휴가를 <b>최대 11일</b>로 판정하였다. ‘12일’은 오답이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>①과 ④는 <b>같은 훈련</b>을 두고 갈린다. <span class="hl">훈련 중에 받는 것이 직업능력개발 수당, 소정급여일수를 다 쓰고도 훈련이 남았을 때 받는 것이 훈련연장급여</span>다. A 씨는 150일 안에 훈련을 끝냈으므로 ④만 성립한다.<br>②는 조기재취업 수당의 <b>두 요건</b>을 기억하는지 묻는다. ① 소정급여일수 1/2 이상 잔여 ② <b>재취업 후 12개월 이상 계속 고용</b> — 6번 ③이 앞 요건, 이 문항이 뒤 요건을 저격했다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2023학년도 9월 모의평가 7번</div>
+  <p class="ask"><span class="n">12.</span> 다음은 근로권익센터의 상담 사례이다. 상담사가 A 씨에게 제안할 수 있는 사회 보험 및 근로 관계에 대한 내용으로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>상담사</b> : 상담을 위해서 이전 근무 상황을 말씀해 주시겠어요?</p>
+    <p style="text-indent:0"><b>A 씨</b> : 저는 근로 계약서에 따라 고용 보험에 가입된 상태로 <b>상시 근로자 6인</b>인 매장에서 4주 전까지 <b>10개월 동안 1주에 17시간씩</b> 서빙하는 아르바이트를 성실히 해 왔습니다. 아르바이트를 시작하고 3개월쯤부터 사장님께서 매출 감소로 어려움을 겪으시면서 다방면으로 노력하셨지만, 결국 두 달 전에 <b>휴대폰 통화로</b> 경영상의 어려움을 토로하며 해고 사유와 해고 일자를 통보하셨고 4주 전에 일을 그만두게 되었습니다. 현재는 <b>구직급여를 받고 있으며, 직업안정기관의 장이 지시한 직업 훈련 과정을 이수</b>하였습니다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">퇴직금 지급을 요청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">훈련연장급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">조기재취업 수당을 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">직업능력개발 수당을 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">법정기한 내 국가인권위원회에 신청을 통해 구제받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 직업능력개발 수당 / 훈련연장급여 요건 / 적용 대상(주 15시간 이상)</div>
+    <p><span class="lab">해설</span>A 씨는 <b>직업안정기관의 장이 지시한 훈련</b>을 받았으므로 <b>직업능력개발 수당</b>(교통비, 식대)을 받을 수 있다. 주 17시간 근로이므로 고용보험 적용 대상인 점도 확인해 두자.</p>
+    <ul>
+      <li><span class="x">①</span> 퇴직금은 계속 근로 기간 <b>1년 이상</b>일 때 발생한다. A 씨는 <b>10개월</b> 근무라 해당하지 않는다.</li>
+      <li><span class="x">②</span> 훈련연장급여의 세 요건 중 하나가 <b>최근 1년 동안 직업능력개발 훈련을 받지 않았을 것</b>인데, A 씨는 이미 훈련 과정을 이수하였다.</li>
+      <li><span class="x">③</span> 조기재취업 수당은 <b>12개월 이상 계속 고용</b>을 포함한 세 요건을 모두 갖춰야 한다. A 씨는 아직 재취업하지 않았다.</li>
+      <li><span class="x">⑤</span> 상시 5인 이상 사업장에서 <b>해고 사유와 해고 일자를 서면으로 통보하지 않으면 부당 해고</b>이며, 구제는 <b>지방노동위원회</b>에 신청한다. 국가인권위원회가 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 <b>고용보험 문항의 옷을 입은 근로기준법 복합 문항</b>이다. ‘휴대폰 통화로 통보’ → <span class="hl">서면 통지 위반 → 부당 해고 → 노동위원회</span>, ‘10개월’ → <span class="hl">퇴직금 불가</span>가 동시에 숨어 있다. 급여 이름만 훑고 고르면 ②에 끌려간다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2026학년도 9월 모의평가 4번</div>
+  <p class="ask"><span class="n">13.</span> 다음은 고용보험 질의응답 게시판이다. 이에 대한 분석 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">고용보험 질의응답 게시판</div>
+    <p class="note" style="text-align:right;margin:0 0 3px">작성일 : 2025년 8월 1일</p>
+    <p style="text-indent:0">［질문자 A］ 저는 ○○고용센터장이 지시한 직업능력개발 훈련을 받고 있습니다. 훈련 기간 중 실업의 인정을 받을 날이 <b>소정급여일수를 초과</b>하게 되어, ○○고용센터장의 지시로 훈련 기간을 12개월 연장하여 실업급여를 지급받게 되었습니다. 연장이 시작된 후에도 2개월 동안 성실하게 훈련을 받으면서 실업급여를 수급하였는데, <b>취업이 확정되어 오늘부터 일을 하게</b> 되었습니다. 제가 지금 신청하여 받을 수 있는 실업급여는 어떤 것이 있는지 알고 싶습니다.</p>
+    <p style="text-indent:0">↳ 상담사 답변 : <b>(가)</b></p>
+    <p class="note" style="text-align:right;margin:8px 0 3px">작성일 : 2025년 8월 1일</p>
+    <p style="text-indent:0">［질문자 B］ 저는 ○○고용센터장이 지시한 3개월 과정의 직업능력개발 훈련에 참여하여 어제까지 2개월 동안 성실하게 이수하며 실업급여를 수급하였습니다. 그런데 오늘 아침 <b>교통사고가 나서 입원 치료 중</b>이라 이후 훈련은 참여하지 못하게 되었습니다. 남은 1개월의 기간에 대해 실업급여를 수급할 수 있는지 궁금합니다.</p>
+    <p style="text-indent:0">↳ 상담사 답변 : <b>(나)</b></p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. (가)에는 ‘조기재취업 수당 수급이 가능합니다.’가 들어갈 수 있다.</p>
+    <p>ㄴ. (나)에는 ‘부상으로 인해 실업의 인정을 받지 못한 날에 대하여 상병 급여 수급이 가능합니다.’가 들어갈 수 있다.</p>
+    <p>ㄷ. A, B가 2025년 7월에 수급한 실업급여는 취업촉진수당에 해당한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 훈련연장급여 / 조기재취업 수당 요건 / 상병급여 / 구직급여 vs 취업촉진수당</div>
+    <p><span class="lab">해설</span>ㄴ만 옳다. B는 구직급여 수급자격자로서 부상으로 실업의 인정을 받지 못한 날에 대해 <b>상병급여</b>를 청구할 수 있다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> A가 받고 있는 것은 소정급여일수를 <b>초과</b>하여 지급되는 <b>훈련연장급여</b>다. 조기재취업 수당은 소정급여일수를 <b>2분의 1 이상 남긴</b> 상태여야 하므로, 이미 다 쓴 A는 수급 대상이 될 수 없다.</li>
+      <li><span class="x">ㄷ.</span> A가 2025년 7월에 수급한 것은 <b>구직급여(훈련연장급여)</b>이므로 취업촉진수당이 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄱ은 “훈련도 성실히 받았고 취업까지 했으니 당연히 조기재취업 수당”이라는 상식적 직관을 정면으로 배신한다. <span class="hl">훈련연장급여를 받고 있다 = 소정급여일수를 이미 초과했다 = 조기재취업 수당은 구조적으로 불가능</span>. 이 <b>순서 관계</b> 하나가 문항 전체를 결정한다. 단, “훈련을 받으면 조기재취업 수당을 못 받는다”로 뒤집어 외우면 안 된다. <b>소정급여일수 안에서</b> 받는 훈련은 구직급여＋직업능력개발 수당이고, 그때는 조기재취업 수당도 가능하다(부록 함정 4).</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p4">
+  <h2>Ⅳ. 모성보호급여와 급여액 산정 <span class="rng">14~16번 · 180일 기준일 / 보험료 부담 / 구직급여일액 계산</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>모성 보호 급여 3종</b> 출산 전후 휴가 급여 · 육아 휴직 급여 · 육아기 근로 시간 단축 급여</li>
+      <li><b>출산 전후 휴가</b> 임신 중의 여성에게 출산 전후를 통하여 <em>90일</em>(출산 후 <em>45일 이상</em> 확보). 휴가 사용 자체에는 근속 기간 제한이 없다</li>
+      <li><b>출산 전후 휴가 급여의 180일 기준일</b> 개시일이 아니라 <em>휴가가 끝난 날 이전</em>에 피보험 단위기간이 통산 180일 이상이면 된다 ★</li>
+      <li><b>육아 휴직 급여</b> 사용자로부터 <em>30일 이상</em> 육아 휴직을 부여받고, <em>육아 휴직 개시일 이전</em> 피보험 단위기간이 통산 180일 이상일 것. 출산 전후 휴가와 <em>연속 사용 가능</em></li>
+      <li><b>구직급여일액</b> 기초일액(＝이직 당시 산정된 <em>평균임금</em>) × <em>60%</em>. 다만 평균임금이 통상임금보다 적으면 통상임금을 기초일액으로 한다</li>
+      <li><b>상·하한</b> 상한액을 넘으면 상한액, 하한액(최저구직급여일액 ＝ 최저임금액 × <em>80%</em> × 8시간)에 못 미치면 하한액을 적용</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2024학년도 6월 모의평가 9번</div>
+  <p class="ask"><span class="n">14.</span> 다음은 고용보험에 관한 Q&amp;A 게시판의 질의·답변 내용이다. (가)에 들어갈 내용으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="cond">(단, 고용보험법의 적용을 받는 근로자를 대상으로 한다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">Q&amp;A 게시판</div>
+    <p class="note" style="text-align:right;margin:0 0 4px">작성일 : 2023년 1월 2일</p>
+    <p>［질의］ 안녕하세요? 저는 <b>2023년 3월 1일</b>에 첫아이 출산을 예정인 임산부입니다. 저는 <b>2022년 8월 16일</b>에 정규직으로 출판사에 취업하여 휴직과 결근 없이 계속 전일제 근무를 하고 있습니다. 저희 회사는 상시 근로자 5명이고, 4대 사회 보험료를 납부하고 있습니다.</p>
+    <p>요즘 출퇴근이 점점 힘들어져 처음으로 ‘출산전후휴가’(<b>2023년 2월 1일부터 2023년 5월 1일까지</b>)를 사용하려 합니다. 그렇게 한다면 고용보험에서 지급하는 ‘출산전후휴가 급여’를 받을 수 있을까요? 또한 ‘출산전후휴가’ 종료 후 바로 이어서 <b>5월 2일부터 ‘육아휴직’</b>을 사용할 수 있는지와 ‘육아휴직 급여’를 수령할 수 있는지 알고 싶습니다.</p>
+    <p style="text-indent:0">［답변］ <b>(가)</b></p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. ‘출산전후휴가’와 ‘육아휴직’은 연속으로 사용할 수 없습니다.</p>
+    <p>ㄴ. ‘출산전후휴가’ 개시 예정일 이전에 피보험 단위기간이 합산하여 180일 이하이므로 ‘출산전후휴가 급여’는 받을 수 없습니다.</p>
+    <p>ㄷ. ‘육아휴직’ 개시 예정일 이전에 현재 직장에서의 피보험 단위기간이 합산하여 180일 이상이므로 사용자로부터 30일 이상 ‘육아휴직’을 부여받는다면 ‘육아휴직 급여’ 수령이 가능합니다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 모성 보호 급여 / 피보험 단위기간 180일의 기준일</div>
+    <p><span class="lab">해설</span>ㄷ만 옳다. 기준일을 어디에 두느냐로 두 급여의 결론이 갈린다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th>급여</th><th>기준일</th><th>산정 구간</th><th>결과</th></tr>
+      <tr><td class="s">출산전후<br>휴가 급여</td><td class="f"><b>휴가가 끝난 날</b> 이전<br>(2023. 5. 1.)</td><td class="f">2022. 8. 16. ~ 2023. 5. 1.</td><td class="r">180일 이상 → <b>수급 가능</b></td></tr>
+      <tr><td class="s">육아휴직<br>급여</td><td class="f"><b>개시 예정일</b> 이전<br>(2023. 5. 2.)</td><td class="f">2022. 8. 16. ~ 2023. 5. 1.</td><td class="r">180일 이상 → <b>수급 가능</b></td></tr>
+      <tr class="fin"><td class="s">참고</td><td colspan="2" class="f">휴가 <b>개시일</b>(2023. 2. 1.) 기준으로 계산하면 약 169일에 그친다</td><td class="r">기준일이 관건</td></tr>
+    </table></div>
+    <ul>
+      <li><span class="x">ㄱ.</span> 출산전후휴가와 육아휴직은 <b>연속으로 사용할 수 있다.</b></li>
+      <li><span class="x">ㄴ.</span> 출산전후휴가 급여는 <b>휴가가 끝난 날 이전</b>에 피보험 단위기간이 통산 180일 이상이면 받을 수 있다. 휴가 종료일(5월 1일)까지 포함하면 180일을 넘으므로 <b>받을 수 있다.</b></li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄴ이 이 문항의 전부다. 학생 대부분이 <span class="hl">개시일 기준으로 169일을 계산해 내고 ‘못 받는다’로 확신</span>한다. 그러나 <b>출산전후휴가 급여만 유일하게 ‘휴가가 끝난 날’이 기준</b>이다. 육아휴직 급여는 ‘개시일’, 구직급여는 ‘이직일’ 기준이라 헷갈리기 딱 좋다. 그리고 바로 이 기준이 <b>15번(2026 10월 5번) ㄷ의 오답 근거</b>로 재출제되었다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2026학년도 10월 학력평가 5번</div>
+  <p class="ask"><span class="n">15.</span> 다음 고용보험 관련 질의를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">Q&amp;A 게시판</div>
+    <p class="note" style="text-align:right;margin:0 0 4px">작성일 : 2025년 2월 15일</p>
+    <p>저는 <b>2025년 2월 28일이 출산 예정일</b>인 30세 여성 근로자 A입니다. <b>2025년 1월 1일</b>에 첫 직장인 ○○기업(상시 근로자 수 100명)에 주 5일 40시간 일하는 근로 조건의 정규직으로 입사하여 현재까지 성실하게 근무하고 있습니다. 저는 <b>고용보험료 27,000원을 근로자 부담분으로 매월 납부</b>하고 있는데, 출산과 관련한 혜택을 받을 수 있는 법정 제도가 있을까요?</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. A 씨는 작성일에 출산전후휴가를 신청하여 사용할 수 있다.</p>
+    <p>ㄴ. 사업주가 부담하는 A 씨의 고용보험료는 27,000원이다.</p>
+    <p>ㄷ. A 씨는 출산 1개월 후 고용보험의 출산전후휴가급여를 신청하여 받을 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 고용 보험료 요율(실업급여 / 고용안정·직업능력개발사업) / 출산전후휴가급여</div>
+    <p><span class="lab">해설</span>ㄱ만 옳다. A 씨는 <b>출산 후 최소 45일 이상의 휴가 기간을 보장</b>하는 것을 조건으로, 작성일 현재부터 <b>출산전후휴가 90일</b>을 신청하여 사용할 수 있다. 휴가 <b>사용</b>에는 근속 기간 요건이 없다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> 사업주 부담분에는 실업급여 보험료(근로자와 동일한 0.9%)에 더해 <b>‘고용 안정 사업 및 직업 능력 개발 사업’ 보험료가 추가</b>되므로 <b>27,000원을 초과</b>한다.</li>
+      <li><span class="x">ㄷ.</span> 출산전후휴가급여는 <b>휴가가 끝난 날 이전</b>에 피보험 단위기간이 통산 <b>180일 이상</b>이어야 받을 수 있다. A 씨는 2025년 1월 1일 입사라 이를 충족하지 못한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄴ은 <span class="hl">“노사 절반씩”을 고용보험료 전체에 적용</span>하는 데서 나온다. 절반씩 부담하는 것은 <b>실업급여 부분뿐</b>이고, 고용안정·직업능력개발사업(0.25~0.85%)은 <b>사업주 전액</b>이다. 따라서 <b>사업주 부담액은 언제나 근로자보다 크다.</b><br>ㄷ은 14번과 짝을 이룬다. 14번은 기준일을 잘못 잡으면 ‘못 받는다’로 틀리고, 이 문항은 같은 기준으로 계산했을 때 <b>진짜로 못 받는</b> 경우다. 규칙은 하나인데 결론이 반대로 나오므로 반드시 날짜를 세라.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2026학년도 6월 모의평가 19번</div>
+  <p class="ask"><span class="n">16.</span> 다음 ［구직급여일액 계산 사례］의 (가), (나)에 해당하는 것으로 옳은 것은? <span class="cond">(단, 평균임금은 통상임금보다 크다.)</span></p>
+  <div class="passage">
+    <div class="ttl">［구직급여일액 계산 사례］</div>
+    <div class="scroll"><table class="ex">
+      <tr><td>A 씨 구직급여의 산정 기초 : 이직 당시 산정된 <b>(가)</b></td><td class="k">108,000원</td></tr>
+      <tr><td>구직급여일액의 상한액</td><td class="k">66,000원</td></tr>
+      <tr><td>구직급여일액의 하한액(A 씨의 최저구직급여일액)</td><td class="k">64,192원</td></tr>
+      <tr><td>A 씨의 구직급여일액</td><td class="k"><b>(나)</b></td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가) 통상임금 &nbsp;/&nbsp; (나) 64,192원</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(가) 통상임금 &nbsp;/&nbsp; (나) 64,800원</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(가) 평균임금 &nbsp;/&nbsp; (나) 64,192원</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(가) 평균임금 &nbsp;/&nbsp; (나) 64,800원</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가) 평균임금 &nbsp;/&nbsp; (나) 66,000원</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 3 구직 급여일액 — 수급 자격자의 기초일액 ( )% / 최저임금 이하인 경우 ( )%</div>
+    <p><span class="lab">해설</span>구직급여일액은 <b>기초일액 × 60%</b>로 구한 뒤 상·하한을 적용한다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th>단계</th><th>판단·계산</th><th>값</th></tr>
+      <tr><td class="s">①</td><td class="f">기초일액 결정 — 원칙은 <b>이직 전 3개월 평균임금</b>. 평균임금이 통상임금보다 적을 때만 통상임금으로 대체.<br>단서에 “평균임금은 통상임금보다 크다”라고 하였으므로 그대로 평균임금 사용 → <b>(가) = 평균임금</b></td><td class="r">108,000원</td></tr>
+      <tr><td class="s">②</td><td class="f">구직급여일액 계산 — 기초일액 × <b>60%</b><br>108,000 × 60 ÷ 100</td><td class="r">64,800원</td></tr>
+      <tr><td class="s">③</td><td class="f">상한액 대조 — 64,800원 &lt; 66,000원 → 상한 적용 <b>안 함</b></td><td class="r">유지</td></tr>
+      <tr><td class="s">④</td><td class="f">하한액 대조 — 64,800원 &gt; 64,192원 → 하한 적용 <b>안 함</b></td><td class="r">유지</td></tr>
+      <tr class="fin"><td class="s">답</td><td class="f">(가) 평균임금 &nbsp;/&nbsp; (나) 구직급여일액</td><td class="r">64,800원</td></tr>
+    </table></div>
+    <p><span class="lab w">참고</span>하한액 64,192원은 <b>최저임금액 × 80% × 8시간</b>으로 산출한 <b>최저구직급여일액</b>이다. 2025년 최저임금 10,030원을 대입하면 10,030 × 0.8 × 8 = 64,192원으로 정확히 일치한다. 학습지 POINT 3의 두 빈칸이 각각 <b>60%</b>(기초일액 대비)와 <b>80%</b>(최저임금 대비)인 이유가 여기에 있다.</p>
+    <div class="trap"><span class="lab t">함정</span>세 가지 갈림길이 있다. ① <b>평균임금 ↔ 통상임금</b> — 원칙은 평균임금, 통상임금은 평균임금이 더 적을 때만 쓰는 <span class="hl">예비 규정</span>이다. 단서를 안 읽고 ②를 고르면 끝난다. ② <b>60% ↔ 80%</b> — 60%는 기초일액에, 80%는 최저임금에 곱한다. ③ 계산값이 상·하한 사이에 있으면 <b>그대로 두는 것이 정답</b>인데, 표에 상한액이 보인다는 이유로 ⑤(66,000원)를 고르는 학생이 많다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 6 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p5">
+  <h2>Ⅴ. 보강 세트 <span class="rng">17~21번 · 자영업자 / 적용 확대 / 상병급여 / 조기재취업수당 / 보험 구분</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>이 단원의 성격</b> 2022~2024학년도에서 추가로 찾아낸 5문항이다. 1~16번과 개념은 같으나 <em>묻는 각도가 다르다</em></li>
+      <li><b>자영업자 고용보험</b> 근로자와 달리 <em>임의 가입</em>. 폐업일 이전 <em>24개월</em>간 피보험 단위기간 <em>1년 이상</em>이어야 하고, <em>연장급여와 조기 재취업 수당은 적용되지 않는다</em> ［법령 보충］</li>
+      <li><b>수급자격 제한 사유(자영업자)</b> 법령을 위반하여 <em>허가 취소·영업 정지</em>를 받아 폐업 / 본인의 <em>중대한 귀책사유</em>로 폐업 ［법령 보충］</li>
+      <li><b>수급권 보호</b> 실업급여를 받을 권리는 <em>양도·압류·담보 제공이 모두 금지</em>된다. 사회보험은 저축성 보험이 아니다</li>
+      <li><b>소정급여일수의 두 축</b> <em>연령</em>과 <em>피보험기간</em>을 함께 본다. “나이와 관계없이”는 오답 신호</li>
+      <li><b>보험 관계 성립 신고</b> 고용보험·산재보험 모두 신고 주체는 <em>사업주</em>. 산재보험료는 <em>사업주 전액</em> 부담이다</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2022학년도 6월 모의평가 5번</div>
+  <p class="ask"><span class="n">17.</span> 다음 수행 평가 보고서에서 A, B 씨가 신청한 사회 보험에 대해 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">수행 평가 보고서</div>
+    <p class="note" style="text-align:right;margin:0 0 5px">3학년 1반 이름 : ○○○</p>
+    <p style="text-indent:0">1. 사회 보험 적용 가능 여부에 대한 사례 분석</p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">1) △△보험<br>신청 사례</td><td>자영업자 A 씨는 <b>법령 위반으로 사업장 허가가 취소되어 폐업</b>하였다. 이러한 폐업을 이유로 A 씨는 생계 유지를 위해 <b>실업 급여</b>를 신청하였다.</td></tr>
+      <tr><td class="k">2) □□보험<br>신청 사례</td><td>호텔에서 근무하는 조리사 B 씨는 <b>근무 시간에 조리 과정 중 화상</b>을 입어 병원에서 <b>10일간 치료</b>를 받았다. 이를 <b>산업 재해로 인정받아</b> B 씨는 해당 보험 급여를 신청하였다.</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 구직 급여와 취업 촉진 수당을 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B 씨는 근로복지공단에 요양 급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A 씨의 사례는 산업재해보상보험법을, B 씨의 사례는 고용보험법을 적용받는다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A 씨와 B 씨가 신청한 보험은 저축성 보험의 성격을 갖는다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨가 신청한 보험 급여를 받을 권리는 제3자에게 양도할 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 1 고용보험의 적용 / 실업급여의 종류 · <b>safety18</b> 산재보험 요양급여</div>
+    <p><span class="lab">해설</span>A 씨는 <b>고용보험</b>(실업급여), B 씨는 <b>산재보험</b>(요양급여) 사례다. 공식 해설은 요양급여를 <b>업무상 재해로 요양 기간이 4일 이상</b>인 경우 치료비를 지급하는 급여로 설명한다. B 씨는 10일간 치료를 받았으므로 <b>근로복지공단</b>에 요양급여를 신청할 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> 자영업자도 고용보험에 가입했다면 실업급여를 받을 수 있다. 그러나 <b>법령 위반으로 허가 취소·영업 정지를 받아 폐업</b>한 경우는 수급자격 제한 사유여서 구직급여도 취업촉진수당도 받을 수 없다.</li>
+      <li><span class="x">③</span> 두 법이 <b>뒤바뀌었다.</b> A 씨 = 고용보험법, B 씨 = 산업재해보상보험법.</li>
+      <li><span class="x">④</span> 사회보험은 국가가 운영하는 강제 보험으로 <b>저축성 보험의 성격이 없다.</b></li>
+      <li><span class="x">⑤</span> 보험 급여를 받을 권리는 <b>제3자에게 양도할 수 없다.</b> 압류·담보 제공도 금지된다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“자영업자니까 실업급여는 안 되지”라고 <span class="hl">신분만 보고 ①을 거르면 근거가 틀린 정답</span>이 된다. 걸림돌은 신분이 아니라 <b>폐업 사유</b>다. 반대로 “자영업자도 되니까 ①이 맞다”로 가면 오답이다. 두 번 꺾이는 자리다.
+      <span class="cap" style="display:block;font-size:.77rem;color:#666;margin-top:6px">＊ 교재는 자영업자 고용보험을 자세히 다루지 않는다. 「고용보험법」 제69조의2·제69조의7에 따르면 자영업자는 <b>폐업일 이전 24개월간 피보험 단위기간 1년 이상</b>이어야 하고, <b>연장급여와 조기 재취업 수당은 적용되지 않는다.</b> ［법령 보충］</span>
+    </div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2023학년도 10월 학력평가 18번</div>
+  <p class="ask"><span class="n">18.</span> 다음 사회 보험 관련 게시물에 나타난 ㉠, ㉡에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">「㉠<u>고용 보험</u> 적용 대상 확대」</div>
+    <ul>
+      <li>시행일 : <b>2022년 7월 1일</b>부터</li>
+      <li>확대 대상 : <b>소프트웨어 기술자 포함 5개 직종</b></li>
+      <li>보험 혜택 : ㉡<b><u>구직 급여</u></b> 및 출산 전후 급여 수급 가능</li>
+    </ul>
+    <p class="note" style="text-align:right">＊ 자세한 사항은 고용노동부 홈페이지 참조</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">㉠의 보험료는 사업주가 전액 부담한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">㉠은 만 65세 이후 최초로 고용된 근로자에게도 적용된다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">㉡에는 광역 구직 활동비가 포함된다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">㉡을 신청하기 위해서는 실직한 근로자가 직접 워크넷에 구직 등록을 해야 한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">㉡의 소정 급여 일수는 나이와 관계없이 누구나 실직 전 피보험 기간에 따라 차등 적용된다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">공식 정답표 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 1 구직 급여 지급 요건 / POINT 2 실업급여의 종류 · 소정 급여 일수</div>
+    <p><span class="lab">해설</span>㉠은 <b>고용 보험</b>, ㉡은 <b>구직 급여</b>이다. 구직급여를 신청하려면 실직한 근로자가 <b>직접 워크넷에 구직 등록</b>을 한 뒤, 거주지 관할 고용센터에 실업을 신고하고 수급자격 인정을 받아야 한다.</p>
+    <ul>
+      <li><span class="x">①</span> 고용보험료 중 <b>실업급여</b>에 드는 부분은 사업주와 근로자가 <b>0.9%씩 절반</b>을 부담한다. 사업주가 전액 부담하는 것은 <b>고용안정·직업능력개발사업</b> 부분뿐이다.</li>
+      <li><span class="x">③</span> <b>광역 구직 활동비는 취업 촉진 수당</b>이다. 실업급여는 ‘구직급여 ＋ 취업촉진수당’이므로, <b>구직급여 안에</b> 광역 구직 활동비가 들어 있는 것이 아니다.</li>
+      <li><span class="x">⑤</span> 소정 급여 일수는 <b>연령과 피보험기간을 함께</b> 보고 정한다. “나이와 관계없이”가 결정적으로 틀렸다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③과 ⑤가 이 문항의 핵심이다. ③은 부록 함정 3(연장급여 ↔ 취업촉진수당)의 <span class="hl">가장 단순한 형태</span>이고, ⑤는 소정 급여 일수 표를 <b>가로(연령)와 세로(피보험기간) 두 축</b>으로 읽었는지를 묻는다. 표를 외우지 않고 “근무 오래 하면 오래 받는다”로만 기억하면 ⑤에 걸린다.
+      <span class="cap" style="display:block;font-size:.77rem;color:#666;margin-top:6px">＊ ②는 교재 기준으로는 ‘65세 이후 신규 고용 = 적용 제외’여서 오답이다. 다만 「고용보험법」 제10조 제2항 단서는 <b>고용안정·직업능력개발 사업에 대해서는 65세 이후 고용된 사람에게도 적용</b>한다고 규정한다. 적용이 배제되는 것은 제4장 <b>실업급여</b>와 제5장 <b>육아휴직 급여 등</b>이다. ［법령 보충］<br>＊ 지문의 ‘적용 대상 확대(소프트웨어 기술자 등 5개 직종)’는 <b>노무제공자 고용보험</b>으로, 교재 본문 범위 밖이다. 정답 판단에는 영향을 주지 않는다. ［법령 보충］</span>
+    </div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2024학년도 10월 학력평가 3번</div>
+  <p class="ask"><span class="n">19.</span> 다음은 고용 보험에 관한 게시판 화면이다. (가)에 들어갈 고용 보험 제도의 종류로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">질의·답변 게시판</div>
+    <p style="text-indent:0"><b>［질의］</b> 저는 <b>구직 급여 수급자</b>로 <b>실업 신고 이후 직업 능력 개발 훈련에 참여</b>하고 있었으나, <b>출산으로 구직 활동을 할 수 없는</b> 상황입니다. 이 경우, 구직 급여를 지원받을 수 있을까요?</p>
+    <p style="text-indent:0"><b>［답변］</b> 출산으로 인해 구직 활동이 어려운 경우 「고용보험법」 <b>제63조</b>에 따라 출산에 관한 증빙 서류와 청구서를 정해진 기간 내에 제출하면 <b>구직 급여 대신 (가)</b> 를 받을 수 있습니다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">상병 급여</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">개별 연장 급여</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">육아 휴직 급여</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">특별 연장 급여</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">훈련 연장 급여</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 2 상병 급여 — 질병·부상·출산으로 취업이 불가능한 경우</div>
+    <p><span class="lab">해설</span>공식 해설은 “구직급여 수급자격자가 <b>실업 신고 이후</b> 질병·부상 또는 <b>출산</b>으로 구직 활동이 어려운 경우, 구직급여를 대신하여 <b>상병 급여</b>를 지급받을 수 있다”라고 밝힌다. 발문의 「고용보험법」 제63조가 곧 상병 급여 조항이다.</p>
+    <ul>
+      <li><span class="x">②④⑤</span> 개별·특별·훈련 <b>연장급여</b>는 모두 <b>소정 급여 일수를 다 쓴 뒤</b>에 구직급여를 연장 지급하는 제도다. 이 사례는 소정 급여 일수가 남아 있는 상태이므로 해당하지 않는다.</li>
+      <li><span class="x">③</span> 육아 휴직 급여는 <b>재직 중인 근로자</b>가 육아 휴직을 사용할 때 받는 모성 보호 급여다. 이미 이직하여 구직급여를 받는 사람과는 무관하다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“훈련에 참여하고 있었으나”라는 문구 때문에 <span class="hl">⑤ 훈련 연장 급여</span>로 끌리기 쉽다. 그러나 훈련연장급여는 <b>소정 급여 일수를 초과해서까지</b> 훈련이 이어질 때의 제도이고, 이 사례에서 구직 활동을 막은 원인은 훈련이 아니라 <b>출산</b>이다. 판단 기준은 “왜 못 받게 되었는가”이지 “무엇을 하고 있었는가”가 아니다.<br>또한 <b>출산 ＝ 육아휴직 급여</b>로 반사적으로 잇는 습관도 ③으로 이끈다. <b>실업 상태의 출산 → 상병 급여</b>, <b>재직 상태의 출산 → 출산전후휴가 급여·육아휴직 급여</b>로 갈라 두라.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 7 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="4">
+  <div class="code">2022학년도 10월 학력평가 12번</div>
+  <p class="ask"><span class="n">20.</span> 다음 게시판에서 (가)에 들어갈 실업 급여의 종류로 가장 적절한 것은? <span class="cond">(단, 제시된 사례는 고용 보험 적용 제외 사항에 해당하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">Q &amp; A</div>
+    <p style="text-indent:0"><b>Q.</b> 저는 현재 구직 급여를 받고 있습니다. 구직 급여의 <b>소정 급여 일수는 210일</b>이며 <b>잔여 소정 급여 일수가 150일</b>인 시점에 다시 취업하게 되었습니다. 이런 경우 잔여 구직 급여의 수령이 가능할까요?</p>
+    <p style="text-indent:0"><b>A.</b> 새로 취업한 곳에서 <b>12개월 이상 계속 근무</b>하시면 <b>(가)</b> (으)로 <b>잔여 구직 급여의 1/2</b>에 해당하는 금액을 받으실 수 있습니다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">개별 연장 급여</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">훈련 연장 급여</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">광역 구직 활동비</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">조기 재취업 수당</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">직업 능력 개발 수당</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> POINT 2 취업 촉진 수당 — 조기 재취업 수당의 두 요건</div>
+    <p><span class="lab">해설</span>공식 해설은 이 게시판 내용을 <b>취업 촉진 수당 중 조기 재취업 수당</b>에 관한 것으로 확정한다. 지문의 두 조건이 그대로 요건 두 개다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th>요건</th><th>지문의 근거</th><th>판정</th></tr>
+      <tr><td class="s">①<br>잔여 일수</td><td class="f">재취업일 전날 기준 소정 급여 일수를 <b>2분의 1 이상</b> 남길 것<br>→ 210일 중 <b>150일</b> 잔여, 기준선은 105일</td><td class="r">충족</td></tr>
+      <tr><td class="s">②<br>계속 고용</td><td class="f">재취업 후 <b>12개월 이상 계속 고용</b>(또는 사업 운영)<br>→ 답변의 “12개월 이상 계속 근무하시면”</td><td class="r">조건부</td></tr>
+      <tr class="fin"><td class="s">지급액</td><td class="f">잔여 구직 급여의 <b>1/2</b>에 해당하는 금액</td><td class="r">조기 재취업 수당</td></tr>
+    </table></div>
+    <ul>
+      <li><span class="x">①②</span> 개별·훈련 <b>연장급여</b>는 소정 급여 일수를 <b>다 쓴 사람</b>에게 지급한다. 이 사례는 150일이 남은 상태이므로 성립할 수 없다.</li>
+      <li><span class="x">③⑤</span> 광역 구직 활동비와 직업 능력 개발 수당도 취업 촉진 수당이지만, 각각 <b>먼 거리 구직 활동의 교통비·숙박비</b>와 <b>지시받은 훈련의 교통비·식대</b>여서 ‘잔여 구직 급여의 1/2’과 무관하다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span><b>남기고 취업 → 조기 재취업 수당</b> / <b>다 쓰고도 못 구함 → 연장급여</b>. 이 한 줄이 선택지를 절반으로 가른다(부록 함정 3). 여기에 더해 이 문항은 <span class="hl">‘1/2’이라는 숫자가 두 번 등장</span>한다는 점을 기억하라. <b>잔여 일수 요건도 1/2, 지급액도 1/2</b>이다. 11번(2024 수능 15번)에서는 이 중 <b>12개월 요건</b>이 무너져 수당을 받지 못했다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2022학년도 대학수학능력시험 19번</div>
+  <p class="ask"><span class="n">21.</span> 다음 사례를 통해 알 수 있는 A, B 씨에게 적용된 사회 보험 및 근로 관계에 대한 설명으로 <b>옳지 않은</b> 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <ul>
+      <li><b>A 씨</b>는 ○○가구에서 근무하던 중 침대에 발이 깔려 발가락이 골절되는 사고를 당하여 병원 진단에 따라 <b>4주간 요양을 받고 완치</b>되었다. A 씨는 <b>업무상 재해</b>로 인해 사회 보험 중 이 보험의 적용을 받아, <b>요양으로 직장에 나가 일하지 못한 기간</b>에 대해 보험 급여를 지급받았다. 한편, 사업주는 병원에서 <b>요양 중이던 A 씨를 즉시 해고</b>하였다.</li>
+      <li><b>B 씨</b>는 △△전자에서 5년 동안 계속 근무하였으나, 사업주가 <b>긴박한 경영상의 어려움</b>을 이유로 불가피하게 <b>사직을 권고</b>하여 직장을 그만두었다. 30대 나이로 재취업을 위해 노력하였으나 뜻대로 되지 않아, 사회 보험 중 이 보험의 적용을 받아 <b>실업 급여</b>를 수령하여 재취업을 준비할 수 있었다.</li>
+    </ul>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 상병 보상 연금을 지원받았다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨의 해고는 부당 해고에 해당한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨가 지급받은 보험 급여는 고용보험법에 근거한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨에게 적용된 보험의 보험료는 사업주와 근로자가 함께 부담한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨에게 적용된 보험과 B 씨에게 적용된 보험의 보험 관계 성립 신고 주체는 사업주이다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">공식 정답표 대조 완료</span></div>
+    <div class="link">연계 — <b>employ17</b> 상병 급여 vs 상병 보상 연금 구분 · <b>safety18</b> 산재보험 급여의 종류 / 해고 제한</div>
+    <p><span class="lab">해설</span>A 씨 = <b>산재보험</b>, B 씨 = <b>고용보험</b>이다. A 씨가 받은 것은 “요양으로 일하지 못한 기간”에 대한 급여이므로 <b>휴업급여</b>다. <b>상병 보상 연금</b>은 요양 시작 후 <b>2년이 지나도 낫지 않고 중증요양상태가 계속될 때</b> 휴업급여를 대신하는 급여이므로, <b>4주 만에 완치</b>된 A 씨와는 맞지 않는다. 따라서 ①이 옳지 않다.</p>
+    <ul>
+      <li><span class="x">②</span> 옳다. 업무상 부상의 <b>요양 기간과 그 후 30일간</b>은 해고할 수 없다. 요양 중 즉시 해고는 부당 해고다.</li>
+      <li><span class="x">③</span> 옳다. B 씨의 실업급여는 <b>고용보험법</b>에 근거한다.</li>
+      <li><span class="x">④</span> 옳다. 고용보험료 중 <b>실업급여</b>에 드는 부분은 노사가 <b>0.9%씩</b> 함께 부담한다.</li>
+      <li><span class="x">⑤</span> 옳다. 고용보험·산재보험 모두 <b>보험 관계 성립 신고 주체는 사업주</b>다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>이름이 비슷한 세 급여가 한 문항에 모여 있다. 부록 함정 9의 <span class="hl">실물 확인용 문항</span>이다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">급여</th><th style="width:110px">소속 보험</th><th>지급 상황</th></tr>
+        <tr><td class="k">휴업급여</td><td style="text-align:center">산재보험</td><td>업무상 재해로 <b>요양 중</b> 일하지 못한 기간 — <b>이 문항의 A 씨</b></td></tr>
+        <tr><td class="k">상병보상연금</td><td style="text-align:center">산재보험</td><td>요양 개시 후 <b>2년 경과 + 중증요양상태 지속</b> — 휴업급여를 대체</td></tr>
+        <tr><td class="k">상병급여</td><td style="text-align:center">고용보험</td><td>구직급여 수급 중 <b>질병·부상·출산</b>으로 취업 불가 — 구직급여를 대체(19번)</td></tr>
+      </table></div>
+      <span class="cap" style="display:block;font-size:.77rem;color:#666;margin-top:5px">＊ 산재보험료는 <b>사업주 전액</b> 부담이라는 점도 함께 묶어 두면, ④의 “사업주와 근로자가 함께”가 왜 <b>B 씨(고용보험)</b>에만 붙어 있는지가 보인다. ［교재 보충］</span>
+    </div>
+  </div>
+</article>
+
+
+<div class="pagemark"><div class="pgend">- 8 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="appx" id="appx">
+  <h2>［부록 1］ 이 단원 함정 포인트 11</h2>
+
+  <details class="pit"><summary><span class="n">1</span>초단시간 근로자도 3개월을 넘기면 적용 대상이다</summary>
+    <div class="bd">교재 POINT란은 적용 제외 사유로 “1개월 소정 근로 시간이 60시간(1주 15시간) 미만”만 적는다. 그러나 「고용보험법 시행령」 제3조 제1항 단서는 <b>3개월 이상 계속하여 근로를 제공하는 자는 제외</b>한다고 규정한다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:190px">사례</th><th style="width:110px">주 소정근로시간</th><th style="width:110px">계속 근로</th><th>판정</th></tr>
+        <tr><td class="k">1번 (나) 커피 전문점</td><td style="text-align:center">14시간</td><td style="text-align:center">2년</td><td><span class="yes-ok">적용 대상</span> — 3개월 이상 예외</td></tr>
+        <tr><td class="k">10번 ⑤ 두 번째 직장</td><td style="text-align:center">월 55시간</td><td style="text-align:center">1개월</td><td><span class="no-ok">적용 제외</span> — 3개월 미만</td></tr>
+        <tr><td class="k">12번 A 씨 아르바이트</td><td style="text-align:center">17시간</td><td style="text-align:center">10개월</td><td><span class="yes-ok">적용 대상</span> — 애초에 15시간 이상</td></tr>
+      </table></div>
+      <span class="cap">＊ 교재 직접 명시 사항은 ‘60시간 미만 적용 제외’까지이며, 3개월 예외는 <b>법령으로 보충</b>한 내용이다. ［법령 보충］</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">2</span>65세는 나이가 아니라 ‘언제 들어왔는가’로 가른다</summary>
+    <div class="bd"><b>65세 이후에 새로 고용</b>되거나 자영업을 개시한 자에게는 실업급여를 적용하지 않는다. 그러나 <b>65세 이전부터 같은 사업장에서 계속</b> 일해 왔다면 65세 이후 이직해도 65세 미만과 동일하게 수급할 수 있다.<br>→ 2번 A 씨(63세 입사·69세 이직)는 <span class="yes-ok">수급 가능</span>, 1번 (가)(68세 채용)는 <span class="no-ok">적용 제외</span>. 같은 ‘60대 후반’이지만 결론이 반대다.</div>
+  </details>
+
+  <details class="pit"><summary><span class="n">3</span>이름에 ‘연장’이 붙으면 구직급여, ‘수당·비’면 취업촉진수당</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">구직급여 계열</th><th>취업촉진수당 계열</th></tr>
+        <tr><td class="k">훈련연장급여<br>개별연장급여<br>특별연장급여<br>(＋ 상병급여)</td><td>조기 재취업 수당 — 소정급여일수 1/2 이상 남기고 재취업 + 12개월 이상 계속 고용<br>직업능력개발 수당 — 지시받은 훈련의 교통비·식대<br>광역 구직 활동비 — 먼 거리 구직 활동의 교통비·숙박비<br>이주비 — 취업·훈련을 위한 주거 이전 경비</td></tr>
+      </table></div>
+      <span class="cap">→ 판별 문구 — “<b>소정급여일수를 초과하여</b>” 지급하면 연장급여(9번 ㄷ·13번 ㄱ), “<b>남기고</b>” 취업하면 조기 재취업 수당. (7번 ③·8번 ⑤·9번·11번·13번)<br>→ <b>보강 세트</b>에서는 <b>18번 ③</b>이 “구직급여에 광역 구직 활동비가 포함된다”로 가장 단순하게, <b>20번</b>이 “12개월 이상 근무하면 잔여 구직급여의 1/2”로 가장 전형적으로 이 구분을 물었다. <b>19번</b>은 훈련 중이었다는 이유로 훈련연장급여를 고르게 만드는 변형이다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">4</span>훈련연장급여 단계에 들어서면 조기 재취업 수당은 이미 불가능하다</summary>
+    <div class="bd">두 급여를 같은 시점에 받을 일은 애초에 없다. 훈련연장급여는 <b>실업 상태에서</b>, 조기 재취업 수당은 <b>재취업한 뒤에</b> 받기 때문이다. 문제는 <span class="hl">훈련연장급여를 받는 처지가 되었다는 사실 자체가 조기 재취업 수당의 요건을 이미 무너뜨린다</span>는 점이다.
+      <span class="sub">조문 세 개가 맞물린다</span>
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">조문</th><th>내용</th></tr>
+        <tr><td class="k">법 제55조 제1항</td><td>연장급여(제51~53조)는 그 수급자격자가 지급받을 수 있는 <b>구직급여의 지급이 끝난 후에</b> 지급한다</td></tr>
+        <tr><td class="k">법 제51조 제2항</td><td>훈련연장급여는 <b>소정급여일수를 초과하여</b> 구직급여를 연장 지급하는 것</td></tr>
+        <tr><td class="k">시행령 제84조 제1항</td><td>조기 재취업 수당은 재취업한 날의 <b>전날을 기준으로 소정급여일수를 2분의 1 이상 남기고</b> 재취업한 경우에 지급</td></tr>
+      </table></div>
+      <span class="cap">→ 훈련연장급여 수급 = 소정급여일수 잔여 <b>0일</b>. “2분의 1 이상 남기고”를 충족할 방법이 없다. 13번 ㄱ에서 “성실히 훈련받고 취업까지 했으니 조기 재취업 수당”이라는 직관이 통하지 않는 이유다.</span>
+
+      <span class="sub">거꾸로 읽지 말 것 — “훈련받으면 조기 재취업 수당 불가”가 아니다</span>
+      <b>소정급여일수 안에서</b> 훈련을 받는 것은 훈련연장급여가 아니다. 그 단계에서는 <b>구직급여 + 직업능력개발 수당</b>을 받으며, 이때 1/2 이상 남기고 재취업하면 <span class="yes-ok">조기 재취업 수당도 받을 수 있다</span>.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">단계</th><th style="width:180px">받는 급여</th><th>조기 재취업 수당</th></tr>
+        <tr><td class="k">소정급여일수 <b>이내</b>에<br>지시받은 훈련 수강</td><td>구직급여 ＋ 직업능력개발 수당</td><td><span class="yes-ok">가능</span> — 1/2 이상 남기고 재취업 시</td></tr>
+        <tr><td class="k">소정급여일수를 <b>초과</b>해<br>훈련이 이어짐</td><td>훈련연장급여</td><td><span class="no-ok">불가</span> — 잔여 0일</td></tr>
+      </table></div>
+      <span class="cap">→ 11번 A 씨는 훈련을 소정급여일수 <b>안에서</b> 마쳤으므로 이 표의 윗칸이지만, 150일분을 <b>전부 수령</b>한 뒤 재취업해 잔여 일수 요건에서 탈락했다. 13번 A 씨는 아랫칸이라 처음부터 불가능하다.</span>
+      <span class="cap" style="margin-top:8px">＊ 교재는 “조기 재취업 수당 — 소정 급여 일수를 ( ) 이상 남긴 상태로 재취업한 경우”까지만 명시한다. 위 조문 대응은 <b>법령으로 보충</b>한 내용이다. ［법령 보충］</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">5</span>조기 재취업 수당은 요건이 둘이다 — 잔여 일수 ＋ 12개월 고용</summary>
+    <div class="bd">① 재취업일 전날 기준 <b>소정급여일수 2분의 1 이상 잔여</b> ② 재취업 후 <b>12개월 이상 계속 고용</b>(또는 사업 운영).
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:130px">사례</th><th style="width:150px">요건 ① 잔여 일수</th><th style="width:150px">요건 ② 12개월</th><th>판정</th></tr>
+        <tr><td class="k">6번 A 씨</td><td>약 87일 경과 / 153일 잔여 <span class="yes-ok">○</span></td><td>—</td><td><span class="yes-ok">가능</span></td></tr>
+        <tr><td class="k">6번 B 씨</td><td>약 145일 경과 / 95일 잔여 <span class="no-ok">×</span></td><td>—</td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">11번 A 씨</td><td>150일 전부 수령 <span class="no-ok">×</span></td><td>4개월 근무 <span class="no-ok">×</span></td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">8번 A 씨</td><td>180일 중 약 120일 잔여 <span class="yes-ok">○</span></td><td>1년 이상 근무 <span class="yes-ok">○</span></td><td><span class="yes-ok">가능</span></td></tr>
+        <tr><td class="k">20번 질의자</td><td>210일 중 150일 잔여 <span class="yes-ok">○</span></td><td>12개월 이상 근무 시 <span class="yes-ok">○</span></td><td><span class="yes-ok">가능</span></td></tr>
+      </table></div>
+      <span class="cap">→ 지급액은 <b>잔여 구직급여의 1/2</b>이다(20번). 요건의 ‘1/2’(잔여 일수)과 지급액의 ‘1/2’은 <b>서로 다른 1/2</b>이니 혼동하지 말 것.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">6</span>“직업안정기관의 장이 지시한”이 붙었는지만 보라</summary>
+    <div class="bd">이 한 구절이 <b>직업능력개발 수당</b>과 <b>훈련연장급여</b>의 성립 여부를 통째로 결정한다. 스스로 등록한 학원·자비 부담 훈련은 아무리 성실히 이수해도 해당하지 않는다.<br>→ <span class="yes-ok">지시 있음</span> 8번 B·11번 A·12번 A / <span class="no-ok">지시 없음</span> 2번 B(요리 학원)·5번 질의자(자비 학원)·8번 A.<br>다만 <b>훈련연장급여</b>는 요건이 하나 더 있다. <span class="hl">최근 1년 동안 직업능력개발 훈련을 받지 않았을 것</span> — 12번 ②가 여기서 탈락한다.</div>
+  </details>
+
+  <details class="pit"><summary><span class="n">7</span>피보험 단위기간 180일의 ‘기준일’은 급여마다 다르다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:170px">급여</th><th style="width:180px">180일 산정의 끝점</th><th>관련 문항</th></tr>
+        <tr><td class="k">구직급여</td><td><b>이직일</b> 이전 18개월간</td><td>3·4·5·10·11번</td></tr>
+        <tr><td class="k">출산전후휴가 급여</td><td><span class="hl">휴가가 <b>끝난 날</b></span> 이전</td><td>14번 ㄴ · 15번 ㄷ</td></tr>
+        <tr><td class="k">육아휴직 급여</td><td>육아휴직 <b>개시일</b> 이전</td><td>14번 ㄷ</td></tr>
+      </table></div>
+      <span class="cap">→ 14번은 개시일로 계산하면 169일이라 ‘못 받는다’로 틀리고, 15번은 종료일로 제대로 계산해도 ‘못 받는다’가 맞다. <b>같은 규칙, 반대 결론</b>이므로 반드시 날짜를 세라.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">8</span>보험료 ‘절반씩’은 실업급여 부분에만 해당한다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:230px">구분</th><th style="width:120px">근로자</th><th>사업주</th></tr>
+        <tr><td class="k">실업급여</td><td style="text-align:center">0.9%</td><td style="text-align:center">0.9%</td></tr>
+        <tr><td class="k">고용안정 사업 및<br>직업능력개발 사업</td><td style="text-align:center">없음</td><td style="text-align:center">0.25 ~ 0.85%</td></tr>
+      </table></div>
+      <span class="cap">→ “동일한 비율로 부담한다”가 옳으려면 반드시 <b>실업급여 지급에 드는 비용</b>이라는 한정어가 붙어야 한다(4번 ㄷ·2번 ㄱ은 붙어 있어 정답, 15번 ㄴ은 총액을 물어 오답). <b>사업주 부담액은 항상 근로자보다 크다.</b></span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">9</span>기관·보험을 바꿔치기하는 선지 — 고용센터 / 상병급여</summary>
+    <div class="bd"><b>신청 기관</b> 실업급여 수급자격 인정은 거주지 관할 <span class="hl">고용센터(직업안정기관)</span>. 근로복지공단(6번 ④)·한국산업인력공단(7번 ⑤)은 모두 오답이다. 구직 등록은 <b>워크넷</b>으로 한다(3번 ㄴ).<br><b>보험 바꿔치기</b> <span class="no-ok">상병보상연금·휴업급여 ＝ 산업재해보상보험</span> ↔ <span class="yes-ok">상병급여 ＝ 고용보험</span>. 8번 ②와 10번 ①이 정확히 이 자리를 노렸고, <b>21번 ①</b>은 4주 만에 완치된 사람에게 상병보상연금을 붙여 이를 정답 선지로 만들었다(실제로는 <b>휴업급여</b>). <b>19번</b>은 반대로 고용보험의 <b>상병급여</b>를 정면으로 물었다.<br><b>적용 범위</b> 고용보험은 <b>1인 이상</b> 모든 사업장. “5인 이상만 적용”은 언제나 오답이다(7번 ②).</div>
+  </details>
+
+
+  <details class="pit"><summary><span class="n">10</span>자영업자도 실업급여를 받는다 — 걸림돌은 신분이 아니라 폐업 사유다</summary>
+    <div class="bd">고용보험은 원칙적으로 근로자를 대상으로 하지만, 자영업자도 <b>임의로 가입</b>하면 실업급여를 받을 수 있다. 17번에서 A 씨가 탈락한 이유는 자영업자여서가 아니라 <span class="hl">법령을 위반하여 사업장 허가가 취소된 뒤 폐업</span>했기 때문이다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">구분</th><th style="width:200px">근로자</th><th>자영업자</th></tr>
+        <tr><td class="k">가입</td><td>1인 이상 사업장 <b>당연 적용</b></td><td><b>임의 가입</b></td></tr>
+        <tr><td class="k">피보험 단위기간</td><td>이직일 이전 <b>18개월</b>간 통산 <b>180일</b> 이상</td><td>폐업일 이전 <b>24개월</b>간 통산 <b>1년</b> 이상</td></tr>
+        <tr><td class="k">받을 수 있는 급여</td><td>구직급여 · 취업촉진수당 · 연장급여 전부</td><td>구직급여 · 취업촉진수당<br><span class="no-ok">연장급여와 조기 재취업 수당은 제외</span></td></tr>
+        <tr><td class="k">수급자격 제한</td><td>자발적 이직 · 중대한 귀책사유 해고</td><td>법령 위반에 따른 <b>허가 취소·영업 정지</b>로 폐업<br>본인의 <b>중대한 귀책사유</b>로 폐업</td></tr>
+      </table></div>
+      <span class="cap">＊ 교재는 자영업자 고용보험을 자세히 다루지 않는다. 위 표는 「고용보험법」 제69조의2·제69조의7·제69조의8과 시행규칙 제115조의2·제115조의3으로 <b>보충</b>한 것이다. ［법령 보충］</span>
+      <span class="cap">→ 함께 기억할 것 — 실업급여를 받을 권리는 <b>양도·압류·담보 제공이 모두 금지</b>된다(17번 ⑤). 사회보험은 <b>저축성 보험이 아니다</b>(17번 ④).</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">11</span>소정급여일수는 축이 둘이다 — “나이와 관계없이”는 오답 신호</summary>
+    <div class="bd">소정급여일수는 <b>연령</b>과 <b>피보험기간</b>을 <span class="hl">함께</span> 보고 정한다. 어느 한쪽만 언급하며 “관계없이”라는 말을 붙이면 그 선지는 거의 틀린 것이다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:170px">선지 유형</th><th style="width:110px">판정</th><th>관련 문항</th></tr>
+        <tr><td class="k">“<b>나이와 관계없이</b> 피보험기간에 따라 차등”</td><td style="text-align:center"><span class="no-ok">오답</span></td><td>18번 ⑤ — 연령 축을 지웠다</td></tr>
+        <tr><td class="k">두 사람의 연령·피보험기간이 모두 같은 구간</td><td style="text-align:center"><span class="yes-ok">동일</span></td><td>6번 — 240일로 같다</td></tr>
+        <tr><td class="k">“최대 <b>240일</b>”처럼 상한만 단정</td><td style="text-align:center"><span class="no-ok">주의</span></td><td>7번 — 구간을 확인해야 한다</td></tr>
+      </table></div>
+      <span class="cap">→ 6번은 <b>두 축이 모두 같아서</b> 결론이 같아진 사례이고, 18번 ⑤는 <b>한 축을 지워서</b> 틀린 사례다. 같은 표를 반대 방향으로 이용한 셈이다.</span>
+    </div>
+  </details>
+
+  <h2 style="margin-top:22px">［부록 2］ 정답표 및 학습지 대조</h2>
+  <div class="scroll"><table class="ans">
+    <tr><th>번호</th><th>학습지 위치</th><th>출처</th><th>정답</th><th>핵심 개념</th></tr>
+    <tr><td>1</td><td>문제 13</td><td>2027학년도 6월 모평 15번</td><td class="a">②</td><td class="l">적용 3요건 판단표 · 초단시간 3개월 예외</td></tr>
+    <tr><td>2</td><td>문제 2</td><td>2025학년도 6월 모평 15번</td><td class="a">②</td><td class="l">65세 예외 · 실업급여 보험료 절반 · 상병급여</td></tr>
+    <tr><td>3</td><td>문제 8</td><td>2024학년도 9월 모평 12번</td><td class="a">②</td><td class="l">자발적 이직 · 워크넷 · 보험료 노사 부담</td></tr>
+    <tr><td>4</td><td>문제 12</td><td>2026학년도 수능 <b>5번</b></td><td class="a">⑤</td><td class="l">상병급여 · 피보험 단위기간 · 요율 0.9%</td></tr>
+    <tr><td>5</td><td>기출 분석 ①</td><td>2025학년도 수능 4번</td><td class="a">④</td><td class="l">수급 기간 12개월 초과 · 폐업은 정당 사유</td></tr>
+    <tr><td>6</td><td>문제 3</td><td>2023학년도 6월 모평 15번</td><td class="a">⑤</td><td class="l">소정급여일수 240일 동일 · 조기재취업 시점</td></tr>
+    <tr><td>7</td><td>문제 7</td><td>2023학년도 수능 14번</td><td class="a">①</td><td class="l">상병급여 · 1인 이상 적용 · 240일 · 고용센터</td></tr>
+    <tr><td>8</td><td>문제 9(앞)</td><td>2026학년도 6월 모평 18번</td><td class="a">⑤</td><td class="l">취업촉진수당 · 수급기간 12개월 · 상병보상연금 구분</td></tr>
+    <tr><td>9</td><td>기출 분석 ②</td><td>2025학년도 수능 11번</td><td class="a">③</td><td class="l">이주비·광역구직활동비 ↔ 개별연장급여</td></tr>
+    <tr><td>10</td><td>문제 1</td><td>2025학년도 9월 모평 19번</td><td class="a">②</td><td class="l">구직급여 vs 상병급여 · 실업의 인정</td></tr>
+    <tr><td>11</td><td>문제 4</td><td>2024학년도 수능 15번</td><td class="a">④</td><td class="l">직업능력개발 수당 · 조기재취업 12개월 요건</td></tr>
+    <tr><td>12</td><td>문제 5</td><td>2023학년도 9월 모평 7번</td><td class="a">④</td><td class="l">직업능력개발 수당 · 퇴직금 1년 · 서면 통지</td></tr>
+    <tr><td>13</td><td>문제 11</td><td>2026학년도 9월 모평 4번</td><td class="a">②</td><td class="l">훈련연장급여 → 잔여 0일 · 조기재취업 불가 · 상병급여</td></tr>
+    <tr><td>14</td><td>문제 6</td><td>2024학년도 6월 모평 9번</td><td class="a">②</td><td class="l">출산전후휴가급여 ‘끝난 날’ 기준 · 연속 사용</td></tr>
+    <tr><td>15</td><td>문제 10</td><td>2026학년도 10월 학평 5번</td><td class="a">①</td><td class="l">출산전후휴가 90일 · 사업주 부담분 초과</td></tr>
+    <tr><td>16</td><td>문제 9(뒤)</td><td>2026학년도 6월 모평 19번</td><td class="a">④</td><td class="l">기초일액 ＝ 평균임금 · ×60% · 상하한 대조</td></tr>
+    <tr><td>17</td><td>보강 세트</td><td>2022학년도 6월 모평 5번</td><td class="a">②</td><td class="l">자영업자 고용보험 · 폐업 사유 제한 · 수급권 양도 금지</td></tr>
+    <tr><td>18</td><td>보강 세트</td><td>2023학년도 10월 학평 18번</td><td class="a">④</td><td class="l">워크넷 구직 등록 · 광역구직활동비 소속 · 소정급여일수 두 축</td></tr>
+    <tr><td>19</td><td>보강 세트</td><td>2024학년도 10월 학평 3번</td><td class="a">①</td><td class="l">상병 급여(「고용보험법」 제63조) — 출산으로 구직 활동 불가</td></tr>
+    <tr><td>20</td><td>보강 세트</td><td>2022학년도 10월 학평 12번</td><td class="a">④</td><td class="l">조기 재취업 수당 — 1/2 잔여 ＋ 12개월 계속 근무</td></tr>
+    <tr><td>21</td><td>보강 세트</td><td>2022학년도 수능 19번</td><td class="a">①</td><td class="l">휴업급여 ↔ 상병보상연금 ↔ 상병급여 · 보험 관계 성립 신고</td></tr>
+  </table></div>
+
+  <div class="caution">
+    <b>［출처 표기 정정］</b> 학습지 문제 12는 ‘2026학년도 대학수학능력시험 14번’으로 적혀 있으나, 원본 시험지와 EBS 공식 해설지 모두 <b>5번</b>이다. 이 문제지에는 5번으로 바로잡아 실었다.<br>
+    <b>［보강 세트 안내］</b> 17~21번은 2022~2024학년도에서 추가로 찾아낸 문항이다. 기존 1~16번의 번호와 배치는 그대로 두었다. 다만 <b>17번·21번은 2022학년도 문항</b>으로, 고용보험과 <b>산업재해보상보험을 함께 묻는 비교형</b>이라 18강 내용이 일부 섞여 있다. 두 보험을 나란히 놓고 정리할 때 쓰면 효과가 크다.<br>
+    <b>［근거 표기 원칙］</b> 16문항 전부 EBS 공식 해설지 원문과 대조하여 정답·근거를 확정하였다. 교재에 직접 명시되지 않고 법령으로 보충한 내용은 <b>［법령 보충］</b>으로 표시하였다(함정 1의 3개월 예외 등). 최저구직급여일액은 최저임금 고시에 따라 매년 변동하므로, 부록 16번의 64,192원은 <b>2025년 최저임금 10,030원 기준</b>임에 유의할 것.
+  </div>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 17강</span>
+    <span>은또링샘의 행성 연구소</span>
+  </div>
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 9 -</div></div>
+  <p style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;color:#8A8A8A;margin-top:10px">기출 문항의 저작권은 한국교육과정평가원 및 시·도 교육청에 있습니다.</p>
+</section>
+</div><!-- /sheet -->
+
+<div id="toast"></div>
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var TOTAL = qs.length;
+  var tt;
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){t.classList.remove('show');},3000);
+  }
+  function update(){
+    var d=qs.filter(function(q){return q.classList.contains('done');}).length;
+    var h=qs.filter(function(q){return q.dataset.hit==='1';}).length;
+    document.getElementById('done').textContent=d;
+    document.getElementById('hit').textContent=h;
+    document.getElementById('bar').style.width=(d/TOTAL*100)+'%';
+    if(d===TOTAL) toast(h===TOTAL?TOTAL+'문항 전부 정답입니다.':'채점 완료 — 정답 '+h+' / '+TOTAL);
+  }
+  // 채점 실행 — 마킹한 답과 정답을 대조해 표시하고 해설을 연다
+  function applyGrade(q){
+    var ans=q.dataset.a, pick=q.dataset.pick||'';
+    q.classList.add('done');
+    q.dataset.hit=(pick===ans)?'1':'0';
+    q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+    if(pick){
+      var pb=q.querySelector('.ch button[data-i="'+pick+'"]');
+      if(pb) pb.classList.add(pick===ans?'pick-ok':'pick-no');
+    }
+    if(pick!==ans){
+      var right=q.querySelector('.ch button[data-i="'+ans+'"]');
+      if(right) right.classList.add('mark-ok');
+    }
+    q.querySelector('.sol').classList.add('open');
+    var g=q.querySelector('.gradebtn');
+    g.textContent='해설 접기'; g.classList.add('graded');
+  }
+
+  qs.forEach(function(q){
+    var list=q.querySelector('.ch');
+    var g=q.querySelector('.gradebtn');
+
+    // 선택지 클릭 — 채점 전에는 마킹만 한다(정오 표시 없음)
+    q.querySelectorAll('.ch button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('done')) return;
+        q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+        btn.classList.add('marked');
+        q.dataset.pick=btn.dataset.i;
+      });
+    });
+
+    // 채점하기 / 채점 후에는 해설 접기·펼치기 토글
+    g.addEventListener('click',function(){
+      if(!q.classList.contains('done')){
+        if(!q.dataset.pick){
+          toast('답을 먼저 고른 뒤 채점하세요.');
+          list.classList.remove('nudge'); void list.offsetWidth; list.classList.add('nudge');
+          return;
+        }
+        applyGrade(q); update();
+      }else{
+        var sol=q.querySelector('.sol');
+        var open=sol.classList.toggle('open');
+        g.textContent=open?'해설 접기':'해설 보기';
+      }
+    });
+  });
+
+  window.showAll=function(){
+    qs.forEach(function(q){
+      if(q.classList.contains('done')){
+        q.querySelector('.sol').classList.add('open');
+        q.querySelector('.gradebtn').textContent='해설 접기';
+        return;
+      }
+      applyGrade(q);
+    });
+    update(); toast('정답과 해설을 모두 펼쳤습니다.');
+  };
+
+  window.resetAll=function(){
+    qs.forEach(function(q){
+      q.classList.remove('done'); delete q.dataset.hit; delete q.dataset.pick;
+      q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked','pick-ok','pick-no','mark-ok');});
+      q.querySelector('.sol').classList.remove('open');
+      var g=q.querySelector('.gradebtn');
+      g.textContent='채점하기'; g.classList.remove('graded');
+    });
+    update(); toast('처음부터 다시 풀어 보세요.');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  // 학번 칸: 숫자만 입력하고 한 자리 채우면 다음 칸으로
+  var cells=Array.prototype.slice.call(document.querySelectorAll('.fld .cell'));
+  cells.forEach(function(c,i){
+    c.addEventListener('input',function(){
+      c.value=c.value.replace(/[^0-9]/g,'').slice(0,1);
+      if(c.value && cells[i+1]) cells[i+1].focus();
+    });
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Backspace' && !c.value && cells[i-1]) cells[i-1].focus();
+    });
+  });
+  window.addEventListener('scroll',function(){
+    document.getElementById('top').classList.toggle('show', window.scrollY>420);
+  });
+  update();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>은또링쌤의 원페이지 성직 — 모성 보호 '출산전후휴가와 육아휴직'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bgA:#5566CE; --bgB:#4050B4;
+  --paper:#F1F1F4; --paper2:#E4E4EA; --paper3:#D8D9E2;
+  --ink:#24242C; --ink2:#63636F; --muted:#9698A8;
+  --acc:#3B5AE0; --acc2:#8C9CEB; --accbg:#E9ECFA;
+  --rule:#445CD4; --rule2:#AEB8EA;
+  --line:#D6D7DE;
+  --ok:#1F7A57; --okbg:#E2F2EB; --wrong:#C8324C; --wrongbg:#FBE6EA;
+  --navy:#282D52;
+  --purple:#6A57C4; --pink:#C8324C;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);line-height:1.62;-webkit-text-size-adjust:100%;
+  font-family:'Noto Sans KR','Gothic A1',sans-serif;
+  background:linear-gradient(160deg,var(--bgA) 0%,#4A5AC4 45%,var(--bgB) 100%);
+  background-attachment:fixed}
+.wrap{max-width:1140px;margin:0 auto;padding:14px 20px 64px}
+
+/* ===== 용지 적층 + 클립 ===== */
+.stack{position:relative;margin-top:8px;padding-top:56px}
+.stack .sh-back{position:absolute;left:12px;right:-12px;top:68px;bottom:-12px;border-radius:8px;
+  background:#C9CBD8;box-shadow:0 10px 26px rgba(20,25,70,.22)}
+.stack .sh-back2{position:absolute;left:6px;right:-5px;top:62px;bottom:-5px;border-radius:8px;
+  background:var(--paper2);box-shadow:0 8px 20px rgba(20,25,70,.18)}
+.clip{position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;z-index:20;
+  filter:drop-shadow(0 6px 9px rgba(12,16,48,.42))}
+.clip svg{width:100%;height:auto;display:block}
+.sheet{position:relative;z-index:10;background:var(--paper);border-radius:8px;
+  padding:66px 30px 34px;box-shadow:0 16px 44px rgba(16,22,66,.3);overflow:hidden}
+.sheet::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(#DCDCE4 1px,transparent 1px),linear-gradient(90deg,#DCDCE4 1px,transparent 1px);
+  background-size:27px 27px}
+.sheet-in{position:relative;z-index:2}
+.deco{display:none}
+
+/* ===== 뉴스 헤더 ===== */
+.nhead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:flex;align-items:center;gap:7px;font-family:'Gothic A1',sans-serif;
+  font-weight:800;font-size:13.5px;letter-spacing:.6px;color:#4A4B58}
+.brand{color:#4A4B58}
+.brand .planet{width:21px;height:auto;display:block;flex:0 0 auto;overflow:visible}
+.issue{font-family:'Gothic A1',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:3px;color:#7C7E92}
+.rule2{margin-top:9px;height:0;border-top:3px solid var(--rule);position:relative}
+.rule2::after{content:"";position:absolute;left:0;right:0;top:4px;border-top:1px solid var(--rule2)}
+
+/* ===== 커버 ===== */
+.cover{padding:30px 0 4px;text-align:center}
+.cdate{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:clamp(17px,3.2vw,25px);
+  color:#9A9CAD;letter-spacing:1px}
+.ceyebrow{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(21px,4.4vw,34px);
+  color:var(--ink);letter-spacing:-.8px;margin-top:4px}
+.ctitle{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(23px,6.1vw,54px);
+  color:var(--acc);letter-spacing:-2px;line-height:1.12;margin-top:4px;white-space:nowrap}
+.hotbox{margin:24px auto 0;max-width:330px;background:#FBFBFD;border-radius:999px;padding:9px 22px;
+  box-shadow:0 2px 8px rgba(30,40,100,.09)}
+.hoth{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(14px,2.6vw,18px);color:var(--acc)}
+.hotlist{list-style:none;margin:12px 0 0;padding:0 6px;text-align:left;max-width:560px;margin-left:auto;margin-right:auto}
+.hotlist li{position:relative;padding-left:16px;margin:6px 0;font-size:14px;color:#6D6F80;font-weight:500}
+.hotlist li::before{content:"•";position:absolute;left:2px;color:var(--acc2);font-weight:900}
+
+/* ===== 섹션 = 기사 ===== */
+.sec{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);position:relative}
+.sec-h{display:block;margin-bottom:14px;padding-right:44px}
+.anum{position:absolute;right:0;top:22px;font-family:'Gothic A1',sans-serif;font-weight:800;
+  font-size:12.5px;letter-spacing:3px;color:#A6A9BE}
+.kicker,.tail{font-family:'Gothic A1',sans-serif;font-weight:900;
+  font-size:clamp(20px,4.1vw,31px);letter-spacing:-1px;line-height:1.26}
+.kicker{color:var(--acc);margin-right:.3em}
+.tail{color:var(--ink)}
+.memo{display:block;margin-top:9px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:-.2px}
+
+/* ===== 본문 박스 ===== */
+.bubble{background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 17px}
+.bubble.pk{background:#FBFBFD;border-left:4px solid var(--acc)}
+.bubble h4{margin:0 0 8px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:17px;color:var(--ink)}
+.bubble .big{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(16px,2.6vw,21px);
+  text-align:center;line-height:1.5;margin:6px 0 2px;color:var(--ink)}
+.topgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+
+ul.hl{list-style:none;margin:9px 0 0;padding:0}
+ul.hl li{position:relative;padding-left:17px;margin:7px 0;font-size:14px;color:var(--ink2);font-weight:500}
+ul.hl li::before{content:"";position:absolute;left:1px;top:9px;width:6px;height:6px;background:var(--acc2);border-radius:1px}
+ul.hl.pk li::before{background:var(--acc)}
+
+.hi{background:linear-gradient(180deg,transparent 55%,#CFD8F8 55%);font-weight:700;padding:0 1px;color:var(--ink)}
+.hi.pu{background:linear-gradient(180deg,transparent 55%,#DCD3F6 55%)}
+.hi.yl{background:linear-gradient(180deg,transparent 55%,#F5E6B4 55%)}
+.hi.bl{background:linear-gradient(180deg,transparent 55%,#C7E4F4 55%)}
+.chip{display:inline-block;background:var(--accbg);border:1px solid var(--acc2);color:#2F47B8;
+  border-radius:4px;padding:1px 8px;font-size:12px;font-weight:700;margin:0 2px}
+.chip.pk{background:#FFF0F3;border-color:#EEB6C2;color:#A82943}
+.law{font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:-.2px}
+
+/* 기자 메모 (구 손글씨) */
+.hand{display:inline-block;font-weight:700;font-size:13.5px;color:var(--acc);letter-spacing:-.2px;line-height:1.5}
+.hand::before{content:"✎ ";opacity:.75}
+.hand.tilt,.hand.tilt2{transform:none}
+.hand.pk,.hand.pu{color:var(--acc)}
+.handbox{display:inline-block;font-weight:800;font-size:12.5px;color:#2F47B8;background:var(--accbg);
+  border:1px solid var(--acc2);border-radius:4px;padding:1px 8px}
+
+/* ===== 신청 절차 3단계 카드 ===== */
+.stepgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.step{background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px 15px 13px;position:relative}
+.step.s1,.step.s2,.step.s3{border-color:var(--line)}
+.step-no{position:absolute;top:-1px;left:-1px;width:30px;height:26px;border-radius:6px 0 6px 0;
+  background:var(--acc);color:#fff;display:grid;place-items:center;font-family:'Gothic A1',sans-serif;
+  font-weight:900;font-size:13.5px}
+.step .tag{font-size:11.5px;font-weight:600;color:var(--muted);margin-left:34px}
+.step .ttl{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(18px,2.7vw,23px);
+  letter-spacing:-1px;color:var(--ink);margin:5px 0 9px;padding-bottom:9px;border-bottom:2px solid var(--rule)}
+.rowline{display:grid;grid-template-columns:52px 1fr;gap:9px;align-items:start;
+  padding:8px 0;border-top:1px solid #E7E7EE;font-size:13.5px}
+.rowline:first-of-type{border-top:0}
+.rowline .k{font-weight:800;color:#fff;font-size:11.5px;background:var(--acc2);
+  border-radius:3px;padding:2px 0;text-align:center;letter-spacing:-.3px}
+.rowline .k.pu{background:#9A8DDD}
+.rowline .v{color:var(--ink2);font-weight:500;line-height:1.58}
+
+/* ===== 빈칸 ===== */
+.num{color:var(--acc);font-weight:900;font-size:12.5px;margin-right:1px;font-family:'Gothic A1',sans-serif}
+.sel{appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  font-family:'Gothic A1',sans-serif;font-weight:800;font-size:14px;color:var(--acc);
+  background-color:#EAEDFA;background-repeat:no-repeat;background-position:right 7px center;background-size:9px 6px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%233B5AE0'/%3E%3C/svg%3E");
+  border:0;border-bottom:2px solid var(--acc2);border-radius:3px 3px 0 0;
+  padding:3px 23px 3px 10px;margin:0 3px;cursor:pointer;vertical-align:middle;line-height:1.4;
+  min-width:5.6em;max-width:100%;text-align:center;text-align-last:center;transition:.14s}
+.sel.wide{min-width:8.6em} .sel.xwide{min-width:11.4em}
+.sel.empty{color:#9BA4D6;font-weight:700}
+.sel:hover{background-color:#DDE3FA}
+.sel:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.sel.correct{color:var(--ok);background-color:var(--okbg);border-bottom-color:var(--ok);
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%231F7A57'/%3E%3C/svg%3E")}
+.sel.reveal{color:var(--wrong);background-color:var(--wrongbg);border-bottom-color:var(--wrong);cursor:help;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23C8324C'/%3E%3C/svg%3E")}
+.sel.peek{color:#5C46B8;background-color:#EDE8FA;border-bottom-color:#8C74DE;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%235C46B8'/%3E%3C/svg%3E")}
+.sel option{color:var(--ink);background:#fff;font-weight:600;text-align:left}
+.sel option[value=""]{color:#9BA4D6}
+
+/* ===== sticky HUD ===== */
+.hud{position:sticky;top:0;z-index:60;margin:0 0 4px;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);border-radius:8px;padding:10px 14px;
+  box-shadow:0 6px 20px rgba(16,22,66,.25);border-top:3px solid var(--rule)}
+.hud-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.hud .cnt{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:13.5px;color:var(--ink)}
+.hud .cnt b{color:var(--acc);font-size:16px}
+.bar-out{height:7px;background:#E2E3EC;border-radius:99px;overflow:hidden;margin-top:8px}
+.bar-in{height:100%;width:0;border-radius:99px;transition:width .3s;
+  background:linear-gradient(90deg,#8C9CEB,var(--acc))}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+button.b{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:12.5px;border-radius:5px;
+  padding:7px 15px;border:1.5px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer;transition:.15s}
+button.b:hover{filter:brightness(1.08)}
+button.b.g{background:#fff;color:var(--acc)}
+button.b.w{background:#fff;color:var(--muted);border-color:var(--line)}
+
+/* ===== 타임라인 ===== */
+.tl{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px 15px 10px}
+.tl-arrow{position:relative;height:30px;margin:74px 0 6px}
+.tl-arrow::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#CBD3F5 0%,#A9B5EE 38%,#7B8CE4 70%,var(--acc) 100%);
+  border-radius:3px;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 50%,calc(100% - 20px) 100%,0 100%)}
+.tl-pt{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:3}
+.tl-pt .star{width:11px;height:11px;display:block;background:#fff;border:2.5px solid var(--navy);
+  border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+.tl-pt .lab{position:absolute;left:50%;transform:translateX(-50%);top:20px;white-space:nowrap;
+  font-size:11px;font-weight:700;color:var(--ink2);text-align:center;line-height:1.35;
+  background:rgba(251,251,253,.92);border-radius:3px;padding:2px 5px}
+.tl-pt .up{position:absolute;left:50%;transform:translateX(-50%);bottom:22px;white-space:nowrap;
+  font-weight:700;font-size:12px;color:var(--acc)}
+.tl-span{position:absolute;top:-42px;height:0;border-top:2px dashed var(--acc2)}
+.tl-span i{position:absolute;left:50%;transform:translateX(-50%);top:-11px;white-space:nowrap;
+  background:var(--accbg);border:1px solid var(--acc2);border-radius:3px;padding:1px 9px;
+  font-size:11.5px;font-weight:700;color:#2F47B8;font-style:normal}
+.tl-note{margin-top:52px;font-size:13px;color:var(--ink2);font-weight:500}
+
+/* ===== 급여 체계 / 교차점 / 표 ===== */
+.tree{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.tcard{border-radius:6px;padding:15px 16px;border:1px solid var(--line);background:#FBFBFD}
+.tcard.a{border-top:3px solid var(--acc)} .tcard.b{border-top:3px solid #9A8DDD}
+.tcard h5{margin:0 0 4px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:16.5px;letter-spacing:-.6px}
+.tcard.a h5{color:var(--acc)} .tcard.b h5{color:#6A57C4}
+.tcard .why{font-size:12.5px;color:var(--muted);font-weight:500;margin-bottom:9px}
+.tcard ol{margin:0;padding-left:19px;font-size:13.5px;color:var(--ink2);font-weight:500}
+.tcard ol li{margin:6px 0}
+.cross{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 16px}
+.cross-h{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15.5px;margin-bottom:8px;letter-spacing:-.5px}
+.cross svg{width:100%;height:auto;display:block}
+.cross-note{margin-top:10px;font-size:13px;color:var(--ink2);font-weight:500;line-height:1.75}
+.dtab{width:100%;border-collapse:collapse;font-size:13px}
+.dtab th,.dtab td{border:1px solid var(--line);padding:8px 10px;text-align:center;vertical-align:middle}
+.dtab th{background:var(--accbg);font-weight:800;color:#2F47B8;font-size:12.5px}
+.dtab td:first-child{background:#F4F5FA;font-weight:800;color:var(--acc);width:62px;font-size:12.5px}
+
+/* 기산점 탭 */
+.cmp{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:15px 16px}
+.cmp-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.tab{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:12.5px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);border-radius:4px;padding:6px 13px;cursor:pointer;transition:.15s}
+.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.cmp-body{display:none;font-size:13.5px;color:var(--ink2)}
+.cmp-body.on{display:block}
+.rule{position:relative;height:52px;margin:13px 0 6px;background:#EFEFF4;border-radius:4px;overflow:hidden}
+.rule .zone{position:absolute;top:0;bottom:0;display:grid;place-items:center;font-size:11.5px;font-weight:800}
+.rule .z-pay{background:#D9EDE4;color:#1B6E4E}
+.rule .z-no{background:#F8DDE3;color:#A82943}
+.rule .z-out{background:repeating-linear-gradient(45deg,#E6E7EF 0 6px,#DBDCE6 6px 12px);color:#71738A}
+.rule .mk{position:absolute;top:0;bottom:0;width:2px;background:var(--navy)}
+.rule .mk i{position:absolute;top:2px;left:4px;font-size:10.5px;font-weight:800;color:var(--navy);font-style:normal;white-space:nowrap}
+
+/* ===== 판정기 ===== */
+.judge{margin-top:14px;background:#FBFBFD;border:1px solid var(--line);border-radius:6px;padding:16px}
+.jq{border-top:1px solid #E7E7EE;padding:12px 0}
+.jq:first-of-type{border-top:0;padding-top:2px}
+.jq .txt{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:9px}
+.jopts{display:flex;gap:6px;flex-wrap:wrap}
+.jopt{font-size:12.5px;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--ink2);
+  border-radius:4px;padding:6px 11px;cursor:pointer;transition:.15s;font-family:'Gothic A1',sans-serif}
+.jopt:hover{border-color:var(--acc2)}
+.jopt.correct{background:var(--okbg);border-color:var(--ok);color:#1B6E4E}
+.jopt.wrong{background:var(--wrongbg);border-color:var(--wrong);color:#A82943;animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.jfb{display:none;margin-top:9px;background:var(--accbg);border-left:3px solid var(--acc);
+  border-radius:0 4px 4px 0;padding:9px 12px;font-size:13px;color:var(--ink2);font-weight:500}
+.jfb.show{display:block}
+
+/* ===== 기출 O/X ===== */
+.gichul{margin-top:14px;background:var(--navy);border-radius:6px;padding:18px 17px;color:#E9EAF4}
+.gichul h5{margin:0 0 3px;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:16.5px;color:#B9C4F5;letter-spacing:-.5px}
+.gichul .src{font-size:11.5px;color:#9A9EC0;font-weight:500;margin-bottom:10px}
+.q{border-top:1px solid rgba(255,255,255,.13);padding:12px 0}
+.q:first-of-type{border-top:0}
+.q .qt{font-size:13.5px;font-weight:500;margin-bottom:9px;line-height:1.6}
+.optbtn{width:42px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.09);color:#fff;font-family:'Gothic A1',sans-serif;font-weight:900;
+  font-size:14px;cursor:pointer;margin-right:6px;transition:.15s}
+.optbtn:hover{background:rgba(255,255,255,.2)}
+.optbtn.correct{background:#2A8E68;border-color:#2A8E68}
+.optbtn.wrong{background:#C8324C;border-color:#C8324C;animation:shake .3s}
+.fe021{display:none;margin-top:9px;background:rgba(255,255,255,.08);border-left:3px solid #7E8DE0;
+  border-radius:0 4px 4px 0;padding:9px 12px;font-size:12.5px;color:#DDE0F0;line-height:1.65}
+.fe021.show{display:block}
+.fe021 b{color:#B9C4F5}
+
+/* ===== 함정 아코디언 ===== */
+.pit{margin-top:14px}
+.pit details{background:#FBFBFD;border:1px solid var(--line);border-radius:5px;margin-bottom:8px;overflow:hidden}
+.pit details[open]{border-color:var(--acc2);border-left:3px solid var(--acc)}
+.pit summary{list-style:none;cursor:pointer;padding:11px 13px;display:flex;gap:10px;align-items:center;
+  font-weight:700;font-size:13.5px;color:var(--ink)}
+.pit summary::-webkit-details-marker{display:none}
+.pit summary .no{flex:0 0 20px;height:20px;border-radius:3px;background:var(--acc);color:#fff;
+  display:grid;place-items:center;font-size:11.5px;font-weight:900;font-family:'Gothic A1',sans-serif}
+.pit summary .pm{margin-left:auto;color:var(--acc);font-weight:900;font-size:16px}
+.pit details[open] summary .pm{transform:rotate(45deg)}
+.pit .in{padding:0 14px 13px 43px;font-size:13px;color:var(--ink2);font-weight:500;line-height:1.7}
+
+/* ===== 플래시카드 ===== */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:10px;margin-top:14px}
+.fcard{background:#FBFBFD;border:1px solid var(--line);border-radius:5px;padding:12px 13px;cursor:pointer;transition:.16s}
+.fcard:hover{border-color:var(--acc2)}
+.fcard .term{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:14px;color:var(--ink);letter-spacing:-.4px}
+.fcard .hint{font-size:11.5px;color:var(--acc);font-weight:700;margin-top:4px}
+.fcard .def{display:none;margin-top:8px;font-size:12.5px;color:var(--ink2);font-weight:500;line-height:1.65}
+.fcard.open{border-left:3px solid var(--acc);background:#fff}
+.fcard.open .def{display:block} .fcard.open .hint{display:none}
+
+/* ===== CTA (마지막 면) ===== */
+.cta{margin-top:34px;padding-top:26px;border-top:3px solid var(--rule);position:relative;text-align:center}
+.cta::before{content:"";position:absolute;left:0;right:0;top:4px;border-top:1px solid var(--rule2)}
+.cta-k{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(16px,3vw,22px);color:var(--acc)}
+.cta-t{font-family:'Gothic A1',sans-serif;font-weight:900;font-size:clamp(22px,4.6vw,34px);
+  color:var(--ink);letter-spacing:-1.4px;line-height:1.22;margin-top:10px}
+.cta-btn{display:block;margin:20px auto 0;font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15px;color:#fff;
+  background:var(--acc);border:0;border-radius:999px;padding:13px 40px;cursor:pointer;transition:.15s;
+  box-shadow:0 5px 14px rgba(59,90,224,.32)}
+.cta-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.cta-url{margin-top:18px;font-family:'Gothic A1',sans-serif;font-weight:700;font-size:12.5px;
+  letter-spacing:1.4px;color:var(--muted);border-bottom:1px solid var(--line);display:inline-block;padding-bottom:4px}
+.lab-sign{margin:18px 0 0;text-align:center;color:var(--muted)}
+.lab-sign .nm{font-family:'Gothic A1',sans-serif;font-weight:800;font-size:13px;letter-spacing:.6px;color:#6E7089}
+.lab-sign .sub{font-size:11.5px;margin-top:3px}
+.lab-stars{display:none}
+#top{position:fixed;right:16px;bottom:22px;z-index:70;width:42px;height:42px;border-radius:6px;
+  border:0;background:#fff;color:var(--acc);font-size:18px;font-weight:900;cursor:pointer;
+  box-shadow:0 6px 18px rgba(10,15,50,.3)}
+
+/* ===== 토스트 / 맨위로 ===== */
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:99;
+  background:var(--navy);color:#fff;border-radius:6px;padding:12px 20px;font-size:13px;font-weight:600;
+  box-shadow:0 10px 30px rgba(10,15,50,.45);transition:transform .32s;max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}
+#toast .stamp{color:#B9C4F5;font-weight:900}
+
+
+@media (max-width:860px){
+  .stepgrid,.tree,.topgrid{grid-template-columns:1fr}
+  .sheet{padding:52px 16px 26px}
+  .stack .sh-back{left:7px;right:-6px;top:56px} .stack .sh-back2{left:3px;right:-3px;top:51px}
+  .clip{width:92px}
+  .stack{padding-top:45px}
+  .rowline{grid-template-columns:48px 1fr;font-size:13px}
+  .sel{min-width:5em;font-size:13px;padding:3px 20px 3px 8px}
+  .sel.wide{min-width:7.4em} .sel.xwide{min-width:9.4em}
+  .tl-pt .lab{font-size:10px;padding:1px 3px} .tl-pt .up{font-size:11px}
+  .tl-arrow{margin:78px 0 6px} .tl-note{margin-top:64px;font-size:12.5px}
+  .cards{grid-template-columns:1fr 1fr}
+  .rule .zone{font-size:9.5px} .rule .mk i{font-size:9px}
+  .sec-h{padding-right:0} .anum{position:static;display:block;margin-bottom:5px}
+  .dtab{font-size:12px} .dtab th,.dtab td{padding:6px 7px}
+}
+@media (max-width:420px){ .cards{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+<div class="hud">
+  <div class="hud-top">
+    <div class="cnt">빈칸 완성 <b id="filled">0</b> / <span id="total">40</span><span id="scoretxt"></span></div>
+    <div class="btns">
+      <button class="b" onclick="grade()">채점하기</button>
+      <button class="b g" id="solBtn" onclick="toggleSol()">정답 보기</button>
+      <button class="b g" onclick="shuffleBank()">선택지 섞기</button>
+      <button class="b w" onclick="resetAll()">다시 풀기</button>
+    </div>
+  </div>
+  <div class="bar-out"><div class="bar-in" id="bar"></div></div>
+</div>
+<div class="stack">
+<div class="sh-back"></div><div class="sh-back2"></div>
+<div class="clip"><svg viewBox="0 0 280 258" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="cFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151515"/><stop offset="26%" stop-color="#5E5E5E"/>
+      <stop offset="52%" stop-color="#8A8A8A"/><stop offset="78%" stop-color="#3A3A3A"/>
+      <stop offset="100%" stop-color="#101010"/>
+    </linearGradient>
+    <linearGradient id="cWire" x1="0.1" y1="1" x2="0.9" y2="0">
+      <stop offset="0%" stop-color="#1B1B1B"/><stop offset="45%" stop-color="#4F4F4F"/>
+      <stop offset="72%" stop-color="#8C8C8C"/><stop offset="100%" stop-color="#3D3D3D"/>
+    </linearGradient>
+    <filter id="cSh" x="-40%" y="-120%" width="180%" height="340%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <linearGradient id="cGrip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A4A4A"/><stop offset="45%" stop-color="#1C1C1C"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  <!-- 용지에 드리우는 그림자 -->
+  <ellipse cx="142" cy="250" rx="88" ry="10" fill="#141C46" opacity=".34" filter="url(#cSh)"/>
+  <!-- 금속 프레임 -->
+  <rect x="34" y="136" width="212" height="104" rx="22" fill="none" stroke="url(#cFrame)" stroke-width="11"/>
+  <!-- 와이어 다리 -->
+  <path d="M130,110 L108,206" fill="none" stroke="#0C0C0C" stroke-width="9" stroke-linecap="round"/>
+  <path d="M150,110 L172,206" fill="none" stroke="#0C0C0C" stroke-width="9" stroke-linecap="round"/>
+  <!-- 검정 그립 -->
+  <rect x="54" y="198" width="172" height="42" rx="15" fill="url(#cGrip)"/>
+  <rect x="60" y="203" width="160" height="9" rx="4.5" fill="#5A5A5A" opacity=".28"/>
+  <!-- 상단 와이어 루프 -->
+  <path d="M129,116 C120,98 100,92 100,70 C100,42 118,26 140,26 C162,26 180,42 180,70 C180,92 160,98 151,116"
+        fill="none" stroke="url(#cWire)" stroke-width="12" stroke-linecap="round"/>
+</svg></div>
+<div class="sheet">
+<div class="sheet-in">
+<div class="nhead">
+  <div class="brand"><svg class="planet" viewBox="0 0 28 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <ellipse cx="14" cy="11" rx="13" ry="4.1" fill="none" stroke="currentColor" stroke-width="1.7" transform="rotate(-18 14 11)"/>
+    <circle cx="14" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.9"/>
+  </svg>은또링NEWS</div>
+  <div class="issue">제 02호</div>
+</div>
+<div class="rule2"></div>
+
+<div class="cover">
+  <div class="cdate">직업 탐구 영역</div>
+  <div class="ceyebrow">성직 개념 훑어보기 <span style="color:var(--muted)">&lsquo;</span>모성 보호<span style="color:var(--muted)">&rsquo;</span></div>
+  <div class="ctitle">출산전후휴가와 육아휴직</div>
+  <div class="hotbox"><div class="hoth">이번 호 핵심 이슈</div></div>
+  <ul class="hotlist">
+    <li>제도 3장 — 출산전후휴가 · 육아휴직 · 육아기 근로시간 단축</li>
+    <li>180일을 세는 기준점이 제도마다 다르다 — '끝난 날' vs '시작한 날'</li>
+    <li>25_9월 13번 · 24_6월 9번 · 26_9월 2번 · 26_10월 5번이 노린 단 하나의 지점</li>
+  </ul>
+</div>
+
+<!-- ===== 상단 개요 2박스 ===== -->
+<div class="topgrid">
+  <div class="bubble pk">
+    <h4><span class="hi">출산전후휴가</span>는? <span class="law">(「근로기준법」 제74조)</span></h4>
+    <div class="big">임신 중의 여성에게 출산 전과 후를 통하여<br>
+      <span class="hi"><span class="num">①</span><select class="sel empty" data-a="90|90일" data-n="①" aria-label="빈칸 ①"><option value="">①</option><option>90</option><option>60</option><option>120</option></select>일</span>
+      (다태아 <span class="num">②</span><select class="sel empty" data-a="120|120일" data-n="②" aria-label="빈칸 ②"><option value="">②</option><option>120</option><option>100</option><option>150</option></select>일)</div>
+    <ul class="hl pk">
+      <li>휴가 기간의 <b>배정</b> — 출산 <u>후</u>에 <span class="num">③</span><select class="sel empty" data-a="45|45일" data-n="③" aria-label="빈칸 ③"><option value="">③</option><option>45</option><option>30</option><option>60</option></select>일(다태아
+          <span class="num">④</span><select class="sel empty" data-a="60|60일" data-n="④" aria-label="빈칸 ④"><option value="">④</option><option>60</option><option>45</option><option>75</option></select>일) <span class="hi yl">이상</span>이 되어야 함</li>
+      <li>휴가 중 최초 <span class="num">⑤</span><select class="sel empty" data-a="60|60일" data-n="⑤" aria-label="빈칸 ⑤"><option value="">⑤</option><option>60</option><option>45</option><option>90</option></select>일(다태아
+          <span class="num">⑥</span><select class="sel empty" data-a="75|75일" data-n="⑥" aria-label="빈칸 ⑥"><option value="">⑥</option><option>75</option><option>60</option><option>120</option></select>일)은 <span class="hi">유급</span> <span class="law">(제74조 제4항)</span></li>
+      <li>임신 중의 여성에게 <span class="num">⑦</span><select class="sel xwide empty" data-a="시간외근로|시간 외 근로|연장근로" data-n="⑦" aria-label="빈칸 ⑦"><option value="">⑦</option><option>시간외근로</option><option>휴게시간</option><option>주휴일</option></select>를 시킬 수 없고, 요구가 있으면 <b>쉬운 종류의 근로</b>로 전환 <span class="law">(제74조 제5항)</span></li>
+    </ul>
+    <div class="hand tilt" style="margin-top:8px">90 · 120은 <b>총 일수</b>, 45 · 60은 <b>출산 '후' 최소 확보분</b> — 자리부터 구분!</div>
+  </div>
+
+  <div class="bubble">
+    <h4><span class="hi pu">육아휴직</span>은? <span class="law">(「남녀고용평등법」 제19조)</span></h4>
+    <div class="big">만 <span class="num">⑧</span><select class="sel empty" data-a="8|8세" data-n="⑧" aria-label="빈칸 ⑧"><option value="">⑧</option><option>8</option><option>6</option><option>12</option></select>세 이하 또는 초등학교
+      <span class="num">⑨</span><select class="sel empty" data-a="2|2학년" data-n="⑨" aria-label="빈칸 ⑨"><option value="">⑨</option><option>2</option><option>4</option><option>6</option></select>학년 이하<br>자녀를 양육하기 위한 휴직</div>
+    <ul class="hl">
+      <li>기간은 <span class="num">⑩</span><select class="sel empty" data-a="1년|1" data-n="⑩" aria-label="빈칸 ⑩"><option value="">⑩</option><option>1년</option><option>6개월</option><option>2년</option></select> 이내 — 다만 아래 세 경우는
+          <span class="num">⑪</span><select class="sel wide empty" data-a="6개월|6" data-n="⑪" aria-label="빈칸 ⑪"><option value="">⑪</option><option>6개월</option><option>3개월</option><option>1년</option></select> 이내에서 추가 사용<br>
+          <span class="law">① 같은 자녀로 부모가 모두 각각 3개월 이상 사용 ② 한부모 가족의 부 또는 모 ③ 장애 아동의 부 또는 모</span></li>
+      <li>출산전후휴가와 <span class="num">⑫</span><select class="sel wide empty" data-a="연속|연속으로" data-n="⑫" aria-label="빈칸 ⑫"><option value="">⑫</option><option>연속</option><option>동시</option><option>격월</option></select>으로 사용할 수 있음</li>
+      <li>사업주는 정당한 사유 없이 <span class="hi bl">거부할 수 없음</span></li>
+    </ul>
+    <div class="hand tilt2" style="margin-top:8px">→ 24_6월 9번 ㄱ이 '연속 사용 <u>불가</u>'로 나와서 오선택지!</div>
+  </div>
+</div>
+
+<!-- ===== 섹션 01 : 제도 3장 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">01</span>
+    <span class="kicker">제도 3장</span>
+    <span class="tail">휴가 · 휴직 · 단축</span>
+    <span class="memo">근거 법률과 '누가 움직이는가'가 서로 다릅니다</span>
+  </div>
+
+  <div class="stepgrid">
+    <!-- STEP 1 -->
+    <div class="step s1">
+      <div class="step-no">1</div>
+      <div class="tag">「근로기준법」 제74조</div>
+      <div class="ttl">출산전후휴가</div>
+      <div class="rowline"><div class="k">성격</div><div class="v"><span class="num">⑬</span><select class="sel wide empty" data-a="부여 의무|부여의무|의무" data-n="⑬" aria-label="빈칸 ⑬"><option value="">⑬</option><option>부여 의무</option><option>권고 사항</option><option>노사 합의</option></select> — <span class="hand">사용자가 반드시 줘야 함</span></div></div>
+      <div class="rowline"><div class="k">기간</div><div class="v">단태아 90일 · <b>미숙아 <span class="num">⑭</span><select class="sel empty" data-a="100|100일" data-n="⑭" aria-label="빈칸 ⑭"><option value="">⑭</option><option>100</option><option>90</option><option>110</option></select>일</b> · 다태아 120일
+        <span class="law">(미숙아 규정은 2025. 2. 23. 시행 — 교재 본문에는 없는 법령 보충)</span></div></div>
+      <div class="rowline"><div class="k">배정</div><div class="v">출산 <u>후</u> 45일(다태아 60일) 이상 <span class="chip pk">필수</span><br>
+        <span class="hand" style="font-size:15px">→ 거꾸로 계산하면 출산 <u>전</u>에 쓸 수 있는 건 최대 45일(다태아 60일)</span></div></div>
+      <div class="rowline"><div class="k">급여</div><div class="v">최초 60일(다태아 75일)은 <b>사업주 유급</b>,<br>이를 초과한 일수는
+        <span class="num">⑮</span><select class="sel wide empty" data-a="고용보험|고용 보험" data-n="⑮" aria-label="빈칸 ⑮"><option value="">⑮</option><option>고용보험</option><option>산재보험</option><option>국민연금</option></select>에서 <span class="hi">출산전후휴가 급여</span></div></div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step s2">
+      <div class="step-no">2</div>
+      <div class="tag">「남녀고용평등법」 제19조</div>
+      <div class="ttl">육아휴직</div>
+      <div class="rowline"><div class="k pu">성격</div><div class="v">근로자가 <span class="num">⑯</span><select class="sel empty" data-a="신청|청구" data-n="⑯" aria-label="빈칸 ⑯"><option value="">⑯</option><option>신청</option><option>통보</option><option>합의</option></select>하는 휴직 — <span class="hand pu">본인이 문을 엶</span></div></div>
+      <div class="rowline"><div class="k pu">대상</div><div class="v">만 8세 이하 <b>또는</b> 초등학교 2학년 이하 자녀<br>
+        <span class="law">※ '이고'가 아니라 '또는' — 둘 중 하나만 맞으면 됨<br>
+        ※ <b>임신 중인 여성 근로자가 모성을 보호하기 위해</b> 신청하는 경우도 포함됩니다(제19조 제1항). 출산 전에도 육아휴직을 쓸 수 있다는 뜻입니다.</span></div></div>
+      <div class="rowline"><div class="k pu">기간</div><div class="v">1년 이내(+ 요건 충족 시 6개월 추가)</div></div>
+      <div class="rowline"><div class="k pu">복귀</div><div class="v">종료 후 휴직 전과 <span class="num">⑰</span><select class="sel xwide empty" data-a="같은 업무|동일한 업무|같은업무" data-n="⑰" aria-label="빈칸 ⑰"><option value="">⑰</option><option>같은 업무</option><option>다른 부서</option><option>임의 직무</option></select> 또는 같은 수준의 임금을 주는 직무로 복귀시켜야 함 <span class="law">(제19조 제4항)</span></div></div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step s3">
+      <div class="step-no">3</div>
+      <div class="tag">「남녀고용평등법」 제19조의2</div>
+      <div class="ttl">육아기 근로시간 단축</div>
+      <div class="rowline"><div class="k">성격</div><div class="v">쉬는 게 아니라 <span class="hi">근로시간을 줄여</span> 계속 근무</div></div>
+      <div class="rowline"><div class="k">대상</div><div class="v">만 <span class="num">⑱</span><select class="sel empty" data-a="12|12세" data-n="⑱" aria-label="빈칸 ⑱"><option value="">⑱</option><option>12</option><option>8</option><option>10</option></select>세 이하 또는 초등학교 6학년 이하
+        <span class="law">(2025. 2. 23. 확대 — 육아휴직의 만 8세·초2와 다름)</span></div></div>
+      <div class="rowline"><div class="k">시간</div><div class="v">단축 후 근로시간 주 <span class="num">⑲</span><select class="sel xwide empty" data-a="15~35|15-35|15~35시간" data-n="⑲" aria-label="빈칸 ⑲"><option value="">⑲</option><option>15~35</option><option>20~40</option><option>10~30</option></select>시간</div></div>
+      <div class="rowline"><div class="k">기간</div><div class="v">육아휴직 미사용 기간을 2배 가산 → 최대
+        <span class="num">⑳</span><select class="sel empty" data-a="3|3년" data-n="⑳" aria-label="빈칸 ⑳"><option value="">⑳</option><option>3</option><option>2</option><option>1</option></select>년<br>
+        <span class="hand" style="font-size:15px">26_9월 2번 A 씨가 쓰던 바로 그 제도</span></div></div>
+    </div>
+  </div>
+
+  <div class="bubble pk" style="margin-top:14px;text-align:center">
+    <div class="big" style="margin:0"><span class="hi">휴가는 사용자의 의무, 휴직과 단축은 근로자의 신청.</span></div>
+    <div class="hand tilt" style="font-size:19px;margin-top:6px">그래서 "신청했는가"를 묻는 선택지는 휴가에는 안 붙습니다</div>
+  </div>
+</div>
+
+<!-- ===== 섹션 02 : 급여 두 갈래 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">02</span>
+    <span class="kicker">급여</span>
+    <span class="tail">— 180일을 어디서부터 세나</span>
+    <span class="memo">기출이 가장 많이 노린 지점. 숫자는 같고 기준점만 다릅니다</span>
+  </div>
+  <div class="bubble pk">
+    <div style="font-size:14.5px;font-weight:600">위 세 제도는 <span class="hi">「근로기준법」·「남녀고용평등법」</span>이 만들어 준 <b>권리</b>이고,
+      그 기간에 돈을 주는 것은 <span class="hi pu">「고용보험법」</span>입니다. <b>법이 두 겹</b>이라는 것부터 잡아야 선택지가 갈립니다.</div>
+  </div>
+  <div class="tree">
+    <div class="tcard a">
+      <h5>Ⓐ 출산전후휴가 급여 <span class="law">(「고용보험법」 제75조)</span></h5>
+      <div class="why">휴가는 '끝'을 기준으로 셉니다</div>
+      <ol>
+        <li>휴가가 <b><span class="num">㉑</span><select class="sel xwide empty" data-a="끝난 날|끝난날|종료일" data-n="㉑" aria-label="빈칸 ㉑"><option value="">㉑</option><option>끝난 날</option><option>시작한 날</option><option>신청한 날</option></select></b> 이전에
+          피보험 단위기간이 통산 <span class="num">㉒</span><select class="sel empty" data-a="180|180일" data-n="㉒" aria-label="빈칸 ㉒"><option value="">㉒</option><option>180</option><option>90</option><option>270</option></select>일 이상일 것</li>
+        <li>신청 기한 — 휴가를 시작한 날 이후 <span class="num">㉓</span><select class="sel wide empty" data-a="1개월|1" data-n="㉓" aria-label="빈칸 ㉓"><option value="">㉓</option><option>1개월</option><option>7일</option><option>3개월</option></select>부터
+          휴가가 끝난 날 이후 <span class="num">㉔</span><select class="sel wide empty" data-a="12개월|12" data-n="㉔" aria-label="빈칸 ㉔"><option value="">㉔</option><option>12개월</option><option>6개월</option><option>18개월</option></select> 이내<br>
+          <span class="law">※ 우선지원 대상기업이 아니면 기산점이 '휴가 시작 후 60일(다태아 75일)이 지난 날'로 늦춰집니다(제75조 제2호 괄호) — 사업주 유급 구간에는 고용보험 급여가 없으니 당연한 결과입니다. 교재 본문에는 괄호 없이 서술되어 있습니다.</span></li>
+        <li>지급 범위 — 우선지원 대상기업은 <b>전 기간</b>,
+          우선지원 대상기업이 <u>아니면</u> 60일(다태아 75일)을 <span class="num">㉕</span><select class="sel empty" data-a="초과|넘는" data-n="㉕" aria-label="빈칸 ㉕"><option value="">㉕</option><option>초과</option><option>포함</option><option>제외</option></select>한 일수만
+          <span class="law">(제76조 제1항 단서 · 한도는 30일, 미숙아 40일, 다태아 45일 — 교재 본문에는 없는 법령 보충)</span></li>
+      </ol>
+      <div class="hand tilt" style="margin-top:8px">25_9월 13번 ㄷ · 24_6월 9번 ㄴ · 26_10월 5번 ㄷ이 모두 이 한 줄에서 갈렸습니다</div>
+    </div>
+    <div class="tcard b">
+      <h5>Ⓑ 육아휴직 급여 <span class="law">(「고용보험법」 제70조)</span></h5>
+      <div class="why">휴직은 '시작'을 기준으로 셉니다</div>
+      <ol>
+        <li>육아휴직을 <span class="num">㉖</span><select class="sel empty" data-a="30|30일" data-n="㉖" aria-label="빈칸 ㉖"><option value="">㉖</option><option>30</option><option>60</option><option>90</option></select>일 이상 부여받을 것
+          <span class="law">(출산전후휴가 기간과 <span class="num">㉗</span><select class="sel wide empty" data-a="중복|겹치는" data-n="㉗" aria-label="빈칸 ㉗"><option value="">㉗</option><option>중복</option><option>연속</option><option>인접</option></select>되는 기간은 제외)</span></li>
+        <li>육아휴직을 <b><span class="num">㉘</span><select class="sel xwide empty" data-a="시작한 날|시작한날|개시일" data-n="㉘" aria-label="빈칸 ㉘"><option value="">㉘</option><option>시작한 날</option><option>끝난 날</option><option>신청한 날</option></select></b> 이전에
+          피보험 단위기간이 통산 180일 이상일 것</li>
+        <li>신청 기한 — 육아휴직을 시작한 날 이후 1개월부터 육아휴직이
+          <b><span class="num">㉙</span><select class="sel xwide empty" data-a="끝난 날|끝난날|종료일" data-n="㉙" aria-label="빈칸 ㉙"><option value="">㉙</option><option>끝난 날</option><option>시작한 날</option><option>복귀한 날</option></select></b> 이후 12개월 이내 <span class="law">(제70조 제2항)</span></li>
+        <li><span class="num">㉚</span><select class="sel xwide empty" data-a="육아기 근로시간 단축|육아기 근로 시간 단축|육아기근로시간단축" data-n="㉚" aria-label="빈칸 ㉚"><option value="">㉚</option><option>육아기 근로시간 단축</option><option>출산전후휴가</option><option>유산·사산휴가</option></select> 급여도
+          <b>똑같은 요건</b>(30일 이상 + 시작한 날 이전 180일)</li>
+      </ol>
+      <div class="hand tilt2" style="margin-top:8px">26_9월 2번 — 입사 3개월이라 180일을 못 채워서 ㄱ이 오선택지였습니다</div>
+    </div>
+  </div>
+
+  <!-- 기준점 다이어그램 -->
+  <div class="cross">
+    <div class="cross-h">▸ 180일은 같지만, <span class="hi">세기 시작하는 지점</span>이 다릅니다</div>
+    <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="출산전후휴가 급여는 휴가가 끝난 날, 육아휴직 급여는 육아휴직을 시작한 날을 기준으로 피보험 단위기간 180일을 계산한다는 다이어그램">
+      <defs>
+        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#3B5AE0"/>
+        </marker>
+      </defs>
+      <!-- 시간축 -->
+      <line x1="30" y1="118" x2="672" y2="118" stroke="#C9CBDD" stroke-width="3"/>
+      <!-- 구간 박스 -->
+      <rect x="150" y="96" width="200" height="44" rx="8" fill="#E9ECFA" stroke="#8C9CEB" stroke-width="2"/>
+      <text x="250" y="124" text-anchor="middle" font-size="14" font-weight="800" fill="#3B5AE0">출산전후휴가</text>
+      <rect x="366" y="96" width="230" height="44" rx="8" fill="#EDEAF9" stroke="#9A8DDD" stroke-width="2"/>
+      <text x="481" y="124" text-anchor="middle" font-size="14" font-weight="800" fill="#6A57C4">육아휴직</text>
+      <!-- 기준점 마커 -->
+      <circle cx="350" cy="118" r="7" fill="#fff" stroke="#282D52" stroke-width="3"/>
+      <circle cx="366" cy="118" r="7" fill="#fff" stroke="#282D52" stroke-width="3"/>
+      <!-- 위쪽 라벨 -->
+      <rect x="196" y="34" width="176" height="42" rx="8" fill="#fff" stroke="#3B5AE0" stroke-width="2.5"/>
+      <text x="284" y="52" text-anchor="middle" font-size="12.5" font-weight="900" fill="#3B5AE0">Ⓐ 기준 = 휴가가 끝난 날</text>
+      <text x="284" y="68" text-anchor="middle" font-size="11" fill="#63636F">그 날까지 합쳐 180일</text>
+      <path d="M284,76 L350,110" fill="none" stroke="#3B5AE0" stroke-width="2" marker-end="url(#ar2)"/>
+      <!-- 아래쪽 라벨 -->
+      <rect x="392" y="164" width="200" height="42" rx="8" fill="#fff" stroke="#6A57C4" stroke-width="2.5"/>
+      <text x="492" y="182" text-anchor="middle" font-size="12.5" font-weight="900" fill="#6A57C4">Ⓑ 기준 = 휴직을 시작한 날</text>
+      <text x="492" y="198" text-anchor="middle" font-size="11" fill="#63636F">그 날 이전까지 합쳐 180일</text>
+      <path d="M440,164 L370,128" fill="none" stroke="#6A57C4" stroke-width="2" marker-end="url(#ar2)"/>
+      <!-- 양끝 -->
+      <text x="40" y="112" font-size="11.5" font-weight="700" fill="#9698A8">입사</text>
+      <text x="640" y="112" font-size="11.5" font-weight="700" fill="#9698A8">복귀</text>
+    </svg>
+    <div class="cross-note">
+      ▸ 두 기준점은 <b>거의 붙어 있습니다.</b> 그래서 문제는 늘 <span class="hi">입사일이 늦은 사례</span>를 줍니다 — 휴가 종료일까지 세면 180일이 되는데 개시일까지만 세면 안 되는, 그 며칠이 정답을 만듭니다.<br>
+      ▸ <span class="hi pu">신청 기한</span>은 두 제도 모두 "시작한 날 이후 1개월부터 ~ <b>끝난 날</b> 이후 12개월 이내"로 <b>같습니다</b>. 여기서 '끝난 날'을 '시작일'로 바꾼 선택지가 자주 나옵니다.
+    </div>
+  </div>
+
+  <div class="cmp" style="margin-top:12px">
+    <div style="font-family:'Gothic A1',sans-serif;font-weight:900;font-size:15.5px;margin-bottom:9px">📄 세 급여를 한 표로</div>
+    <table class="dtab">
+      <tr><th></th><th>출산전후휴가 급여</th><th>육아휴직 급여</th><th>육아기 단축 급여</th></tr>
+      <tr><td>근거</td><td>제75조</td><td>제70조</td><td>제73조의2</td></tr>
+      <tr><td>180일<br>기준점</td>
+        <td><b>휴가가 끝난 날</b> 이전</td>
+        <td><b>시작한 날</b> 이전</td>
+        <td><b>시작한 날</b> 이전</td></tr>
+      <tr><td>최소<br>기간</td><td>—</td><td>30일 이상 부여</td><td>30일 이상 실시</td></tr>
+      <tr><td>신청<br>기한</td>
+        <td colspan="3" style="background:#FBFBFD;color:var(--ink2);font-weight:600">시작한 날 이후 <b>1개월</b>부터 ~ <b>끝난 날 이후 12개월</b> 이내 <span style="color:var(--acc);font-weight:800">(세 제도 공통)</span><br><span class="law">단, 출산전후휴가 급여는 우선지원 대상기업이 아니면 기산점이 60일(다태아 75일) 경과일로 늦춰짐</span></td></tr>
+      <tr><td>기업<br>규모</td>
+        <td><span class="num">㉛</span><select class="sel xwide empty" data-a="우선지원 대상기업|우선 지원 대상 기업|우선지원대상기업" data-n="㉛" aria-label="빈칸 ㉛"><option value="">㉛</option><option>우선지원 대상기업</option><option>대규모기업</option><option>공공기관</option></select> → <b>전 기간</b><br>
+          아니면 → 60일(다태아 75일) <b>초과분만</b></td>
+        <td colspan="2" style="background:#FBFBFD;color:var(--muted);font-weight:600">규모를 <b>따지지 않음</b><br>언제나 전 기간 고용보험</td></tr>
+    </table>
+    <div class="hand tilt" style="margin-top:8px">출산전후휴가 급여만 <b>기업 규모</b>가 끼어듭니다. 나머지 둘은 규모를 안 봅니다!</div>
+  </div>
+</div>
+
+<!-- ===== 섹션 03 : 시간축 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">03</span>
+    <span class="kicker">시간축</span>
+    <span class="tail">한눈에</span>
+    <span class="memo">임신 → 출산 → 양육이 한 줄로 이어집니다</span>
+  </div>
+  <div class="tl">
+    <div class="tl-arrow">
+      <div class="tl-span" style="left:38%;right:22%"><i>출산전후휴가 90일 (다태아 120일)</i></div>
+      <div class="tl-pt" style="left:6%"><span class="star"></span><span class="lab">임신</span></div>
+      <div class="tl-pt" style="left:22%"><span class="star"></span><span class="lab">임신기 근로시간 단축<br><small style="color:#9384A3">12주 이내 · 32주 이후</small></span></div>
+      <div class="tl-pt" style="left:38%"><span class="star"></span><span class="lab">휴가 개시<br><small style="color:#9384A3">출산 전 최대 45일</small></span></div>
+      <div class="tl-pt" style="left:56%"><span class="star"></span><span class="lab">출산</span><span class="up" style="bottom:auto;top:-30px">여기서 뒤로 45일 확보!</span></div>
+      <div class="tl-pt" style="left:78%"><span class="star"></span><span class="lab">휴가 종료<br><small style="color:#9384A3">＝급여 180일 기준점</small></span></div>
+      <div class="tl-pt" style="left:94%"><span class="star"></span><span class="lab">육아휴직<br><small style="color:#9384A3">또는 육아기 단축</small></span></div>
+    </div>
+    <div class="tl-note">
+      ▸ 출산전후휴가는 <span class="hi">출산일을 기준으로 뒤에서 앞으로</span> 짜야 합니다. 출산 후 45일(다태아 60일)을 먼저 떼어 놓고, 남는 만큼만 출산 전에 쓸 수 있습니다.<br>
+      ▸ 휴가가 끝나는 그 지점이 곧 <span class="hi pu">출산전후휴가 급여의 180일 기준점</span>이고, 이어서 육아휴직이 시작되는 지점이 <span class="hi pu">육아휴직 급여의 180일 기준점</span>입니다.
+      <span class="handbox">두 기준점이 며칠 차이로 붙어 있는 게 함정의 원리!</span>
+    </div>
+  </div>
+
+  <!-- 배정 비교 토글 -->
+  <div class="cmp">
+    <div class="cmp-tabs">
+      <button class="tab on" onclick="setTab(0)">단태아 90일</button>
+      <button class="tab" onclick="setTab(1)">다태아 120일</button>
+      <button class="tab" onclick="setTab(2)">누가 돈을 내나</button>
+    </div>
+    <div class="cmp-body on" id="cb0">
+      총 <b>90일</b> · 출산 후 <b style="color:var(--acc)">45일 이상</b> 필수 → 출산 전에 쓸 수 있는 건 최대
+      <span class="num">㉜</span><select class="sel empty" data-a="45|45일" data-n="㉜" aria-label="빈칸 ㉜"><option value="">㉜</option><option>45</option><option>30</option><option>60</option></select>일
+      <div class="rule">
+        <div class="zone z-out" style="left:0;width:50%">출산 전 (최대 45일 · 선택)</div>
+        <div class="zone z-pay" style="left:50%;width:50%">출산 후 45일 이상 (필수)</div>
+        <div class="mk" style="left:0"><i>휴가 개시</i></div>
+        <div class="mk" style="left:50%"><i>출산일</i></div>
+      </div>
+      <div class="hand" style="margin-top:6px">25_9월 13번 ㄴ이 그대로 물었던 문장 — "출산일 이후 최소 45일 이상"</div>
+    </div>
+    <div class="cmp-body" id="cb1">
+      총 <b>120일</b> · 출산 후 <b style="color:var(--acc)">60일 이상</b> 필수 → 출산 전 최대
+      <span class="num">㉝</span><select class="sel empty" data-a="60|60일" data-n="㉝" aria-label="빈칸 ㉝"><option value="">㉝</option><option>60</option><option>45</option><option>75</option></select>일
+      <div class="law" style="margin-top:4px">※ 미숙아 100일은 총 일수만 늘어난 것으로, <b>배정(출산 후 45일)과 유급(최초 60일)은 단태아와 같습니다.</b></div>
+      <div class="rule">
+        <div class="zone z-out" style="left:0;width:50%">출산 전 (최대 60일 · 선택)</div>
+        <div class="zone z-pay" style="left:50%;width:50%">출산 후 60일 이상 (필수)</div>
+        <div class="mk" style="left:0"><i>휴가 개시</i></div>
+        <div class="mk" style="left:50%"><i>출산일</i></div>
+      </div>
+    </div>
+    <div class="cmp-body" id="cb2">
+      <b>우선지원 대상기업</b>이면 휴가 <b>전 기간</b>을 고용보험이 지급합니다.
+      <b>아니라면</b> 최초 60일(다태아 75일)은 <span class="hi yl">사업주가 통상임금으로</span> 부담하고, 초과분만 고용보험이 냅니다
+      — 단태아 30일, 다태아 <span class="num">㉞</span><select class="sel empty" data-a="45|45일" data-n="㉞" aria-label="빈칸 ㉞"><option value="">㉞</option><option>45</option><option>30</option><option>60</option></select>일 한도.
+      <div class="rule">
+        <div class="zone z-no" style="left:0;width:63%">최초 60일(다태아 75일) · 사업주 유급</div>
+        <div class="zone z-pay" style="left:63%;width:37%">초과분 · 고용보험</div>
+        <div class="mk" style="left:0"><i>휴가 개시</i></div>
+        <div class="mk" style="left:63%"><i>60일(75일) 경과</i></div>
+      </div>
+      <div class="law" style="margin-top:6px">※ 우선지원 대상기업 여부는 <b>업종별 상시 근로자 수</b>로 판단합니다. <b>500명 이하</b> — 제조업 / <b>300명 이하</b> — 광업, 건설업, 운수·창고업, 정보통신업, 사업시설관리·사업지원·임대서비스업, 전문·과학·기술서비스업, 보건업·사회복지서비스업 / <b>200명 이하</b> — 도매·소매업, 숙박·음식점업, 금융·보험업, 예술·스포츠·여가관련서비스업 / <b>100명 이하</b> — 그 밖의 업종 (「고용보험법 시행령」 별표 1).</div>
+      <div class="hand tilt" style="margin-top:6px">→ 수능완성 실전 6회 16번이 "우선 지원 대상 기업이 아니다"라는 단서를 굳이 붙인 이유</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 섹션 04 : BONUS ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">04</span>
+    <span class="tail" style="color:var(--pink)">BONUS</span>
+    <span class="kicker">임산부</span>
+    <span class="tail">가 걸리는 다른 단원들</span>
+    <span class="memo">모성 보호는 15강·17강에 흩어져서 다시 나옵니다</span>
+  </div>
+  <div class="tree">
+    <div class="tcard a">
+      <h5>⏱ 유연근로시간제와 임신 중 여성</h5>
+      <div class="why">두 제도의 적용 제외 대상이 다릅니다</div>
+      <ol>
+        <li><b>탄력적</b> 근로시간제 — 15세 이상 18세 미만 근로자와
+          <span class="num">㉟</span><select class="sel wide empty" data-a="임신 중|임신중|임신 중인" data-n="㉟" aria-label="빈칸 ㉟"><option value="">㉟</option><option>임신 중</option><option>육아 중</option><option>수유 중</option></select>인 여성 근로자에게는 <span class="hi">적용되지 않음</span></li>
+        <li><span class="num">㊱</span><select class="sel wide empty" data-a="선택적|선택" data-n="㊱" aria-label="빈칸 ㊱"><option value="">㊱</option><option>선택적</option><option>탄력적</option><option>교대</option></select> 근로시간제 — 적용 제외는 <b>연소 근로자만</b>.
+          즉 임신 중인 여성도 <span class="hi bl">사용할 수 있음</span></li>
+        <li>임신기 근로시간 단축 — 임신 후 12주 이내 또는 32주 이후에
+          <b>1일 <span class="num">㊲</span><select class="sel empty" data-a="2|2시간" data-n="㊲" aria-label="빈칸 ㊲"><option value="">㊲</option><option>2</option><option>1</option><option>3</option></select>시간</b> 단축 신청 시 허용 의무
+        <li>임산부의 <b>야간(밤 10시~오전 6시)·휴일 근로</b>는 원칙적으로 <span class="hi">금지</span> — 고용노동부 장관의 인가가 있어야 예외
+          <span class="law">(제70조 제2항 · 연소 근로자와 같은 구조. 성인 여성은 '동의'만으로 가능하다는 점과 구분)</span></li>
+      </ol>
+      <div class="hand tilt" style="margin-top:8px">25_9월 13번 ㄱ이 <b>선택적</b> 근로시간제였습니다 — 탄력적으로 착각하면 바로 틀립니다</div>
+    </div>
+    <div class="tcard b">
+      <h5>💡 고용보험 쪽에서 다시 만나는 '출산'</h5>
+      <div class="why">17강 실업급여 단원에도 출산이 숨어 있습니다</div>
+      <ol>
+        <li><b>상병급여</b> — 실업 신고 <u>이후</u> 질병·부상 또는
+          <span class="num">㊳</span><select class="sel empty" data-a="출산" data-n="㊳" aria-label="빈칸 ㊳"><option value="">㊳</option><option>출산</option><option>혼인</option><option>이주</option></select>으로 취업이 불가능해 실업 인정을 받지 못한 날에 지급</li>
+        <li>65세 이후에 고용되거나 자영업을 개시한 사람에게는 실업급여 및
+          <span class="num">㊴</span><select class="sel xwide empty" data-a="육아휴직 급여|육아 휴직 급여" data-n="㊴" aria-label="빈칸 ㊴"><option value="">㊴</option><option>육아휴직 급여</option><option>고용안정 사업</option><option>산재 요양급여</option></select> 등을 적용하지 않음</li>
+        <li>고용보험료 — <b>실업급여</b> 부분은 근로자와 사업주가 같은 비율,
+          <b>고용안정·직업능력개발사업</b> 부분은 <span class="hi">사업주만</span> 부담
+          <span class="law">→ 그래서 두 사람의 납부액은 같을 수 없음 (26_10월 5번 ㄴ)</span></li>
+        <li><span style="color:var(--pink);font-weight:800">[심화]</span> 배우자 출산휴가
+          <span class="num">㊵</span><select class="sel empty" data-a="20|20일" data-n="㊵" aria-label="빈칸 ㊵"><option value="">㊵</option><option>20</option><option>10</option><option>15</option></select>일 · 난임치료휴가 연 6일
+          <span class="law">(2025. 2. 23. 확대 — 교재 본문에 없는 법령 보충)</span></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 판정기 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">05</span>
+    <span class="kicker">판정기</span>
+    <span class="tail">이 사례, 급여가 나오나?</span>
+    <span class="memo">클릭하면 바로 채점됩니다</span>
+  </div>
+  <div class="judge" id="judge">
+    <div class="jq" data-ans="a">
+      <div class="txt">① 2023년 1월 1일에 첫 직장에 입사해 결근 없이 근무하다 6월 1일 ~ 8월 29일 출산전후휴가(90일)를 사용했다. 출산전후휴가 급여는?</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">받을 수 있다</button>
+        <button class="jopt" data-v="b">받을 수 없다(개시일 기준 180일 미달)</button>
+        <button class="jopt" data-v="c">최초 60일분만 받는다</button>
+      </div>
+      <div class="jfb">기준은 <b>휴가가 끝난 날(8월 29일) 이전</b> 180일입니다. 1월 1일 ~ 8월 29일이면 180일을 넘어 <b>받을 수 있습니다</b>. 25_9월 13번 ㄷ이 "받을 수 없다"로 나와 오선택지였습니다.</div>
+    </div>
+    <div class="jq" data-ans="b">
+      <div class="txt">② 7년 만에 재취업해 입사 3개월 차인 근로자가 5살 자녀를 위해 2주 전부터 육아기 근로시간 단축을 쓰고 있다. 육아기 근로시간 단축 급여는?</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">받을 수 있다</button>
+        <button class="jopt" data-v="b">받을 수 없다</button>
+        <button class="jopt" data-v="c">단축 시간에 비례해 일부만 받는다</button>
+      </div>
+      <div class="jfb">시작한 날 이전 <b>피보험 단위기간 180일</b>을 못 채웠습니다(3개월 ≒ 90일). 게다가 <b>30일 이상 실시</b> 요건도 아직 미달입니다. 26_9월 2번 ㄱ이 이 지점이었습니다. 참고로 종전 직장 기간은 자격 상실 후 3년 이내면 합산되는데, '7년 만에'라는 단서가 그 길을 막아 둔 것입니다.</div>
+    </div>
+    <div class="jq" data-ans="c">
+      <div class="txt">③ 다태아를 임신한 근로자가 우선지원 대상기업이 <u>아닌</u> 회사에서 120일 휴가를 쓴다. 고용보험이 지급하는 일수는?</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">120일 전부</button>
+        <button class="jopt" data-v="b">30일</button>
+        <button class="jopt" data-v="c">45일</button>
+        <button class="jopt" data-v="d">75일</button>
+      </div>
+      <div class="jfb">최초 <b>75일</b>은 사업주 유급 부담이고, 이를 초과한 <b>45일</b>만 고용보험이 지급합니다(단태아라면 30일). 우선지원 대상기업이었다면 120일 전부입니다.</div>
+    </div>
+    <div class="jq" data-ans="b">
+      <div class="txt">④ 육아휴직 급여를 신청할 수 있는 마지막 시점은?</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">육아휴직 시작일부터 12개월 이내</button>
+        <button class="jopt" data-v="b">육아휴직이 끝난 날 이후 12개월 이내</button>
+        <button class="jopt" data-v="c">복귀한 날부터 6개월 이내</button>
+      </div>
+      <div class="jfb">「고용보험법」 제70조 제2항 — <b>끝난 날 이후 12개월</b>입니다. '12개월'이라는 숫자가 맞아서 '시작일로부터'가 붙어도 문장이 그럴듯해 보이는 게 함정입니다.</div>
+    </div>
+    <div class="jq" data-ans="a">
+      <div class="txt">⑤ 출산 예정일이 아직 한 달 남은 근로자가 지금 출산전후휴가를 신청해 쓸 수 있나?</div>
+      <div class="jopts">
+        <button class="jopt" data-v="a">쓸 수 있다(출산 후 45일이 확보되면)</button>
+        <button class="jopt" data-v="b">출산일 이후에만 쓸 수 있다</button>
+        <button class="jopt" data-v="c">사업주 동의가 있어야 한다</button>
+      </div>
+      <div class="jfb">출산 <b>전후</b>를 통하여 주는 휴가이므로 출산 전 사용이 가능합니다. 단 <b>출산 후 45일(다태아 60일) 이상</b>이 남도록 배정해야 합니다. 26_10월 5번 ㄱ이 정선택지였습니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 기출 O/X ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">06</span>
+    <span class="kicker">기출</span>
+    <span class="tail">O / X 체크</span>
+  </div>
+  <div class="gichul" id="ox">
+    <h5>★ 기출 연계 — 모성 보호와 일·가정 양립</h5>
+    <div class="src">2026학년도 10월 학평 5번 / 2026학년도 9월 모평 2번 / 2025학년도 9월 모평 13번 / 2024학년도 6월 모평 9번 / 수능완성 실전 6회 16번 계열</div>
+
+    <div class="q" data-ans="X">
+      <div class="qt">1. 출산전후휴가와 육아휴직은 <b>연속으로 사용할 수 없다.</b></div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 연속 사용이 가능합니다. 오히려 출산전후휴가가 끝난 뒤 곧바로 육아휴직으로 이어지는 것이 전형적인 흐름입니다. (24_6월 9번 ㄱ)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">2. 출산전후휴가 급여는 <b>휴가 개시 예정일 이전</b>에 피보험 단위기간이 통산 180일 이상이어야 받을 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 기준은 <b>휴가가 끝난 날 이전</b> 180일입니다(제75조). 개시일까지만 세면 미달이어도 종료일까지 포함하면 충족되는 사례가 정답을 만듭니다. (24_6월 9번 ㄴ · 25_9월 13번 ㄷ · 26_10월 5번 ㄷ)</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">3. 육아휴직 급여는 육아휴직을 <b>시작한 날 이전</b>에 피보험 단위기간이 통산 180일 이상이면 받을 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — 제70조 제1항. 30일 이상 부여받는 조건도 함께 충족해야 합니다. <b>근속 1년이 요건이 아니라는 점</b>이 핵심입니다. (24_6월 9번 ㄷ)</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">4. 단태아를 임신해 90일의 출산전후휴가를 쓰는 경우 <b>출산일 이후</b> 휴가 기간이 최소 45일 이상 배정되어야 한다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — 「근로기준법」 제74조 제1항. 다태아는 60일 이상입니다. <b>'총 일수'와 '출산 후 최소 일수'를 섞지 않는 것</b>이 관건입니다. (25_9월 13번 ㄴ)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">5. 이전 고용보험 이력이 없는 상태로 입사한 지 <b>3개월</b> 된 근로자도 <b>육아기 근로시간 단축 급여</b>를 받을 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 단축을 시작한 날 이전 <b>피보험 단위기간 180일</b>을 채워야 합니다. 3개월은 미달입니다. 제도를 '쓸 수 있는가'와 '급여를 받는가'는 별개입니다. (26_9월 2번 ㄱ)<br>
+      <b>주의</b> — 피보험 단위기간은 <b>종전 직장 기간을 합산</b>할 수 있습니다(자격 상실 후 3년 이내 재취득 시). 그래서 26_9월 2번은 "<b>7년 만에</b> 일을 하는 것"이라는 단서로 합산 여지를 막아 두었습니다. '입사 3개월'만으로 단정하면 안 됩니다.</div>
+    </div>
+    <div class="q" data-ans="O">
+      <div class="qt">6. 출산 예정일 전이라도 출산 후 45일 이상이 확보되면 <b>지금부터</b> 출산전후휴가를 신청해 사용할 수 있다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>O</b> — 출산 '전후'를 통하여 부여하는 휴가입니다. 배정 조건만 지키면 출산 전 사용이 가능합니다. (26_10월 5번 ㄱ)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">7. 근로자가 내는 고용보험료와 <b>사업주가 부담하는 고용보험료는 같다.</b></div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 실업급여 부분은 같은 비율이지만, 사업주에게는 <b>고용안정·직업능력개발사업</b> 보험료가 더 붙습니다. 그래서 사업주 부담액이 더 큽니다. (26_10월 5번 ㄴ)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">8. <span style="color:#FFD9EF">[심화]</span> 탄력적 근로시간제와 선택적 근로시간제는 <b>모두</b> 임신 중인 여성 근로자에게 적용되지 않는다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — <b>탄력적</b> 근로시간제만 임신 중인 여성이 적용 제외입니다. <b>선택적</b> 근로시간제의 적용 제외는 15세 이상 18세 미만 연소 근로자뿐이어서 임신 중인 여성도 쓸 수 있습니다. (25_9월 13번 ㄱ 연계)</div>
+    </div>
+    <div class="q" data-ans="X">
+      <div class="qt">9. <span style="color:#FFD9EF">[심화]</span> 미숙아를 출산하면 출산전후휴가가 100일로 늘어나므로 <b>유급 기간도 70일</b>로 늘어난다.</div>
+      <button class="optbtn" data-v="O">O</button><button class="optbtn" data-v="X">X</button>
+      <div class="fe021"><b>X</b> — 늘어나는 것은 <b>총 일수뿐</b>입니다. 최초 유급은 여전히 60일(다태아만 75일), 출산 후 배정도 45일 이상입니다. 괄호 하나만 바뀐 조문이라 통째로 늘려 외우면 틀립니다.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 함정 포인트 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">07</span>
+    <span class="kicker">함정</span>
+    <span class="tail">포인트</span>
+    <span class="memo">시험은 늘 이 여섯 곳에서 갈립니다</span>
+  </div>
+  <div class="pit">
+    <details><summary><span class="no">1</span>'끝난 날' vs '시작한 날' — 180일 기준점 두 개<span class="pm">＋</span></summary>
+      <div class="in"><b>출산전후휴가 급여</b>는 휴가가 <b>끝난 날</b> 이전, <b>육아휴직 급여</b>는 휴직을 <b>시작한 날</b> 이전으로 180일을 셉니다.
+        숫자가 같기 때문에 학생들은 기준점을 안 보고 "180일? 맞네" 하고 넘어갑니다.<br>
+        문제는 항상 <b>입사일이 늦은 사례</b>를 줍니다. 개시일까지는 미달인데 종료일까지 세면 충족되는 며칠, 그게 정답입니다.
+        사례를 읽으면 먼저 <b>입사일 → 휴가 시작일 → 휴가 종료일</b>을 날짜로 적어 보게 하세요.</div></details>
+    <details><summary><span class="no">2</span>'총 일수'와 '출산 후 최소 일수'는 다른 숫자<span class="pm">＋</span></summary>
+      <div class="in"><b>90 · 100 · 120</b>은 휴가 전체 길이이고, <b>45 · 60</b>은 출산 후에 반드시 남겨야 하는 최소치입니다.
+        여기에 유급 기준인 <b>60 · 75</b>까지 끼면 숫자가 여섯 개가 됩니다.<br>
+        정리법: <b>총(90/120) → 뒤(45/60) → 유급(60/75)</b> 세 칸을 표로 만들고, 단태아·다태아 열만 채우게 하면 섞이지 않습니다.</div></details>
+    <details><summary><span class="no">3</span>미숙아 100일 — 늘어난 건 총 일수뿐<span class="pm">＋</span></summary>
+      <div class="in">2025. 2. 23. 시행 개정으로 미숙아 출산 시 총 <b>100일</b>이 되었습니다. 그런데 <b>출산 후 배정(45일)</b>과 <b>최초 유급(60일)</b>은 그대로입니다.
+        조문 괄호에 '미숙아 100일'만 추가된 구조라서, 통째로 늘려 외우면 틀립니다.<br>
+        <b>교사용 참고</b> — 2027 수능특강 본문은 90일 · 120일까지만 서술합니다. 미숙아 규정은 <b>법령 보충</b>이라 정규 출제 가능성은 낮지만,
+        수능완성·사설 모의고사 해설에는 이미 등장하니 각주로만 알려 주시면 충분합니다.</div></details>
+    <details><summary><span class="no">4</span>탄력적은 임신 중 여성 제외, 선택적은 아님<span class="pm">＋</span></summary>
+      <div class="in"><b>탄력적</b> 근로시간제의 적용 제외는 <b>연소 근로자 + 임신 중인 여성 근로자</b>,
+        <b>선택적</b> 근로시간제의 적용 제외는 <b>연소 근로자만</b>입니다. 한 글자 차이인데 결론이 반대입니다.<br>
+        25_9월 13번은 임신·출산 사례에 <b>선택적</b> 근로시간제를 붙여 놓았습니다. "임신했는데 유연근로제를?"이라고 반사적으로 X를 찍으면 그대로 틀립니다.</div></details>
+    <details><summary><span class="no">5</span>육아휴직(만 8세·초2) ≠ 육아기 단축(만 12세·초6)<span class="pm">＋</span></summary>
+      <div class="in">두 제도의 자녀 연령 기준이 <b>다릅니다.</b> 육아휴직은 만 8세 이하 또는 초등학교 2학년 이하,
+        육아기 근로시간 단축은 2025. 2. 23. 개정으로 만 12세 이하 또는 초등학교 6학년 이하입니다.<br>
+        또 '만 8세 이하 <b>또는</b> 초2 이하'라는 <b>선택 조건</b>이라는 점도 자주 틀립니다. 만 9세인데 초등학교 2학년이면 대상이 됩니다.</div></details>
+    <details><summary><span class="no">6</span>'제도를 쓸 수 있는가'와 '급여가 나오는가'는 별개<span class="pm">＋</span></summary>
+      <div class="in">근로기준법·남녀고용평등법이 주는 <b>휴가·휴직·단축의 권리</b>와, 고용보험법이 주는 <b>급여</b>는 요건이 다릅니다.
+        입사 3개월이어도 육아기 근로시간 단축은 쓸 수 있지만, 고용보험 이력이 그것뿐이라면 <b>급여는 못 받습니다</b>(180일 미달).<br>
+        단 피보험 단위기간은 <b>종전 직장 기간을 합산</b>할 수 있으니(자격 상실 후 3년 이내 재취득 시), 사례에 이전 경력이 있으면 다시 세어 봐야 합니다.<br>
+        26_9월 2번이 정확히 이 틈을 노렸습니다. 선택지에서 "제도를 활용하고 있다"와 "급여를 수급할 수 있다"를 <b>다른 색으로 표시</b>하게 지도하세요.</div></details>
+  </div>
+</div>
+
+<!-- ===== 용어 플래시카드 ===== -->
+<div class="sec">
+  <div class="sec-h">
+    <span class="anum">08</span>
+    <span class="kicker">용어</span>
+    <span class="tail">플래시카드</span>
+    <span class="memo">카드를 눌러 뜻을 확인하세요</span>
+  </div>
+  <div class="cards" id="cards"></div>
+</div>
+
+<div class="cta">
+  <div class="cta-k">기준점 두 개, 아직 헷갈린다면?</div>
+  <div class="cta-t">빈칸을 직접 채우며<br>확인해 보세요!</div>
+  <button class="cta-btn" onclick="resetAll()">처음부터 다시 풀기</button>
+  <div class="cta-url">EBS 2027 수능특강 15강 · 17강 · 모성 보호와 일 · 가정 양립</div>
+</div>
+<div class="lab-sign">
+  <div class="lab-stars" id="stars"></div>
+  <div class="nm">은또링쌤의 행성 연구소</div>
+  <div class="sub">원페이지 성직 · 출산전후휴가와 육아휴직</div>
+</div>
+
+</div><!-- /sheet-in -->
+</div><!-- /sheet -->
+</div><!-- /stack -->
+</div><!-- /wrap -->
+
+<div id="toast"></div>
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+
+<script>
+/* ===== 용어 플래시카드 ===== */
+const TERMS = [
+  ["출산전후휴가","임신 중의 여성에게 출산 전과 후를 통하여 90일(미숙아 100일, 다태아 120일)을 주는 휴가. 사용자의 부여 의무이며, 배정은 출산 후 45일(다태아 60일) 이상이어야 함(「근로기준법」 제74조 제1항)."],
+  ["출산전후휴가의 유급 구간","휴가 중 최초 60일(다태아 75일)은 사업주가 통상임금으로 지급해야 하는 유급 기간(제74조 제4항). 미숙아 100일이어도 유급은 60일 그대로."],
+  ["출산전후휴가 급여","휴가가 끝난 날 이전 피보험 단위기간이 통산 180일 이상이고, 휴가를 시작한 날 이후 1개월부터 끝난 날 이후 12개월 이내에 신청할 때 고용보험이 지급(「고용보험법」 제75조)."],
+  ["우선지원 대상기업","업종별 상시 근로자 수 기준을 충족하는 중소기업(제조업 500명 이하 등). 이 기업 근로자는 출산전후휴가 전 기간을 고용보험에서 받고, 아닌 기업은 60일(다태아 75일)을 초과한 일수만 받음(제76조 제1항 단서)."],
+  ["육아휴직","만 8세 이하 또는 초등학교 2학년 이하 자녀를 양육하기 위해 근로자가 신청하는 휴직. 1년 이내이며, 부모가 각각 3개월 이상 사용·한부모·장애 아동의 부 또는 모는 6개월 이내에서 추가 사용 가능."],
+  ["육아휴직 급여","육아휴직을 30일 이상(출산전후휴가와 중복되는 기간 제외) 부여받고, 시작한 날 이전 피보험 단위기간이 통산 180일 이상인 피보험자에게 지급(「고용보험법」 제70조 제1항). 신청은 시작한 날 이후 1개월부터 끝난 날 이후 12개월 이내."],
+  ["육아기 근로시간 단축","휴직 대신 근로시간을 주 15~35시간으로 줄여 계속 근무하는 제도. 만 12세 이하 또는 초등학교 6학년 이하 자녀가 대상이며, 육아휴직 미사용 기간을 2배 가산해 최대 3년까지 사용 가능."],
+  ["육아기 근로시간 단축 급여","단축을 30일 이상 실시하고, 시작한 날 이전 피보험 단위기간이 통산 180일 이상일 때 지급(「고용보험법」 제73조의2). 요건 구조가 육아휴직 급여와 같음."],
+  ["피보험 단위기간","보수 지급의 기초가 된 날을 합산한 기간. 세 급여 모두 통산 180일 이상을 요구하지만, 세기 시작하는 '기준점'이 제도마다 다르다는 점이 핵심."],
+  ["임신기 근로시간 단축","임신 후 12주 이내 또는 32주 이후의 여성 근로자가 1일 2시간 단축을 신청하면 사용자가 허용해야 하는 제도. 유산·조산 위험을 진단받은 경우에는 임신 전 기간 사용 가능(제74조 제7항)."],
+  ["임산부의 시간외근로 금지","사용자는 임신 중의 여성에게 시간외근로를 시킬 수 없고, 그 근로자의 요구가 있으면 쉬운 종류의 근로로 전환해야 함(제74조 제5항)."],
+  ["탄력적 근로시간제의 적용 제외","15세 이상 18세 미만 근로자와 임신 중인 여성 근로자에게는 적용되지 않음. 선택적 근로시간제는 연소 근로자만 제외되므로 임신 중인 여성도 사용 가능 — 이 차이가 자주 출제됨."],
+  ["유산·사산휴가","임신 중 유산 또는 사산한 경우 주어지는 휴가. 「고용보험법」 제75조는 출산전후휴가와 함께 유산·사산휴가에 대해서도 급여를 지급하도록 규정."],
+  ["상병급여","실업 신고 이후 질병·부상 또는 출산으로 취업이 불가능해 실업 인정을 받지 못한 날에, 구직급여일액에 해당하는 금액을 구직급여에 갈음하여 지급. 실업급여 단원에서 '출산'이 등장하는 지점."],
+  ["배우자 출산휴가","근로자가 배우자의 출산을 이유로 사용하는 휴가로, 2025. 2. 23.부터 20일로 확대(종전 10일). 교재 본문에는 없는 법령 보충 사항."]
+];
+const cardWrap = document.getElementById('cards');
+TERMS.forEach(([t,d])=>{
+  const el=document.createElement('div'); el.className='fcard';
+  el.innerHTML='<div class="term">'+t+'</div><div class="hint">▸ 뜻 보기</div><div class="def">'+d+'</div>';
+  el.addEventListener('click',()=>el.classList.toggle('open'));
+  cardWrap.appendChild(el);
+});
+
+/* ===== 별 데코 ===== */
+const stars=document.getElementById('stars');
+for(let i=0;i<26;i++){const s=document.createElement('span');
+  s.style.left=(Math.random()*100)+'%'; s.style.top=(Math.random()*100)+'%';
+  s.style.animationDelay=(Math.random()*2.4)+'s'; stars.appendChild(s);}
+
+/* ===== 드롭다운 빈칸 ===== */
+const sels = [...document.querySelectorAll('select.sel')];
+const norm = s => (s||'').replace(/[\s().·,'’‘%~\-]/g,'').toLowerCase();
+const answerOf = d => d.dataset.a.split('|')[0];
+let solShown = false, snapshot = null;
+
+function shuffled(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* 선택지 순서 무작위화 (플레이스홀더는 고정) */
+function shuffleOptions(){
+  sels.forEach(d=>{
+    const keep=d.options[0];
+    const rest=[...d.options].slice(1);
+    shuffled(rest).forEach(o=>d.appendChild(o));
+    d.insertBefore(keep,d.firstChild);
+    d.value='';
+  });
+}
+function clearMarks(d){ d.classList.remove('correct','reveal','peek'); d.removeAttribute('title'); }
+function syncEmpty(d){ d.classList.toggle('empty', d.value===''); }
+
+sels.forEach(d=>d.addEventListener('change',()=>{ clearMarks(d); syncEmpty(d); updateFilled(); }));
+
+function updateFilled(){
+  const n = sels.filter(d=>d.value!=='').length;
+  document.getElementById('filled').textContent=n;
+  document.getElementById('bar').style.width=(n/sels.length*100)+'%';
+}
+function snap(){ return sels.map(d=>d.value); }
+function restore(st){
+  sels.forEach((d,i)=>{ clearMarks(d); d.value = st ? st[i] : ''; syncEmpty(d); });
+  updateFilled();
+}
+function revealAll(cls){
+  sels.forEach(d=>{ clearMarks(d); d.value=answerOf(d); syncEmpty(d); d.classList.add(cls); });
+  updateFilled();
+}
+function grade(){
+  snapshot=snap();
+  let correct=0, answered=0;
+  sels.forEach(d=>{
+    const v=d.value; clearMarks(d);
+    if(v) answered++;
+    const ok = v && d.dataset.a.split('|').some(x=>norm(x)===norm(v));
+    if(ok){ correct++; d.classList.add('correct'); }
+    else{
+      d.title = v ? '내가 고른 답: '+v : '내가 고른 답: (선택 안 함)';
+      d.value=answerOf(d); d.classList.add('reveal');
+    }
+    syncEmpty(d);
+  });
+  updateFilled();
+  solShown=true; document.getElementById('solBtn').textContent='내 답 보기';
+  document.getElementById('scoretxt').innerHTML=' · 정답 <b style="color:var(--ok)">'+correct+'</b>';
+  const pct=Math.round(correct/sels.length*100);
+  const msg = correct===sels.length ? '완벽합니다! 전 항목 정답 🎉'
+    : pct>=80 ? '거의 다 왔어요 — 빨간 칸이 정답!'
+    : pct>=50 ? '절반 이상! 빨간 칸이 정답입니다.'
+    : answered===0 ? '아직 고르지 않았어요. 정답을 채워 표시했습니다.'
+    : '빨간 칸이 정답입니다. 다시 도전!';
+  toast('채점 결과 — '+correct+' / '+sels.length+'  ('+pct+'%)  '+msg);
+}
+function toggleSol(){
+  solShown=!solShown;
+  const btn=document.getElementById('solBtn');
+  if(solShown){ snapshot=snap(); revealAll('peek'); btn.textContent='내 답 보기'; }
+  else { restore(snapshot); btn.textContent='정답 보기';
+    document.getElementById('scoretxt').textContent=''; }
+}
+function shuffleBank(){ shuffleOptions(); updateFilled(); toast('선택지 순서를 섞었습니다'); }
+function resetAll(){
+  shuffleOptions();
+  sels.forEach(d=>{ clearMarks(d); syncEmpty(d); });
+  solShown=false; snapshot=null;
+  document.getElementById('solBtn').textContent='정답 보기';
+  document.getElementById('scoretxt').textContent='';
+  document.querySelectorAll('.q').forEach(q=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('correct','wrong'));
+    q.querySelector('.fe021').classList.remove('show'); });
+  document.querySelectorAll('.jq').forEach(q=>{
+    q.querySelectorAll('.jopt').forEach(x=>x.classList.remove('correct','wrong'));
+    q.querySelector('.jfb').classList.remove('show'); });
+  document.querySelectorAll('.fcard.open').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.pit details[open]').forEach(d=>d.removeAttribute('open'));
+  updateFilled(); window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ===== O/X ===== */
+document.querySelectorAll('.q').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.optbtn').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.optbtn').forEach(x=>x.classList.remove('correct','wrong'));
+    const ok=btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.optbtn[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.fe021').classList.add('show');
+  }));
+});
+
+/* ===== 판정기 ===== */
+document.querySelectorAll('.jq').forEach(q=>{
+  const ans=q.dataset.ans;
+  q.querySelectorAll('.jopt').forEach(btn=>btn.addEventListener('click',()=>{
+    q.querySelectorAll('.jopt').forEach(x=>x.classList.remove('correct','wrong'));
+    const ok=btn.dataset.v===ans; btn.classList.add(ok?'correct':'wrong');
+    if(!ok) q.querySelector('.jopt[data-v="'+ans+'"]').classList.add('correct');
+    q.querySelector('.jfb').classList.add('show');
+  }));
+});
+
+/* ===== 기산점 탭 ===== */
+function setTab(i){
+  document.querySelectorAll('.cmp-tabs .tab').forEach((t,k)=>t.classList.toggle('on',k===i));
+  document.querySelectorAll('.cmp-body').forEach((b,k)=>b.classList.toggle('on',k===i));
+}
+
+/* ===== 토스트 ===== */
+let toTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace('채점 결과','<span class="stamp">채점 결과</span>');
+  t.classList.add('show'); clearTimeout(toTimer);
+  toTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+shuffleOptions();
+updateFilled();
+document.getElementById('total').textContent=sels.length;
+</script>
+</body>
+</html>

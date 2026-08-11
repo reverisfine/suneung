@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 18강 안전사고와 재해 예방 기출 21문항</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    --myeong:'Noto Serif KR',serif; --godic:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 상단 조작 바 (시험지 밖) ── */
+  .toolbar{position:sticky;top:0;z-index:60;background:rgba(233,231,226,.96);backdrop-filter:blur(5px);border-bottom:1px solid var(--line)}
+  .toolbar .in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .toolbar .prog{flex:1;min-width:120px;height:6px;background:#D6D3CC;border:1px solid var(--line);border-radius:0;overflow:hidden}
+  .toolbar .prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .45s ease}
+  .toolbar .stat{font-family:var(--godic);font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap}
+  .toolbar .stat b{font-family:var(--myeong);font-weight:700;font-size:1rem}
+  .tbtn{font-family:var(--godic);font-size:.76rem;font-weight:500;cursor:pointer;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 11px;border-radius:2px}
+  .tbtn:hover{background:var(--ink);color:#fff}
+  .tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+  .running{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--rule);padding-bottom:5px;margin-bottom:4px}
+  .running .l{font-family:var(--godic);font-weight:700;font-size:1.44rem;letter-spacing:-.02em}
+  .running .r{font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2)}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-bottom:1px solid var(--rule);padding:3px 0 6px;margin-bottom:16px}
+  /* ── 시험지 표지 머리 ── */
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld input{border:none;background:#fff;font-family:var(--myeong);font-size:.95rem;color:var(--ink);padding:0 8px;min-width:0}
+  .fld input:focus{outline:none;background:#FBFBF6}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;text-align:center;border-left:1.5px solid var(--ink);padding:0}
+  .fld .cell:first-of-type{border-left:none}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"◦";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+  .index{font-family:var(--godic);font-size:.78rem;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+  .index a{text-decoration:none;color:var(--ink2);border:1px solid var(--line);padding:4px 9px;background:#fff}
+  .index a:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* ── 단원 구분 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+  .part .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .part .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .part .memo ul{list-style:none}
+  .part .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .part .memo li::before{content:"·";position:absolute;left:3px;font-weight:700}
+  .part .memo b{font-weight:700}
+  .part .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+
+  /* ── 문항 ── */
+  .q{margin:22px 0 0;padding-bottom:20px;border-bottom:1px dashed var(--hair)}
+  .q:last-of-type{border-bottom:none}
+  .code{text-align:right;font-family:var(--godic);font-size:.7rem;color:var(--lgray);letter-spacing:-.01em;margin-bottom:1px}
+  .ask{font-family:var(--godic);font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:-.015em;text-indent:-1.35em;padding-left:1.35em}
+  .ask .n{font-weight:700}
+  .ask .pt{font-weight:700}
+  .ask .cond{font-weight:400;font-size:.88em}
+
+  .passage{border:1.2px solid var(--ink);padding:11px 14px;margin:11px 0 0;font-size:.87rem;line-height:1.68}
+  .passage .ttl{text-align:center;font-family:var(--godic);font-weight:700;font-size:.85rem;margin-bottom:7px}
+  .passage ul{list-style:none}
+  .passage li{margin:3px 0;padding-left:13px;position:relative}
+  .passage li::before{content:"◦";position:absolute;left:0;font-size:.85em}
+  .passage p{margin:3px 0;text-indent:.6em}
+  .passage .note{font-size:.8rem;color:var(--gray);margin-top:6px;text-indent:0}
+  .passage b{font-weight:700}
+
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:7px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.5}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+
+  .bogi{margin:12px 0 0;border:1.2px solid var(--ink);padding:0 15px 10px;font-size:.87rem}
+  .bogi .bt{display:block;width:-moz-fit-content;width:fit-content;margin:-11px auto 8px;background:#fff;padding:0 9px;
+    font-family:var(--godic);font-weight:500;font-size:.79rem;letter-spacing:.12em;color:var(--ink);line-height:1.5}
+  .bogi p{margin:3px 0;text-indent:-1.15em;padding-left:1.15em}
+
+  /* ── 도식·표지 재구성 (18강 추가) ── */
+  .strip{display:grid;grid-template-columns:1fr 26px 1fr 26px 1fr;align-items:stretch;margin:10px 0 2px}
+  .strip .pn{border:1px solid var(--ink);padding:8px 10px;font-size:.815rem;line-height:1.56}
+  .strip .pn .cn{display:block;font-family:var(--godic);font-weight:700;font-size:.72rem;color:var(--gray);margin-bottom:4px}
+  .strip .ar{display:grid;place-items:center}
+  .strip .ar svg{width:14px;height:14px;fill:var(--ink)}
+  .fignote{font-size:.8rem;color:var(--gray);margin-top:5px;font-family:var(--myeong)}
+  .signrow{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:9px 0 2px}
+  .sign{text-align:center;font-family:var(--godic);font-size:.74rem;color:var(--ink2);min-width:120px}
+  .sign svg{display:block;margin:0 auto 4px;width:82px;height:82px}
+  .sign .sl{display:block;font-weight:700;color:var(--ink)}
+  .talk{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 2px}
+  .talk .bb{position:relative;border:1.2px solid var(--ink);padding:9px 12px;font-size:.83rem;line-height:1.6;background:#fff}
+  .talk .who{display:block;text-align:center;font-family:var(--godic);font-weight:700;font-size:.72rem;color:var(--gray);margin-top:6px}
+  .talk .bx{border:1.2px solid var(--ink);padding:0 7px;font-family:var(--godic);font-weight:700;font-size:.8rem}
+
+  /* ── 선택지 ── */
+  ul.ch{list-style:none;margin-top:10px}
+  ul.ch li{margin:0}
+  .ch button{width:100%;text-align:left;font-family:var(--myeong);font-size:.885rem;line-height:1.6;color:var(--ink);background:transparent;border:1px solid transparent;padding:4px 7px;cursor:pointer;display:flex;gap:8px;align-items:flex-start;transition:background .12s,border-color .12s}
+  /* OMR 마킹 버블 */
+  .ch button .no{flex-shrink:0;width:19px;height:19px;margin-top:2px;border:1.3px solid #6E6E68;border-radius:50%;background:#fff;
+    display:inline-grid;place-items:center;font-family:var(--godic);font-size:.68rem;font-weight:500;color:#55554F;line-height:1;
+    transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+  .ch button:hover{background:#F2F1ED}
+  .ch button:hover .no{border-color:var(--ink);color:var(--ink)}
+  .ch.inline{display:flex;flex-wrap:wrap;gap:3px 8px;justify-content:flex-start}
+  .ch.inline li{flex:0 0 auto}
+  .ch.inline button{width:auto;padding:4px 10px;white-space:nowrap}
+  .q.done .ch button{cursor:default;pointer-events:none}
+  /* 채점 전: 마킹만 된 상태 (정오 표시 없음) */
+  .ch button.marked{background:#EFEEE9;border-color:#6E6E68}
+  .ch button.marked .no{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.06)}
+  /* 문항별 채점 버튼 */
+  .qact{display:flex;justify-content:flex-end;margin-top:11px}
+  .gradebtn{font-family:var(--godic);font-size:.78rem;font-weight:500;cursor:pointer;
+    border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 15px;border-radius:2px;transition:.14s}
+  .gradebtn:hover{background:var(--ink);color:#fff}
+  .gradebtn:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+  .gradebtn.graded{border-color:var(--line);color:var(--gray);font-size:.76rem}
+  .gradebtn.graded:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .ch.nudge{animation:nudge .34s}
+  @keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  /* 마킹한 답이 정답 */
+  .ch button.pick-ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .ch button.pick-ok .no{background:var(--ok);border-color:var(--ok);color:#fff;transform:scale(1.06)}
+  /* 마킹한 답이 오답 */
+  .ch button.pick-no{background:var(--nobg);border-color:var(--no);color:var(--no)}
+  .ch button.pick-no .no{background:var(--no);border-color:var(--no);color:#fff;transform:scale(1.06)}
+  .ch button.pick-no .tx{text-decoration:line-through;text-decoration-thickness:1px}
+  /* 마킹하지 않았지만 정답인 칸 */
+  .ch button.mark-ok{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+  .ch button.mark-ok .no{background:#fff;border:2px solid var(--ok);color:var(--ok);font-weight:700}
+  .ch button:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 정답과 해설 ── */
+  .sol{display:none;margin-top:13px;border:1px solid var(--line);border-left:4px solid var(--ink);background:#FBFBF9;padding:12px 15px}
+  .sol.open{display:block}
+  .sol .hd{font-family:var(--godic);font-weight:700;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sol .hd .ans{font-family:var(--myeong);font-size:1.1rem;color:var(--no)}
+  .sol .hd .via{margin-left:auto;font-weight:400;font-size:.7rem;color:var(--lgray)}
+  .sol .link{font-family:var(--godic);font-size:.75rem;color:var(--gray);margin-bottom:8px}
+  .sol .link b{color:var(--ink2)}
+  .sol .lab{font-family:var(--godic);font-weight:700;font-size:.78rem;background:var(--ink);color:#fff;padding:1px 7px;margin-right:6px;vertical-align:1px}
+  .sol .lab.w{background:#7A7A7A}
+  .sol .lab.t{background:var(--no)}
+  .sol p{font-size:.855rem;line-height:1.68;margin:6px 0}
+  .sol ul{list-style:none;margin:5px 0}
+  .sol ul li{font-size:.845rem;line-height:1.62;margin:4px 0;padding-left:1.5em;text-indent:-1.5em}
+  .sol ul li .x{font-weight:700;color:var(--no);margin-right:4px}
+  .sol .trap{margin-top:9px;border-top:1px dotted var(--line);padding-top:8px}
+  .sol b{font-weight:700}
+  .sol .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+
+  /* ── 부록 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  details.pit{border:1px solid var(--line);margin-bottom:6px;background:#fff}
+  details.pit[open]{border-color:var(--ink)}
+  details.pit summary{cursor:pointer;list-style:none;font-family:var(--godic);font-weight:500;font-size:.86rem;padding:9px 13px;display:flex;gap:9px;align-items:center}
+  details.pit summary::-webkit-details-marker{display:none}
+  details.pit summary .n{flex-shrink:0;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--ink);font-size:.7rem;font-weight:700;font-family:var(--myeong)}
+  details.pit summary::after{content:"＋";margin-left:auto;font-size:.85rem;color:var(--gray)}
+  details.pit[open] summary::after{content:"－"}
+  details.pit .bd{padding:0 14px 12px 42px;font-size:.85rem;line-height:1.68;color:var(--ink2)}
+  details.pit .bd b{font-weight:700;color:var(--ink)}
+  details.pit .bd table.ex{font-size:.78rem;margin:9px 0 6px}
+  details.pit .bd table.ex td,details.pit .bd table.ex th{padding:4px 7px}
+  details.pit .bd .sub{display:block;font-family:var(--godic);font-weight:700;font-size:.79rem;color:var(--ink);margin:11px 0 3px;padding-left:9px;border-left:3px solid var(--ink)}
+  details.pit .bd .cap{display:block;font-size:.77rem;color:var(--gray);margin-top:5px}
+  details.pit .bd .no-ok{color:var(--no);font-weight:700}
+  details.pit .bd .yes-ok{color:var(--ok);font-weight:700}
+  details.pit .bd .hl{font-weight:700;border-bottom:2px solid #E3DCC8}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-weight:700;font-size:.95rem}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .ans tr.ext td{background:#F6F6F3}
+  .caution{margin-top:14px;border:1px solid var(--no);padding:10px 13px;font-size:.82rem;line-height:1.68;color:var(--ink2)}
+  .caution b{color:var(--no);font-weight:700}
+  .exnote{font-family:var(--godic);font-size:.79rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:9px 12px;margin-bottom:6px}
+  .exnote b{color:var(--ink)}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 20px;font-family:var(--godic);font-size:.83rem;font-weight:500;box-shadow:0 6px 22px rgba(0,0,0,.25);transition:transform .35s ease,opacity .25s;z-index:99;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #top{position:fixed;right:14px;bottom:20px;z-index:60;width:36px;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:none;font-size:.9rem}
+  #top.show{display:block}
+
+  @media(max-width:640px){
+    .sheet{padding:22px 16px 18px;margin:10px auto 30px;border-left:none;border-right:none}
+    .running .l{font-size:1.15rem}
+    .cover h1{font-size:2.05rem}
+    .cover .titlerow{flex-direction:column;gap:10px;min-height:0}
+    .cover .form{position:static;transform:none}
+    .cover .fields{gap:12px}
+    .fld .nm{width:120px}
+    .fld .cell{width:24px}
+    .pagemark .pgcut{margin-left:-16px;margin-right:-16px}
+    .ch.inline{flex-direction:column;gap:0}
+    .ch.inline button{width:100%;white-space:normal}
+    .strip{grid-template-columns:1fr}
+    .strip .ar{height:22px}
+    .strip .ar svg{transform:rotate(90deg)}
+    .talk{grid-template-columns:1fr}
+    details.pit .bd{padding-left:14px}
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar,#top,#toast,.index,.lead,.qact{display:none!important}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .sol{display:none!important}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    @page{size:A4;margin:14mm}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <div class="prog"><i id="bar"></i></div>
+  <div class="stat">푼 문항 <b id="done">0</b>/21 · 정답 <b id="hit">0</b></div>
+  <button class="tbtn" onclick="showAll()">정답·해설 전체 보기</button>
+  <button class="tbtn" onclick="resetAll()">다시 풀기</button>
+  <button class="tbtn" onclick="window.print()">인쇄</button>
+</div></div>
+
+<div class="sheet">
+  <div class="cover">
+    <div class="org">은또링샘의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 기출 문제지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">18강</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><input class="nm" type="text" aria-label="성명"></div>
+      <div class="fld"><span class="lb">학번</span><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 첫째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 둘째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 셋째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 넷째 자리"></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>18강 안전사고와 재해 예방</span>
+    <span>산업재해·산재보상보험 기출 21문항</span>
+  </div>
+
+  <div class="lead">
+    <ul>
+      <li>선택지를 눌러 답을 표시한 뒤, 문항 아래 <b>채점하기</b>를 누르면 정답과 해설이 나타납니다.</li>
+      <li>그림·만화로 제시된 원본 지문은 <b>판단에 필요한 정보만 표·도식으로 재구성</b>하였으므로, 원본 지면은 인쇄 학습지(13.5차시)와 함께 보십시오.</li>
+      <li>문항은 <b>개념 그룹별로 재배열</b>되어 있으며, 각 문항 우측 상단에 출처를 표기하였습니다.</li>
+      <li>학력평가 5문항은 <b>［부록 3］ 추가 연습</b>에 따로 실었습니다. 상단 진행률에는 포함되지 않습니다.</li>
+    </ul>
+  </div>
+
+  <nav class="index">
+    <a href="#p1">Ⅰ. 안전사고의 원인과 형태</a>
+    <a href="#p2">Ⅱ. 업무상 재해의 인정 범위</a>
+    <a href="#p3">Ⅲ. 산업재해 보상 급여</a>
+    <a href="#p4">Ⅳ. 제도·근로관계 연계</a>
+    <a href="#appx">［부록］함정·정답표·추가 연습</a>
+  </nav>
+
+<section class="part" id="p1">
+  <h2>Ⅰ. 안전사고의 원인과 형태, 재해 예방 <span class="rng">1~3번 · 사고 형태 / 직접 원인 / 예방 4원칙</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>사고의 직접적 원인</b> <em>불안전한 행동</em>(사람) + <em>불안전한 상태</em>(설비·환경). <b>간접적 원인</b>은 기술적·교육적·관리적 문제</li>
+      <li><b>사고의 형태</b> <em>떨어짐</em>(사람이 높은 곳에서) / <em>넘어짐</em>(사람이 미끄러지거나 걸려) / <em>무너짐</em>(구조물·적재물이) / <em>맞음</em>(날아온·떨어진 물체에) / <em>끼임</em>(기계 사이에) / <em>부딪힘</em>(사람이 물체에 충돌)</li>
+      <li><b>재해 예방 4원칙</b> ① 예방 가능 ② 손실 우연 ③ 원인 계기(연계) ④ 대책 선정. “대책을 세우고 교육했다” → <em>대책 선정의 원칙</em></li>
+      <li><b>하인리히 사고 예방 5단계</b> 안전 관리 조직 → 사실의 발견 → 분석·평가 → 시정책의 선정 → 시정책의 적용 ［법령·이론 보충］</li>
+      <li><b>안전보건표지</b> 금지(원+빨간 사선) / 경고(노란 삼각형) / 지시(파란 원) / 안내(초록 사각) — 원본 시험지는 흑백이므로 <em>모양</em>으로 판별한다</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="3">
+  <div class="code">2022학년도 6월 모의평가 8번</div>
+  <p class="ask"><span class="n">1.</span> 다음은 안전 사고와 관련한 사례를 도식화하여 나타낸 것이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="strip">
+    <div class="pn"><span class="cn">① 사고 발생</span>굴삭기로 지상 1층에서 바닥 슬래브 철거 작업 중 <b>하중을 견디지 못하고 지하 2층 바닥까지 붕괴됨.</b></div>
+    <div class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h11V5l7 7-7 7v-5H4z"/></svg></div>
+    <div class="pn"><span class="cn">② 피해 상황</span><b>작업자 3명</b>이 사고 직후 병원으로 후송되어 <b>15일간의 치료</b>를 받음.</div>
+    <div class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h11V5l7 7-7 7v-5H4z"/></svg></div>
+    <div class="pn"><span class="cn">③ 사고 재발 방지 교육</span>회사는 <b>사고 원인별 대책을 수립</b>하고, 작업 방법 및 순서를 철저히 준수하도록 교육함.</div>
+  </div>
+  <div class="fignote">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 도식으로 재구성하였다.</div>
+  <p style="font-size:.8rem;color:#666;margin-top:5px">※ 원본 지면의 3컷 그림 지문을 옮겨 재구성하였다. 각 컷의 소제목은 이해를 돕기 위해 붙인 것이다.</p>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 사고의 형태는 무너짐에 해당한다.</p>
+    <p>ㄴ. 인적 사고가 없는 안전 사고 사례에 해당한다.</p>
+    <p>ㄷ. 회사의 조치 사항은 재해 예방의 원칙 중 대책 선정의 원칙에 해당한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> POINT 2 재해 예방 4원칙 / 안전사고의 유형</div>
+    <p><span class="lab">해설</span>ㄱ과 ㄷ이 옳다. 슬래브가 하중을 견디지 못하고 <b>아래로 내려앉은</b> 사고이므로 형태는 <b>무너짐</b>이다. 또 회사가 원인별 대책을 세우고 교육까지 실시한 것은 <b>대책 선정의 원칙</b>을 실천한 것이다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> <b>작업자 3명이 15일간 치료</b>를 받았으므로 인적 사고가 분명히 발생하였다. 인적 사고와 물적 사고가 함께 일어난 사례다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span><b>재해 예방 4원칙</b>과 <b>하인리히 사고 예방 5단계</b>를 섞으면 ㄷ에서 흔들린다. 4원칙은 <span class="hl">예방 가능 · 손실 우연 · 원인 계기 · 대책 선정</span>이고, 5단계는 <span class="hl">조직 → 발견 → 분석 → 시정책 선정 → 시정책 적용</span>이다. “대책을 세워 교육했다”는 <b>4원칙의 대책 선정</b>, “세운 대책을 실제로 시행했다”는 <b>5단계의 시정책 적용</b>으로 갈린다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2023학년도 6월 모의평가 13번</div>
+  <p class="ask"><span class="n">2.</span> 위 재해 사례에 대한 분석 내용으로 적절하지 <u>않은</u> 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">산업 재해 사례집</div>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">재해<br>개요</td><td>노후화된 공장 지붕을 교체하기 위해 크레인 <b>전용탑승설비에 근로자가 탑승</b>하여 철거작업을 진행함. 작업 편의를 위해 <b>맨손으로 작업</b>하던 중 인접해 있는 <b>고압 전선에 손등이 접촉, 감전</b>되어 <b>전용탑승설비에서 떨어짐.</b></td></tr>
+      <tr><td class="k">재해자<br>조치 상황</td><td>응급 처치 후 병원 이송(관리자에게 보고) → 다리 골절 및 화상 등으로 <b>2개월간 입원 치료 후 퇴원</b>(산업 재해 인정) → <b>1년간 회사에서 근무하며 통원 치료</b> 후 완치 판정을 받음.</td></tr>
+      <tr><td class="k">재해 예방<br>대책</td><td>－ 고소 작업 및 고압 전선 근접 작업 시 필요한 <b>개인 보호구 지급</b><br>－ 보호구 착용 철저 교육<br>－ 산업 안전보건표지 설치</td></tr>
+    </table></div>
+    <div class="signrow">
+      <div class="sign">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10 L94 86 L6 86 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/><path d="M56 34 L38 60 h11 l-6 20 20-28 h-12 z" fill="#111"/></svg>
+        <span class="sl">설치한 표지</span>삼각형 — 경고 표지(전기 위험)
+      </div>
+    </div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표로 재구성하였다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">인적 사고에 해당한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">사고의 형태는 ‘낙하’에 해당한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">사고의 직접적인 원인은 ‘불안전한 행동’이다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">설치한 산업 안전보건표지는 ‘경고 표지’에 해당한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">재해 예방 대책에서 필요한 개인 보호구에는 안전대가 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 안전사고의 유형 / 직접적 원인 / 안전보건표지</div>
+    <p><span class="lab">해설</span>재해자가 <b>전용탑승설비에서 스스로 떨어진</b> 사고이므로 형태는 <b>떨어짐(추락)</b>이다. ‘낙하’는 <b>물체가 떨어지는</b> 경우를 가리키므로 적절하지 않다.</p>
+    <ul>
+      <li><span class="x">①</span> 근로자가 다리 골절과 화상을 입었으므로 인적 사고가 맞다.</li>
+      <li><span class="x">③</span> <b>작업 편의를 위해 맨손으로 작업</b>한 것은 보호구 미착용, 곧 불안전한 행동이다.</li>
+      <li><span class="x">④</span> 고압 전선의 위험을 알리는 <b>삼각형</b> 표지이므로 경고 표지가 맞다.</li>
+      <li><span class="x">⑤</span> 크레인 탑승설비 위에서 하는 <b>고소 작업</b>이므로 추락 방지용 안전대가 필요하다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span><span class="hl">사람이 떨어지면 ‘떨어짐’, 물체가 떨어져 사람을 맞히면 ‘맞음’</span>이다. 이 문항은 “감전되어 → 떨어짐”이라는 <b>2단 구조</b>라 ‘감전’으로 답하고 싶어지지만, 선지가 묻는 것은 <b>최종적으로 재해를 입힌 형태</b>다. 전선 접촉은 원인이고 결과는 추락이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2024학년도 6월 모의평가 13번</div>
+  <p class="ask"><span class="n">3.</span> 위 재해 사례 보고서를 분석한 내용으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="passage">
+    <div class="ttl">재해 사례 보고서</div>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">1. 재해 개요</td><td>2021년 3월 건조 중인 선박 내에서 A씨가 <b>안전 난간을 설치하지 않고</b> 자재 운반을 위해 통로를 지나던 중 <b>3m 아래 바닥으로 추락</b>하여 큰 부상을 입음.</td></tr>
+      <tr><td class="k">2. 사고 원인</td><td>· 시간 단축을 위해 자재 운반 작업자가 <b>탈착식 안전 난간 설치 절차를 무시</b><br>· 통로 바닥에 간섭물이 많아 이동에 제약<br>· 현장 안전 담당자의 위험 구역 작업자 통제 소홀</td></tr>
+      <tr><td class="k">3. 대책</td><td>· 작업 시 안전 난간 설치 절차 준수 확인<br>· 바닥 정리를 통한 안전한 통로 확보<br>· 현장 안전 담당자의 작업 현장 안전 관리 활동 강화</td></tr>
+      <tr><td class="k">4. 재해자 상황</td><td>· 『산업재해보상보험법』에 따른 ‘업무상의 재해’로 인정받고 산재보험 의료기관에서 <b>3개월간 입원 치료 후 치유되었으나 장해등급 12급 판정</b><br>· 장해 판정을 고려하여 <b>직장 적응 훈련 실시 후 직장 복귀</b></td></tr>
+    </table></div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표·도식으로 재구성하였다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 사고의 형태는 ‘부딪힘’에 해당한다.</p>
+    <p>ㄴ. ‘업무상 사고’에 의한 ‘업무상의 재해’에 해당한다.</p>
+    <p>ㄷ. 사고의 직접적인 원인은 ‘불안전한 상태 및 행동’이다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 사고 형태 / 업무상 재해의 종류 / 직접적 원인</div>
+    <p><span class="lab">해설</span>ㄴ과 ㄷ이 옳다. 업무 수행 중 발생한 사고이므로 <b>업무상 사고</b>에 의한 <b>업무상의 재해</b>이고, 원인에는 <b>안전 난간 미설치·바닥 간섭물</b>(불안전한 상태)과 <b>설치 절차 무시</b>(불안전한 행동)가 모두 들어 있다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> <b>3m 아래 바닥으로 추락</b>하였으므로 사고의 형태는 ‘떨어짐’이다. ‘부딪힘’은 사람이 물체에 충돌하는 경우다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>보고서 형식 문항은 <b>‘사고 원인’란에 상태와 행동이 섞여</b> 제시된다. ㄷ처럼 <span class="hl">‘상태 및 행동’으로 둘 다 묶은 선지</span>는 원인란에 하나만 있으면 오답, 둘 다 있으면 정답이다. 이 문항은 절차 무시(행동)와 난간 미설치·간섭물(상태)이 함께 있으므로 정답이다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p2">
+  <h2>Ⅱ. 업무상 재해의 인정 범위 <span class="rng">4~5번 · 산재법 제37조 제1항 3분류</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］「산업재해보상보험법」 제37조 제1항 ［법령 보충］</div>
+    <ul>
+      <li><b>① 업무상 사고</b> ㉮ 업무 수행 중의 사고 ㉯ 사업주가 제공한 <em>시설물 등의 결함</em>으로 인한 사고 ㉰ <em>사업주가 주관하거나 지시에 따라 참여한 행사</em> 중 사고 ㉱ <em>휴게시간 중 사업주의 지배관리 아래</em> 있다고 볼 수 있는 행위로 발생한 사고</li>
+      <li><b>② 업무상 질병</b> 유해·위험 요인 취급이나 노출로 발생한 질병, <em>직장 내 괴롭힘·고객의 폭언 등</em>으로 인한 정신적 스트레스가 원인이 된 질병</li>
+      <li><b>③ 출퇴근 재해</b> ㉮ 사업주가 제공한 교통수단 등 <em>지배관리하</em>의 출퇴근 중 사고 ㉯ 그 밖의 <em>통상적인 경로와 방법</em>으로 출퇴근하는 중 사고</li>
+      <li><b>인정되지 않는 경우</b> 출퇴근 경로를 <em>일탈·중단</em>한 중의 사고, 사업주의 지배관리를 벗어난 <em>사적 행위</em> 중의 사고</li>
+      <li><b>주의</b> 출퇴근 재해는 3분류 중 <em>별도 항목</em>이다. “출퇴근 사고 = 업무상 사고”라고 쓴 선지는 틀린 것이다</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="1">
+  <div class="code">2025학년도 6월 모의평가 13번</div>
+  <p class="ask"><span class="n">4.</span> 다음 산업재해 인정에 관한 대화에서 (가)에 해당하는 사례로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="talk">
+    <div>
+      <div class="bb">사업주가 주관한 사내 체육 대회에서 넘어져 다친 경우에도 「산업재해보상보험법」에 따라 보호받을 수 있나요?</div>
+      <span class="who">사회자</span>
+    </div>
+    <div>
+      <div class="bb">네, 그런 경우는 「산업재해보상보험법」 제37조 제1항에서 <b>3가지로 분류하고 있는 업무상 재해의 종류</b> 중 <span class="bx">(가)</span>에 해당하기 때문에 보상받을 수 있습니다.</div>
+      <span class="who">공인노무사</span>
+    </div>
+  </div>
+  <div class="fignote">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 도식으로 재구성하였다.</div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">휴게시간 중 사업장 구내식당에서 미끄러져 2개월의 치료를 요하는 발목 부상을 당한 경우</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">출근길에 통상적인 경로를 벗어나 친구를 만나러 가던 중 교통사고를 당해 4주의 치료를 요하는 경우</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">건설 현장 근로자가 업무 수행 과정에서 유해 물질에 반복적으로 노출됨으로써 호흡기계 질병에 걸린 경우</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">상사의 폭언과 괴롭힘 등으로 정신적 스트레스를 받아 병원 진료 후 3개월의 요양이 필요하다는 진단을 받은 경우</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">퇴근 후 사업주의 지배관리를 벗어난 상태에서 회사 동료들과 식사를 한 후 귀가하던 중 교통사고를 당한 경우</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 산업 재해의 종류(업무상 사고 / 업무상 질병 / 출퇴근 재해)</div>
+    <p><span class="lab">해설</span>사업주가 주관한 사내 체육 대회 중의 사고는 <b>업무상 사고</b>이므로 (가)는 <b>업무상 사고</b>이다. ①은 <b>휴게시간 중 사업주의 지배관리 아래 있다고 볼 수 있는 행위</b>(구내식당 이용)로 발생한 사고이므로 업무상 사고에 해당한다.</p>
+    <ul>
+      <li><span class="x">②</span> 통상적인 경로를 <b>벗어난 뒤</b>의 사고다. 출퇴근 재해로도 인정되지 않는다.</li>
+      <li><span class="x">③</span> 유해 물질 노출로 인한 호흡기계 질병 → <b>업무상 질병</b>.</li>
+      <li><span class="x">④</span> 폭언·괴롭힘에 따른 정신적 스트레스가 원인 → <b>업무상 질병</b>.</li>
+      <li><span class="x">⑤</span> 사업주의 <b>지배관리를 벗어난 사적 행위</b> 뒤의 귀가 중 사고이므로 업무상 재해가 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>②와 ⑤는 “교통사고”라는 말 때문에 <b>출퇴근 재해</b>로 끌린다. 그러나 발문이 요구하는 것은 <span class="hl">사내 체육 대회와 같은 분류</span>, 곧 업무상 사고다. 설령 출퇴근 재해로 인정되더라도 (가)의 답이 될 수 없다. <b>“무엇으로 인정되는가”가 아니라 “어느 칸에 들어가는가”</b>를 묻는 문항이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2026학년도 9월 모의평가 12번</div>
+  <p class="ask"><span class="n">5.</span> 다음은 ‘업무상의 재해’ 관련 수업 활동 자료이다. 활동 결과에 대한 설명으로 옳은 것은? <span class="cond">(단, 수업 활동은 『산업재해보상보험법』에 따라 올바르게 수행되었다고 가정한다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">‘업무상의 재해’ 관련 수업 활동</div>
+    <ul><li>아래 모든 규칙을 A～C 씨의 사례에 각각 적용하여 해당하는 스티커를 (가)～(다)에 붙이세요.</li></ul>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k" rowspan="3">규칙</td><td>업무상 사고에 해당하는 경우 → <b>빨강</b> 스티커 1개씩 부착</td></tr>
+      <tr><td>요양급여를 수급할 수 있는 경우 → <b>파랑</b> 스티커 1개씩 부착</td></tr>
+      <tr><td>휴업급여를 수급할 수 있는 경우 → <b>노랑</b> 스티커 1개씩 부착</td></tr>
+    </table></div>
+    <ul><li>‘업무상의 재해’ 인정 사례별 스티커 판</li></ul>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:66px">피보험자</th><th>사례</th><th style="width:66px">스티커 판</th></tr>
+      <tr><td class="k">A 씨</td><td>사내 체육 대회에서 넘어져 <b>일주일간 통원 치료</b>를 받음. <b>치료 기간 중 성실하게 근무</b>하였으며 장해 없이 완전히 치유됨.</td><td style="text-align:center">(가)</td></tr>
+      <tr><td class="k">B 씨</td><td>정비 작업 중 감전 사고로 부상당함. <b>2주간의 입원 치료</b> 후 1년간 통원 치료를 하여 치유되었으나, 손가락 감각이 둔화되어 <b>장해 14급</b> 판정을 받음. <b>입원 기간 중 취업하지 못하여 임금을 받지 못함.</b></td><td style="text-align:center">(나)</td></tr>
+      <tr><td class="k">C 씨</td><td><b>관용 차량</b>으로 통상적인 경로를 통하여 <b>출근 중</b> 교통사고가 발생함. <b>4일간 근무 외 시간을 활용하여 통원 치료</b>를 받은 후 완치됨.</td><td style="text-align:center">(다)</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)에는 총 3개의 스티커가 붙어 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(다)에는 빨강 스티커와 파랑 스티커가 붙어 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(나)와 (다)에는 모두 노랑 스티커가 붙어 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(가)～(다)에 붙여진 스티커는 총 5개이다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가)～(다) 전체에서 파랑 스티커가 가장 많이 붙어 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 업무상 재해 3분류 / 요양급여 4일 / 휴업급여 요건</div>
+    <p><span class="lab">해설</span>세 축을 각각 따로 판정하면 다음과 같다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th>구분</th><th>빨강<br>업무상 사고</th><th>파랑<br>요양급여</th><th>노랑<br>휴업급여</th><th>합계</th></tr>
+      <tr><td class="k">(가) A 씨</td><td style="text-align:center">○ 사업주 주관 행사</td><td style="text-align:center">○ 7일 요양</td><td style="text-align:center">× 계속 근무</td><td style="text-align:center">2</td></tr>
+      <tr><td class="k">(나) B 씨</td><td style="text-align:center">○ 업무 수행 중</td><td style="text-align:center">○ 2주 입원</td><td style="text-align:center">○ 임금 못 받음</td><td style="text-align:center">3</td></tr>
+      <tr><td class="k">(다) C 씨</td><td style="text-align:center">× <b>출퇴근 재해</b></td><td style="text-align:center">○ 4일 요양</td><td style="text-align:center">× 근무 외 시간</td><td style="text-align:center">1</td></tr>
+    </table></div>
+    <p>빨강 2개, 파랑 3개, 노랑 1개로 <b>파랑이 가장 많다</b>. 따라서 ⑤가 옳다.</p>
+    <ul>
+      <li><span class="x">①</span> (가)는 빨강·파랑 <b>2개</b>다. A 씨는 치료 기간에도 근무하여 임금을 받았으므로 휴업급여 대상이 아니다.</li>
+      <li><span class="x">②</span> (다)는 <b>파랑만</b> 붙는다. 관용 차량 출근 중 사고는 <b>출퇴근 재해</b>이지 업무상 사고가 아니다.</li>
+      <li><span class="x">③</span> (다)는 근무 외 시간에 통원하여 <b>취업하지 못한 기간이 없으므로</b> 노랑이 붙지 않는다.</li>
+      <li><span class="x">④</span> 총합은 2＋3＋1 = <b>6개</b>다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>(다)의 “관용 차량”이 <b>업무 수행 중</b>이라는 착시를 만든다. 그러나 지문이 명시한 것은 <span class="hl">출근 중</span>이다. 사업주가 제공한 교통수단이라도 출퇴근 중이면 「산재법」 제37조 제1항 제3호 가목의 <b>출퇴근 재해</b>다. 보상은 받지만 <b>‘업무상 사고’ 칸에는 들어가지 않는다</b>는 점이 이 문항의 핵심이다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p3">
+  <h2>Ⅲ. 산업재해 보상 급여 <span class="rng">6~15번 · 급여 8종 + 특별급여 2종</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］보험급여의 요건 대조표</div>
+    <ul>
+      <li><b>요양급여</b> 부상·질병이 <em>3일 이내의 요양으로 치유될 수 있으면 지급하지 않는다</em>(산재법 §40③) → 실무상 “<em>4일 이상</em>”. 진찰·수술·재활치료·입원·<em>간호 및 간병</em>·이송이 모두 포함된다 ［법령 보충］</li>
+      <li><b>휴업급여</b> 요양으로 <em>취업하지 못한 기간</em>에 대하여 1일당 <em>평균임금의 70%</em>(§52). 일하며 임금을 받았다면 지급되지 않는다</li>
+      <li><b>상병보상연금</b> ① 요양 시작 후 <em>2년이 지난 날 이후</em> ② 치유되지 않았고 ③ <em>중증요양상태등급 1~3급</em> ④ 취업하지 못함 — <em>네 조건을 모두</em> 갖추어야 하며 휴업급여를 <em>대신</em> 지급(§66)</li>
+      <li><b>장해급여</b> 치유 후 장해가 남은 경우 등급에 따라. <em>1~3급 연금 / 4~7급 연금·일시금 선택 / 8~14급 일시금</em> ［법령 보충］</li>
+      <li><b>간병급여</b> 요양급여를 받은 사람 중 <em>치유 후</em> 상시 또는 수시 간병이 필요하여 <em>실제로 간병을 받는</em> 사람(§61). 치료 중의 간병은 <em>요양급여</em>에 포함된다</li>
+      <li><b>직업재활급여</b> <em>장해급여자</em> 또는 진폐보상연금 수급권자 중 훈련이 필요한 사람(§72). 장해가 없으면 대상이 아니다</li>
+      <li><b>유족급여·장례비</b> 사망 시. 장례비는 <em>평균임금 120일분</em>(§71)</li>
+      <li><b>장해특별급여·유족특별급여</b> <em>사업주의 고의·과실</em>로 인한 업무상 재해로 <em>장해등급 1~3급</em> 또는 사망 시, 민법상 손해배상에 <em>갈음</em>하여 청구(§78·§79) ［법령 보충］</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2022학년도 9월 모의평가 7번</div>
+  <p class="ask"><span class="n">6.</span> 다음 산업 재해 [사례 1], [사례 2]를 통해 알 수 있는 내용으로 옳지 <u>않은</u> 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:58px">구분</th><th>[사례 1]</th><th>[사례 2]</th></tr>
+      <tr><td class="k">사고<br>개요</td><td>근로자 <b>A 씨</b>는 출고를 위해 쌓아 둔 제품을 옮기던 중 부주의로 <b>미끄러져 넘어짐.</b></td><td>근로자 <b>B 씨</b>는 공장 내 지게차 포크에 팔레트를 끼운 후 <b>그 위에 올라선 상태에서 작업하던 중 바닥으로 떨어짐.</b></td></tr>
+      <tr><td class="k">사고<br>결과<br>및<br>조치</td><td>◆ 사고결과<br>· <b>5일의 요양</b>을 요하는 상처를 입어 산재보험 의료기관에서 해당 기간에 치료를 받음.<br>· <b>치료 후 완치되어 정상적인 근무를 시작함.</b><br>◆ 조치<br>· 안전보건교육 실시 및 안전보건표지 설치</td><td>◆ 사고결과<br>· 척추뼈가 골절되어 산재보험 의료기관에서 <b>24주간 입원 치료</b>를 받음.<br>· 퇴원 후에도 후유증으로 인해 <b>장해 7급 판정</b>을 받음.<br>◆ 조치<br>· 안전보건교육 실시 및 안전보건표지 설치</td></tr>
+    </table></div>
+    <div class="signrow">
+      <div class="sign">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10 L94 86 L6 86 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/><path d="M28 74 L72 74" stroke="#111" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="40" r="6" fill="#111"/><path d="M58 48 L44 60 M46 52 L34 66 M52 56 L64 66" stroke="#111" stroke-width="5" stroke-linecap="round" fill="none"/></svg>
+        <span class="sl">[사례 1] 설치 표지</span>삼각형 — 경고 표지(미끄럼 주의)
+      </div>
+      <div class="sign">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="none" stroke="#111" stroke-width="7"/><path d="M22 78 L78 22" stroke="#111" stroke-width="7" stroke-linecap="round"/><rect x="34" y="44" width="24" height="14" fill="none" stroke="#111" stroke-width="4"/><circle cx="52" cy="34" r="5" fill="#111"/></svg>
+        <span class="sl">[사례 2] 설치 표지</span>원형＋사선 — 금지 표지
+      </div>
+    </div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표·도식으로 재구성하였다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">[사례 1]의 A 씨는 요양 급여를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">[사례 1]의 A 씨는 상병 보상 연금을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">[사례 2]의 B 씨는 장해 급여를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">[사례 2]의 B 씨는 입원 기간에 대해 휴업 급여를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">[사례 1]의 설치 표지는 ‘경고 표지’, [사례 2]의 설치 표지는 ‘금지 표지’이다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 상병보상연금 2년 요건 / 장해급여 / 안전보건표지</div>
+    <p><span class="lab">해설</span>A 씨는 <b>5일간 치료 후 완치</b>되었다. 상병보상연금은 <b>요양 시작 후 2년이 지나도록 치유되지 않고 중증요양상태등급 1~3급</b>일 때 지급되므로 A 씨는 대상이 아니다. 따라서 ②가 옳지 않다.</p>
+    <ul>
+      <li><span class="x">①</span> 5일 요양이므로 3일을 넘겨 요양급여를 받을 수 있다.</li>
+      <li><span class="x">③</span> 치유 후 <b>장해 7급</b>이 남았으므로 장해급여 대상이다.</li>
+      <li><span class="x">④</span> 24주간 입원하여 취업하지 못하였으므로 휴업급여를 받는다.</li>
+      <li><span class="x">⑤</span> <b>삼각형</b>은 경고 표지, <b>원에 사선</b>은 금지 표지다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“24주간 입원”이 <span class="hl">2년</span>처럼 길게 느껴져 B 씨에게 상병보상연금을 주고 싶어진다. 24주는 약 <b>6개월</b>일 뿐이다. 상병보상연금의 시계는 <b>요양 시작일부터 2년</b>이며, 게다가 B 씨는 <b>치유되어 장해가 확정</b>되었으므로 장해급여로 넘어간다. 상병보상연금은 <b>‘아직 낫지 않은 사람’</b>의 급여다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2023학년도 6월 모의평가 14번</div>
+  <p class="ask"><span class="n">7.</span> 위 재해 사례에서 재해자가 받을 수 있는 산업 재해 보상 서비스로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="passage">
+    <div class="ttl">［재수록］산업 재해 사례집 － 2번 문항과 같은 지문</div>
+    <ul>
+      <li>크레인 전용탑승설비에서 <b>맨손 작업 중 고압 전선에 감전되어 떨어짐.</b></li>
+      <li>다리 골절 및 화상으로 <b>2개월간 입원 치료 후 퇴원</b>(산업 재해 인정).</li>
+      <li>이후 <b>1년간 회사에서 근무하며 통원 치료</b> 후 <b>완치 판정</b>을 받음.</li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 요양 급여　　　　　ㄴ. 유족 급여</p>
+    <p>ㄷ. 휴업 급여　　　　　ㄹ. 상병 보상 연금</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄹ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄴ, ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 산업 재해 보상 서비스 8종</div>
+    <p><span class="lab">해설</span>2개월 입원 치료를 받았으므로 <b>요양급여</b>(ㄱ)와, 그 기간 취업하지 못한 데 대한 <b>휴업급여</b>(ㄷ)를 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> 유족급여는 근로자가 <b>사망</b>한 경우 그 유족에게 지급된다. 재해자는 완치되었다.</li>
+      <li><span class="x">ㄹ.</span> 상병보상연금은 요양 시작 후 <b>2년이 지나도 치유되지 않은</b> 중증요양상태 1~3급에게 지급된다. 이 사례는 2개월 입원 후 퇴원하여 완치되었다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“1년간 통원 치료”가 <span class="hl">2년 요건</span>을 채운 것처럼 보이게 만든다. 그러나 그 1년은 <b>회사에서 근무하면서</b> 다닌 통원이다. 상병보상연금은 ‘2년’과 ‘취업 불능’과 ‘중증요양상태’를 <b>동시에</b> 요구한다. 이 사례는 세 조건 중 어느 하나도 채우지 못한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2024학년도 6월 모의평가 14번</div>
+  <p class="ask"><span class="n">8.</span> 위 재해 사례에서 제공될 수 있는 산업 재해 보상 서비스로 적절하지 <u>않은</u> 것은? <span class="cond">(단, 장해등급의 변경은 고려하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［재수록］재해 사례 보고서 － 3번 문항과 같은 지문</div>
+    <ul>
+      <li>안전 난간 미설치 상태에서 <b>3m 아래 바닥으로 추락</b>하여 큰 부상.</li>
+      <li>‘업무상의 재해’로 인정받아 산재보험 의료기관에서 <b>3개월간 입원 치료 후 치유</b>되었으나 <b>장해등급 12급</b> 판정.</li>
+      <li>장해 판정을 고려하여 <b>직장 적응 훈련 실시 후 직장 복귀.</b></li>
+    </ul>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">요양급여</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">휴업급여</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">상병보상연금</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">직업재활급여</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">장해보상일시금</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 장해급여 지급 방법 / 직업재활급여 / 상병보상연금</div>
+    <p><span class="lab">해설</span>재해자는 <b>3개월 입원 후 치유</b>되었으므로 상병보상연금의 ‘요양 시작 후 2년 경과·미치유’ 요건을 갖추지 못한다. 따라서 ③이 적절하지 않다.</p>
+    <ul>
+      <li><span class="x">①②</span> 3개월간 입원 치료를 받았으므로 요양급여와 휴업급여를 받는다.</li>
+      <li><span class="x">④</span> <b>장해급여자</b>가 되어 직장 적응 훈련을 받았으므로 직업재활급여 대상이다.</li>
+      <li><span class="x">⑤</span> 장해등급 <b>12급</b>은 8~14급 구간이므로 <b>장해보상일시금</b>으로 지급된다. ［법령 보충］</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>장해가 남았다고 무조건 <b>장해보상연금</b>은 아니다. <span class="hl">1~3급은 연금만, 4~7급은 연금과 일시금 중 선택, 8~14급은 일시금만</span>이다. 이 문항이 굳이 ‘장해보상<b>일시금</b>’이라고 쓴 이유가 여기에 있다. 12급에 ‘연금’이 붙어 나오면 그 선지는 틀린 것이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2024학년도 9월 모의평가 19번</div>
+  <p class="ask"><span class="n">9.</span> 다음은 재해 사례집의 일부이다. 사례 1, 2의 A, B 씨에 적용될 수 있는 산업재해보상보험에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:52px">구분</th><th>1. 사고 개요</th><th>2. 재해자 피해 현황</th></tr>
+      <tr><td class="k">사례<br>1</td><td>작업 중에 보관 물품을 꺼내다가 적재대가 넘어지면서 <b>작업자 A 씨가 깔림.</b></td><td>· A 씨는 산재보험 의료기관에 입원하여 <b>7일간 치료를 받고 완치 후 퇴원</b>(산업재해 인정)하여 현재 정상 근무 중<br>· <b>치료 기간 동안 결근으로 임금을 받지 못하였음.</b></td></tr>
+      <tr><td class="k">사례<br>2</td><td>건물 2층에서 에어컨 실외기 설치 작업 중 <b>작업자 B 씨가 실외기와 함께 떨어짐.</b></td><td>· B 씨는 <b>양팔 복합 골절로 8주간</b> 산재보험 의료기관에서 <b>입원 치료(간병인 사용)</b> 후 산업재해 <b>장해 8급</b> 판정을 받고 현재 정상 근무 중<br>· <b>치료 기간 동안 결근으로 임금을 받지 못하였음.</b></td></tr>
+    </table></div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표로 재구성하였다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 ‘상병보상연금’을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨는 요양으로 취업하지 못한 기간에 대하여 1일당 평균 임금의 100분의 70에 상당하는 금액을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨는 ‘장해특별급여’를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨가 입원했던 기간 중 사용한 간병인에 대하여 ‘간병급여’를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A, B 씨는 ‘요양급여’를 국민연금공단에 신청하여 지급받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 휴업급여 70% / 간병급여 / 장해특별급여 / 근로복지공단</div>
+    <p><span class="lab">해설</span>A 씨는 7일간 치료를 받아 요양 기간이 4일 이상이고 그 기간 임금을 받지 못하였으므로, <b>1일당 평균임금의 100분의 70</b>에 해당하는 휴업급여를 받는다.</p>
+    <ul>
+      <li><span class="x">①</span> A 씨는 7일 만에 완치되었다. 상병보상연금은 <b>2년 경과·미치유·중증요양상태 1~3급</b>이어야 한다.</li>
+      <li><span class="x">③</span> 장해특별급여는 <b>사업주의 고의·과실</b>로 인한 재해로 <b>장해등급 1~3급</b>에 해당할 때 청구할 수 있다. B 씨는 <b>8급</b>이다.</li>
+      <li><span class="x">④</span> 입원 <b>치료 중</b>의 간병료는 <b>요양급여</b>에 포함된다. 간병급여는 <b>치유 후</b> 상시·수시 간병이 필요해 실제로 간병을 받는 사람에게 지급된다.</li>
+      <li><span class="x">⑤</span> 산재보험 업무를 맡는 기관은 <b>근로복지공단</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④는 지문에 <b>“간병인 사용”</b>이라는 말을 일부러 넣어 놓았다. 그러나 간병급여의 시점은 <span class="hl">치유 후</span>다. 치료 중에 쓴 간병비는 <b>요양급여</b> 항목(진찰·수술·재활치료·입원·간호 및 간병·이송) 안에 이미 들어 있다. <b>“간병인을 썼다 → 간병급여”</b>는 가장 잘 통하는 오답 유도다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2024학년도 대학수학능력시험 20번</div>
+  <p class="ask"><span class="n">10.</span> 다음 산업 재해 사례에 나타난 A～C씨에 대한 설명으로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>○○피자 전문점(상시 근로자 3명)</b></p>
+    <p>주방에서 일하던 근로자 <b>A 씨</b>는 배수가 되지 않아 물이 고인 곳을 밟아 <b>미끄러져 넘어졌다.</b> 동료 근로자 <b>B 씨</b>의 119신고로 산재보험 의료기관으로 긴급 후송되었고 어깨 골절 진단을 받았다.</p>
+    <p>사업주 <b>C 씨</b>는 사고의 재발 방지를 위해 <b>2주간 임시 휴업</b> 후 주방 바닥 배수 공사를 실시하였고, 그 기간 동안 직원들에게 <b>무급으로 휴가</b>를 주었다. A 씨는 <b>1주간의 입원 치료</b> 후 산업 재해로 인정받아 요양급여를 지급받았지만 <b>치료 기간 동안에는 임금을 받지 못했다.</b> 한편 A 씨는 치료 후 부상은 치유되었으나 <b>장해 14급 판정</b>을 받았다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 장해급여를 지급받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨는 상병보상연금을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A 씨는 통상임금의 100분의 60에 상당하는 금액을 휴업급여로 지급받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A 씨에게 적용된 사회 보험의 보험료는 A 씨와 C 씨가 절반씩 부담한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">C 씨는 B 씨에게 휴업수당을 지급하여야 한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 장해급여 / 휴업급여 70% / 산재보험료 사업주 전액 · <b>17강</b> 휴업수당</div>
+    <p><span class="lab">해설</span>A 씨는 치유 후 <b>장해 14급</b> 판정을 받았으므로 장해급여(장해보상일시금)를 지급받을 수 있다.</p>
+    <ul>
+      <li><span class="x">②</span> 1주 입원 후 치유되었으므로 <b>2년 경과·미치유</b> 요건을 갖추지 못한다.</li>
+      <li><span class="x">③</span> 휴업급여는 <b>평균임금의 70%</b>다. ‘통상임금의 100분의 60’은 어느 제도에도 없는 값으로, <b>기준 임금(평균임금→통상임금)과 비율(70%→60%)을 함께 바꾼</b> 가공 수치다. ［법령 보충］</li>
+      <li><span class="x">④</span> <b>산재보험료는 사업주가 전액</b> 부담한다. 4대 보험 중 유일하게 근로자 부담분이 없다.</li>
+      <li><span class="x">⑤</span> 휴업수당은 <b>상시 근로자 5인 이상</b> 사업장에 적용된다. ○○피자 전문점은 상시 근로자 <b>3명</b>이므로 지급 의무가 없다. ［법령 보충］</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③은 <span class="hl">휴업‘급여’와 휴업‘수당’</span>을 겹쳐 놓은 최고난도 선지다. 두 글자만 다른데 근거 법률이 다르고, <b>둘 다 기준 임금은 평균임금</b>이다. <b>휴업급여</b>＝산재보험법 · 업무상 재해로 취업하지 못한 기간에 평균임금 <b>70%</b> / <b>휴업수당</b>＝근로기준법 · <b>사용자 귀책</b>으로 휴업한 기간에 지급. ‘통상임금의 60%’는 <b>기준 임금과 비율을 함께 바꾼</b> 값이라 어느 쪽에도 해당하지 않는다. 그리고 ⑤처럼 <b>상시 근로자 수</b>가 지문 맨 앞에 괄호로 적혀 있으면 반드시 5인 기준을 확인해야 한다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-a="5">
+  <div class="code">2025학년도 9월 모의평가 11번</div>
+  <p class="ask"><span class="n">11.</span> 다음 A의 산업 재해 사례를 분석한 내용으로 옳은 것은? <span class="cond">(단, 『산업재해보상보험법』의 고령자와 저소득 근로자는 고려하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>○○건설에 근무하는 A는 오수관로 설치를 위한 터 파기 작업 중 <b>경사면에서 굴러 발목 골절</b> 진단을 받았다. A는 <b>2개월간</b> 산재보험 의료기관에서 <b>입원 치료</b> 후, 직장 복귀가 어렵고 재활치료가 필요하다는 의사 소견에 따라 <b>취업하지 않고 10일간 통원 치료</b>를 하였으며, 이에 대해 요양급여를 받았다. 치료 후 <b>장해 없이 완치</b>되었으며, 관리 부서로 발령받아 직장 적응을 위해 노력하고 있다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">직업재활급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">사고 형태는 ‘끼임’에 해당한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">상병보상연금을 지급받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">혜택받은 사회보험의 보험료는 사업주와 근로자가 함께 부담한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">통원 치료 기간에 대하여 1일당 평균임금의 70%를 지급받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 휴업급여 / 직업재활급여 / 산재보험료</div>
+    <p><span class="lab">해설</span>A는 통원 치료 10일 동안 <b>취업하지 않았다</b>고 지문에 명시되어 있다. 휴업급여는 요양으로 <b>취업하지 못한 기간</b>에 대해 지급되므로, 통원 기간에 대해서도 1일당 <b>평균임금의 70%</b>를 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> 직업재활급여는 <b>장해급여자</b> 등이 대상이다. A는 <b>장해 없이 완치</b>되었다.</li>
+      <li><span class="x">②</span> 경사면에서 굴러 다쳤으므로 <b>넘어짐</b>에 가깝다. ‘끼임’은 기계·물체 사이에 끼는 사고다.</li>
+      <li><span class="x">③</span> 총 요양 기간이 2개월 남짓이고 완치되었으므로 <b>2년 경과·미치유</b> 요건에 미치지 못한다.</li>
+      <li><span class="x">④</span> 산재보험료는 <b>사업주 전액</b> 부담이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>“<b>관리 부서로 발령받아 직장 적응을 위해 노력</b>”이라는 문장이 <span class="hl">직업재활급여(직장적응훈련비)</span>를 떠올리게 만든다. 그러나 직업재활급여의 입구는 <b>장해급여자 여부</b>다. 장해가 없으면 아무리 재활·적응 과정을 거쳐도 대상이 아니다. 반대로 8번(2024 6월 14번)의 재해자는 <b>장해 12급</b>이 있었으므로 대상이 되었다. <b>두 문항을 나란히 놓고 비교</b>하면 기준이 선명해진다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2025학년도 대학수학능력시험 10번</div>
+  <p class="ask"><span class="n">12.</span> 다음 A의 산업 재해 사례를 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>○○건설에 근무하는 A(48세)는 구조물 파쇄 작업을 하던 중 <b>콘크리트 파편에 맞아 다발성 골절</b>을 진단받았다. A는 산재보험 의료기관에서 골절 수술을 받은 후 <b>13주 동안 간호·간병 통합 서비스 병동에 입원</b>하여 재활치료를 받았다. 치료 도중 업무상 재해로 인정받은 부상으로 인해 질병이 발생하여 <b>3주 연장된 입원 치료</b>를 받고, 이를 <b>추가상병</b>으로 인정받았다. A는 <b>치료 기간 동안 취업하지 못하여 임금을 받지 못했으며</b>, <b>장해 없이 완전히 치유</b>되어 퇴원한 후 직장으로 복귀해 정상 근무하고 있다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">간병급여를 신청하여 지급받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">직업재활급여를 신청하여 지급받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">최초 부상의 업무상 재해 인정 사유는 ‘업무상 질병’에 해당한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">연장된 치료 기간에 대해 상병급여를 신청하여 지급받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">요양으로 취업하지 못한 기간에 대해 휴업급여를 신청하여 지급받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 휴업급여 / 간병급여 / 업무상 사고와 질병 구분</div>
+    <p><span class="lab">해설</span>A는 총 16주 동안 <b>취업하지 못하여 임금을 받지 못했으므로</b> 그 기간에 대해 휴업급여를 신청할 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> 간호·간병 통합 서비스 병동의 간병은 <b>입원 치료 중</b>의 간병이므로 <b>요양급여</b>다. 간병급여는 <b>치유 후</b>에 지급된다.</li>
+      <li><span class="x">②</span> <b>장해 없이 완전히 치유</b>되었으므로 장해급여자가 아니어서 직업재활급여 대상이 아니다.</li>
+      <li><span class="x">③</span> 최초 부상은 <b>콘크리트 파편에 맞아</b> 발생한 것이므로 <b>업무상 사고</b>다.</li>
+      <li><span class="x">④</span> ‘상병급여’는 <b>고용보험</b>의 실업급여 항목이다. 산재보험에는 <b>상병보상연금</b>이 있고, 그것도 <b>2년 경과·미치유·중증요양상태 1~3급</b>일 때만 지급된다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 <b>비슷한 이름 세 개</b>를 한 줄에 세워 두었다. <span class="hl">상병급여(고용보험)</span> · <span class="hl">상병보상연금(산재보험)</span> · <span class="hl">휴업급여(산재보험)</span>. ④는 앞의 둘을 섞은 것이다. 또 “추가상병으로 인정받았다”는 표현이 새로운 급여를 떠올리게 하지만, 추가상병은 <b>요양의 범위를 넓히는 절차</b>일 뿐 별도의 급여 종류가 아니다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2026학년도 6월 모의평가 12번</div>
+  <p class="ask"><span class="n">13.</span> 다음 재해 사례를 통해 알 수 있는 내용으로 옳은 것은? <span class="cond">(단, 재요양과 장해등급의 변경은 고려하지 않는다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>2024년 4월 1일 ○○기업에 근무하는 <b>A씨(42세)</b>와 <b>B씨(52세)</b>는 △△아파트 엘리베이터 내 LED전등 교체 작업 중 <b>이동 사다리에서 함께 떨어지는 사고</b>로 산재보험 의료기관으로 이송되었다. 진단 결과 A 씨는 <b>다리 골절로 4주 입원 치료 후 완치</b>되었다. B 씨는 <b>손가락 골절로 수술 후 3개월간 간병과 치료</b>를 받고 치유되었으나 <b>장해 14급 판정</b>을 받았다. A, B씨 모두 업무상 재해로 인정받았고 <b>치료 기간 동안 취업하지 못하여 임금을 받지 못했다.</b> 그들은 퇴원 후 현재 직장으로 복귀해 정상 근무하고 있다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">사고의 형태는 ‘무너짐’이다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A씨는 취업하지 못한 기간 동안 통상임금의 60%를 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨는 간병급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨는 장해특별급여를 받을 수 없다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨는 직업재활급여를 받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 장해특별급여 / 간병급여 / 휴업급여 / 직업재활급여</div>
+    <p><span class="lab">해설</span>장해특별급여는 <b>사업주의 고의·과실</b>로 인한 업무상 재해로 <b>장해등급 1~3급</b>에 해당할 때 청구할 수 있다. B 씨는 <b>14급</b>이므로 받을 수 없다. 따라서 ④가 옳다.</p>
+    <ul>
+      <li><span class="x">①</span> 사람이 <b>이동 사다리에서</b> 떨어졌으므로 형태는 <b>떨어짐</b>이다.</li>
+      <li><span class="x">②</span> 휴업급여는 <b>평균임금의 70%</b>다.</li>
+      <li><span class="x">③</span> B 씨의 간병은 <b>치료 기간 중</b>의 간병이므로 요양급여에 포함된다. 간병급여는 <b>치유 후</b>에 지급된다.</li>
+      <li><span class="x">⑤</span> A 씨는 <b>장해 없이 완치</b>되었으므로 직업재활급여 대상이 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④는 <b>“받을 수 <u>없다</u>”</b>가 정답인 선지다. 옳은 것을 고르는 문항에서 부정 서술이 정답이 되면 체감 난도가 크게 오른다. 장해특별급여는 조건이 <span class="hl">사업주 고의·과실 ＋ 1~3급</span>으로 이중이므로, 지문에 <b>사업주 귀책이 명시되지 않았거나 등급이 4급 이하</b>이면 곧바로 탈락이다. 이 지문에는 둘 다 없다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2026학년도 대학수학능력시험 20번</div>
+  <p class="ask"><span class="n">14.</span> 다음 산업재해보상보험 수업 활동의 결과에 대한 설명으로 옳은 것은? <span class="cond">(단, 수업 활동은 『산업재해보상보험법』에 따라 올바르게 수행되었다고 가정한다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">산업재해보상보험 수업 활동</div>
+    <p style="text-indent:0">주제 : 사례를 통해 사고의 종류와 보험급여 알아보기</p>
+    <p style="text-indent:0"><b>1. 학생별로 배정된 사례</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:52px">학생</th><th>업무상 재해로 인정받은 사고 사례</th></tr>
+      <tr><td class="k">A</td><td>○○ 씨는 창고 바닥을 청소하다 <b>미끄러져 중심을 잃고 쓰러졌다.</b> 이때 발목이 접질려 전치 3주의 진단을 받았으며, <b>근무 외 시간을 활용하여 2주간 치료 후 완치</b>되었다.</td></tr>
+      <tr><td class="k">B</td><td>△△ 씨는 크레인 해체 작업 중 튕겨 나온 볼트를 피했지만, <b>2 m 아래로 추락</b>하여 골절상을 입었다. <b>4주간 입원하여 간병과 치료</b>를 받고 치유되었으나 <b>장해 14급 판정</b>을 받았다. <b>취업하지 못한 기간 동안 회사로부터 임금을 받지 못하였고</b>, 현재는 직장으로 복귀하여 정상 근무하고 있다.</td></tr>
+    </table></div>
+    <p style="text-indent:0"><b>2. 진행 방법</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">[1단계]</td><td>자신에게 배정된 사례에 나타난 <b>사고의 종류</b>에 해당하는 컵을 아래에서 하나 선택한다.<br>넘어짐 : <b>빨간 컵</b>　／　떨어짐 : <b>파란 컵</b>　／　맞음 : <b>노란 컵</b></td></tr>
+      <tr><td class="k">[2단계]</td><td>자신에게 배정된 사례에서 재해자가 <b>수급 가능한 보험급여</b>를 아래에서 있는 대로 골라, 각각에 해당하는 사탕 한 개씩을 [1단계]에서 자신이 선택한 컵에 담는다.<br>요양급여 : <b>별 사탕</b>　／　장해급여 : <b>세모 사탕</b>　／　간병급여 : <b>네모 사탕</b></td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">빨간 컵에 1개의 사탕이 들어 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">네모 사탕이 들어 있는 컵은 파란 컵이다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">사탕이 가장 많이 들어 있는 컵은 노란 컵이다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">노란 컵과 파란 컵에 들어 있는 사탕은 총 3개이다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A, B가 선택한 컵에는 모두 세모 사탕이 들어 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 사고의 종류 / 요양급여 4일 / 장해급여 / 간병급여</div>
+    <p><span class="lab">해설</span>두 사례를 판정하면 다음과 같다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th>학생</th><th>1단계 · 사고의 종류</th><th>요양급여<br>별</th><th>장해급여<br>세모</th><th>간병급여<br>네모</th><th>합계</th></tr>
+      <tr><td class="k">A</td><td><b>넘어짐 → 빨간 컵</b></td><td style="text-align:center">○ 3주 치료</td><td style="text-align:center">× 완치</td><td style="text-align:center">×</td><td style="text-align:center">1</td></tr>
+      <tr><td class="k">B</td><td><b>떨어짐 → 파란 컵</b></td><td style="text-align:center">○ 4주 입원</td><td style="text-align:center">○ 14급</td><td style="text-align:center">× 치료 중 간병</td><td style="text-align:center">2</td></tr>
+    </table></div>
+    <p>빨간 컵에는 별 사탕 1개만 들어 있으므로 ①이 옳다.</p>
+    <ul>
+      <li><span class="x">②</span> 간병급여는 <b>치유 후</b>의 급여다. B 씨의 간병은 입원 치료 중이므로 요양급여에 포함되어 <b>네모 사탕은 아무 컵에도 들어가지 않는다</b>.</li>
+      <li><span class="x">③</span> 노란 컵(맞음)을 선택한 학생이 없다. B 씨는 볼트를 <b>피했고</b> 추락하여 다쳤다.</li>
+      <li><span class="x">④</span> 노란 컵 0개 ＋ 파란 컵 2개 = <b>2개</b>다.</li>
+      <li><span class="x">⑤</span> A 씨는 완치되어 장해가 없으므로 <b>세모 사탕이 없다</b>.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>B 씨 사례의 <b>“튕겨 나온 볼트를 피했지만”</b>은 노란 컵(맞음)으로 유인하는 장치다. 지문은 <span class="hl">피했다</span>고 분명히 적었고, 실제 재해는 <b>2m 아래 추락</b>이다. 또 A 씨의 <b>“근무 외 시간을 활용하여 치료”</b>는 5번(2026 9월 12번) C 씨와 같은 장치로, <b>휴업급여를 차단</b>하는 문구다. 다만 이 문항의 사탕 목록에는 휴업급여가 없으므로 함정이 한 겹 접혀 있다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2027학년도 6월 모의평가 18번</div>
+  <p class="ask"><span class="n">15.</span> 다음 드라마 에피소드에서 A, B씨에게 적용될 수 있는 산업재해보상보험 내용에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">제1화<br>출근길의<br>방심</td><td>○○건설 직원 <b>A 씨</b>는 <b>출근길 버스 안</b>에서 손잡이를 잡지 않고 휴대폰에 몰두하던 중, 갑작스러운 출발로 넘어져 <b>손목 염좌</b> 진단을 받는다. 다행히 치료와 근무가 병행 가능하다는 의사의 소견에 따라, <b>정상 출근을 하면서 3일간의 통원 치료</b>를 받은 끝에 <b>장해 없이 치유</b>된다.</td></tr>
+      <tr><td class="k">제2화<br>기적의<br>복귀</td><td>△△철강 직원 <b>B 씨</b>는 <b>화물차 상차 작업 중 추락</b>하여 다발성 골절상을 입는다. 수술을 마친 B 씨는 <b>10주에 걸친 입원 치료</b> 기간 동안 전문 재활 치료에 전념한다. 인내의 시간 끝에 B 씨는 기적적으로 <b>장해 없이 치유</b>되어 정상 근무를 시작한다.</td></tr>
+    </table></div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표로 재구성하였다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 휴업급여를 신청하면 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B 씨는 직업재활급여를 신청하면 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A, B 씨의 재해 유형은 ‘업무상 사고’에 해당한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A, B 씨는 산업재해보상보험료를 전액 부담해야 한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">요양급여를 신청하면 A씨는 받을 수 없고, B씨는 받을 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 요양급여 4일 / 출퇴근 재해 / 휴업급여 / 직업재활급여 / 보험료 부담</div>
+    <p><span class="lab">해설</span>요양급여는 부상·질병이 <b>3일 이내의 요양으로 치유될 수 있으면 지급하지 않는다</b>. A 씨는 <b>3일간</b> 통원 치료로 치유되었으므로 받을 수 없고, B 씨는 <b>10주간</b> 입원하였으므로 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> A 씨는 <b>정상 출근</b>을 하였으므로 요양으로 취업하지 못한 기간이 없다. 휴업급여 대상이 아니다.</li>
+      <li><span class="x">②</span> B 씨는 <b>장해 없이 치유</b>되었으므로 장해급여자가 아니어서 직업재활급여를 받을 수 없다.</li>
+      <li><span class="x">③</span> A 씨는 <b>출근길 버스 안</b>에서 다쳤으므로 <b>출퇴근 재해</b>다. 업무상 사고인 것은 B 씨뿐이다.</li>
+      <li><span class="x">④</span> 산업재해보상보험료는 <b>사업주가 전액</b> 부담한다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 선지 다섯 개가 각각 다른 요건을 하나씩 겨눈다. <span class="hl">3일 / 취업 불능 / 장해 / 3분류 / 보험료</span>. 특히 <b>‘3일’과 ‘4일 이상’</b>은 같은 말이다. 법조문은 “<b>3일 이내의 요양으로 치유될 수 있으면 지급하지 아니한다</b>”(산재법 제40조 제3항)로 되어 있으므로, <b>딱 3일이면 지급되지 않고 4일부터 지급</b>된다. A 씨의 ‘3일’은 이 경계를 정확히 겨눈 숫자다. ［법령 보충］</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p4">
+  <h2>Ⅳ. 산재보험 제도와 근로관계 연계 <span class="rng">16~21번 · 부담 주체 / 기관 / 해고 제한</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>보험료 부담</b> 산재보험은 <em>사업주 전액</em>. 4대 보험 중 근로자 부담분이 없는 유일한 보험이다</li>
+      <li><b>담당 기관</b> 보험급여의 청구·결정·지급은 <em>근로복지공단</em>. 국민연금공단·국민건강보험공단·한국산업안전보건공단은 모두 오답 후보다</li>
+      <li><b>보험 관계 성립 신고</b> 신고 주체는 <em>사업주</em>(고용·산재 모두). 근로자가 아니다 ［법령 보충］</li>
+      <li><b>적용 범위</b> 근로자를 사용하는 <em>모든 사업 또는 사업장</em>. “5인 미만은 적용되지 않는다”는 오답이다</li>
+      <li><b>해고 제한</b> 사용자는 근로자가 업무상 부상·질병의 요양을 위해 <em>휴업한 기간과 그 후 30일간</em> 해고하지 못한다(근로기준법 §23②) → 위반 시 <em>부당 해고</em></li>
+      <li><b>구제 신청</b> 부당 해고 구제 신청은 <em>노동위원회</em>에 <em>3개월 이내</em>. 중소벤처기업부·근로복지공단은 오답이다</li>
+      <li><b>수급권 보호</b> 보험급여를 받을 권리는 <em>양도·압류하거나 담보로 제공할 수 없다</em>(산재법 §88). 사회보험은 <em>저축성 보험이 아니다</em></li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="2">
+  <div class="code">2022학년도 6월 모의평가 5번</div>
+  <p class="ask"><span class="n">16.</span> 다음 수행 평가 보고서에서 A, B 씨가 신청한 사회 보험에 대해 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">수행 평가 보고서</div>
+    <p style="text-indent:0">1. 사회 보험 적용 가능 여부에 대한 사례 분석</p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">1) △△보험<br>신청 사례</td><td>자영업자 <b>A씨</b>는 <b>법령 위반으로 사업장 허가가 취소되어 폐업</b>하였다. 이러한 폐업을 이유로 A 씨는 생계 유지를 위해 <b>실업 급여</b>를 신청하였다.</td></tr>
+      <tr><td class="k">2) □□보험<br>신청 사례</td><td>호텔에서 근무하는 조리사 <b>B씨</b>는 <b>근무 시간에 조리 과정 중 화상</b>을 입어 병원에서 <b>10일간 치료</b>를 받았다. 이를 <b>산업 재해로 인정</b>받아 B 씨는 해당 보험 급여를 신청하였다.</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 구직 급여와 취업 촉진 수당을 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B 씨는 근로복지공단에 요양 급여를 신청하여 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A씨의 사례는 산업재해보상보험법을, B씨의 사례는 고용보험법을 적용받는다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A 씨와 B 씨가 신청한 보험은 저축성 보험의 성격을 갖는다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A 씨와 B 씨가 신청한 보험 급여를 받을 권리는 제3자에게 양도할 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 근로복지공단 / 요양급여 · <b>17강</b> 자영업자 고용보험</div>
+    <p><span class="lab">해설</span>B 씨는 근무 중 화상으로 <b>10일간 치료</b>를 받아 산업 재해로 인정받았으므로, <b>근로복지공단</b>에 요양급여를 신청하여 받을 수 있다.</p>
+    <ul>
+      <li><span class="x">①</span> 자영업자 고용보험에서 <b>법령 위반으로 허가가 취소되어 폐업</b>한 경우는 수급 자격이 제한된다.</li>
+      <li><span class="x">③</span> 뒤바뀌었다. A 씨는 <b>고용보험법</b>, B 씨는 <b>산업재해보상보험법</b>이다.</li>
+      <li><span class="x">④</span> 사회보험은 위험을 분산하는 제도로, 낸 만큼 돌려받는 <b>저축성 보험이 아니다</b>.</li>
+      <li><span class="x">⑤</span> 보험급여를 받을 권리는 <b>양도·압류하거나 담보로 제공할 수 없다</b>.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③은 <span class="hl">△△·□□라는 빈칸 기호</span> 때문에 순서를 뒤집어 읽기 쉽다. 사례를 읽을 때 <b>‘실업 급여’ → 고용보험</b>, <b>‘산업 재해 인정’ → 산재보험</b>으로 먼저 이름표를 붙이고 선지로 가야 한다. ④·⑤는 산재·고용 어느 쪽이든 <b>사회보험 공통 성질</b>을 묻는 선지라, 두 보험을 구분하지 못해도 지울 수 있다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2022학년도 9월 모의평가 5번</div>
+  <p class="ask"><span class="n">17.</span> 다음 산업 재해 사례를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="strip">
+    <div class="pn"><span class="cn">① 근로 관계</span>A 씨는 <b>정규직 근로자</b>로 <b>상시 근로자 수가 50명</b>인 ○○유통 소속으로 <b>1년 이상 근무</b> 중이었다.</div>
+    <div class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h11V5l7 7-7 7v-5H4z"/></svg></div>
+    <div class="pn"><span class="cn">② 사고 발생</span>어느 날 <b>배달 중 골목길에서</b> 강아지와 뛰어놀던 어린이를 <b>피하려다 넘어져 팔과 다리를 다쳤다.</b></div>
+    <div class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h11V5l7 7-7 7v-5H4z"/></svg></div>
+    <div class="pn"><span class="cn">③ 회사의 조치</span><b>3주간의 치료</b>를 위해 회사에 알리고 <b>병원에 입원 중이던</b> A 씨는 갑자기 회사로부터 <b>휴대전화 문자로 해고 통보</b>를 받았다.</div>
+  </div>
+  <div class="fignote">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 도식으로 재구성하였다.</div>
+  <p style="font-size:.8rem;color:#666;margin-top:5px">※ 원본 지면의 3컷 그림 지문을 옮겨 재구성하였다. 각 컷의 소제목은 이해를 돕기 위해 붙인 것이다.</p>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 사례의 해고는 부당 해고에 해당한다.</p>
+    <p>ㄴ. 사고의 형태는 ‘물체에 맞음’에 해당한다.</p>
+    <p>ㄷ. A 씨는 복직을 위하여 법정기한 내 중소벤처기업부에 구제 신청을 할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 사고의 형태 · <b>19강</b> 해고 제한 / 부당 해고 구제 신청</div>
+    <p><span class="lab">해설</span>ㄱ만 옳다. 사용자는 근로자가 업무상 부상의 요양을 위하여 <b>휴업한 기간과 그 후 30일 동안</b>은 해고하지 못한다. A 씨는 <b>입원 치료 중</b> 해고 통보를 받았으므로 부당 해고다. 서면이 아닌 <b>문자 통보</b>라는 점도 절차 위반에 해당한다.</p>
+    <ul>
+      <li><span class="x">ㄴ.</span> 어린이를 <b>피하려다 넘어진</b> 사고이므로 형태는 <b>넘어짐</b>이다. ‘물체에 맞음’은 날아오거나 떨어진 물체에 맞는 경우다.</li>
+      <li><span class="x">ㄷ.</span> 부당 해고 구제 신청은 <b>노동위원회</b>에 <b>해고가 있었던 날부터 3개월 이내</b>에 한다. 중소벤처기업부는 소관 기관이 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄷ은 <span class="hl">‘법정기한 내’라는 그럴듯한 표현</span>으로 기한 쪽에 시선을 붙들어 두고, 정작 <b>기관 이름</b>을 바꿔 놓았다. 근로자 권익 구제 문항에서는 <b>기관 이름을 먼저 확인</b>하는 습관이 필요하다. 노동위원회(부당 해고·부당 노동 행위) / 근로복지공단(산재 급여) / 고용센터(실업급여)로 갈라 두면 흔들리지 않는다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2022학년도 대학수학능력시험 19번</div>
+  <p class="ask"><span class="n">18.</span> 다음 사례를 통해 알 수 있는 A, B 씨에게 적용된 사회 보험 및 근로 관계에 대한 설명으로 옳지 <u>않은</u> 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <ul>
+      <li><b>A씨</b>는 ○○가구에서 근무하던 중 침대에 발이 깔려 발가락이 골절되는 사고를 당하여 병원 진단에 따라 <b>4주간 요양을 받고 완치</b>되었다. A씨는 업무상 재해로 인해 사회 보험 중 이 보험의 적용을 받아, <b>요양으로 직장에 나가 일하지 못한 기간에 대해 보험 급여를 지급 받았다.</b> 한편, 사업주는 <b>병원에서 요양 중이던 A 씨에게</b> 즉각적인 복귀를 요구하였으나 A 씨가 깁스를 한 상태로는 일을 할 수 없다고 하자 <b>그를 즉시 해고</b>하였다.</li>
+      <li><b>B 씨</b>는 △△전자에서 <b>5년 동안 계속적으로 근무</b>하였으나 사업주가 긴박한 경영상의 어려움을 이유로 불가피하게 <b>사직을 권고</b>하여 직장을 그만두었다. 비교적 젊은 30대 나이로 재취업을 위해 노력하였으나 뜻대로 되지 않아 사회 보험 중 이 보험의 적용을 받아 <b>실업 급여를 수령</b>하여 재취업을 준비할 수 있었다.</li>
+    </ul>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 씨는 상병 보상 연금을 지원받았다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 씨의 해고는 부당 해고에 해당한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">B 씨가 지급 받은 보험 급여는 고용보험법에 근거한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">B 씨에게 적용된 보험의 보험료는 사업주와 근로자가 함께 부담한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A씨에게 적용된 보험과 B씨에게 적용된 보험의 보험 관계 성립 신고 주체는 사업주이다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 휴업급여 ↔ 상병보상연금 / 보험 관계 성립 신고 · <b>19강</b> 해고 제한</div>
+    <p><span class="lab">해설</span>A 씨가 <b>요양으로 일하지 못한 기간에 대해</b> 받은 급여는 <b>휴업급여</b>다. 상병보상연금은 요양 시작 후 <b>2년이 지나도 치유되지 않고</b> 중증요양상태등급 1~3급일 때 지급되는데, A 씨는 <b>4주 만에 완치</b>되었다. 따라서 ①이 옳지 않다.</p>
+    <ul>
+      <li><span class="x">②</span> <b>요양 기간 중의 해고</b>이므로 근로기준법 제23조 제2항 위반, 부당 해고다.</li>
+      <li><span class="x">③</span> 실업급여는 <b>고용보험법</b>에 근거한다.</li>
+      <li><span class="x">④</span> 고용보험의 실업급여 보험료는 <b>사업주와 근로자가 절반씩</b> 부담한다.</li>
+      <li><span class="x">⑤</span> 산재보험과 고용보험 모두 <b>보험 관계 성립 신고 주체는 사업주</b>다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>지문이 급여의 <b>이름을 쓰지 않고</b> “요양으로 일하지 못한 기간에 대해 지급받았다”라고 <span class="hl">정의만 제시</span>했다. 이 정의는 <b>휴업급여</b>의 것이다. 두 급여는 “일 못 한 기간을 메워 준다”는 점이 같아서 헷갈리는데, 갈림길은 <b>2년과 중증요양상태등급</b>이다. 지문에 <b>‘완치’·‘치유’</b>가 보이면 상병보상연금은 즉시 지운다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2023학년도 9월 모의평가 15번</div>
+  <p class="ask"><span class="n">19.</span> 다음 재해 사례에 대한 분석 내용으로 옳지 <u>않은</u> 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p><b>상시 종업원 53인</b>이 근무하는 ○○건설의 근로자 A씨는 신축 건물 외벽 공사를 하던 중, <b>노후화된 고소 작업대 오작동으로 2층 높이에서 떨어지는 사고</b>를 당했다. A 씨는 사고로 인해 <b>한 달간의 병원 치료</b>를 받았고 업무상 재해로 인정받았지만 <b>치료 기간 동안 결근으로 임금을 받지 못하였다.</b> 노후화된 고소 작업대에 대한 교체 요구가 이미 몇 차례 제기되었음에도 불구하고 회사가 요구를 수용하지 않고 있다. 이에 <b>전국 건설 노동조합 △△지부</b>는 노후화된 고소 작업대의 교체 및 제반 근무 환경 개선을 요청하기 위하여 <b>사용자와 협의를 진행</b>하고 있다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A씨는 국민 건강 보험의 진료 수가를 기준으로 요양급여를 받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A씨는 치료 기간 동안 1일 평균 임금의 80%에 해당하는 금액을 휴업급여로 받을 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">△△지부는 단체교섭권을 행사하고 있다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">△△지부는 동일 산업에 근무하는 근로자들로 구성된 노동조합에 해당한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">○○건설은 근로자와 사용자를 대표하는 동수의 위원으로 구성되는 노사협의회를 설치할 의무가 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 요양급여 · 휴업급여 70% · <b>19강</b> 산업별 노조 / 노사협의회 30인</div>
+    <p><span class="lab">해설</span>휴업급여는 1일당 <b>평균임금의 70%</b>다. ‘80%’라고 한 ②가 옳지 않다.</p>
+    <ul>
+      <li><span class="x">①</span> 요양급여의 비용은 <b>국민건강보험의 진료 수가</b>를 기준으로 산정한다.</li>
+      <li><span class="x">③</span> 사용자와 협의를 진행하고 있으므로 <b>단체교섭권</b>을 행사하는 중이다.</li>
+      <li><span class="x">④</span> <b>전국 건설 노동조합</b>은 같은 산업에 종사하는 근로자로 구성된 <b>산업별 노동조합</b>이다.</li>
+      <li><span class="x">⑤</span> 노사협의회는 상시 근로자 <b>30명 이상</b> 사업장에 설치 의무가 있다. ○○건설은 <b>53인</b>이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>휴업급여의 <span class="hl">70%</span>는 18강에서 가장 자주 바뀌어 나오는 숫자다. 오답으로 등장한 값을 모아 두면 <b>통상임금 60%, 평균임금 80%, 임금 전액(100%)</b>이다. 기준 임금도 <b>평균임금</b>이지 통상임금이 아니다. <b>‘평균임금 × 70%’</b> 한 덩어리로 외워 두면 10번·13번·19번·20번을 한꺼번에 처리할 수 있다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2023학년도 대학수학능력시험 11번</div>
+  <p class="ask"><span class="n">20.</span> 다음은 재해 사례 보고서의 일부이다. A 씨에 대해 분석한 내용으로 적절한 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">재해 사례 보고서</div>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">사고 개요</td><td>○○기업 사업장에서 원재료가 들어 있는 마대를 운반하던 중 <b>지게차 전복</b>으로 근로자 <b>A 씨(운전자)</b> 부상</td></tr>
+      <tr><td class="k">원인 분석</td><td>· A 씨가 <b>제한 중량을 초과한 마대</b>를 지게차 포크 한쪽에 걸어 매달음<br>· <b>바닥 보수가 필요한 작업장</b>에서 지게차 운전 중 운전대 <b>급회전 조작</b><br>· <b>안전띠와 보호구 미착용</b></td></tr>
+      <tr><td class="k">사고 결과</td><td>· A 씨는 갈비뼈 골절로 <b>3개월간 입원 치료</b>를 받은 후 <b>장해 없이 완치 판정</b>을 받음<br>　(산업 재해로 인정받아 <b>요양급여를 수령</b>함)</td></tr>
+    </table></div>
+    <p class="note">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 표·도식으로 재구성하였다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. A 씨는 직업재활급여를 받을 수 있다.</p>
+    <p>ㄴ. A씨에게 적용된 사회 보험의 보험료는 사업주가 전액 부담한다.</p>
+    <p>ㄷ. A 씨 사고의 직접적인 원인은 ‘불안전한 행동 및 상태’에 해당한다.</p>
+    <p>ㄹ. A 씨는 요양으로 취업하지 못한 기간에 대하여 1일당 임금의 전액을 휴업급여로 받을 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 직접적 원인 / 산재보험료 / 휴업급여 70% / 직업재활급여</div>
+    <p><span class="lab">해설</span>ㄴ과 ㄷ이 옳다. 산재보험료는 <b>사업주 전액</b> 부담이고, 원인 분석에는 <b>제한 중량 초과·급회전 조작·보호구 미착용</b>(불안전한 행동)과 <b>바닥 보수가 필요한 작업장</b>(불안전한 상태)이 함께 나타난다.</p>
+    <ul>
+      <li><span class="x">ㄱ.</span> A 씨는 <b>장해 없이 완치</b>되었으므로 장해급여자가 아니어서 직업재활급여를 받을 수 없다.</li>
+      <li><span class="x">ㄹ.</span> 휴업급여는 <b>평균임금의 70%</b>이지 임금의 전액이 아니다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>ㄷ은 <span class="hl">‘불안전한 행동 <u>및</u> 상태’</span>로 두 원인을 묶어 놓았다. 원인 분석란을 <b>사람이 한 일</b>과 <b>현장의 상태</b>로 한 줄씩 나눠 표시해 보면 판정이 빨라진다. 이 보고서는 3개 항목 중 2개가 행동, 1개가 상태(바닥 보수 필요)로 <b>둘 다 존재</b>한다. 3번(2024 6월 13번)과 완전히 같은 구조다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2025학년도 6월 모의평가 14번</div>
+  <p class="ask"><span class="n">21.</span> 다음은 재해 사례 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">재해 사례 보고서</div>
+    <p style="text-indent:0"><b>1. 사고 개요</b></p>
+    <ul>
+      <li>○○ 기업(<b>상시근로자 10명</b>)에 근무하는 <b>A군(17세)</b>은 2023년 12월 21일 <b>18시 30분</b>에 작업을 마친 후 <b>상사의 지시로 작업장 정리</b> 도중 물품을 선반에 올려놓다가 <b>사다리에서 떨어져</b> 상해를 입음.</li>
+    </ul>
+    <p style="text-indent:0"><b>2. 재해자 상황</b></p>
+    <ul>
+      <li>A 군의 <b>소정근로시간은 9시부터 17시까지</b>(휴게시간 : 12시∼13시)였으며, <b>17시 이후 사고 발생 시각까지 계속 작업</b>함.</li>
+      <li>A군은 해당 보험 급여를 신청하여 업무상 재해로 인정받았으며 산재보험 의료기관에 <b>2주간 입원</b>함.</li>
+    </ul>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A 군의 사고 형태는 ‘넘어짐’에 해당한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">A 군은 한국산업안전보건공단으로부터 요양급여를 지급받는다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A 군의 작업장 정리 작업은 근로기준법상 근로시간에 산정되지 않는다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">○○ 기업의 사용자는 A 군에 대하여 근로기준법상 연장근로 규정을 준수하지 않았다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">상시 근로자가 5인 미만인 모든 사업장은 A 군이 신청한 사회 보험이 적용되지 않는다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>13.5차시</b> 근로복지공단 / 산재보험 적용 범위 · <b>19강</b> 연소자 근로시간</div>
+    <p><span class="lab">해설</span>A 군은 <b>만 18세 미만 연소 근로자</b>다. 연소자의 근로시간은 <b>1일 7시간·1주 35시간</b>을 초과하지 못하며, 당사자 합의로 <b>1일 1시간·1주 5시간</b>까지만 연장할 수 있다. A 군은 소정근로 7시간(9~17시, 휴게 1시간)에 더해 <b>1시간 30분을 더 일했으므로</b> 1일 연장 한도 1시간을 넘겼다. 따라서 ④가 옳다. ［법령 보충］</p>
+    <ul>
+      <li><span class="x">①</span> <b>사다리에서 떨어져</b> 상해를 입었으므로 형태는 <b>떨어짐</b>이다.</li>
+      <li><span class="x">②</span> 요양급여는 <b>근로복지공단</b>이 지급한다. 한국산업안전보건공단은 산업재해 <b>예방</b> 업무를 맡는 기관이다.</li>
+      <li><span class="x">③</span> <b>상사의 지시로</b> 한 작업장 정리이므로 사용자의 지휘·감독 아래 있는 <b>근로시간에 산정</b>된다.</li>
+      <li><span class="x">⑤</span> 산재보험은 근로자를 사용하는 <b>모든 사업 또는 사업장</b>에 적용된다. 5인 미만이라고 적용에서 빠지지 않는다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>②의 <span class="hl">‘한국산업안전보건공단’</span>은 18강에서만 나오는 전용 오답이다. 두 기관은 역할이 정확히 갈린다. <b>한국산업안전보건공단 = 재해 예방·안전보건교육·기술 지원</b>, <b>근로복지공단 = 보험 관계 관리와 보험급여 지급</b>. “예방은 안전보건공단, 보상은 근로복지공단”으로 묶어 두면 된다. ⑤의 ‘5인 미만’ 역시 <b>근로기준법 일부 규정</b>과 <b>산재보험 적용</b>을 섞은 것이다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="appx" id="appx">
+  <h2>［부록 1］ 18강 함정 포인트</h2>
+
+  <details class="pit"><summary><span class="n">1</span>요양급여의 경계는 “4일”이 아니라 “3일 이내면 안 준다”</summary>
+    <div class="bd">「산업재해보상보험법」 제40조 제3항은 <b>“부상 또는 질병이 3일 이내의 요양으로 치유될 수 있으면 요양급여를 지급하지 아니한다”</b>고 규정한다. 교재의 “4일 이상”은 이 조문을 뒤집어 쓴 표현이다. <span class="hl">딱 3일이면 부지급, 4일부터 지급</span>이다. ［법령 보충］
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">지문의 요양 기간</th><th style="width:90px">요양급여</th><th>관련 문항</th></tr>
+        <tr><td class="k">3일 통원</td><td style="text-align:center"><span class="no-ok">부지급</span></td><td>15번 A 씨 — ⑤가 정답이 되는 근거</td></tr>
+        <tr><td class="k">4일 통원</td><td style="text-align:center"><span class="yes-ok">지급</span></td><td>5번 C 씨 — 파랑 스티커가 붙는 근거</td></tr>
+        <tr><td class="k">5일·7일·2주</td><td style="text-align:center"><span class="yes-ok">지급</span></td><td>6번 A 씨 / 9번 A 씨 / 5번 B 씨</td></tr>
+      </table></div>
+      <span class="cap">→ 3일과 4일이 나란히 출제된 해가 2026학년도 9월과 2027학년도 6월이다. 숫자를 바꿔 정답을 가르는 방식이 굳어졌다고 볼 수 있다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">2</span>휴업급여는 “평균임금 × 70%” — 통상임금도 60%도 아니다</summary>
+    <div class="bd">휴업급여는 요양으로 <b>취업하지 못한 기간</b>에 대하여 1일당 <b>평균임금의 100분의 70</b>을 지급한다(§52).
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:120px">오답으로 나온 값</th><th style="width:90px">판정</th><th>실제 정체</th></tr>
+        <tr><td class="k">통상임금의 60%</td><td style="text-align:center"><span class="no-ok">오답</span></td><td>10번 ③ — <b>기준 임금과 비율을 함께</b> 바꾼 값</td></tr>
+        <tr><td class="k">통상임금의 60%</td><td style="text-align:center"><span class="no-ok">오답</span></td><td>13번 ② — 같은 장치를 2년 뒤 재활용</td></tr>
+        <tr><td class="k">평균임금의 80%</td><td style="text-align:center"><span class="no-ok">오답</span></td><td>19번 ② — 비율만 바꾼 형태</td></tr>
+        <tr><td class="k">1일당 임금의 전액</td><td style="text-align:center"><span class="no-ok">오답</span></td><td>20번 ㄹ — 100%로 부풀린 형태</td></tr>
+        <tr><td class="k">평균임금의 70%</td><td style="text-align:center"><span class="yes-ok">정답</span></td><td>9번 ② / 11번 ⑤</td></tr>
+      </table></div>
+      <span class="cap">→ 21문항 중 <b>6문항</b>이 이 숫자 하나로 정답이 갈렸다. 18강에서 가장 값이 비싼 한 줄이다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">3</span>상병보상연금 — 네 조건을 <b>모두</b> 갖춰야 한다</summary>
+    <div class="bd">① 요양을 시작한 지 <b>2년이 지난 날 이후</b>일 것 ② 부상·질병이 <b>치유되지 않은</b> 상태일 것 ③ <b>중증요양상태등급 1~3급</b>일 것 ④ 요양으로 <b>취업하지 못하였을</b> 것(§66). 이 급여는 <b>휴업급여를 대신</b>해 지급된다.
+      <span class="sub">지문에 이 말이 보이면 즉시 지운다</span>
+      <b>“완치”·“치유되었다”·“정상 근무하고 있다”</b> — ②를 깨뜨린다.<br>
+      <b>“4주”·“5일”·“7일”·“2개월”·“3개월”·“24주”</b> — ①을 깨뜨린다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">문항</th><th style="width:110px">지문의 기간</th><th>판정</th></tr>
+        <tr><td class="k">6번 ② [사례 1]</td><td>5일 · 완치</td><td><span class="no-ok">불가</span> — 이 선지가 정답</td></tr>
+        <tr><td class="k">7번 ㄹ</td><td>2개월 입원 후 완치</td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">8번 ③</td><td>3개월 입원 후 치유</td><td><span class="no-ok">불가</span> — 이 선지가 정답</td></tr>
+        <tr><td class="k">10번 ② / 11번 ③</td><td>1주 · 2개월 후 치유</td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">18번 ①</td><td>4주 요양 후 완치</td><td><span class="no-ok">불가</span> — 이 선지가 정답</td></tr>
+      </table></div>
+      <span class="cap">→ 21문항 중 <b>단 한 번도</b> 상병보상연금이 “받을 수 있다”로 정답이 된 적이 없다. 나오면 거의 항상 오답 유도다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">4</span>간병급여는 “치유 후” — 치료 중 간병은 요양급여다</summary>
+    <div class="bd">간병급여는 요양급여를 받은 사람 중 <b>치유 후</b> 의학적으로 상시 또는 수시로 간병이 필요하여 <b>실제로 간병을 받는</b> 사람에게 지급된다(§61). 반면 요양급여의 범위에는 진찰·검사, 약제, 처치·수술, 재활치료, 입원, <b>간호 및 간병</b>, 이송이 모두 들어 있다(§40④). ［법령 보충］
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">지문 표현</th><th style="width:110px">해당 급여</th><th>관련 문항</th></tr>
+        <tr><td class="k">“입원 치료(간병인 사용)”</td><td style="text-align:center">요양급여</td><td>9번 ④ — 오답</td></tr>
+        <tr><td class="k">“3개월간 간병과 치료”</td><td style="text-align:center">요양급여</td><td>13번 ③ — 오답</td></tr>
+        <tr><td class="k">“간호·간병 통합 서비스 병동 입원”</td><td style="text-align:center">요양급여</td><td>12번 ① — 오답</td></tr>
+        <tr><td class="k">“4주간 입원하여 간병과 치료”</td><td style="text-align:center">요양급여</td><td>14번 ② — 네모 사탕이 없는 이유</td></tr>
+      </table></div>
+      <span class="cap">→ 네 문항 모두 <b>지문에 ‘간병’이라는 단어를 일부러 넣고</b> 간병급여를 오답으로 배치했다. ‘간병’이 보이면 <b>치유 전인지 후인지</b>부터 확인한다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">5</span>직업재활급여의 입구는 “장해급여자”다</summary>
+    <div class="bd">직업재활급여는 <b>장해급여자</b>(또는 진폐보상연금 수급권자) 중 취업을 위하여 직업훈련이 필요한 사람에게 지급된다(§72). <span class="hl">장해가 없으면 아무리 재활·적응 과정을 거쳐도 대상이 아니다.</span>
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">문항</th><th style="width:110px">장해 여부</th><th>판정</th></tr>
+        <tr><td class="k">8번 ④</td><td>장해 12급</td><td><span class="yes-ok">가능</span> — 적절한 서비스</td></tr>
+        <tr><td class="k">11번 ①</td><td>장해 없이 완치</td><td><span class="no-ok">불가</span> — “관리 부서 발령” 유인</td></tr>
+        <tr><td class="k">12번 ②</td><td>장해 없이 치유</td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">13번 ⑤</td><td>A 씨 장해 없음</td><td><span class="no-ok">불가</span> — “A 씨와 B 씨” 묶음 유인</td></tr>
+        <tr><td class="k">15번 ② / 20번 ㄱ</td><td>장해 없이 치유</td><td><span class="no-ok">불가</span></td></tr>
+      </table></div>
+      <span class="cap">→ 13번 ⑤처럼 <b>두 사람을 묶어</b> “A 씨와 B 씨는 ~할 수 있다”로 물으면, <b>한 명만 탈락해도 오답</b>이다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">6</span>장해급여의 지급 방법은 등급 구간으로 갈린다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:120px">장해등급</th><th style="width:190px">지급 방법</th><th>비고</th></tr>
+        <tr><td class="k">제1급 ~ 제3급</td><td>장해보상<b>연금</b>만</td><td>장해특별급여 청구도 이 구간에서만 가능</td></tr>
+        <tr><td class="k">제4급 ~ 제7급</td><td>연금 또는 일시금 <b>선택</b></td><td>6번 B 씨가 7급</td></tr>
+        <tr><td class="k">제8급 ~ 제14급</td><td>장해보상<b>일시금</b>만</td><td>8번 12급 / 9번 8급 / 10번·13번·14번 14급</td></tr>
+      </table></div>
+      <span class="cap">→ 8번 ⑤가 굳이 ‘장해보상<b>일시금</b>’이라고 쓴 이유가 여기에 있다. 12급에 ‘연금’이 붙으면 곧바로 오답이다. ［법령 보충］</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">7</span>장해특별급여·유족특별급여 — 조건이 이중이다</summary>
+    <div class="bd"><b>사업주의 고의 또는 과실</b>로 발생한 업무상 재해로 근로자가 <b>장해등급 1~3급</b>에 해당하거나 <b>사망</b>한 경우, 「민법」에 따른 손해배상 청구에 <b>갈음하여</b> 청구할 수 있다(§78·§79). ［법령 보충］
+      <span class="sub">지문에서 확인할 두 가지</span>
+      ① 사업주의 귀책 사유가 명시되어 있는가　② 장해등급이 1~3급인가
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">문항</th><th style="width:110px">지문의 장해등급</th><th>판정</th></tr>
+        <tr><td class="k">9번 ③</td><td>8급</td><td><span class="no-ok">불가</span></td></tr>
+        <tr><td class="k">13번 ④</td><td>14급</td><td><span class="no-ok">불가</span> — “받을 수 <u>없다</u>”가 정답</td></tr>
+      </table></div>
+      <span class="cap">→ 13번은 <b>부정 서술이 정답</b>인 드문 형태였다. 조건이 이중인 급여는 <b>“없다” 쪽이 정답</b>이 되기 쉽다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">8</span>사고의 형태 — 무엇이 움직였는지로 가른다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:96px">형태</th><th style="width:230px">판정 기준</th><th>기출 사례</th></tr>
+        <tr><td class="k">떨어짐</td><td><b>사람</b>이 높은 곳에서 아래로</td><td>2번(탑승설비) / 3번(3m 추락) / 13번(사다리) / 14번 B(2m) / 21번(사다리)</td></tr>
+        <tr><td class="k">넘어짐</td><td><b>사람</b>이 미끄러지거나 걸려서</td><td>6번 A(미끄러짐) / 10번 A(물 고인 곳) / 14번 A(청소 중) / 17번(어린이 회피) / 11번(경사면에서 구름)</td></tr>
+        <tr><td class="k">무너짐</td><td><b>구조물·적재물</b>이 내려앉음</td><td>1번(슬래브 붕괴)</td></tr>
+        <tr><td class="k">맞음</td><td><b>물체</b>가 날아오거나 떨어져 사람에게</td><td>12번(콘크리트 파편)</td></tr>
+        <tr><td class="k">끼임</td><td>기계·물체 <b>사이</b>에 끼거나 말려듦</td><td>［부록 3］ E5(프레스) / E2(체인 얽힘)</td></tr>
+        <tr><td class="k">부딪힘</td><td><b>사람</b>이 물체에 충돌</td><td>3번 ㄱ에 오답으로 출제</td></tr>
+      </table></div>
+      <span class="cap">→ ‘낙하’(2번 ②)는 물체가 떨어지는 말이므로 <b>사람이 떨어진 사고</b>에 쓰면 틀린다. 2번처럼 <b>“감전되어 → 떨어짐”</b> 2단 구조에서는 <b>최종적으로 재해를 입힌 형태</b>를 답한다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">9</span>업무상 재해 3분류 — 출퇴근 재해는 업무상 사고가 아니다</summary>
+    <div class="bd">「산재법」 제37조 제1항은 <b>업무상 사고 / 업무상 질병 / 출퇴근 재해</b> 셋으로 나눈다. 출퇴근 재해도 <b>보상은 받지만</b> 업무상 사고 칸에는 들어가지 않는다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:190px">지문 상황</th><th style="width:120px">분류</th><th>관련 문항</th></tr>
+        <tr><td class="k">사업주 주관 사내 체육 대회</td><td style="text-align:center">업무상 사고</td><td>4번 (가) / 5번 A 씨</td></tr>
+        <tr><td class="k">휴게시간 중 구내식당</td><td style="text-align:center">업무상 사고</td><td>4번 ① — 정답</td></tr>
+        <tr><td class="k"><b>관용 차량</b>으로 통상 경로 출근</td><td style="text-align:center"><b>출퇴근 재해</b></td><td>5번 C 씨 — ②가 오답인 이유</td></tr>
+        <tr><td class="k">출근길 <b>버스 안</b></td><td style="text-align:center"><b>출퇴근 재해</b></td><td>15번 ③ — 오답</td></tr>
+        <tr><td class="k">유해 물질 노출 / 폭언·괴롭힘</td><td style="text-align:center">업무상 질병</td><td>4번 ③④</td></tr>
+        <tr><td class="k">경로 <b>일탈</b> / 지배관리 벗어난 사적 행위</td><td style="text-align:center">재해 아님</td><td>4번 ②⑤</td></tr>
+      </table></div>
+      <span class="cap">→ <b>사업주가 제공한 교통수단이어도</b> 출퇴근 중이면 출퇴근 재해다(제3호 가목). 5번 C 씨가 정확히 이 지점을 겨눈다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">10</span>기관 이름 — 예방은 안전보건공단, 보상은 근로복지공단</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:170px">기관</th><th>역할</th><th style="width:110px">출제</th></tr>
+        <tr><td class="k">근로복지공단</td><td>보험 관계 관리, 보험급여 청구·결정·지급</td><td><span class="yes-ok">정답</span> 16번 ② / 부록 E3 ㄷ</td></tr>
+        <tr><td class="k">한국산업안전보건공단</td><td>산업재해 <b>예방</b>, 안전보건교육·기술 지원</td><td><span class="no-ok">오답</span> 21번 ②</td></tr>
+        <tr><td class="k">국민연금공단</td><td>노령·장애·유족 연금</td><td><span class="no-ok">오답</span> 9번 ⑤</td></tr>
+        <tr><td class="k">노동위원회</td><td>부당 해고·부당 노동 행위 구제 신청</td><td><span class="yes-ok">기준</span> 17번 ㄷ</td></tr>
+        <tr><td class="k">중소벤처기업부</td><td>산재·해고와 무관</td><td><span class="no-ok">오답</span> 17번 ㄷ</td></tr>
+      </table></div>
+      <span class="cap">→ 4대 보험료의 <b>통합 징수</b>는 국민건강보험공단이 맡지만, <b>급여 지급</b>은 각 보험의 소관 기관이 한다. 징수와 지급을 섞은 선지에 주의한다. ［법령 보충］</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">11</span>보험료·적용 범위·신고 주체 — 세 줄로 끝난다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:130px">항목</th><th>산업재해보상보험</th><th>고용보험</th></tr>
+        <tr><td class="k">보험료 부담</td><td><b>사업주 전액</b></td><td>실업급여분은 노사 절반씩</td></tr>
+        <tr><td class="k">적용 범위</td><td colspan="2">근로자를 사용하는 <b>모든 사업 또는 사업장</b> — “5인 미만 제외”는 오답</td></tr>
+        <tr><td class="k">보험 관계 성립 신고</td><td colspan="2">주체는 <b>사업주</b></td></tr>
+        <tr><td class="k">수급권</td><td colspan="2"><b>양도·압류·담보 제공 금지</b>, 저축성 보험 아님</td></tr>
+      </table></div>
+      <span class="cap">→ 보험료 부담을 물은 문항만 <b>10번 ④ · 11번 ④ · 15번 ④ · 20번 ㄴ</b> 네 개다. “사업주 전액” 다섯 글자로 네 문항이 처리된다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">12</span>중대재해 — 산업안전보건법과 중대재해처벌법은 기준이 다르다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:100px">구분</th><th>「산업안전보건법」상 중대재해<br>(시행규칙 §3)</th><th>「중대재해처벌법」상 중대산업재해<br>(§2제2호)</th></tr>
+        <tr><td class="k">사망</td><td>사망자 <b>1명</b> 이상</td><td>사망자 <b>1명</b> 이상</td></tr>
+        <tr><td class="k">부상</td><td><b>3개월</b> 이상 요양이 필요한 부상자가 <b>동시에 2명</b> 이상</td><td>동일한 사고로 <b>6개월</b> 이상 치료가 필요한 부상자 <b>2명</b> 이상</td></tr>
+        <tr><td class="k">질병</td><td>부상자 또는 직업성 질병자가 <b>동시에 10명</b> 이상</td><td>동일한 유해요인으로 직업성 질병자가 <b>1년 이내 3명</b> 이상</td></tr>
+      </table></div>
+      <span class="cap">→ ［부록 3］ E5(2026 10월 학평)는 <b>6개월 이상 요양 2명</b>이라 산안법 기준(3개월·2명)을 충족해 정답이 되었고, E2(2023 10월 학평)는 <b>3개월 요양 1명</b>이라 인원 요건에서 탈락했다. <b>기간과 인원을 함께</b> 본다. ［법령 보충］</span>
+    </div>
+  </details>
+
+  <h2 style="margin-top:22px">［부록 2］ 정답표 및 학습지 대조</h2>
+  <div class="scroll"><table class="ans">
+    <tr><th>번호</th><th>학습지 위치</th><th>출처</th><th>정답</th><th>핵심 개념</th></tr>
+    <tr><td>1</td><td>문제 12</td><td>2022학년도 6월 모평 8번</td><td class="a">③</td><td class="l">무너짐 · 인적 사고 · 대책 선정의 원칙</td></tr>
+    <tr><td>2</td><td>문제 8</td><td>2023학년도 6월 모평 13번</td><td class="a">②</td><td class="l">떨어짐(≠낙하) · 불안전한 행동 · 경고 표지 · 안전대</td></tr>
+    <tr><td>3</td><td>문제 5</td><td>2024학년도 6월 모평 13번</td><td class="a">④</td><td class="l">업무상 사고에 의한 업무상의 재해 · 상태 및 행동</td></tr>
+    <tr><td>4</td><td>문제 3</td><td>2025학년도 6월 모평 13번</td><td class="a">①</td><td class="l">산재법 §37① 3분류 · 휴게시간 중 지배관리</td></tr>
+    <tr><td>5</td><td>문제 2</td><td>2026학년도 9월 모평 12번</td><td class="a">⑤</td><td class="l">출퇴근 재해 ≠ 업무상 사고 · 4일 · 휴업급여 요건</td></tr>
+    <tr><td>6</td><td>—</td><td>2022학년도 9월 모평 7번</td><td class="a">②</td><td class="l">상병보상연금 2년 · 장해 7급 · 경고/금지 표지</td></tr>
+    <tr><td>7</td><td>문제 8</td><td>2023학년도 6월 모평 14번</td><td class="a">①</td><td class="l">요양·휴업급여 ○ / 유족급여·상병보상연금 ✕</td></tr>
+    <tr><td>8</td><td>문제 5</td><td>2024학년도 6월 모평 14번</td><td class="a">③</td><td class="l">장해보상일시금(12급) · 직업재활급여 · 상병보상연금 제외</td></tr>
+    <tr><td>9</td><td>문제 6</td><td>2024학년도 9월 모평 19번</td><td class="a">②</td><td class="l">평균임금 70% · 장해특별급여 1~3급 · 간병급여 시점</td></tr>
+    <tr><td>10</td><td>문제 7</td><td>2024학년도 수능 20번</td><td class="a">①</td><td class="l">장해 14급 · 휴업급여 ↔ 휴업수당 · 보험료 사업주 전액</td></tr>
+    <tr><td>11</td><td>문제 4</td><td>2025학년도 9월 모평 11번</td><td class="a">⑤</td><td class="l">통원 기간 휴업급여 · 직업재활급여 요건</td></tr>
+    <tr><td>12</td><td>기출 분석 ②</td><td>2025학년도 수능 10번</td><td class="a">⑤</td><td class="l">추가상병 · 상병급여(고용) ↔ 상병보상연금(산재)</td></tr>
+    <tr><td>13</td><td>문제 1</td><td>2026학년도 6월 모평 12번</td><td class="a">④</td><td class="l">장해특별급여 이중 조건 · 간병급여 시점 · 떨어짐</td></tr>
+    <tr><td>14</td><td>기출 분석 ①</td><td>2026학년도 수능 20번</td><td class="a">①</td><td class="l">사고 종류 판정 · 요양/장해/간병급여 수급 가부</td></tr>
+    <tr><td>15</td><td>문제 15</td><td>2027학년도 6월 모평 <b>18번</b></td><td class="a">⑤</td><td class="l">3일 vs 4일 · 출퇴근 재해 · 보험료 전액 사업주</td></tr>
+    <tr><td>16</td><td>—</td><td>2022학년도 6월 모평 5번</td><td class="a">②</td><td class="l">근로복지공단 · 저축성 아님 · 수급권 양도 금지</td></tr>
+    <tr><td>17</td><td>문제 13</td><td>2022학년도 9월 모평 5번</td><td class="a">①</td><td class="l">요양기간＋30일 해고 제한 · 넘어짐 · 노동위원회</td></tr>
+    <tr><td>18</td><td>문제 14</td><td>2022학년도 수능 19번</td><td class="a">①</td><td class="l">휴업급여 ↔ 상병보상연금 · 보험 관계 성립 신고 주체</td></tr>
+    <tr><td>19</td><td>문제 9</td><td>2023학년도 9월 모평 15번</td><td class="a">②</td><td class="l">휴업급여 70%(80% 아님) · 산업별 노조 · 노사협의회 30인</td></tr>
+    <tr><td>20</td><td>문제 11</td><td>2023학년도 수능 11번</td><td class="a">③</td><td class="l">보험료 사업주 전액 · 불안전한 행동 및 상태</td></tr>
+    <tr><td>21</td><td>문제 4</td><td>2025학년도 6월 모평 14번</td><td class="a">④</td><td class="l">연소자 연장근로 1일 1시간 · 근로복지공단 · 5인 미만도 적용</td></tr>
+    <tr class="ext"><td>E1</td><td>부록 3</td><td>2022학년도 10월 학평 10번</td><td class="a">⑤</td><td class="l">질식 · 지시 표지 · 예방 가능의 원칙 · 요양급여</td></tr>
+    <tr class="ext"><td>E2</td><td>부록 3</td><td>2023학년도 10월 학평 9번</td><td class="a">②</td><td class="l">얽힘 · 중대재해 인원 요건 · 근로자 과실도 산재 인정</td></tr>
+    <tr class="ext"><td>E3</td><td>부록 3</td><td>2024학년도 10월 학평 12번</td><td class="a">③</td><td class="l">불안전한 상태 · 유족급여 ✕ · 근로복지공단</td></tr>
+    <tr class="ext"><td>E4</td><td>부록 3</td><td>2025학년도 10월 학평 20번</td><td class="a">⑤</td><td class="l">두 사고의 공통점 · 중대산업재해 · 불안전한 상태</td></tr>
+    <tr class="ext"><td>E5</td><td>부록 3</td><td>2026학년도 10월 학평 14번</td><td class="a">②</td><td class="l">끼임 · 산안법상 중대재해(3개월·2명) · 경고 표지</td></tr>
+  </table></div>
+
+  <div class="caution">
+    <b>［출처 표기 정정］</b> 인쇄 학습지(13.5차시) 문제 15는 ‘2027학년도 고3 6월 모의평가 <b>8번</b>’으로 적혀 있으나, 원본 시험지와 공식 해설지 모두 <b>18번</b>이다. 27학년도 6월 8번은 기업 탐방 후기(경영 활동) 문항이다. 이 문제지에는 18번으로 바로잡아 실었다.<br>
+    <b>［지문 재구성 안내］</b> 만화·도식·대화 형태로 제시된 원본 지문(1·2·4·6·9·15·17번)은 <b>판단에 필요한 정보만</b> 표·도식으로 옮겼다. 옮기기 전 원본 지면을 확대하여 <b>기간·연령·등급·인원 수치를 한 건씩 대조</b>하였다. 원본 그림의 세부 묘사가 필요하면 인쇄 학습지를 함께 보라.<br>
+    <b>［근거 표기 원칙］</b> 26문항 전부 원본 시험지와 공식 해설지 정답표에 대조하여 정답을 확정하였다. 교재에 직접 명시되지 않고 법령으로 보충한 내용은 <b>［법령 보충］</b>으로 표시하였다(요양급여 3일 조문, 장해등급 구간별 지급 방법, 장해특별급여 요건, 연소자 연장근로 한도, 중대재해 두 법률 비교 등).<br>
+    <b>［단원 걸침 안내］</b> 17~21번은 <b>17강(사회보험)·19강(근로관계법)과 겹치는 문항</b>이다. 산재보험을 정면으로 묻되 해고 제한·노동조합·연소자 근로시간이 함께 나오므로, 18강을 마친 뒤 19강 복습용으로 한 번 더 쓰면 효과가 크다.
+  </div>
+
+  <h2 style="margin-top:24px">［부록 3］ 추가 연습 — 전국연합학력평가 5문항</h2>
+  <div class="exnote">
+    학력평가에서 출제된 18강 문항이다. <b>상단 진행률과 정답 수에는 포함되지 않는다.</b> 본편 21문항을 마친 뒤 확인용으로 풀어 보라. 학평은 <b>안전사고의 형태·원인·표지·중대재해</b>에 집중되어 있어, 본편에서 얇았던 Ⅰ단원을 메우는 데 알맞다.
+  </div>
+
+  <article class="q extra" data-a="5">
+    <div class="code">2022학년도 10월 학력평가 10번</div>
+    <p class="ask"><span class="n">E1.</span> 다음 재해 사례 보고서를 통해 알 수 있는 내용으로 적절한 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+    <div class="passage">
+      <div class="ttl">재해 사례 보고서</div>
+      <div class="scroll"><table class="ex">
+        <tr><td class="k">1. 재해 개요</td><td>폐수 집수조 내부에서 수중 모터 펌프의 이상 유무를 점검하던 근로자 1명이 쓰러지자, 동료 2명이 그를 구조하려다가 <b>유독 가스 중독으로 3명 모두 의식을 잃고 쓰러져 2개월간 치료</b>를 받게 된 <b>업무상 재해로 인정받은</b> 사례</td></tr>
+        <tr><td class="k">2. 사고 원인</td><td>가. <b>보호구를 착용하지 않고</b> 작업<br>나. <b>환기가 되지 않은</b> 집수조에서 작업<br>다. 안전 사고 위험에 대한 <b>교육 미실시</b></td></tr>
+        <tr><td class="k">3. 대책</td><td>가. <b>방독 마스크 착용</b>에 관한 산업 안전 보건 표지 설치<br>나. 수중 모터 펌프를 외부 모터 펌프로 교체 설치<br>다. 유독 가스 환기 및 보호구 착용 교육 실시</td></tr>
+      </table></div>
+    </div>
+    <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+      <p>ㄱ. 산업 안전 사고의 종류는 ‘감전’이다.</p>
+      <p>ㄴ. 설치할 산업 안전 보건 표지는 ‘경고 표지’이다.</p>
+      <p>ㄷ. 산업 재해의 예방 원칙 중 ‘예방 가능의 원칙’을 준수하지 않았다.</p>
+      <p>ㄹ. 근로자는 근로복지공단에 ‘요양 급여’를 신청하여 수령할 수 있다.</p>
+    </div>
+    <ul class="ch inline">
+      <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+      <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+      <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+      <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+      <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+    </ul>
+    <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+    <div class="sol">
+      <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">공식 정답표 대조 완료</span></div>
+      <p><span class="lab">해설</span>ㄷ과 ㄹ이 옳다. 보호구 착용·환기·교육이라는 <b>제거 가능한 원인</b>이 모두 방치되었으므로 <b>예방 가능의 원칙</b>을 지키지 않았고, 업무상 재해로 인정받아 2개월간 치료를 받았으므로 <b>근로복지공단</b>에 요양급여를 신청할 수 있다.</p>
+      <ul>
+        <li><span class="x">ㄱ.</span> 유독 가스로 의식을 잃은 사고이므로 <b>질식(중독)</b>이다. 감전은 전기에 접촉한 경우다.</li>
+        <li><span class="x">ㄴ.</span> <b>방독 마스크를 착용하라</b>는 것은 특정 행동을 지시하는 내용이므로 <b>지시 표지</b>(파란 원)다. 경고 표지는 위험을 알리는 노란 삼각형이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>표지 문항은 <b>“무엇을 하라”인지 “무엇이 위험하다”인지</b>로 가른다. <span class="hl">착용·사용 지시 → 지시 표지(파란 원)</span>, <span class="hl">위험 알림 → 경고 표지(노란 삼각형)</span>, <span class="hl">하지 말라 → 금지 표지(빨간 사선 원)</span>, <span class="hl">위치 안내 → 안내 표지(초록 사각)</span>.</div>
+    </div>
+  </article>
+
+  <article class="q extra" data-a="2">
+    <div class="code">2023학년도 10월 학력평가 9번</div>
+    <p class="ask"><span class="n">E2.</span> 다음은 농업회사법인○○의 재해 사례 보고서이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+    <div class="passage">
+      <div class="ttl">농업회사법인○○ 재해 사례 보고서</div>
+      <div class="scroll"><table class="ex">
+        <tr><td class="k">개요</td><td>사업주의 지시로 벼 수확 작업을 하던 <b>작업자 1인</b>이 <b>안전장치가 파손된</b> 곡물 수확기 내부에 걸린 짚을 <b>손으로 제거하다가 회전하는 체인에 손이 말려 들어가</b> 부상을 입고 <b>3개월간 요양 치료</b>를 받음.</td></tr>
+        <tr><td class="k">발생<br>원인</td><td>◦ 작업자가 곡물 수확기의 <b>엔진을 정지시키지 않고</b>, <b>장갑을 착용한 상태로</b> ‘걷어올림 체인’에 걸린 짚 제거<br>◦ 중고 곡물 수확기 구입 시 <b>안전장치 파손 미확인</b></td></tr>
+        <tr><td class="k">예방<br>대책</td><td>◦ 곡물 수확기 사용 전 안전장치에 대한 교육을 실시함.<br>◦ 곡물 수확기 정비는 엔진 정지 후 실시함.<br>◦ 회전부에 말려 들어갈 우려가 있는 작업은 장갑을 벗고 실시함.</td></tr>
+      </table></div>
+    </div>
+    <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+      <p>ㄱ. 사고 유형은 ‘얽힘’에 해당한다.</p>
+      <p>ㄴ. 사고 규모로 보아 중대 재해에 해당한다.</p>
+      <p>ㄷ. 사고의 직접 원인은 ‘불안전한 행동 및 상태’에 해당한다.</p>
+      <p>ㄹ. 작업자 과실이 원인이므로 산업 재해로 인정받을 수 없다.</p>
+    </div>
+    <ul class="ch inline">
+      <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+      <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+      <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+      <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+      <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+    </ul>
+    <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+    <div class="sol">
+      <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 정답표 대조 완료</span></div>
+      <p><span class="lab">해설</span>ㄱ과 ㄷ이 옳다. 회전하는 체인에 <b>손이 말려 들어간</b> 사고이므로 유형은 <b>얽힘</b>이고, 엔진 미정지·장갑 착용 제거(불안전한 행동)와 안전장치 파손(불안전한 상태)이 함께 원인이다.</p>
+      <ul>
+        <li><span class="x">ㄴ.</span> 「산업안전보건법」상 중대재해는 <b>3개월 이상 요양이 필요한 부상자가 동시에 2명 이상</b>이어야 한다. 이 사례는 <b>1명</b>이다.</li>
+        <li><span class="x">ㄹ.</span> 산재보험은 <b>사용자의 과실을 따지지 않는 무과실 책임</b>을 원칙으로 한다. 근로자에게 과실이 있어도 업무상 재해로 인정된다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>ㄴ은 <span class="hl">‘3개월’이라는 기간만 맞고 인원 요건이 빠진</span> 전형적인 반쪽 선지다. 중대재해는 <b>기간과 인원을 함께</b> 본다. ㄹ은 산재보험의 성격을 묻는 것으로, <b>“근로자 잘못이면 산재가 아니다”</b>는 언제나 오답이다.</div>
+    </div>
+  </article>
+
+  <article class="q extra" data-a="3">
+    <div class="code">2024학년도 10월 학력평가 12번</div>
+    <p class="ask"><span class="n">E3.</span> 다음은 재해 사례 보고서의 일부이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+    <div class="passage">
+      <div class="ttl">재해 사례 보고서</div>
+      <div class="scroll"><table class="ex">
+        <tr><td class="k">재해 개요</td><td>작업자 A 씨는 냉각수 관리를 위해 사업장 내 <b>냉각탑 상부에서 작업</b>을 하던 중 <b>지지대가 무너지면서 바닥에 떨어지는 사고</b>를 당했다. A 씨는 부상을 입어 즉시 산재 지정 병원으로 이송되었고 <b>산업 재해 보상 서비스를 신청</b>하였다. 이후 <b>1개월의 치료를 받고 완치</b>되었다.</td></tr>
+        <tr><th>원인</th><th>대책</th></tr>
+        <tr><td>냉각탑 상부 <b>지지대의 부식</b>으로 인한 지지력 약화</td><td>부식된 지지대 교체 및 시설물의 안전성 평가 강화</td></tr>
+      </table></div>
+    </div>
+    <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+      <p>ㄱ. 사고의 원인은 ‘불안전한 상태’에 해당한다.</p>
+      <p>ㄴ. 산업 재해 보상 서비스로 ‘유족 급여’를 지원받을 수 있다.</p>
+      <p>ㄷ. A 씨가 신청한 보상 서비스는 ‘근로복지공단’에서 제공한다.</p>
+    </div>
+    <ul class="ch inline">
+      <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+      <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+      <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+      <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+      <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+    </ul>
+    <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+    <div class="sol">
+      <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">공식 정답표 대조 완료</span></div>
+      <p><span class="lab">해설</span>ㄱ과 ㄷ이 옳다. 원인은 <b>지지대의 부식</b>이라는 설비 결함이므로 <b>불안전한 상태</b>이고, 산업재해 보상 서비스는 <b>근로복지공단</b>이 제공한다.</p>
+      <ul>
+        <li><span class="x">ㄴ.</span> 유족급여는 근로자가 <b>사망</b>한 경우 지급된다. A 씨는 1개월 치료 후 <b>완치</b>되었다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>이 보고서에는 <b>작업자의 행동에 대한 지적이 한 줄도 없다</b>. 원인란이 <b>설비 결함 하나</b>뿐이면 ‘상태’만 고른다. 20번(2023 수능 11번)처럼 <b>‘행동 및 상태’</b>가 정답인 문항과 반드시 짝지어 확인해 두라.</div>
+    </div>
+  </article>
+
+  <article class="q extra" data-a="5">
+    <div class="code">2025학년도 10월 학력평가 20번</div>
+    <p class="ask"><span class="n">E4.</span> 다음은 현장 관리자 간의 대화 장면이다. 이를 통해 알 수 있는 두 사고의 <b>공통점</b>으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? <span class="cond">(단, 두 사업장의 상시 근로자 수는 50인 이상이다.)</span> <span class="pt">[3점]</span></p>
+    <div class="talk">
+      <div>
+        <div class="bb">저희 <b>건설 현장</b>에서는 자재를 묶어 놓은 <b>낡은 고정 장치가 풀려</b> 일하던 <b>작업자 3명이 깔리는</b> 사고가 발생했습니다. <b>3명 모두 6개월째 치료 중</b>입니다.</div>
+        <span class="who">관리자 갑</span>
+      </div>
+      <div>
+        <div class="bb">저희 <b>제조 공장</b>에서도 작업 중 <b>기계에서 유출된 기름에 미끄러져</b> 작업자 <b>1명이 넘어지는</b> 사고가 발생했습니다. 그 작업자는 <b>전치 4주</b>의 진단을 받고 치료를 완료했습니다.</div>
+        <span class="who">관리자 을</span>
+      </div>
+    </div>
+    <div class="fignote">※ 원본 지면의 그림 지문을 판단에 필요한 정보만 옮겨 도식으로 재구성하였다.</div>
+    <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+      <p>ㄱ. 사고의 종류는 ‘넘어짐’에 해당한다.</p>
+      <p>ㄴ. ‘중대 산업 재해’로 분류될 수 있다.</p>
+      <p>ㄷ. 업무상 사고로서 산업 재해로 인정된다.</p>
+      <p>ㄹ. 사고의 직접적인 원인은 ‘불안전한 상태’이다.</p>
+    </div>
+    <ul class="ch inline">
+      <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+      <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+      <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+      <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+      <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+    </ul>
+    <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+    <div class="sol">
+      <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">공식 정답표 대조 완료</span></div>
+      <p><span class="lab">해설</span>ㄷ과 ㄹ이 옳다. 두 사고 모두 <b>작업 중</b> 발생하였으므로 업무상 사고로서 산업재해로 인정되며, 원인도 <b>낡은 고정 장치</b>와 <b>유출된 기름</b>이라는 설비·환경의 결함, 곧 <b>불안전한 상태</b>다.</p>
+      <ul>
+        <li><span class="x">ㄱ.</span> 첫 번째 사고는 자재가 <b>풀려 깔린</b> 것이므로 넘어짐이 아니다. 두 번째만 넘어짐이므로 <b>공통점이 아니다</b>.</li>
+        <li><span class="x">ㄴ.</span> 첫 번째는 6개월 치료 3명으로 중대산업재해에 해당하지만, 두 번째는 <b>전치 4주 1명</b>이므로 해당하지 않는다. <b>공통점이 아니다</b>.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>발문이 <span class="hl">‘두 사고의 공통점’</span>이다. 한쪽에만 해당하면 아무리 옳은 진술이어도 오답이다. ㄴ은 첫 번째 사고에 대해서는 <b>맞는 말</b>이라 더 잘 걸린다. <b>보기마다 왼쪽·오른쪽에 ○/✕를 따로 적고 둘 다 ○인 것만</b> 고르는 습관을 들이면 실수가 준다.</div>
+    </div>
+  </article>
+
+  <article class="q extra" data-a="2">
+    <div class="code">2026학년도 10월 학력평가 14번</div>
+    <p class="ask"><span class="n">E5.</span> 다음은 산업 재해 조사 보고서의 일부이다. 이에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+    <div class="passage">
+      <div class="ttl">산업 재해 조사 보고서</div>
+      <p style="text-indent:0">조사 일자 : 2025년 7월 7일　／　사업장 : <b>○○정밀(상시 근로자 수 55명)</b></p>
+      <ul>
+        <li>A 씨와 B 씨는 작업 중 <b>프레스 기계에 손이 끼는 사고</b>가 발생함. <b>두 사람 모두 6개월 이상의 요양이 필요하다는 진단</b>을 받고 현재 병원에서 치료 중임.</li>
+        <li>사고의 원인은 기계에 설치된 <b>안전장치가 제대로 작동되지 않은 상태</b>에서 작업이 이루어졌기 때문으로 판명됨.</li>
+        <li>한편, 프레스 기계 주변은 <b>적재물의 낙하 위험</b>이 존재하나, 해당 구역에는 위험 관련 <b>안전 보건 표지가 부착되지 않은</b> 것으로 확인됨.</li>
+      </ul>
+    </div>
+    <ul class="ch">
+      <li><button data-i="1"><span class="no">1</span><span class="tx">사고의 형태는 ‘맞음’에 해당한다.</span></button></li>
+      <li><button data-i="2"><span class="no">2</span><span class="tx">사고는 산업안전보건법상 중대 재해에 해당한다.</span></button></li>
+      <li><button data-i="3"><span class="no">3</span><span class="tx">사고의 직접적인 원인은 불안전한 행동에 해당한다.</span></button></li>
+      <li><button data-i="4"><span class="no">4</span><span class="tx">하인리히의 사고 예방 대책 중 시정책을 적용하였다.</span></button></li>
+      <li><button data-i="5"><span class="no">5</span><span class="tx">해당 낙하 위험 구역에 부착되었어야 하는 안전 보건 표지는 ‘안내 표지’이다.</span></button></li>
+    </ul>
+    <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+    <div class="sol">
+      <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">공식 정답표 대조 완료</span></div>
+      <p><span class="lab">해설</span>「산업안전보건법 시행규칙」 제3조는 <b>3개월 이상의 요양이 필요한 부상자가 동시에 2명 이상</b> 발생한 재해를 중대재해로 규정한다. A 씨와 B 씨 <b>2명</b>이 <b>6개월 이상</b> 요양 진단을 받았으므로 중대재해에 해당한다. ［법령 보충］</p>
+      <ul>
+        <li><span class="x">①</span> 프레스 기계에 <b>손이 끼는</b> 사고이므로 형태는 <b>끼임</b>이다.</li>
+        <li><span class="x">③</span> <b>안전장치가 제대로 작동되지 않은 상태</b>가 원인이므로 <b>불안전한 상태</b>다.</li>
+        <li><span class="x">④</span> 보고서는 원인을 조사한 단계까지만 나아갔다. 시정책을 <b>선정하거나 적용한 내용이 없다</b>.</li>
+        <li><span class="x">⑤</span> 낙하 위험을 알리는 표지는 <b>경고 표지</b>다. 안내 표지는 비상구·응급구호 표지처럼 위치를 알리는 것이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>①은 <span class="hl">‘낙하 위험’이라는 별개 문장</span>을 사고의 형태로 착각하게 만든다. 낙하 위험은 <b>표지 미부착을 지적하기 위한 별도 정보</b>이지, A·B 씨가 당한 사고가 아니다. ④는 <b>하인리히 5단계</b>(조직 → 발견 → 분석 → 시정책 선정 → 시정책 적용) 중 어디까지 갔는지를 묻는다. 조사 보고서는 대개 <b>‘분석·평가’ 단계</b>에서 끝난다.</div>
+    </div>
+  </article>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 18강 · 2022~2027학년도 평가원·교육청 기출</span>
+    <span>은또링샘의 행성 연구소</span>
+  </div>
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 6 -</div></div>
+  <p style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;color:#8A8A8A;margin-top:10px">기출 문항의 저작권은 한국교육과정평가원 및 시·도 교육청에 있습니다.</p>
+</section>
+</div><!-- /sheet -->
+
+<div id="toast"></div>
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script>
+(function(){
+  var all  = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var main = all.filter(function(q){return !q.classList.contains('extra');});
+  var TOTAL = main.length;
+  var tt;
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){t.classList.remove('show');},3000);
+  }
+  function update(){
+    var d=main.filter(function(q){return q.classList.contains('done');}).length;
+    var h=main.filter(function(q){return q.dataset.hit==='1';}).length;
+    document.getElementById('done').textContent=d;
+    document.getElementById('hit').textContent=h;
+    document.getElementById('bar').style.width=(d/TOTAL*100)+'%';
+    if(d===TOTAL) toast(h===TOTAL?TOTAL+'문항 전부 정답입니다.':'채점 완료 — 정답 '+h+' / '+TOTAL);
+  }
+  // 채점 실행 — 마킹한 답과 정답을 대조해 표시하고 해설을 연다
+  function applyGrade(q){
+    var ans=q.dataset.a, pick=q.dataset.pick||'';
+    q.classList.add('done');
+    q.dataset.hit=(pick===ans)?'1':'0';
+    q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+    if(pick){
+      var pb=q.querySelector('.ch button[data-i="'+pick+'"]');
+      if(pb) pb.classList.add(pick===ans?'pick-ok':'pick-no');
+    }
+    if(pick!==ans){
+      var right=q.querySelector('.ch button[data-i="'+ans+'"]');
+      if(right) right.classList.add('mark-ok');
+    }
+    q.querySelector('.sol').classList.add('open');
+    var g=q.querySelector('.gradebtn');
+    g.textContent='해설 접기'; g.classList.add('graded');
+  }
+
+  all.forEach(function(q){
+    var list=q.querySelector('.ch');
+    var g=q.querySelector('.gradebtn');
+
+    // 선택지 클릭 — 채점 전에는 마킹만 한다(정오 표시 없음)
+    q.querySelectorAll('.ch button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('done')) return;
+        q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+        btn.classList.add('marked');
+        q.dataset.pick=btn.dataset.i;
+      });
+    });
+
+    // 채점하기 / 채점 후에는 해설 접기·펼치기 토글
+    g.addEventListener('click',function(){
+      if(!q.classList.contains('done')){
+        if(!q.dataset.pick){
+          toast('답을 먼저 고른 뒤 채점하세요.');
+          list.classList.remove('nudge'); void list.offsetWidth; list.classList.add('nudge');
+          return;
+        }
+        applyGrade(q); update();
+      }else{
+        var sol=q.querySelector('.sol');
+        var open=sol.classList.toggle('open');
+        g.textContent=open?'해설 접기':'해설 보기';
+      }
+    });
+  });
+
+  window.showAll=function(){
+    all.forEach(function(q){
+      if(q.classList.contains('done')){
+        q.querySelector('.sol').classList.add('open');
+        q.querySelector('.gradebtn').textContent='해설 접기';
+        return;
+      }
+      applyGrade(q);
+    });
+    update(); toast('정답과 해설을 모두 펼쳤습니다.');
+  };
+
+  window.resetAll=function(){
+    all.forEach(function(q){
+      q.classList.remove('done'); delete q.dataset.hit; delete q.dataset.pick;
+      q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked','pick-ok','pick-no','mark-ok');});
+      q.querySelector('.sol').classList.remove('open');
+      var g=q.querySelector('.gradebtn');
+      g.textContent='채점하기'; g.classList.remove('graded');
+    });
+    update(); toast('처음부터 다시 풀어 보세요.');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  // 학번 칸: 숫자만 입력하고 한 자리 채우면 다음 칸으로
+  var cells=Array.prototype.slice.call(document.querySelectorAll('.fld .cell'));
+  cells.forEach(function(c,i){
+    c.addEventListener('input',function(){
+      c.value=c.value.replace(/[^0-9]/g,'').slice(0,1);
+      if(c.value && cells[i+1]) cells[i+1].focus();
+    });
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Backspace' && !c.value && cells[i-1]) cells[i-1].focus();
+    });
+  });
+  window.addEventListener('scroll',function(){
+    document.getElementById('top').classList.toggle('show', window.scrollY>420);
+  });
+  update();
+})();
+</script>
+</body>
+</html>

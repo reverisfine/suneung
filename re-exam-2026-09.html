@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 2026학년도 9월 모평 변형 10문항</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    /* 본문 명조 / 발문·라벨 고딕. 구글 폰트를 못 받는 환경(오프라인·PDF 서버)에서
+       generic serif 가 중국어 고딕(WenQuanYi)으로 떨어지는 것을 막기 위해
+       CJK·Windows·macOS 명조/고딕을 순서대로 폴백에 명시한다. */
+    --myeong:'Noto Serif KR','Noto Serif CJK KR','Nanum Myeongjo','Batang','바탕','AppleMyungjo',serif;
+    --godic:'Noto Sans KR','Noto Sans CJK KR','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo','NanumGothic',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+
+  /* ── 시험지 표지 머리 ── */
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap;text-align:center;line-height:1.35}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld .bl{background:#fff;padding:0 8px;display:grid;place-items:center}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;border-left:1.5px solid var(--ink)}
+  .fld .cell:first-of-type{border-left:none}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 0 6px;margin-bottom:16px;gap:12px}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"\25E6";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+
+  /* ── 단원 구분 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+
+  .part .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .part .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .part .memo ul{list-style:none}
+  .part .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .part .memo li::before{content:"\00B7";position:absolute;left:3px;font-weight:700}
+  .part .memo b{font-weight:700}
+  .part .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+
+  /* ── 문항 ── */
+  .q{margin:22px 0 0;padding-bottom:20px;border-bottom:1px dashed var(--hair)}
+  .q:last-of-type{border-bottom:none}
+  .code{text-align:right;font-family:var(--godic);font-size:.7rem;color:var(--lgray);letter-spacing:-.01em;margin-bottom:1px}
+  .ask{font-family:var(--godic);font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:-.015em;text-indent:-1.35em;padding-left:1.35em}
+  .ask .pt{font-weight:700;white-space:nowrap}
+  .ask .cond{font-weight:400;font-size:.88em}
+
+  .passage{border:1.2px solid var(--ink);padding:11px 14px;margin:11px 0 0;font-size:.87rem;line-height:1.68}
+  .passage .ttl{text-align:center;font-family:var(--godic);font-weight:700;font-size:.85rem;margin-bottom:7px}
+  .passage ul{list-style:none}
+  .passage li{margin:3px 0;padding-left:13px;position:relative}
+  .passage li::before{content:"\25E6";position:absolute;left:0;font-size:.85em}
+  .passage p{margin:3px 0;text-indent:.6em}
+  .passage .note{font-size:.8rem;color:var(--gray);margin-top:6px;text-indent:0}
+  .passage b{font-weight:700}
+  .passage .src{text-align:right;font-size:.78rem;color:var(--gray);margin-top:5px;text-indent:0}
+
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:7px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.5}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+  .ex td.c{text-align:center}
+
+  .bogi{margin:12px 0 0;border:1.2px solid var(--ink);padding:0 15px 10px;font-size:.87rem}
+  .bogi .bt{display:block;width:fit-content;margin:-11px auto 8px;background:#fff;padding:0 9px;
+    font-family:var(--godic);font-weight:500;font-size:.79rem;letter-spacing:.12em;color:var(--ink);line-height:1.5}
+  .bogi p{margin:3px 0;text-indent:-1.15em;padding-left:1.15em}
+
+  /* ── 선택지 ── */
+  ul.ch{list-style:none;margin-top:10px}
+  ul.ch li{margin:0;font-family:var(--myeong);font-size:.885rem;line-height:1.6;color:var(--ink);
+    padding:3px 7px;display:flex;gap:8px;align-items:flex-start}
+  .ch .no{flex-shrink:0;width:19px;height:19px;margin-top:2px;border:1.3px solid #6E6E68;border-radius:50%;background:#fff;
+    display:inline-grid;place-items:center;font-family:var(--godic);font-size:.68rem;font-weight:500;color:#55554F;line-height:1}
+  .ch.inline{display:flex;flex-wrap:wrap;gap:2px 14px}
+  .ch.inline li{flex:0 0 auto;white-space:nowrap;padding:3px 4px}
+
+  .fignote{font-size:.8rem;color:var(--gray);margin-top:5px;font-family:var(--myeong)}
+  .talk{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 2px}
+  .talk .bb{border:1.2px solid var(--ink);padding:9px 12px;font-size:.83rem;line-height:1.6;background:#fff}
+  .talk .who{display:block;text-align:center;font-family:var(--godic);font-weight:700;font-size:.72rem;color:var(--gray);margin-top:6px}
+
+  /* ── 정답과 해설 ── */
+  .sol{margin-top:13px;border:1px solid var(--line);border-left:4px solid var(--ink);background:#FBFBF9;padding:12px 15px}
+  .sol .hd{font-family:var(--godic);font-weight:700;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sol .hd .ans{font-family:var(--myeong);font-size:1.1rem;color:var(--no)}
+  .sol .hd .via{margin-left:auto;font-weight:400;font-size:.7rem;color:var(--lgray)}
+  .sol .link{font-family:var(--godic);font-size:.75rem;color:var(--gray);margin-bottom:8px}
+  .sol .link b{color:var(--ink2)}
+  .sol .lab{font-family:var(--godic);font-weight:700;font-size:.78rem;background:var(--ink);color:#fff;padding:1px 7px;margin-right:6px;vertical-align:1px}
+  .sol .lab.t{background:var(--no)}
+  .sol .lab.v{background:#4A5A6A}
+  .sol p{font-size:.855rem;line-height:1.68;margin:6px 0}
+  .sol ul{list-style:none;margin:5px 0}
+  .sol ul li{font-size:.845rem;line-height:1.62;margin:4px 0;padding-left:1.5em;text-indent:-1.5em}
+  .sol ul li .x{font-weight:700;color:var(--no);margin-right:4px}
+  .sol .trap{margin-top:9px;border-top:1px dotted var(--line);padding-top:8px;font-size:.855rem;line-height:1.68}
+  .sol .vari{margin-top:8px;border-top:1px dotted var(--line);padding-top:8px;font-size:.855rem;line-height:1.68}
+  .sol b{font-weight:700}
+  .sol .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+  .solq{margin:18px 0 0}
+  .solq .qt{font-family:var(--godic);font-weight:700;font-size:.9rem;letter-spacing:-.015em}
+
+  /* ── 부록·해설편 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-weight:700;font-size:.95rem;color:var(--no)}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .caution{margin-top:14px;border:1px solid var(--no);padding:10px 13px;font-size:.82rem;line-height:1.68;color:var(--ink2)}
+  .caution b{color:var(--no);font-weight:700}
+  .exnote{font-family:var(--godic);font-size:.79rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:9px 12px;margin-bottom:6px}
+  .exnote b{color:var(--ink)}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .copy{text-align:center;font-family:var(--godic);font-size:.72rem;color:var(--lgray);margin-top:10px}
+
+  /* ══════════ 화면 전용 : 자동 채점 UI ══════════ */
+  .hud{position:sticky;top:0;z-index:60;max-width:820px;margin:0 auto;background:var(--ink);color:#fff;
+    display:flex;align-items:center;gap:14px;padding:9px 16px;font-family:var(--godic);font-size:.8rem;
+    box-shadow:0 2px 10px rgba(0,0,0,.25);flex-wrap:wrap}
+  .hud .clk{font-weight:900;font-size:1.12rem;letter-spacing:.04em;font-variant-numeric:tabular-nums;min-width:66px}
+  .hud .clk.warn{color:#FFC9C4}
+  .hud .prg{flex:1;min-width:130px}
+  .hud .prg .bar{height:6px;background:#4A4A44;border-radius:99px;overflow:hidden}
+  .hud .prg .bar i{display:block;height:100%;width:0;background:#EBD9A0;transition:width .25s}
+  .hud .prg .txt{font-size:.72rem;color:#D8D5CC;margin-top:3px}
+  .hud button{font-family:var(--godic);font-weight:700;font-size:.78rem;padding:7px 15px;border:1.5px solid #fff;
+    background:transparent;color:#fff;cursor:pointer;letter-spacing:-.01em}
+  .hud button.go{background:#fff;color:var(--ink)}
+  .hud button:disabled{opacity:.4;cursor:not-allowed}
+  .hud .st{font-size:.72rem;color:#D8D5CC}
+
+  ul.ch li.opt{cursor:pointer;border:1.3px solid transparent;border-radius:4px;transition:background .12s,border-color .12s}
+  ul.ch li.opt:hover{background:#F4F2EC}
+  ul.ch li.sel{background:#F0EDE2;border-color:#B9AF8E}
+  ul.ch li.sel .no{background:var(--ink);color:#fff;border-color:var(--ink)}
+  ul.ch li.right{background:var(--okbg);border-color:var(--ok)}
+  ul.ch li.right .no{background:var(--ok);color:#fff;border-color:var(--ok)}
+  ul.ch li.wrong{background:var(--nobg);border-color:var(--no)}
+  ul.ch li.wrong .no{background:var(--no);color:#fff;border-color:var(--no)}
+  .graded ul.ch li.opt{cursor:default}
+  .graded ul.ch li.opt:hover{background:none}
+  .graded ul.ch li.right:hover{background:var(--okbg)}
+  .graded ul.ch li.wrong:hover{background:var(--nobg)}
+
+  .badge{display:none;font-family:var(--godic);font-weight:900;font-size:.74rem;color:#fff;
+    width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px;margin-right:6px;vertical-align:2px;
+    text-indent:0;letter-spacing:0}
+  .graded .badge{display:inline-block}
+  .badge.o{background:var(--ok)}
+  .badge.x{background:var(--no)}
+
+  .card{display:none;margin:26px 0 0;border:2px solid var(--ink);background:#fff}
+  .graded .card{display:block}
+  .card .top{background:var(--ink);color:#fff;padding:11px 16px;font-family:var(--godic);display:flex;
+    align-items:baseline;gap:12px;flex-wrap:wrap}
+  .card .top .ttl{font-weight:900;font-size:.98rem;letter-spacing:-.02em}
+  .card .top .sc{margin-left:auto;font-weight:900;font-size:1.5rem;letter-spacing:-.02em}
+  .card .top .sc small{font-weight:500;font-size:.8rem;opacity:.75}
+  .card .body{padding:13px 16px}
+  .card .rate{font-family:var(--godic);font-size:.8rem;color:var(--ink2);margin-bottom:10px}
+  table.ur{width:100%;border-collapse:collapse;font-size:.8rem;border:1px solid var(--line)}
+  .ur th,.ur td{border:1px solid var(--hair);padding:5px 8px;font-family:var(--godic)}
+  .ur th{background:#EFEFEC;font-weight:700;font-size:.75rem}
+  .ur td.n{text-align:center;white-space:nowrap}
+  .ur td.g{padding:0 8px}
+  .ur .mini{height:7px;background:#EAE7DE;border-radius:99px;overflow:hidden;min-width:70px}
+  .ur .mini i{display:block;height:100%;background:var(--ok)}
+  .ur .mini.low i{background:var(--no)}
+  .card .tip{margin-top:11px;font-family:var(--godic);font-size:.78rem;color:var(--ink2);
+    background:var(--box);border:1px solid var(--hair);padding:9px 12px;line-height:1.65}
+  .card .tip b{color:var(--no)}
+
+  /* ── 화면 전용 : 문항 하단 해설 (해설지 블록을 채점 시 복제) ── */
+  .inlinesol{display:none}
+  .graded .inlinesol{display:block;margin-top:15px;border-top:2px dashed #C9C3B2;padding-top:9px}
+  .graded.nosol .inlinesol{display:none}
+  .inlinesol .tagline{font-family:var(--godic);font-weight:700;font-size:.71rem;color:#fff;
+    background:#4A5A6A;display:inline-block;padding:2px 9px;letter-spacing:.02em}
+  .inlinesol .tagline.miss{background:var(--no)}
+  .inlinesol .solq{margin-top:7px}
+  .inlinesol .solq .qt{font-size:.8rem;color:var(--gray);font-weight:500}
+  .inlinesol .sol{margin-top:6px}
+
+  .lockwrap{position:relative}
+  .locked > .appx{filter:blur(5px);pointer-events:none;user-select:none}
+  .lockmsg{display:none;position:absolute;inset:0;z-index:20;background:rgba(255,255,255,.72);
+    display:none;place-items:center;text-align:center}
+  .locked .lockmsg{display:grid}
+  .lockmsg .inner{background:var(--ink);color:#fff;padding:18px 26px;font-family:var(--godic);
+    box-shadow:0 6px 22px rgba(0,0,0,.25);max-width:420px}
+  .lockmsg .inner b{display:block;font-weight:900;font-size:1.02rem;margin-bottom:6px;letter-spacing:-.02em}
+  .lockmsg .inner span{font-size:.8rem;line-height:1.65;color:#DDDAD1}
+
+  @media screen and (max-width:640px){
+    .sheet{padding:20px 16px;margin:0 auto}
+    .cover h1{font-size:2rem}
+    .cover .form{position:static;transform:none;margin-left:10px}
+    .cover .titlerow{flex-wrap:wrap;justify-content:center}
+    .runsub{flex-direction:column;gap:2px}
+    .ch.inline li{white-space:normal}
+  }
+
+  @media print{
+    html{font-size:12.6px}
+    body{background:#fff}
+    .lead{display:none!important}
+    .hud{display:none!important}
+    .card{display:none!important}
+    .lockmsg{display:none!important}
+    .badge{display:none!important}
+    .inlinesol{display:none!important}
+    .locked > .appx{filter:none!important}
+    ul.ch li.opt{border:0 none!important;background:none!important;border-radius:0!important;
+      cursor:auto!important;transition:none!important}
+    .hud{position:static!important}
+    .lockwrap{position:static!important}
+    .locked > .appx{filter:none!important;pointer-events:auto!important;user-select:auto!important}
+    ul.ch li .no{background:#fff!important;color:#55554F!important;border-color:#6E6E68!important}
+    .cover .dbl{margin-bottom:13px}
+    .cover h1{font-size:2.5rem}
+    .cover .titlerow{margin-bottom:15px;min-height:44px}
+    .cover .fields{margin-bottom:11px}
+    .runsub{margin-bottom:11px}
+    .part{margin:16px 0 8px;padding-top:7px}
+    .q{margin:14px 0 0;padding-bottom:13px}
+    .solq{margin-top:12px}
+    .appx{margin-top:0;border-top:none;padding-top:0}
+    .foot{margin-top:16px}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .solq{break-inside:avoid;page-break-inside:avoid}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    .part{break-after:avoid;page-break-after:avoid}
+
+    /* Ⅵ단원(9&middot;10번) 한 면 수용용 국소 압축 */
+    .tight-sec{margin:12px 0 5px}
+    .tight-zone .q{margin:9px 0 0;padding-bottom:8px}
+    .tight-zone .passage{padding:7px 9px;margin:7px 0}
+    .tight-zone .passage p{margin:3px 0}
+    .tight-zone .bogi{margin:7px 0;padding:7px 9px}
+    .tight-zone .bogi li,.tight-zone .bogi p{margin:2px 0}
+    .tight-zone .ex td,.tight-zone .ex th{padding:3px 5px;line-height:1.32}
+    .tight-zone table td,.tight-zone table th{padding:3px 5px;line-height:1.32}
+    .tight-zone .ch{margin-top:6px}
+    .tight-zone .ch li{margin:2px 0}
+    .tight-zone .ask{margin:6px 0 4px}
+    .tight-zone .code{margin-bottom:2px}
+    @page{size:A4;margin:14mm}
+  }
+</style>
+</head>
+<body>
+
+<div class="hud" id="hud">
+  <span class="clk" id="clk">20:00</span>
+  <span class="prg">
+    <span class="bar"><i id="bar"></i></span>
+    <span class="txt" id="ptxt">선택 0 / 10 문항</span>
+  </span>
+  <button class="go" id="btnGrade">채점하기</button>
+  <button id="btnSol" hidden>문항 해설 접기</button>
+  <button id="btnReset">다시 풀기</button>
+  <span class="st" id="st">선택지를 눌러 답을 고르세요</span>
+</div>
+
+
+<div class="sheet locked" id="sheet">
+  <div class="cover">
+    <div class="org">은또링쌤의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 기출 변형 문제지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">26학년도<br>9월 변형</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><span class="bl nm">&nbsp;</span></div>
+      <div class="fld"><span class="lb">학번</span><span class="bl cell">&nbsp;</span><span class="bl cell">&nbsp;</span><span class="bl cell">&nbsp;</span><span class="bl cell">&nbsp;</span></div>
+      <div class="fld"><span class="lb">점수</span><span class="bl" style="width:70px">&nbsp;</span></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>2026학년도 9월 모의평가 변형 &middot; 수능 출제 비중 반영 편성</span>
+    <span>10문항 &middot; 2점 4문항 / 3점 6문항 (26점) &middot; 제한 시간 20분</span>
+  </div>
+
+
+  <div class="lead">
+    <ul>
+      <li>이 문제지는 <b>2026학년도 9월 모의평가</b>의 출제 의도를 살려 소재와 선지를 <b>새로 구성한 변형 문항</b>입니다. 최근 기출 21회분의 <b>단원별 출제 비중</b>을 반영해 근로관계법 3문항 &middot; 사회보험 2문항 &middot; 노사관계 1문항으로 편성하였습니다. 각 문항 우측 상단에 원 기출 번호를 표기하였습니다.</li>
+      <li>원 기출의 <b>정답 위치와 정&middot;오선지를 의도적으로 반전</b>시켰습니다. 기출 문장을 통째로 외운 경우 오히려 틀리도록 설계되었습니다.</li>
+      <li>답은 문항 번호 옆 <b>○ 안에 표시</b>하십시오. 3점 문항은 문제 끝에 [3점]으로 표시되어 있습니다.</li>
+      <li>임금&middot;최저임금을 묻는 문항은 <b>2026년 최저임금 시간급 10,320원</b>(고용노동부 고시 제2025-47호)을 기준으로 판단하십시오.</li>
+      <li><b>화면에서는 자동 채점</b>됩니다. 선택지를 눌러 답을 고른 뒤 상단의 [채점하기]를 누르면 O&middot;X 표시와 총점&middot;단원별 정답률이 나옵니다. 채점 전에는 해설지가 잠겨 있습니다. 채점 후에는 <b>각 문항 바로 아래에 그 문항의 해설</b>이 펼쳐지며, 상단 [문항 해설 접기]로 숨길 수 있습니다. <b>인쇄하면 채점 화면은 모두 사라지고</b> 문제지 조판 그대로 출력됩니다.</li>
+    </ul>
+  </div>
+
+
+<section class="part">
+  <h2>Ⅰ. 직업 가치관과 생애 발달 <span class="rng">1번 &middot; 해비거스트 발달 과업</span></h2>
+</section>
+
+<article class="q" data-n="1">
+  <div class="code">2026학년도 9월 모의평가 11번 변형</div>
+  <p class="ask"><span class="badge"></span>1. 다음 엄마의 일기에 나타난 딸과 엄마의 생애 발달 단계별 발달 과업에 대한 설명으로 적절한 것만을 &#65308;보기&#65310;에서 고른 것은? <span class="cond">(단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.)의 이론에 근거한다.)</span></p>
+  <div class="passage">
+    <div class="ttl">엄마의 일기</div>
+    <ul>
+      <li>고등학교 3학년이 된 딸이 요즘 "나는 어떤 사람일까"를 자주 묻는다. 남들이 좋다는 학과가 아니라 내가 진짜 하고 싶은 일을 찾겠다며 밤늦게까지 직업 정보를 뒤진다. 엄마 말보다 친구들 이야기를 먼저 꺼내는 일도 부쩍 늘었다.</li>
+      <li>나는 서른네 살, 결혼 5년 차다. 첫아이를 키우면서 얼마 전부터 회사에서도 내 이름으로 된 업무를 맡기 시작했다. 남편과 집안일을 어떻게 나눌지, 아이를 어떻게 기를지 매일 의논하며 하나씩 배워 가는 중이다.</li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 딸이 속한 시기의 발달 과업에 '학습 습관 형성하기'가 포함된다.</p>
+    <p>ㄴ. 딸이 속한 시기의 발달 과업에 '자아 정체감 형성하기'가 포함된다.</p>
+    <p>ㄷ. 엄마가 속한 시기의 발달 과업에 '배우자와 함께 생활하는 방법 학습하기'가 포함된다.</p>
+    <p>ㄹ. 엄마가 속한 시기의 발달 과업에 '인생 철학 확립하기'가 포함된다.</p>
+  </div>
+  <ul class="ch inline">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></li>
+  </ul>
+</article>
+
+<section class="part">
+  <h2>Ⅱ. 산업과 기업 <span class="rng">2~3번 &middot; 회사의 종류 / 창업 자본의 구성</span></h2>
+</section>
+
+<article class="q" data-n="2">
+  <div class="code">2026학년도 9월 모의평가 9번 변형</div>
+  <p class="ask"><span class="badge"></span>2. 다음 사례에 나타난 기업 형태에 대한 설명으로 옳은 것만을 &#65308;보기&#65310;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p><b>A 기업</b>은 사원 2명 전원이 회사의 채무에 대하여 직접&middot;연대&middot;무한의 책임을 지는 회사이다. 정관에 다른 규정이 없음에 따라 각 사원이 회사를 대표하고 업무를 집행하며, 한 사원이 지분을 양도하려면 다른 사원 전원의 동의가 필요하다.</p>
+    <p><b>B 기업</b>은 사원이 인수한 주식의 인수 가액을 한도로 책임을 지는 회사로, 지난해 유가증권시장에 상장하여 자금을 조달하였다. 정관에 다른 규정이 없음에 따라 1주마다 1개의 의결권이 인정된다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. A 기업의 사원에 비해 B 기업의 사원은 지분 양도의 제약 조건이 적다.</p>
+    <p>ㄴ. A 기업은 인적 요소와 물적 요소가 혼합된 형태이다.</p>
+    <p>ㄷ. B 기업은 사원 총회로 회사의 중요한 사안을 결정한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">ㄱ</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">ㄴ</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></li>
+  </ul>
+</article>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-n="3">
+  <div class="code">2026학년도 9월 모의평가 20번 변형</div>
+  <p class="ask"><span class="badge"></span>3. 다음은 창업 사례 특강의 일부이다. 이를 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0;font-family:'Noto Sans KR',sans-serif;font-weight:700;text-align:center;margin-bottom:5px">청년 창업 사례 특강 &mdash; &#12300;수제 디저트 공방 창업기&#12301;</p>
+    <p>안녕하세요. 저희 두 사람은 제과제빵을 전공한 동기입니다. 프랜차이즈 가맹 제안도 받았지만, <b>저희 상호와 조리법으로 새로 시작하기로</b> 결정했습니다. 두 사람이 각각 <b>800만 원씩 출자</b>하고, 여기에 <b>은행에서 2,400만 원을 대출</b>받아 문을 열었습니다.</p>
+    <p>창업 초기 자금은 <b>조리 설비 구축에 1,800만 원</b>, <b>인건비&middot;재료 구입&middot;점포 임차료로 2,200만 원</b>을 배정했습니다. 두 사람 모두 지금까지 <b>직접 매장을 운영하며 경영을 맡고</b> 있습니다.</p>
+    <p>창업 1년 후에는 매출이 안정되어 <b>두 사람이 200만 원씩 추가로 출자</b>하고, <b>같은 시점에 은행 대출금 400만 원을 상환</b>하였습니다.</p>
+  </div>
+  <ul class="ch">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">창업 초기 '자기 자본' 총액은 4,000만 원이다.</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">용도에 따라 분류할 때 '시설 자금' 총액이 '운전 자금' 총액보다 많다.</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">기업의 소유 여부에 따라 분류할 때 두 사람은 '고용 경영자'에 해당한다.</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">두 사람은 계약을 통해 모기업의 명성과 조리법을 이용하는 방식으로 창업하였다.</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">창업 자본 총액 대비 '타인 자본'의 비율은 창업 1년 후가 창업 초기보다 10%p 낮다.</span></li>
+  </ul>
+</article>
+
+<section class="part">
+  <h2>Ⅲ. 취업 준비와 직무 능력 <span class="rng">4번 &middot; NCS 분류 &middot; 직업능력개발</span></h2>
+</section>
+
+<article class="q" data-n="4">
+  <div class="code">2026학년도 9월 모의평가 7번 변형</div>
+  <p class="ask"><span class="badge"></span>4. 다음 직무 능력 인증서를 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">직무 능력 인증서</div>
+    <p style="text-indent:0;text-align:right;font-family:'Noto Sans KR',sans-serif;font-size:.8rem">성명 : B</p>
+    <p style="text-indent:0">1. 위 사람은 &#12300;국민 평생 직업능력 개발법&#12301; 제26조에 따라 아래의 직무 능력을 갖추었음을 인정합니다. &nbsp;&nbsp;(중략)</p>
+    <p style="text-indent:0;margin-top:5px;font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:.8rem">&#9632; 자격</p>
+    <table class="ex">
+      <tr>
+        <th style="width:56px">취득<br>방법</th><th style="width:70px">자격명</th><th style="width:62px">발급<br>기관</th><th style="width:58px">취득<br>일자</th>
+        <th>국가직무능력표준 분류</th><th style="width:96px">능력단위명</th>
+      </tr>
+      <tr>
+        <td class="k">검정형<br>자격</td><td class="k">전산회계<br>운용사 2급</td><td class="k">대한상공<br>회의소</td><td class="k">2025.<br>5. 16.</td>
+        <td style="font-size:.77rem">02.경영&middot;회계&middot;사무 &gt; 03.재무&middot;회계<br>&gt; 02.회계 &gt; 01.회계&middot;감사</td>
+        <td style="font-size:.77rem">전표 관리<br>(0203020101_23v5)</td>
+      </tr>
+    </table>
+    <p style="text-indent:0;margin-top:5px;font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:.8rem">&#9632; 훈련</p>
+    <table class="ex">
+      <tr>
+        <th style="width:66px">훈련 유형</th><th style="width:70px">과정명</th><th style="width:72px">훈련 기관</th><th>훈련 기간</th>
+        <th style="width:44px">분류</th><th style="width:58px">능력단위명</th>
+      </tr>
+      <tr>
+        <td class="k">국민내일<br>배움카드</td><td class="k">재무회계<br>실무</td><td class="k">&#9675;&#9675;직업<br>전문학교</td>
+        <td style="text-align:center;font-size:.78rem">2025. &times;&times;. &times;&times;. ~ 2025. &times;&times;. &times;&times;.</td>
+        <td style="text-align:center">&ndash;</td><td style="text-align:center">&ndash;</td>
+      </tr>
+    </table>
+  </div>
+  <ul class="ch">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">'02.회계'는 NCS 분류 체계 중 세분류에 해당한다.</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">NCS 능력단위의 교육 훈련을 위한 교수&middot;학습 자료가 함께 제시되어 있다.</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">B가 취득한 자격에서 직무를 구성하는 기본 단위는 2023년에 개발&middot;개선되었다.</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">B가 이용한 훈련 유형은 훈련 비용 전액을 훈련생 본인이 부담하는 제도이다.</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">B가 취득한 자격은 과정평가형 자격에 해당한다.</span></li>
+  </ul>
+</article>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part">
+  <h2>Ⅳ. 근로관계와 법 <span class="rng">5~7번 &middot; 연소근로자 / 임금&middot;퇴직금 / 해고의 절차</span></h2>
+</section>
+
+<article class="q" data-n="5">
+  <div class="code">2026학년도 9월 모의평가 3번 변형</div>
+  <p class="ask"><span class="badge"></span>5. 다음 구직 관련 대화를 통해 알 수 있는 내용으로 옳은 것은? <span class="cond">(단, &#12300;근로기준법&#12301;에 따른다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">&#9675;&#9675;카페 구인 상담 대화</div>
+    <table class="ex">
+      <tr><td class="k">B</td><td>안녕하세요? 저는 고등학교에 재학 중인 <b>16세</b> 학생 B입니다. &#9675;&#9675;카페 구인 공고를 보고 문의드립니다.</td></tr>
+      <tr><td class="k">점장</td><td>&#9675;&#9675;카페 점장입니다. 해야 할 업무는 음료를 만들고 매장을 정리하는 일입니다. 근무는 <b>월요일~금요일 매일 18시부터 24시까지</b>이고, 시급은 <b>11,000원</b>입니다.</td></tr>
+      <tr><td class="k">B</td><td>휴게시간과 주휴일은 어떻게 되나요?</td></tr>
+      <tr><td class="k">점장</td><td>근무 도중 <b>20시 30분부터 30분간</b>이 휴게시간입니다. 주휴일은 일요일이고, 토요일 근무와 휴일 근무는 없습니다.</td></tr>
+      <tr><td class="k">B</td><td>제출해야 할 서류는 무엇인가요?</td></tr>
+      <tr><td class="k">점장</td><td>관련 법에 따라 &nbsp;<span style="border:1px solid #111;padding:1px 12px">(가)</span>&nbsp; 가 필요합니다.</td></tr>
+    </table>
+  </div>
+  <ul class="ch">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">B의 부모는 B를 대리하여 근로 계약을 체결할 수 있다.</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">(가)에 해당되는 서류에 '취직인허증'이 포함된다.</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">B가 고용될 경우, B의 1주 소정근로시간은 연소자의 법정 근로시간 한도를 초과한다.</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">B가 고용될 경우, 사용자는 B에게 하루에 1시간 이상의 휴게시간을 근로시간 도중에 제공해야 한다.</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">B가 고용될 경우, 제시된 근무 시간대에는 B의 동의와 고용노동부 장관의 인가가 필요한 근로가 포함되어 있다.</span></li>
+  </ul>
+</article>
+
+<article class="q" data-n="6">
+  <div class="code">2026학년도 9월 모의평가 16번 변형</div>
+  <p class="ask"><span class="badge"></span>6. 다음 C 씨의 근로관계를 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>C 씨(여, 31세)는 &#12300;근로기준법&#12301;의 적용을 받는 &#9675;&#9675;물류(<b>상시 근로자 12명</b>)에 고용되어 아래와 같은 조건으로 지각, 조퇴, 결근 없이 근로하였다. 그런데 사용자는 2026년 2월 초 <b>서면 통지 없이 구두로만</b> 해고를 통보하였고, C 씨는 2026년 3월 31일까지 근무한 후 해고되었다. C 씨는 <b>별도의 합의 없이</b> 2026년 4월 27일에 퇴직금 전액을 지급받았다.</p>
+    <table class="ex">
+      <tr><td class="k">근로 계약 기간</td><td>2024. 4. 1. &sim; 2027. 3. 31.</td></tr>
+      <tr><td class="k">시급</td><td>12,000원</td></tr>
+      <tr><td class="k">소정근로시간</td><td>14시&sim;21시(휴게시간 18시&sim;19시)</td></tr>
+      <tr><td class="k">근무일/주휴일</td><td>매주 월&sim;금요일 / 주휴일 매주 일요일</td></tr>
+      <tr><td class="k">퇴직 전 3개월<br>(총일수 90일)<br>근무 상황</td><td>소정근로시간에만 근로하고, 무급휴일은 12일이며, 나머지 일수는 소정근로일 또는 유급휴일에 해당함.</td></tr>
+    </table>
+  </div>
+  <ul class="ch">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">C 씨의 퇴직금은 최소 187만 2천 원이다.</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">C 씨의 주휴수당은 매주 8만 4천 원 이상이다.</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">&#9675;&#9675;물류의 사용자는 C 씨에게 야간근로에 대한 가산 수당을 지급하여야 한다.</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">C 씨의 사례는 근로자의 권익 침해 중 부당해고와 임금체불에 모두 해당한다.</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">사용자가 30일 전에 해고를 예고하였으므로 해고의 효력이 인정된다.</span></li>
+  </ul>
+</article>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<article class="q" data-n="7">
+  <div class="code">2026학년도 9월 모의평가 16번 변형</div>
+  <p class="ask"><span class="badge"></span>7. 다음 두 사업장의 해고 사례에 대한 분석으로 옳은 것만을 &#65308;보기&#65310;에서 있는 대로 고른 것은? <span class="cond">(단, 두 사업장은 &#12300;근로기준법&#12301;의 적용을 받으며, 근로자는 모두 3년 이상 계속 근로하였다.)</span></p>
+  <div class="passage">
+    <table class="ex">
+      <tr><th style="width:88px">사업장</th><th>해고 상황</th></tr>
+      <tr><td class="k">&#9675;&#9675;마트<br>(상시 근로자 <b>3명</b>)</td><td>사용자가 D 씨에게 <b>해고일 30일 전에 구두로 해고를 예고</b>하였고, 예고한 날에 해고하였다. 해고의 정당한 이유는 제시되지 않았다.</td></tr>
+      <tr><td class="k">&#9675;&#9675;물류<br>(상시 근로자 <b>20명</b>)</td><td>사용자가 E 씨에게 <b>해고 사유와 해고 시기를 적은 문서를 주지 않고</b>, 해고일 <b>15일 전에 구두로만</b> 해고를 통보하였다.</td></tr>
+    </table>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. D 씨는 해고의 정당한 이유가 없다는 것을 근거로 부당해고 구제 신청을 할 수 있다.</p>
+    <p>ㄴ. E 씨에 대한 해고는 서면 통지 요건을 갖추지 못하였으므로 효력이 없다.</p>
+    <p>ㄷ. &#9675;&#9675;물류의 사용자는 E 씨에게 해고 예고 수당을 지급하여야 한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">ㄱ</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">ㄷ</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></li>
+  </ul>
+</article>
+
+<section class="part">
+  <h2>Ⅴ. 협력적인 노사관계 <span class="rng">8번 &middot; 노동쟁의의 조정</span></h2>
+</section>
+
+<article class="q" data-n="8">
+  <div class="code">2026학년도 9월 모의평가 6번 변형</div>
+  <p class="ask"><span class="badge"></span>8. 다음 노동쟁의 관련 수행 평가 보고서를 분석한 내용으로 옳은 것만을 &#65308;보기&#65310;에서 있는 대로 고른 것은? <span class="cond">(단, &#9675;&#9675;전자는 &#12300;노동조합 및 노동관계조정법&#12301;상 공익사업에 해당하지 않는다.)</span></p>
+  <div class="passage">
+    <p style="text-indent:0;font-family:'Noto Sans KR',sans-serif;font-weight:700;text-align:center;margin-bottom:5px">수행 평가 보고서</p>
+    <table class="ex">
+      <tr><td class="k">주제</td><td>&#9675;&#9675;전자의 노동쟁의 조정 사례 (작성자 : A)</td></tr>
+      <tr><td class="k">7월 24일</td><td>임금 협상을 위한 단체교섭이 네 차례에 걸쳐 진행되었으나 결렬됨.</td></tr>
+      <tr><td class="k">8월 12일</td><td><b>노동조합이 단독으로</b> 노동위원회에 조정을 신청하였고, 즉시 조정에 회부됨.</td></tr>
+      <tr><td class="k">8월 21일</td><td>조정위원회가 조정안을 제시하였으나 <b>사용자가 이를 거부</b>하여 조정이 성립되지 않음.</td></tr>
+      <tr><td class="k">8월 24일</td><td>노동조합이 <b>조합원의 직접&middot;비밀&middot;무기명 투표에 의한 과반수 찬성</b>으로 쟁의 행위를 개시함.</td></tr>
+    </table>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 8월 24일에 개시된 쟁의 행위는 조정 절차를 거쳤으므로 적법하다.</p>
+    <p>ㄴ. 8월 12일의 조정 신청은 노동조합과 사용자가 공동으로 하여야 적법하다.</p>
+    <p>ㄷ. 8월 21일에 제시된 조정안은 노동조합이 수락하면 사용자의 수락 여부와 상관없이 단체협약과 동일한 효력을 갖는다.</p>
+  </div>
+  <ul class="ch inline">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">ㄱ</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">ㄴ</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></li>
+  </ul>
+</article>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<div class="tight-zone">
+<section class="part tight-sec">
+  <h2>Ⅵ. 사회 보험과 업무상 재해 <span class="rng">9~10번 &middot; 실업급여의 종류 / 요양&middot;휴업&middot;장해급여</span></h2>
+</section>
+
+<article class="q" data-n="9">
+  <div class="code">2026학년도 9월 모의평가 4번 변형</div>
+  <p class="ask"><span class="badge"></span>9. 다음은 고용보험 질의응답 게시판이다. 이에 대한 분석 내용으로 옳은 것만을 &#65308;보기&#65310;에서 있는 대로 고른 것은?</p>
+  <div class="passage">
+    <div class="ttl">고용보험 질의응답 게시판</div>
+    <table class="ex">
+      <tr><th style="text-align:left;width:96px">질문자 : A</th><th style="text-align:right">작성일 : 2026년 8월 3일</th></tr>
+      <tr><td colspan="2">저는 <b>구직급여를 받고 있는 수급자격자</b>입니다. 소정급여일수 180일 중 <b>100일이 남은 상태</b>에서 오늘 새 회사에 취업하여 <b>12개월 이상 계속</b> 일할 예정입니다. 지금 신청할 수 있는 급여가 있는지 알고 싶습니다.</td></tr>
+      <tr><td class="k">&#8627; 상담사 답변</td><td style="text-align:center">(가)</td></tr>
+      <tr><th style="text-align:left;border-top:2px solid #111">질문자 : B</th><th style="text-align:right;border-top:2px solid #111">작성일 : 2026년 8월 3일</th></tr>
+      <tr><td colspan="2">저는 &#9675;&#9675;고용센터장의 지시에 따라 <b>직업능력개발 훈련을 받고 있는 수급자격자</b>입니다. 훈련 기관을 오가는 교통비 부담이 큰데, 구직급여 외에 받을 수 있는 급여가 있는지 궁금합니다.</td></tr>
+      <tr><td class="k">&#8627; 상담사 답변</td><td style="text-align:center">(나)</td></tr>
+    </table>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. (가)에는 '조기재취업 수당 수급이 가능합니다.'가 들어갈 수 있다.</p>
+    <p>ㄴ. (나)에는 '상병 급여 수급이 가능합니다.'가 들어갈 수 있다.</p>
+    <p>ㄷ. A, B가 신청하여 받을 수 있는 급여는 모두 실업급여 중 구직급여에 해당한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">ㄱ</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">ㄴ</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></li>
+  </ul>
+</article>
+
+<article class="q" data-n="10">
+  <div class="code">2026학년도 9월 모의평가 12번 변형</div>
+  <p class="ask"><span class="badge"></span>10. 다음은 '업무상의 재해' 관련 수업 활동 자료이다. 활동 결과에 대한 설명으로 옳은 것은? <span class="cond">(단, 수업 활동은 &#12300;산업재해보상보험법&#12301;에 따라 올바르게 수행되었다고 가정한다.)</span> <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0;font-family:'Noto Sans KR',sans-serif;font-weight:700;text-align:center;margin-bottom:5px">'업무상의 재해' 관련 수업 활동</p>
+    <p style="text-indent:0">&#8228; 아래 <b>규칙</b>을 D~F 씨의 사례에 각각 적용하여 해당하는 스티커를 (가)~(다)에 붙이세요.</p>
+    <p style="text-indent:0;border:1px solid #A5A5A0;background:#F6F6F3;padding:4px 9px;margin:4px 0 0;font-size:.82rem;line-height:1.5">
+      업무상 사고 &rarr; <b>빨강</b> 1개 &nbsp;&middot;&nbsp; 요양급여 &rarr; <b>파랑</b> 1개 &nbsp;&middot;&nbsp; 휴업급여 &rarr; <b>노랑</b> 1개 &nbsp;&middot;&nbsp; 장해급여 &rarr; <b>초록</b> 1개 (수급 가능한 경우)
+    </p>
+    <table class="ex">
+      <tr><th style="width:56px">피보험자</th><th>&#8228; '업무상의 재해' 인정 사례</th><th style="width:58px">스티커 판</th></tr>
+      <tr><td class="k">D 씨</td><td>사업주가 주관한 워크숍에서 등산 중 넘어져 <b>5일간 통원 치료</b>를 받음. 치료 기간 중에도 근무하여 임금을 전액 받았고, 장해 없이 치유됨.</td><td class="k">(가)</td></tr>
+      <tr><td class="k">E 씨</td><td>자기 소유 승용차로 <b>통상적인 경로와 방법으로 퇴근 중</b> 교통사고가 발생하여 <b>10일간 입원 치료</b>를 받음. 입원 기간 중 취업하지 못하여 임금을 받지 못하였고, 장해 없이 치유됨.</td><td class="k">(나)</td></tr>
+      <tr><td class="k">F 씨</td><td>프레스 <b>작업 중</b> 손가락이 절단되어 <b>3주간 입원 치료</b>를 받음. 입원 기간 중 취업하지 못하여 임금을 받지 못하였고, 치유 후 <b>장해 10급</b> 판정을 받음.</td><td class="k">(다)</td></tr>
+    </table>
+  </div>
+  <ul class="ch">
+    <li class="opt" data-c="1"><span class="no">1</span><span class="tx">(가)에는 총 3개의 스티커가 붙어 있다.</span></li>
+    <li class="opt" data-c="2"><span class="no">2</span><span class="tx">초록 스티커는 (다)에만 붙어 있다.</span></li>
+    <li class="opt" data-c="3"><span class="no">3</span><span class="tx">(나)에는 빨강 스티커와 파랑 스티커가 붙어 있다.</span></li>
+    <li class="opt" data-c="4"><span class="no">4</span><span class="tx">(가)~(다)에 붙여진 스티커는 총 7개이다.</span></li>
+    <li class="opt" data-c="5"><span class="no">5</span><span class="tx">(가)~(다) 전체에서 노랑 스티커가 가장 많이 붙어 있다.</span></li>
+  </ul>
+</article>
+
+<div style="margin-top:9px;text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:.78rem;color:#333">
+  &#9702; 답안 표기가 끝났는지 확인하시오. &nbsp;&#9702; 3점 문항([3점])의 표기 누락에 주의하시오.
+</div>
+</div><!-- /tight-zone -->
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="card" id="card">
+  <div class="top">
+    <span class="ttl">채점 결과</span>
+    <span class="st" id="cst" style="font-size:.76rem;opacity:.8"></span>
+    <span class="sc"><span id="sc">0</span><small> / 26점</small></span>
+  </div>
+  <div class="body">
+    <div class="rate" id="crate"></div>
+    <table class="ur">
+      <tr><th style="width:34%">단원</th><th style="width:74px">맞힌 문항</th><th>정답률</th></tr>
+      <tbody id="ubody"></tbody>
+    </table>
+    <div class="tip" id="ctip"></div>
+  </div>
+</div>
+
+
+<div class="pagemark"><div class="pgend">- 6 -</div><div class="pgcut"></div></div>
+<div class="lockwrap" id="lockwrap">
+<div class="lockmsg"><div class="inner"><b>해설지는 채점 후에 열립니다</b><span>10문항을 모두 고르고 상단의 [채점하기]를 누르면 정답과 해설이 공개됩니다. 인쇄할 때는 잠금과 무관하게 해설지가 그대로 출력됩니다.</span></div></div>
+<section class="appx">
+  <div class="pghead" style="margin-top:0"><span class="l">정답과 해설</span><span class="r">2026학년도 9월 모의평가 변형 10문항</span></div>
+
+  <h2>［1］ 정답표</h2>
+  <table class="ans">
+    <tr><th style="width:44px">번호</th><th style="width:118px">원 기출</th><th style="width:48px">정답</th><th style="width:44px">배점</th><th>핵심 개념</th></tr>
+    <tr><td>1</td><td>26학년도 9월 11번</td><td class="a">&#9314;</td><td>2</td><td class="l">해비거스트 &mdash; 청소년기&middot;성년기 발달 과업</td></tr>
+    <tr><td>2</td><td>26학년도 9월 9번</td><td class="a">&#9312;</td><td>3</td><td class="l">합명회사(인적 회사) &middot; 주식회사 &middot; 지분 양도 제약</td></tr>
+    <tr><td>3</td><td>26학년도 9월 20번</td><td class="a">&#9317;</td><td>3</td><td class="l">자기&middot;타인 자본 &middot; 시설&middot;운전 자금 &middot; 소유 경영자</td></tr>
+    <tr><td>4</td><td>26학년도 9월 7번</td><td class="a">&#9314;</td><td>3</td><td class="l">NCS 분류 4단계 &middot; 분류번호 해독 &middot; 국민내일배움카드</td></tr>
+    <tr><td>5</td><td>26학년도 9월 3번</td><td class="a">&#9316;</td><td>3</td><td class="l">연소자 야간근로 &middot; 1주 35시간 &middot; 휴게시간 &middot; 대리 금지</td></tr>
+    <tr><td>6</td><td>26학년도 9월 16번</td><td class="a">&#9315;</td><td>3</td><td class="l">평균임금&middot;퇴직금 계산 &middot; 서면 통지 &middot; 부당해고&middot;임금체불</td></tr>
+    <tr><td>7</td><td>26학년도 9월 16번</td><td class="a">&#9315;</td><td>2</td><td class="l">5인 미만 적용 제외 &middot; 해고 서면 통지 &middot; 해고 예고 수당</td></tr>
+    <tr><td>8</td><td>26학년도 9월 6번</td><td class="a">&#9312;</td><td>2</td><td class="l">조정의 전치 &middot; 조정 기간 10일 &middot; 조정안의 효력</td></tr>
+    <tr><td>9</td><td>26학년도 9월 4번</td><td class="a">&#9312;</td><td>2</td><td class="l">조기재취업 수당 &middot; 직업능력개발 수당 &middot; 취업촉진수당</td></tr>
+    <tr><td>10</td><td>26학년도 9월 12번</td><td class="a">&#9313;</td><td>3</td><td class="l">업무상 사고 &middot; 출퇴근 재해 &middot; 요양&middot;휴업&middot;장해급여</td></tr>
+  </table>
+  <div class="exnote" style="margin-top:10px">배점 합계 <b>26점</b> (2점 4문항 &middot; 3점 6문항). 수능 출제 비중을 반영해 <b>근로관계법 3문항 &middot; 사회보험 2문항 &middot; 노사관계 1문항</b>으로 편성하였다. 원 기출의 <b>출제 의도는 유지</b>하고 소재&middot;선지&middot;정답 위치를 새로 구성하였으며, 각 해설 끝에 <b>［변형］</b>으로 달라진 지점을 표시하였다.
+  </div>
+
+  <h2 style="margin-top:22px">［2］ 문항별 해설</h2>
+
+  <div class="solq" data-n="1">
+    <p class="qt">1. 생애 발달 단계와 발달 과업</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9314;</span><span class="via">ㄴ, ㄷ</span></div>
+      <div class="link">연계 &mdash; 생애 발달 단계 / 해비거스트의 발달 과업</div>
+      <p><span class="lab">해설</span>딸은 <b>고등학교 3학년</b>으로 "나는 어떤 사람일까"를 묻고 또래 관계의 비중이 커졌으므로 <b>청소년기</b>, 엄마는 <b>결혼 5년 차&middot;첫아이 양육&middot;직업 생활 시작</b>이므로 <b>성년기</b>다. ㄴ <b>자아 정체감 형성하기</b>는 청소년기의 발달 과업이다. ㄷ <b>배우자와 함께 생활하는 방법 학습하기</b>는 성년기의 발달 과업이다.</p>
+      <ul>
+        <li><span class="x">ㄱ.</span> <b>학습 습관 형성하기</b>는 <b>아동기</b>의 발달 과업이다.</li>
+        <li><span class="x">ㄹ.</span> <b>인생 철학 확립하기</b>는 <b>중년기</b>의 발달 과업이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>나이 숫자(고3, 34세)만 보고 단계를 고르면 흔들린다. <span class="hl">서술된 과업 내용으로 판단한다.</span> <b>정체감&middot;또래&middot;진로 탐색 &rarr; 청소년기</b> / <b>배우자&middot;자녀 양육&middot;직업 생활 시작 &rarr; 성년기</b> / <b>경력 관리&middot;퇴직 대비&middot;인생 철학&middot;생리적 변화 적응 &rarr; 중년기</b> / <b>체력 쇠퇴&middot;은퇴&middot;배우자 사별 적응 &rarr; 노년기</b>로 정리해 둔다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 11번은 <b>아동기(아들)+중년기(아빠)</b> 조합이었다. 변형은 각각 <b>인접 단계인 청소년기+성년기</b>로 축을 옮기고, 원 기출에서 <b>오선지였던 '자아 정체감 형성하기'를 정선지로 전환</b>하였다. 원 기출의 정선지 두 개('학습 습관', '인생 철학')는 그대로 오선지 자리에 남겼다.</div>
+    </div>
+  </div>
+
+  <div class="pagemark"><div class="pgend">- 7 -</div><div class="pgcut"></div></div>
+  <div class="pghead"><span class="l">정답과 해설</span><span class="r">성공적인 직업생활</span></div>
+
+  <div class="solq" data-n="2">
+    <p class="qt">2. 회사의 종류</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9312;</span><span class="via">ㄱ</span></div>
+      <div class="link">연계 &mdash; 기업의 형태 / 인적 회사 &middot; 물적 회사</div>
+      <p><span class="lab">해설</span>A 기업은 사원 전원이 <b>직접&middot;연대&middot;무한 책임</b>을 지고 <b>각 사원이 대표&middot;업무집행권</b>을 가지므로 <b>합명회사</b>, B 기업은 <b>인수 가액 한도의 책임</b>&middot;<b>상장</b>&middot;<b>1주 1의결권</b>이므로 <b>주식회사</b>다. ㄱ 합명회사 사원의 지분 양도에는 <b>다른 사원 전원의 동의</b>가 필요하지만 주식회사의 주식은 <b>원칙적으로 자유롭게 양도</b>할 수 있으므로 제약 조건이 적다.</p>
+      <ul>
+        <li><span class="x">ㄴ.</span> <b>인적 요소와 물적 요소가 혼합된 형태</b>는 무한책임사원과 유한책임사원으로 구성되는 <b>합자회사</b>다. 합명회사는 사원의 인적 신용을 기초로 하는 <b>순수한 인적 회사</b>다.</li>
+        <li><span class="x">ㄷ.</span> 주식회사의 최고 의사 결정 기관은 <b>주주총회</b>다. <b>사원 총회</b>는 유한회사의 의사 결정 기관이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">합명회사와 합자회사의 1차 판별 기준은 "유한책임사원이 있는가"다.</span> 무한책임사원만 있으면 <b>합명</b>, 무한 + 유한이 섞이면 <b>합자</b>다. 의사 결정 기관도 <b>주식회사 &rarr; 주주총회 / 유한회사 &rarr; 사원 총회</b>로 갈리고, 지분 양도는 <b>합명&middot;합자 &rarr; 사원의 동의 필요 / 주식회사 &rarr; 원칙적 자유 / 유한회사 &rarr; 원칙적 자유(정관으로 제한 가능)</b>로 정리한다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 9번은 <b>합자회사 + 유한회사</b> 조합으로 ㄱ&middot;ㄴ&middot;ㄷ이 <b>모두 정선지</b>였다. 변형은 인접 개념인 <b>합명회사 + 주식회사</b>로 축을 옮겨, 원 기출의 정선지 문장인 '<b>혼합된 형태</b>'와 '<b>사원 총회</b>'를 <b>그대로 오선지</b>로 만들었다. 문장을 통째로 외운 학생이 정확히 걸리는 구조다.</div>
+    </div>
+  </div>
+
+  <div class="solq" data-n="3">
+    <p class="qt">3. 창업 자본의 구성 &mdash; 자기 자본 &middot; 타인 자본</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9317;</span><span class="via">60% &rarr; 50%</span></div>
+      <div class="link">연계 &mdash; 창업과 기업의 형태 / 창업 자본의 조달과 용도</div>
+      <p><span class="lab">해설</span>먼저 <b>출처(자기&middot;타인)</b>와 <b>용도(시설&middot;운전)</b>를 갈라 표로 정리해야 한다.</p>
+      <table class="ex">
+        <tr><th style="width:104px">구분</th><th style="width:150px">창업 초기</th><th>창업 1년 후</th></tr>
+        <tr><td class="k">자기 자본</td><td>800만 &times; 2명 = <b>1,600만 원</b></td><td>1,600만 + (200만 &times; 2명) = <b>2,000만 원</b></td></tr>
+        <tr><td class="k">타인 자본</td><td>은행 대출 <b>2,400만 원</b></td><td>2,400만 &minus; 400만 = <b>2,000만 원</b></td></tr>
+        <tr><td class="k">창업 자본 총액</td><td><b>4,000만 원</b></td><td><b>4,000만 원</b></td></tr>
+        <tr><td class="k">타인 자본 비율</td><td>2,400 &divide; 4,000 = <b>60%</b></td><td>2,000 &divide; 4,000 = <b>50%</b></td></tr>
+      </table>
+      <p>추가 출자액(400만 원)과 대출 상환액(400만 원)이 같아 <b>총액은 4,000만 원으로 변하지 않는다.</b> 따라서 타인 자본 비율만 <b>60% &rarr; 50%</b>로 <b>10%p 낮아지므로</b> &#9317;가 옳다.</p>
+      <ul>
+        <li><span class="x">&#9312;</span> 4,000만 원은 <b>창업 자본 총액</b>이다. 창업 초기 <b>자기 자본은 1,600만 원</b>(두 사람의 출자액 합계)이다.</li>
+        <li><span class="x">&#9313;</span> 시설 자금은 조리 설비 <b>1,800만 원</b>, 운전 자금은 인건비&middot;재료&middot;임차료 <b>2,200만 원</b>이므로 <b>운전 자금이 더 많다.</b></li>
+        <li><span class="x">&#9314;</span> 두 사람은 <b>직접 출자하고 스스로 경영</b>하므로 <b>소유 경영자</b>다. 고용 경영자는 소유와 경영이 분리되어 <b>고용된</b> 전문 경영자를 말한다.</li>
+        <li><span class="x">&#9315;</span> 특강에서 <b>가맹 제안을 거절하고 자기 상호&middot;조리법으로 시작</b>했다고 밝혔으므로 <b>프랜차이즈가 아닌 독립&middot;신규 창업</b>이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">'자기 자본'과 '창업 자본 총액'을 바꿔 읽는 것이 이 유형의 1번 실수다.</span> 자기 자본 = 출자액, 타인 자본 = 차입금, 둘의 합 = 창업 자본 총액이다. 여기에 <b>용도별 분류(시설&middot;운전)는 총액을 다시 쪼갠 것</b>이므로 <b>시설 + 운전 = 창업 자본 총액</b>이 되는지 검산하면 자료 오독을 스스로 잡을 수 있다(1,800 + 2,200 = 4,000).</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 20번은 정답이 <b>&#9315;(20%p 감소)</b>였다. 변형은 <b>수치를 전면 교체해 정답값을 10%p로 바꾸고</b> 정답 위치를 &#9317;로 옮겼다. 또 원 기출에서 '시설 = 운전(같은 금액)'이던 관계를 <b>'운전 &gt; 시설'로 반전</b>시켜, 선지 문장만 외운 학생이 근거 없이 정답을 맞히지 못하게 했다.</div>
+    </div>
+  </div>
+
+  <div class="pagemark"><div class="pgend">- 8 -</div><div class="pgcut"></div></div>
+  <div class="pghead"><span class="l">정답과 해설</span><span class="r">성공적인 직업생활</span></div>
+
+  <div class="solq" data-n="4">
+    <p class="qt">4. 국가직무능력표준(NCS)과 직업능력개발</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9314;</span><span class="via">능력단위 개발&middot;개선 연도</span></div>
+      <div class="link">연계 &mdash; NCS 분류 체계 &middot; 분류번호 / 자격 제도 &middot; 직업능력개발 훈련</div>
+      <p><span class="lab">해설</span>분류번호 <b>0203020101_23v5</b>는 <b>2자리씩 대분류(02)&middot;중분류(03)&middot;소분류(02)&middot;세분류(01)&middot;능력단위(01)</b>, 밑줄 뒤 <b>23은 개발&middot;개선 연도(2023년)</b>, <b>v5는 버전</b>을 뜻한다. <b>직무를 구성하는 기본 단위는 능력단위</b>이므로, B가 취득한 자격의 능력단위('전표 관리')는 2023년에 개발&middot;개선된 것이다.</p>
+      <ul>
+        <li><span class="x">&#9312;</span> 분류는 <b>대 &rarr; 중 &rarr; 소 &rarr; 세분류</b> 순이므로 '02.경영&middot;회계&middot;사무'(대), '03.재무&middot;회계'(중), <b>'02.회계'는 소분류</b>, '01.회계&middot;감사'가 세분류다.</li>
+        <li><span class="x">&#9313;</span> 능력단위의 교육 훈련을 위한 교수&middot;학습 자료는 <b>학습 모듈</b>이며, 인증서에 제시되어 있지 않다.</li>
+        <li><span class="x">&#9315;</span> <b>국민내일배움카드</b>는 <b>국가가 직업능력개발 훈련비를 지원</b>하는 제도다(일부 자비 부담).</li>
+        <li><span class="x">&#9316;</span> 인증서에 <b>검정형 자격</b>으로 표기되어 있다. <b>과정평가형 자격</b>은 지정된 교육&middot;훈련 과정을 이수한 뒤 내부&middot;외부 평가를 거쳐 취득하는 방식이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">자격 '취득 일자'와 능력단위 '개발&middot;개선 연도'를 섞으면 틀린다.</span> 취득 일자는 2025. 5. 16.이지만 분류번호가 알려 주는 연도는 <b>2023년</b>이다. 또 인증서에 <b>분류(체계)와 능력단위명</b>만 있으면 학습 모듈은 제시된 것이 아니다. NCS 위계는 <b>능력단위 &rarr; 능력단위요소 &rarr; 수행준거</b> 순으로 함께 정리해 둔다.</div>
+      <div class="vari"><span class="lab v">변형</span>소재를 원 기출의 <b>화훼장식(농림어업) &rarr; 회계(경영&middot;회계&middot;사무)</b>로 교체하고, 원 기출에서 <b>오선지였던 '능력단위 개발 연도'를 정선지로 전환</b>하였다. 국민내일배움카드도 원 기출의 '학년 요건' 대신 <b>훈련비 부담 주체</b>를 묻는 방향으로 함정을 바꿨다.</div>
+    </div>
+  </div>
+
+  <div class="solq" data-n="5">
+    <p class="qt">5. 연소근로자의 보호</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9316;</span><span class="via">야간근로 &mdash; 동의 + 장관 인가</span></div>
+      <div class="link">연계 &mdash; 근로관계와 법 / 미성년자&middot;연소근로자의 근로 보호</div>
+      <p><span class="lab">해설</span>B는 <b>16세 연소근로자</b>다. 근무 시간이 <b>18시&sim;24시</b>이므로 야간근로 시간대(<b>오후 10시&sim;다음 날 오전 6시</b>)에 2시간이 포함된다. 18세 미만인 사람의 야간근로는 <b>본인의 동의</b>와 <b>고용노동부 장관의 인가</b>가 모두 있어야 하므로 &#9316;가 옳다. <span style="font-size:.78rem;color:#666">［법령 보충］ 「근로기준법」 제70조 제2항</span></p>
+      <ul>
+        <li><span class="x">&#9312;</span> 친권자&middot;후견인은 <b>미성년자의 근로 계약을 대리할 수 없다</b>(제67조 제1항).</li>
+        <li><span class="x">&#9313;</span> <b>취직인허증</b>은 15세 미만인 사람(중학교 재학 중인 18세 미만 포함)에게 필요하다. 고등학교 재학 중인 16세 B에게 필요한 (가)는 <b>연령을 증명하는 가족관계 기록 사항에 관한 증명서</b>와 <b>친권자 또는 후견인의 동의서</b>다.</li>
+        <li><span class="x">&#9314;</span> 1일 소정근로시간은 휴게시간 30분을 뺀 <b>5시간 30분</b>이므로 1주 <b>27시간 30분</b>이다. 연소자의 법정 근로시간 한도인 <b>1일 7시간&middot;1주 35시간</b>을 넘지 않는다.</li>
+        <li><span class="x">&#9315;</span> 근로시간이 <b>4시간 이상 8시간 미만</b>이므로 <b>30분 이상</b>의 휴게시간을 주면 된다. 1시간 이상은 8시간 이상 근로 시의 기준이다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>원 기출은 <b>휴일근로</b>였고 이 문항은 <b>야간근로</b>다. <span class="hl">판별 기준은 시각이다. 22시&sim;06시에 근로가 걸치면 야간근로다.</span> 연소자와 산후 1년 미만 여성은 <b>동의 + 장관 인가</b>, 임신 중인 여성은 <b>명시적 청구 + 장관 인가</b>가 필요하다. 연소자 근로시간은 <b>1일 7시간&middot;1주 35시간</b>이고 합의 시 <b>1일 1시간&middot;1주 5시간</b>까지 연장되어 최장 <b>1주 40시간</b>이다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 3번의 "2주마다 토요일 오전 근무"라는 <b>휴일근로 함정을 적법한 조건으로 고치고</b>, 종료 시각을 24시로 늘려 <b>야간근로 함정을 새로 이식</b>하였다. 시급도 최저임금을 넉넉히 충족하도록 조정해 임금 논점을 제거하고, 대신 <b>휴게시간&middot;주 근로시간 한도</b>를 오선지로 배치했다.</div>
+    </div>
+  </div>
+
+  <div class="pagemark"><div class="pgend">- 9 -</div><div class="pgcut"></div></div>
+  <div class="pghead"><span class="l">정답과 해설</span><span class="r">성공적인 직업생활</span></div>
+
+  <div class="solq" data-n="6">
+    <p class="qt">6. 근로관계 분석 &mdash; 퇴직금 &middot; 해고 &middot; 임금체불</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9315;</span><span class="via">부당해고 + 임금체불</span></div>
+      <div class="link">연계 &mdash; 임금과 퇴직급여 / 근로관계의 종료 / 근로자 권익 침해와 구제</div>
+      <p><span class="lab">해설</span>상시 근로자 <b>12명</b>이므로 5인 이상 사업장 규정이 모두 적용된다. 해고는 <b>사유와 시기를 서면으로 통지</b>해야 효력이 있는데(제27조) <b>구두로만 통보</b>했으므로 <b>부당해고</b>이고, 퇴직금은 퇴직일부터 <b>14일 이내</b>(2026. 4. 14.)에 지급해야 하는데 <b>4월 27일</b>에 지급했으므로 <b>임금체불</b>에도 해당한다.</p>
+      <p style="background:#F4F4F1;border:1px solid #DDD;padding:7px 10px;font-size:.82rem">
+        <b>퇴직금 계산</b> &nbsp;1일 소정근로 <b>6시간</b>(14&sim;21시 &minus; 휴게 1시간) &rarr; 1일 임금 <b>72,000원</b>(12,000원 &times; 6시간)<br>
+        &rarr; 유급 일수 <b>78일</b>(90일 &minus; 무급휴일 12일) &rarr; 3개월 총급여 <b>5,616,000원</b><br>
+        &rarr; 1일 평균임금 <b>62,400원</b>(5,616,000원 &divide; 90일) &rarr; 계속근로 <b>2년</b>(2024. 4. 1.&sim;2026. 3. 31.)<br>
+        &rarr; 퇴직금 <b>3,744,000원</b>(62,400원 &times; 30일 &times; 2년)
+      </p>
+      <ul>
+        <li><span class="x">&#9312;</span> 187만 2천 원은 <b>1년분(62,400원 &times; 30일)</b>만 계산한 값이다. 계속근로기간이 2년이므로 그 두 배다.</li>
+        <li><span class="x">&#9313;</span> 주휴수당은 <b>1일 소정근로시간분</b>이므로 <b>72,000원</b>이다. 8만 4천 원은 휴게시간을 빼지 않은 7시간분이다.</li>
+        <li><span class="x">&#9314;</span> 근무 종료 시각이 <b>21시</b>이므로 야간근로(22시&sim;06시)가 없다. 따라서 야간근로 가산 수당은 발생하지 않는다.</li>
+        <li><span class="x">&#9316;</span> 해고 예고를 하였더라도 <b>서면 통지 의무는 별개</b>이며, 5인 이상 사업장은 <b>정당한 이유</b>까지 있어야 한다. 예고만으로 해고의 효력이 인정되지 않는다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>이 단원의 최대 갈림은 <span class="hl">상시 근로자 5인 미만이냐 5인 이상이냐</span>다. <b>5인 미만</b>에는 부당해고 구제&middot;연장&middot;야간&middot;휴일 가산수당&middot;연차 유급휴가&middot;해고 서면 통지가 적용되지 않지만, <b>해고 예고&middot;퇴직금&middot;주휴수당&middot;최저임금&middot;휴게시간</b>은 5인 미만에도 적용된다. 계산 문항에서는 <b>휴게시간을 뺀 소정근로시간</b>과 <b>유급 일수</b>를 먼저 확정해야 한다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 16번은 상시 근로자 <b>3명(5인 미만)</b>이어서 부당해고&middot;가산수당이 모두 성립하지 않고 퇴직금도 14일 내 지급되어 체불이 아니었다. 변형은 사업장 규모를 <b>12명으로 올리고</b> <b>서면 통지 누락&middot;지급 지연</b>을 심어 결론을 <b>정반대로 뒤집었다</b>. 근속도 1년 &rarr; 2년으로 늘려 퇴직금 계산을 한 단계 더 요구한다.</div>
+    </div>
+  </div>
+
+  <div class="solq" data-n="7">
+    <p class="qt">7. 해고의 절차와 제한 &mdash; 5인 미만 &middot; 서면 통지 &middot; 해고 예고</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9315;</span><span class="via">ㄴ, ㄷ</span></div>
+      <div class="link">연계 &mdash; 근로관계와 법 / 근로관계의 종료와 근로자의 보호</div>
+      <p><span class="lab">해설</span><b>상시 근로자 수를 먼저 확정</b>해야 선지가 갈린다. &#9675;&#9675;마트는 <b>3명(5인 미만)</b>, &#9675;&#9675;물류는 <b>20명(5인 이상)</b>이다. ㄴ 5인 이상 사업장에서는 해고의 <b>사유와 시기를 서면으로 통지</b>해야 하며, 이를 어긴 해고는 <b>효력이 없다</b>(&#12300;근로기준법&#12301; 제27조). ㄷ 해고 예고는 <b>30일 전</b>에 해야 하고 이를 지키지 않으면 <b>30일분 이상의 통상임금</b>을 지급해야 한다(제26조). E 씨는 <b>15일 전</b> 통보를 받았으므로 지급 대상이다.</p>
+      <ul>
+        <li><span class="x">ㄱ.</span> <b>정당한 이유 없는 해고 금지(제23조 제1항)와 부당해고 구제 신청(제28조)은 상시 근로자 5인 미만 사업장에 적용되지 않는다.</b> D 씨는 &#9675;&#9675;마트가 5인 미만이므로 <b>'정당한 이유가 없다'는 것을 근거로는 구제 신청을 할 수 없다.</b> 다만 해고 예고(30일)는 5인 미만에도 적용되며, 사례에서는 이를 지켰다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">5인 미만에도 적용되는 것과 적용되지 않는 것을 한 줄로 갈라 두어야 한다.</span> <b>적용 O</b> &mdash; 해고 예고, 최저임금, 주휴수당, 휴게시간, 퇴직금. <b>적용 X</b> &mdash; 정당한 이유 없는 해고 금지, 부당해고 구제 신청, 해고 서면 통지, 연장&middot;야간&middot;휴일 가산수당, 연차 유급휴가. 또 <b>해고 예고는 방식에 제한이 없어 구두 예고도 유효</b>하지만, <b>해고 통지는 5인 이상에서 반드시 서면</b>이어야 한다는 점이 두 사례를 가르는 축이다.
+      <br>［법령 보충］ 예고 기간이 30일에 미달할 때 <b>부족 일수분만 지급하면 되는지</b>를 묻는 학생이 있다. 고용노동부 행정해석과 교재 서술은 <b>30일분 이상의 통상임금 전액 지급</b>으로 정리하고 있으므로, 이 기준으로 지도한다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 16번은 <b>5인 미만 사업장 한 곳</b>만 제시하고 퇴직금 계산까지 한 문항에 담았다. 변형은 <b>5인 미만 &middot; 5인 이상 두 사업장을 나란히 놓아</b> 규모에 따른 적용 차이만을 정면으로 묻는다. 원 기출에서 '해고 예고를 하였으므로 부당해고가 아니다'라는 <b>결론을 그대로 외운 학생</b>은, 규모가 다른 &#9675;&#9675;물류 사례에서 그 논리가 통하지 않는다는 것을 깨닫게 된다.</div>
+    </div>
+  </div>
+
+  <div class="pagemark"><div class="pgend">- 10 -</div><div class="pgcut"></div></div>
+  <div class="pghead"><span class="l">정답과 해설</span><span class="r">성공적인 직업생활</span></div>
+
+  <div class="solq" data-n="8">
+    <p class="qt">8. 노동쟁의의 조정 &mdash; 조정 전치 &middot; 조정 기간 &middot; 조정안의 효력</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9312;</span><span class="via">ㄱ</span></div>
+      <div class="link">연계 &mdash; 협력적인 노사관계 / 노동쟁의의 조정과 쟁의 행위</div>
+      <p><span class="lab">해설</span>ㄱ 쟁의 행위는 <b>조정 절차를 거치지 않으면 할 수 없다</b>(조정의 전치, &#12300;노동조합 및 노동관계조정법&#12301; 제45조 제2항). 일반 사업의 <b>조정 기간은 신청일부터 10일</b>이므로 8월 12일 신청 &rarr; <b>8월 22일 만료</b>이고, 쟁의 행위를 개시한 <b>8월 24일은 조정 기간이 지난 뒤</b>다. 여기에 <b>조합원의 직접&middot;비밀&middot;무기명 투표에 의한 과반수 찬성</b>(제41조 제1항)까지 갖추었으므로 적법하다.</p>
+      <ul>
+        <li><span class="x">ㄴ.</span> 조정은 <b>관계 당사자의 일방이 신청해도 개시된다.</b> 노사가 공동으로 신청해야 하는 것이 아니므로 노동조합 단독 신청도 적법하다.</li>
+        <li><span class="x">ㄷ.</span> 조정안은 <b>관계 당사자가 모두 수락한 경우</b>에만 단체협약과 동일한 효력을 갖는다. 이 사례에서는 <b>사용자가 거부</b>하여 조정이 성립되지 않았으므로 효력이 생기지 않는다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">조정 기간은 일반 사업 10일, 공익사업 15일이다.</span> 만약 &#9675;&#9675;전자가 공익사업이라면 조정 기간은 <b>8월 27일</b>까지이므로 8월 24일 쟁의 행위는 <b>위법</b>이 된다. 그래서 발문에 '공익사업에 해당하지 않는다'는 단서를 달아 두었다. <b>날짜 계산형 문항에서는 사업의 성격을 먼저 확인</b>하는 습관을 들여야 한다. 또 쟁의 행위의 적법 요건은 <b>주체&middot;목적&middot;절차&middot;수단</b> 네 가지이며, 이 문항은 그중 <b>절차</b>(조정 전치 + 찬반투표)만을 묻고 있다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 6번은 <b>조정 절차를 거치지 않은 7월 30일 쟁의 행위</b>를 제시해 ㄱ을 <b>오선지</b>로 만들었고, 정답은 조정 신청 요건을 다룬 <b>&#9313;(ㄴ)</b>이었다. 변형은 이를 <b>정반대로 뒤집었다.</b> 쟁의 개시일을 조정 기간 경과 후로 옮겨 <b>ㄱ을 정선지</b>로 만들고, 원 기출의 정선지였던 <b>ㄴ을 '공동 신청'으로 바꿔 오선지</b>로 전환했다. 원 기출을 풀고 '조정 신청 선지는 맞다'로 기억한 학생이 정확히 걸린다.</div>
+    </div>
+  </div>
+
+  <div class="solq" data-n="9">
+    <p class="qt">9. 고용보험 &mdash; 실업급여의 종류</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9312;</span><span class="via">ㄱ</span></div>
+      <div class="link">연계 &mdash; 사회 보험 / 고용보험 &middot; 구직급여와 취업촉진수당</div>
+      <p><span class="lab">해설</span>ㄱ A는 소정급여일수 <b>180일 중 100일</b>, 즉 <b>2분의 1(90일) 이상을 남기고 재취업</b>하였고 <b>12개월 이상 계속</b> 근무할 예정이므로 <b>조기재취업 수당</b>의 수급 요건을 갖추었다.</p>
+      <ul>
+        <li><span class="x">ㄴ.</span> <b>상병 급여</b>는 실업 신고 이후 <b>질병&middot;부상&middot;출산으로 취업이 불가능하여 실업의 인정을 받지 못한 날</b>에 대해 구직급여에 갈음하여 지급한다. B처럼 지시된 훈련을 받으며 교통비&middot;식비 부담이 있는 경우에 받을 수 있는 것은 <b>직업능력개발 수당</b>이다.</li>
+        <li><span class="x">ㄷ.</span> 조기재취업 수당과 직업능력개발 수당은 모두 <b>취업촉진수당</b>이다. 구직급여가 아니다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span><span class="hl">실업급여 = 구직급여 + 취업촉진수당</span>이라는 상위 구조를 먼저 세워야 한다. 취업촉진수당 4종은 <b>조기재취업 수당 &middot; 직업능력개발 수당 &middot; 광역 구직활동비 &middot; 이전비</b>다. <b>상병 급여와 훈련 연장 급여&middot;개별 연장 급여&middot;특별 연장 급여는 구직급여 쪽</b>이므로 취업촉진수당에 넣지 않는다. 조기재취업 수당의 관건은 <b>소정급여일수의 2분의 1 이상 잔여</b> 여부다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 4번은 <b>소정급여일수를 초과한 훈련 연장 급여</b> 사례여서 ㄱ이 오선지, ㄴ(상병 급여)이 정선지였다. 변형은 잔여 일수를 <b>요건 충족 쪽으로 반전</b>시켜 <b>ㄱ을 정선지, ㄴ을 오선지로 완전히 뒤집었다</b>. 원 기출을 풀어 본 학생이 "조기재취업 수당은 오답"이라고 기억하면 그대로 틀린다.</div>
+    </div>
+  </div>
+
+  <div class="pagemark"><div class="pgend">- 11 -</div><div class="pgcut"></div></div>
+  <div class="pghead"><span class="l">정답과 해설</span><span class="r">성공적인 직업생활</span></div>
+
+  <div class="solq" data-n="10">
+    <p class="qt">10. 업무상의 재해와 보험 급여</p>
+    <div class="sol">
+      <div class="hd">정답 <span class="ans">&#9313;</span><span class="via">(가) 2 &middot; (나) 2 &middot; (다) 4 = 8개</span></div>
+      <div class="link">연계 &mdash; 산업재해보상보험 / 업무상 사고 &middot; 출퇴근 재해 &middot; 보험 급여의 종류</div>
+      <p><span class="lab">해설</span><b>D 씨</b>는 <b>사업주가 주관한 워크숍</b> 중 사고이므로 업무상 사고이고 3일을 초과해 요양하였으나 <b>임금을 전액 받았</b>으므로 휴업급여는 없고 장해도 없다 &rarr; <b>(가) 빨강&middot;파랑 2개</b>. <b>E 씨</b>는 <b>자기 소유 승용차로 통상적인 경로와 방법</b>으로 퇴근하던 중 사고이므로 <b>출퇴근 재해</b>이지 업무상 사고는 아니며, 요양급여와 휴업급여를 받을 수 있다 &rarr; <b>(나) 파랑&middot;노랑 2개</b>. <b>F 씨</b>는 <b>작업 중</b> 사고로 업무상 사고이며 요양&middot;휴업급여와 <b>장해 10급</b>에 따른 장해급여까지 받을 수 있다 &rarr; <b>(다) 4개</b>. 따라서 <b>초록 스티커는 (다)에만</b> 붙는다.</p>
+      <ul>
+        <li><span class="x">&#9312;</span> (가)에는 빨강&middot;파랑 <b>2개</b>가 붙는다.</li>
+        <li><span class="x">&#9314;</span> (나)에는 <b>파랑&middot;노랑</b>이 붙는다. 출퇴근 재해이므로 빨강(업무상 사고)은 붙지 않는다.</li>
+        <li><span class="x">&#9315;</span> 2 + 2 + 4 = <b>총 8개</b>다.</li>
+        <li><span class="x">&#9316;</span> 파랑 <b>3개</b>, 노랑 <b>2개</b>, 빨강 2개, 초록 1개이므로 <b>파랑</b>이 가장 많다.</li>
+      </ul>
+      <div class="trap"><span class="lab t">함정</span>「산업재해보상보험법」 제37조는 업무상 재해를 <b>업무상 사고 &middot; 업무상 질병 &middot; 출퇴근 재해</b> 셋으로 구분한다. <span class="hl">출퇴근 중 사고는 업무상 재해로 인정되지만 '업무상 사고'는 아니다.</span> 또 <b>휴업급여는 요양으로 취업하지 못한 기간</b>에 지급되므로, 치료 중에도 정상 근무하여 임금을 받았다면 지급되지 않는다. 요양급여는 <b>3일 이내의 요양</b>이면 산재보험이 아니라 사용자가 보상한다.</div>
+      <div class="vari"><span class="lab v">변형</span>원 기출 12번의 규칙 3종(업무상 사고&middot;요양&middot;휴업)에 <b>장해급여를 더해 4종 짝짓기로 확장</b>하고, <b>사업주 제공 관용 차량 &rarr; 자기 소유 승용차</b>로 바꾸어 출퇴근 재해 판단을 다시 묻도록 했다. 또 '치료 기간 중 정상 근무하여 임금을 받았다'는 조건을 남겨 <b>휴업급여의 성립 요건</b>을 반복 확인하게 하였다.</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:24px">［3］ 지도 시 유의 사항</h2>
+  <div class="caution">
+    <b>［1］ 편성 기준 &mdash; 수능 출제 비중 반영</b> 이 문제지는 원 기출 20문항을 단원별로 균등 배분하지 않고, <b>22&sim;27학년도 기출 21회분의 단원별 출제 비중</b>에 맞추어 편성하였습니다. <b>근로관계법 3문항</b>(회당 평균 2.0 &rarr; 최근 4개 학년도 2.4로 증가), <b>사회보험 2문항</b>, <b>노사관계 1문항</b>(21회 중 15회 출제, 최근 3회는 매회 출제)으로 배치하고, 자료 해석만으로 풀려 변별력이 낮은 <b>취업 준비&middot;NCS는 1문항</b>으로 줄였습니다.<br>
+    <b>［2］ 10번 &mdash; 옛 자료의 용어 문제</b> 오래된 교재&middot;해설에는 <b>사업주가 제공한 교통수단을 이용한 출퇴근 중 사고</b>를 '업무상 사고'로 서술한 것이 남아 있습니다. 2018. 1. 1. 시행 개정 「산업재해보상보험법」은 <b>출퇴근 재해를 업무상 사고와 별개의 유형</b>으로 규정하므로, 학생에게는 <b>"출퇴근 중이면 업무상 재해는 맞지만 업무상 사고는 아니다"</b>라는 최신 기준으로 지도하시고 옛 서술을 그대로 인용하지 않도록 유의하십시오. 원 기출 12번 공식 해설도 이 기준을 따르고 있습니다.<br>
+    <b>［3］ 5번 &mdash; 최저임금 기준</b> 5번의 시급 <b>11,000원</b>은 <b>2026년 적용 고시액 시간급 10,320원</b>(고용노동부 고시 제2025-47호, 2026. 1. 1.&sim;12. 31. 적용)을 충족하도록 설정하였습니다. <b>2027학년도 수능은 2026년 11월에 시행되므로 시험 시점의 적용 고시액은 10,320원</b>이며, 이 문제지의 모든 임금 수치는 이 기준 하나로 통일하였습니다. 최저임금은 매년 고시되므로 <b>수업 시점의 고시액으로 재확인</b>한 뒤 배포하십시오.<br>
+    <b>［4］ 7번 &mdash; 해고 예고 수당의 쟁점</b> 예고 기간이 30일에 미달할 때 <b>부족 일수분만 지급하면 되는지</b> 묻는 학생이 반드시 나옵니다. 고용노동부 행정해석과 EBS 교재 서술은 <b>30일분 이상의 통상임금 전액 지급</b>으로 정리하고 있으므로 이 기준으로 지도하십시오. 이 논점은 교재에 직접 명시되지 않아 <b>［법령 보충］</b>으로 표시해 두었습니다.<br>
+    <b>［5］ 난이도 안내</b> 예상 오답률 최상위는 <b>3번</b>(창업 자본 비율 계산)과 <b>6번</b>(평균임금&middot;퇴직금 계산)입니다. 3번은 <b>출처별(자기&middot;타인) &times; 시점별(초기&middot;1년 후) 2&times;2 표</b>를 학생이 직접 채우게 하고 <b>시설 + 운전 = 총액</b> 검산까지 시키십시오. 6번은 <b>①1일 소정근로시간 &rarr; ②1일 임금 &rarr; ③유급 일수 &rarr; ④평균임금 &rarr; ⑤근속연수</b> 다섯 칸 표가 효과적입니다. <b>8번</b>은 날짜 계산형이므로 <b>조정 기간(일반 10일 / 공익 15일)</b>을 먼저 판서한 뒤 풀리십시오.<br>
+    <b>［6］ 활용 순서 제안</b> <b>1&middot;4번</b>은 개념 확인용 도입, <b>2&middot;3번</b>은 기업&middot;창업 단원 정리 후 형성평가, <b>5&middot;6&middot;7&middot;8번</b>은 근로관계법&middot;노사관계 단원 마무리 후 오개념 교정용 짝 활동, <b>9&middot;10번</b>은 사회보험 단원 마무리에 배치하면 흐름이 매끄럽습니다.<br>
+    <b>［7］ 제외 문항 보강</b> 원 기출 <b>1번</b>(직업 가치관), <b>13번</b>(중견기업 요건&middot;전자상거래 유형), <b>17번</b>(제조업&middot;서비스업 분류), <b>18번</b>(평생 학습 제도), <b>19번</b>(하렌의 진로 의사 결정 유형)은 이번 10제에 넣지 않았습니다. 특히 <b>서비스업 분류(클라크&middot;슈메너)</b>와 <b>전자상거래 유형</b>은 회당 1문항 이상 꾸준히 나오는 요소이므로, 다음 회차 변형지에서 보강하시기를 권합니다.
+  </div>
+
+
+  <div class="foot">
+    <span>2026학년도 9월 모의평가 변형 10문항 &middot; EBS 2027 수능특강 &#12300;성공적인 직업생활&#12301; 연계</span>
+    <span>은또링쌤의 행성 연구소</span>
+  </div>
+
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 12 -</div></div>
+  <p class="copy">원 기출 문항의 저작권은 한국교육과정평가원에 있습니다. 이 문제지는 학습 목적으로 제작한 변형 문항입니다.</p>
+</section>
+</div><!-- /lockwrap -->
+</div><!-- /sheet -->
+
+<script>
+(function(){
+  var ANS   = [3,1,5,3,5,4,4,1,1,2];
+  var PT    = [2,3,3,3,3,3,2,2,2,3];
+  var UNIT  = ['가치관·생애발달','산업·기업·창업','산업·기업·창업','취업준비·NCS','근로관계법','근로관계법','근로관계법','노사관계','사회보험','사회보험'];
+  var LIMIT = 20*60;
+  var pick = {}, graded = false, left = LIMIT, tid = null, started = false;
+
+  var sheet=document.getElementById('sheet'), hud=document.getElementById('hud');
+  var clk=document.getElementById('clk'), bar=document.getElementById('bar');
+  var ptxt=document.getElementById('ptxt'), st=document.getElementById('st');
+  var bG=document.getElementById('btnGrade'), bR=document.getElementById('btnReset');
+  var bS=document.getElementById('btnSol'), appx=document.querySelector('.appx');
+  var qs=[].slice.call(document.querySelectorAll('article.q'));
+
+  function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x;}
+  function tick(){
+    left--; clk.textContent=fmt(Math.max(left,0));
+    if(left<=180) clk.classList.add('warn');
+    if(left<=0){clearInterval(tid);tid=null;st.textContent='시간 종료 — 자동 채점되었습니다';grade();}
+  }
+  function start(){ if(started||graded) return; started=true; tid=setInterval(tick,1000); }
+  function prog(){
+    var n=Object.keys(pick).length;
+    bar.style.width=(n*10)+'%';
+    ptxt.textContent='선택 '+n+' / 10 문항';
+    if(!graded) st.textContent = n===10 ? '모두 선택했습니다 — [채점하기]를 누르세요' : '선택지를 눌러 답을 고르세요';
+  }
+  qs.forEach(function(q){
+    var n=+q.dataset.n;
+    q.querySelectorAll('ul.ch li.opt').forEach(function(li){
+      li.addEventListener('click',function(){
+        if(graded) return;
+        start();
+        q.querySelectorAll('ul.ch li.opt').forEach(function(o){o.classList.remove('sel');});
+        li.classList.add('sel'); pick[n]=+li.dataset.c; prog();
+      });
+    });
+  });
+
+  function grade(){
+    if(graded) return;
+    graded=true; if(tid){clearInterval(tid);tid=null;}
+    sheet.classList.add('graded'); sheet.classList.remove('locked');
+    var score=0, right=0, ub={};
+    UNIT.forEach(function(u){ if(!ub[u]) ub[u]={t:0,c:0}; });
+    qs.forEach(function(q){
+      var n=+q.dataset.n, a=ANS[n-1], u=UNIT[n-1], sel=pick[n]||0;
+      ub[u].t++;
+      var ok = sel===a;
+      if(ok){score+=PT[n-1]; right++; ub[u].c++;}
+      var bd=q.querySelector('.badge');
+      bd.classList.add(ok?'o':'x'); bd.textContent = ok?'O':'X';
+      q.querySelectorAll('ul.ch li.opt').forEach(function(o){
+        var c=+o.dataset.c; o.classList.remove('sel');
+        if(c===a) o.classList.add('right');
+        else if(c===sel) o.classList.add('wrong');
+      });
+    });
+    // 문항 하단 해설 : 해설지의 같은 번호 블록을 복제해 붙인다(원본 1개 유지 → 내용 불일치 불가)
+    qs.forEach(function(q){
+      var n=+q.dataset.n;
+      if(q.querySelector('.inlinesol')) return;
+      var src=appx?appx.querySelector('.solq[data-n="'+n+'"]'):null;
+      if(!src) return;
+      var wrap=document.createElement('div'); wrap.className='inlinesol';
+      var tg=document.createElement('span'); tg.className='tagline';
+      var miss=(pick[n]||0)!==ANS[n-1];
+      if(miss){ tg.className+=' miss'; tg.textContent='해설 · 이 문항을 틀렸습니다'; }
+      else { tg.textContent='해설'; }
+      wrap.appendChild(tg); wrap.appendChild(src.cloneNode(true));
+      q.appendChild(wrap);
+    });
+    if(bS){ bS.hidden=false; bS.textContent='문항 해설 접기'; }
+    document.getElementById('sc').textContent=score;
+    document.getElementById('cst').textContent='소요 '+fmt(LIMIT-Math.max(left,0))+' · 정답 '+right+'/10문항';
+    document.getElementById('crate').innerHTML='총점 <b>'+score+'점</b> / 26점 &nbsp;·&nbsp; 정답률 <b>'+Math.round(right*10)+'%</b>';
+    var order=['가치관·생애발달','산업·기업·창업','취업준비·NCS','근로관계법','노사관계','사회보험'];
+    var html='';
+    order.forEach(function(u){
+      var d=ub[u]; if(!d) return;
+      var p=Math.round(d.c/d.t*100);
+      html+='<tr><td>'+u+'</td><td class="n">'+d.c+' / '+d.t+'</td>'+
+            '<td class="g"><span class="mini'+(p<60?' low':'')+'"><i style="width:'+p+'%"></i></span> '+p+'%</td></tr>';
+    });
+    document.getElementById('ubody').innerHTML=html;
+    var weak=order.filter(function(u){var d=ub[u];return d && d.c/d.t<0.6;});
+    document.getElementById('ctip').innerHTML = weak.length
+      ? '보완이 필요한 단원 : <b>'+weak.join(' · ')+'</b>. 해당 문항의 ［함정］ 문단을 먼저 읽고, 원 기출과 무엇이 뒤집혔는지 ［변형］ 문단에서 확인하세요.'
+      : '전 단원 60% 이상입니다. 틀린 문항의 ［변형］ 문단만 확인하고 다음 회차로 넘어가세요.';
+    bG.disabled=true; st.textContent='채점 완료 — 아래 해설지가 열렸습니다';
+    document.getElementById('card').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  bG.addEventListener('click',function(){
+    var n=Object.keys(pick).length;
+    if(n<10 && !confirm((10-n)+'문항이 비어 있습니다. 그대로 채점할까요?')) return;
+    grade();
+  });
+  if(bS) bS.addEventListener('click',function(){
+    var off=sheet.classList.toggle('nosol');
+    bS.textContent = off ? '문항 해설 펼치기' : '문항 해설 접기';
+  });
+  bR.addEventListener('click',function(){
+    pick={}; graded=false; started=false; left=LIMIT;
+    if(tid){clearInterval(tid);tid=null;}
+    clk.textContent=fmt(LIMIT); clk.classList.remove('warn');
+    sheet.classList.remove('graded'); sheet.classList.add('locked');
+    bG.disabled=false;
+    sheet.classList.remove('nosol');
+    if(bS){ bS.hidden=true; bS.textContent='문항 해설 접기'; }
+    qs.forEach(function(q){
+      var bd=q.querySelector('.badge'); bd.className='badge'; bd.textContent='';
+      q.querySelectorAll('ul.ch li.opt').forEach(function(o){o.classList.remove('sel','right','wrong');});
+      q.querySelectorAll('.inlinesol').forEach(function(e){e.remove();});
+    });
+    prog(); window.scrollTo({top:0,behavior:'smooth'});
+  });
+  prog();
+})();
+</script>
+</body>
+</html>

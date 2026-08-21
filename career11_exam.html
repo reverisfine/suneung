@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직업탐구 영역 · 성공적인 직업생활 | 11강 경력 개발과 평생 학습의 의미 기출 26문항</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111; --ink2:#333333; --gray:#666666; --lgray:#8A8A8A;
+    --rule:#111111; --line:#BFBFBF; --hair:#DDDDDD;
+    --sheet:#FFFFFF; --desk:#E9E7E2; --box:#F7F7F5;
+    --ok:#1F6B45; --okbg:#EDF5F0; --no:#B3261E; --nobg:#FBEDEC;
+    --myeong:'Noto Serif KR',serif; --godic:'Noto Sans KR',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--desk);color:var(--ink);font-family:var(--myeong);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  /* ── 상단 조작 바 (시험지 밖) ── */
+  .toolbar{position:sticky;top:0;z-index:60;background:rgba(233,231,226,.96);backdrop-filter:blur(5px);border-bottom:1px solid var(--line)}
+  .toolbar .in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .toolbar .prog{flex:1;min-width:120px;height:6px;background:#D6D3CC;border:1px solid var(--line);border-radius:0;overflow:hidden}
+  .toolbar .prog i{display:block;height:100%;width:0;background:var(--ink);transition:width .45s ease}
+  .toolbar .stat{font-family:var(--godic);font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap}
+  .toolbar .stat b{font-family:var(--myeong);font-weight:700;font-size:1rem}
+  .tbtn{font-family:var(--godic);font-size:.76rem;font-weight:500;cursor:pointer;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 11px;border-radius:2px}
+  .tbtn:hover{background:var(--ink);color:#fff}
+  .tbtn:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 시험지 지면 ── */
+  .sheet{max-width:820px;margin:20px auto 40px;background:var(--sheet);border:1px solid var(--line);box-shadow:0 2px 14px rgba(0,0,0,.10);padding:34px 40px 26px}
+  .running{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--rule);padding-bottom:5px;margin-bottom:4px}
+  .running .l{font-family:var(--godic);font-weight:700;font-size:1.44rem;letter-spacing:-.02em}
+  .running .r{font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2)}
+  .runsub{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);font-family:var(--godic);border-bottom:1px solid var(--rule);padding:3px 0 6px;margin-bottom:16px}
+  /* ── 시험지 표지 머리 ── */
+  .cover{padding-top:2px}
+  .cover .org{text-align:center;font-family:var(--godic);font-weight:700;font-size:.95rem;letter-spacing:-.01em;margin-bottom:9px}
+  .cover .dbl{border-top:4px solid var(--rule);border-bottom:1.5px solid var(--rule);height:5px;margin-bottom:22px}
+  .cover .kind{text-align:center;font-family:var(--godic);font-weight:500;font-size:.92rem;color:var(--ink2);margin-bottom:4px}
+  .cover .titlerow{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:24px;min-height:54px}
+  .cover h1{font-family:var(--godic);font-weight:900;font-size:3.05rem;letter-spacing:-.05em;line-height:1.1;
+    background:linear-gradient(transparent 60%, #E7E0CE 60%);padding:0 10px;white-space:nowrap}
+  .cover .form{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:var(--godic);font-weight:700;font-size:.85rem;
+    border:2px solid var(--ink);border-radius:999px;padding:7px 17px;white-space:nowrap}
+  .cover .fields{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+  .fld{display:flex;align-items:stretch;border:2px solid var(--ink)}
+  .fld .lb{background:var(--ink);color:#fff;font-family:var(--godic);font-weight:700;font-size:.85rem;
+    padding:7px 13px;display:grid;place-items:center;white-space:nowrap;letter-spacing:.02em}
+  .fld input{border:none;background:#fff;font-family:var(--myeong);font-size:.95rem;color:var(--ink);padding:0 8px;min-width:0}
+  .fld input:focus{outline:none;background:#FBFBF6}
+  .fld .nm{width:170px}
+  .fld .cell{width:28px;text-align:center;border-left:1.5px solid var(--ink);padding:0}
+  .fld .cell:first-of-type{border-left:none}
+  .lead{font-size:.83rem;color:var(--ink2);background:var(--box);border:1px solid var(--hair);padding:11px 14px;margin-bottom:18px;font-family:var(--godic);line-height:1.68}
+  .lead ul{list-style:none;text-align:left}
+  .lead li{position:relative;padding-left:16px;margin:4px 0}
+  .lead li:first-child{margin-top:0}
+  .lead li:last-child{margin-bottom:0}
+  .lead li::before{content:"◦";position:absolute;left:1px;top:0;color:var(--gray)}
+  .lead b{color:var(--no)}
+  .index{font-family:var(--godic);font-size:.78rem;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+  .index a{text-decoration:none;color:var(--ink2);border:1px solid var(--line);padding:4px 9px;background:#fff}
+  .index a:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+  /* ── 단원 구분 ── */
+  .part{margin:30px 0 14px;border-top:2px solid var(--rule);padding-top:9px}
+  .pghead + .part{margin-top:0;border-top:none;padding-top:0}
+  .part:first-of-type{margin-top:4px}
+  .part h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .part h2 .rng{margin-left:auto;font-weight:400;font-size:.78rem;color:var(--gray)}
+  .part .memo{margin-top:9px;border:1px solid var(--line);background:#FCFCFA;padding:11px 14px;font-size:.855rem;color:var(--ink2)}
+  .part .memo .mt{font-family:var(--godic);font-weight:700;font-size:.8rem;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em}
+  .part .memo ul{list-style:none}
+  .part .memo li{margin:4px 0;padding-left:13px;position:relative;line-height:1.6}
+  .part .memo li::before{content:"·";position:absolute;left:3px;font-weight:700}
+  .part .memo b{font-weight:700}
+  .part .memo em{font-style:normal;font-weight:700;border-bottom:2px solid #D8D2C4;padding-bottom:1px}
+
+  /* ── 문항 ── */
+  .q{margin:22px 0 0;padding-bottom:20px;border-bottom:1px dashed var(--hair)}
+  .q:last-of-type{border-bottom:none}
+  .code{text-align:right;font-family:var(--godic);font-size:.7rem;color:var(--lgray);letter-spacing:-.01em;margin-bottom:1px}
+  .ask{font-family:var(--godic);font-weight:700;font-size:.95rem;line-height:1.6;letter-spacing:-.015em;text-indent:-1.35em;padding-left:1.35em}
+  .ask .n{font-weight:700}
+  .ask .pt{font-weight:700}
+  .ask .cond{font-weight:400;font-size:.88em}
+
+  .passage{border:1.2px solid var(--ink);padding:11px 14px;margin:11px 0 0;font-size:.87rem;line-height:1.68}
+  .passage .ttl{text-align:center;font-family:var(--godic);font-weight:700;font-size:.85rem;margin-bottom:7px}
+  .passage ul{list-style:none}
+  .passage li{margin:3px 0;padding-left:13px;position:relative}
+  .passage li::before{content:"◦";position:absolute;left:0;font-size:.85em}
+  .passage p{margin:3px 0;text-indent:.6em}
+  .passage .note{font-size:.8rem;color:var(--gray);margin-top:6px;text-indent:0}
+  .passage b{font-weight:700}
+
+  table.ex{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:7px 0 2px}
+  .ex th,.ex td{border:1px solid #A5A5A0;padding:5px 8px;line-height:1.5}
+  .ex th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.79rem;border-bottom:2px solid var(--ink)}
+  .ex td.k{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;font-size:.8rem}
+
+  .bogi{margin:12px 0 0;border:1.2px solid var(--ink);padding:0 15px 10px;font-size:.87rem}
+  .bogi .bt{display:block;width:-moz-fit-content;width:fit-content;margin:-11px auto 8px;background:#fff;padding:0 9px;
+    font-family:var(--godic);font-weight:500;font-size:.79rem;letter-spacing:.12em;color:var(--ink);line-height:1.5}
+  .bogi p{margin:3px 0;text-indent:-1.15em;padding-left:1.15em}
+
+  /* ── 선택지 ── */
+  ul.ch{list-style:none;margin-top:10px}
+  ul.ch li{margin:0}
+  .ch button{width:100%;text-align:left;font-family:var(--myeong);font-size:.885rem;line-height:1.6;color:var(--ink);background:transparent;border:1px solid transparent;padding:4px 7px;cursor:pointer;display:flex;gap:8px;align-items:flex-start;transition:background .12s,border-color .12s}
+  /* OMR 마킹 버블 */
+  .ch button .no{flex-shrink:0;width:19px;height:19px;margin-top:2px;border:1.3px solid #6E6E68;border-radius:50%;background:#fff;
+    display:inline-grid;place-items:center;font-family:var(--godic);font-size:.68rem;font-weight:500;color:#55554F;line-height:1;
+    transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+  .ch button:hover{background:#F2F1ED}
+  .ch button:hover .no{border-color:var(--ink);color:var(--ink)}
+  .ch.inline{display:flex;flex-wrap:wrap;gap:3px 8px;justify-content:flex-start}
+  .ch.inline li{flex:0 0 auto}
+  .ch.inline button{width:auto;padding:4px 10px;white-space:nowrap}
+  .q.done .ch button{cursor:default;pointer-events:none}
+  /* 채점 전: 마킹만 된 상태 (정오 표시 없음) */
+  .ch button.marked{background:#EFEEE9;border-color:#6E6E68}
+  .ch button.marked .no{background:var(--ink);border-color:var(--ink);color:#fff;transform:scale(1.06)}
+  /* 문항별 채점 버튼 */
+  .qact{display:flex;justify-content:flex-end;margin-top:11px}
+  .gradebtn{font-family:var(--godic);font-size:.78rem;font-weight:500;cursor:pointer;
+    border:1px solid var(--ink);background:#fff;color:var(--ink);padding:5px 15px;border-radius:2px;transition:.14s}
+  .gradebtn:hover{background:var(--ink);color:#fff}
+  .gradebtn:focus-visible{outline:2px solid var(--ok);outline-offset:2px}
+  .gradebtn.graded{border-color:var(--line);color:var(--gray);font-size:.76rem}
+  .gradebtn.graded:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+  .ch.nudge{animation:nudge .34s}
+  @keyframes nudge{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  /* 마킹한 답이 정답 */
+  .ch button.pick-ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+  .ch button.pick-ok .no{background:var(--ok);border-color:var(--ok);color:#fff;transform:scale(1.06)}
+  /* 마킹한 답이 오답 */
+  .ch button.pick-no{background:var(--nobg);border-color:var(--no);color:var(--no)}
+  .ch button.pick-no .no{background:var(--no);border-color:var(--no);color:#fff;transform:scale(1.06)}
+  .ch button.pick-no .tx{text-decoration:line-through;text-decoration-thickness:1px}
+  /* 마킹하지 않았지만 정답인 칸 */
+  .ch button.mark-ok{border-color:var(--ok);background:var(--okbg);color:var(--ok);font-weight:700}
+  .ch button.mark-ok .no{background:#fff;border:2px solid var(--ok);color:var(--ok);font-weight:700}
+  .ch button:focus-visible{outline:2px solid var(--ok);outline-offset:1px}
+
+  /* ── 정답과 해설 ── */
+  .sol{display:none;margin-top:13px;border:1px solid var(--line);border-left:4px solid var(--ink);background:#FBFBF9;padding:12px 15px}
+  .sol.open{display:block}
+  .sol .hd{font-family:var(--godic);font-weight:700;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:8px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .sol .hd .ans{font-family:var(--myeong);font-size:1.1rem;color:var(--no)}
+  .sol .hd .via{margin-left:auto;font-weight:400;font-size:.7rem;color:var(--lgray)}
+  .sol .link{font-family:var(--godic);font-size:.75rem;color:var(--gray);margin-bottom:8px}
+  .sol .link b{color:var(--ink2)}
+  .sol .lab{font-family:var(--godic);font-weight:700;font-size:.78rem;background:var(--ink);color:#fff;padding:1px 7px;margin-right:6px;vertical-align:1px}
+  .sol .lab.w{background:#7A7A7A}
+  .sol .lab.t{background:var(--no)}
+  .sol p{font-size:.855rem;line-height:1.68;margin:6px 0}
+  .sol ul{list-style:none;margin:5px 0}
+  .sol ul li{font-size:.845rem;line-height:1.62;margin:4px 0;padding-left:1.5em;text-indent:-1.5em}
+  .sol ul li .x{font-weight:700;color:var(--no);margin-right:4px}
+  .sol .trap{margin-top:9px;border-top:1px dotted var(--line);padding-top:8px}
+  .sol b{font-weight:700}
+  .sol .hl{font-weight:700;border-bottom:2px solid #E3DCC8;padding-bottom:1px}
+
+  /* ── 부록 ── */
+  .appx{margin-top:34px;border-top:2.5px solid var(--rule);padding-top:14px}
+  .appx h2{font-family:var(--godic);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+  details.pit{border:1px solid var(--line);margin-bottom:6px;background:#fff}
+  details.pit[open]{border-color:var(--ink)}
+  details.pit summary{cursor:pointer;list-style:none;font-family:var(--godic);font-weight:500;font-size:.86rem;padding:9px 13px;display:flex;gap:9px;align-items:center}
+  details.pit summary::-webkit-details-marker{display:none}
+  details.pit summary .n{flex-shrink:0;width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--ink);font-size:.7rem;font-weight:700;font-family:var(--myeong)}
+  details.pit summary::after{content:"＋";margin-left:auto;font-size:.85rem;color:var(--gray)}
+  details.pit[open] summary::after{content:"－"}
+  details.pit .bd{padding:0 14px 12px 42px;font-size:.85rem;line-height:1.68;color:var(--ink2)}
+  details.pit .bd b{font-weight:700;color:var(--ink)}
+  details.pit .bd table.ex{font-size:.78rem;margin:9px 0 6px}
+  details.pit .bd table.ex td,details.pit .bd table.ex th{padding:4px 7px}
+  details.pit .bd .sub{display:block;font-family:var(--godic);font-weight:700;font-size:.79rem;color:var(--ink);margin:11px 0 3px;padding-left:9px;border-left:3px solid var(--ink)}
+  details.pit .bd .cap{display:block;font-size:.77rem;color:var(--gray);margin-top:5px}
+  details.pit .bd .no-ok{color:var(--no);font-weight:700}
+  details.pit .bd .yes-ok{color:var(--ok);font-weight:700}
+  details.pit .bd .hl{font-weight:700;border-bottom:2px solid #E3DCC8}
+  table.ans{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.8rem;margin-top:8px}
+  .ans th,.ans td{border:1px solid #A5A5A0;padding:5px 7px;text-align:center}
+  .ans th{background:#EFEFEC;font-family:var(--godic);font-weight:700;font-size:.76rem;border-bottom:2px solid var(--ink)}
+  .ans td.a{font-weight:700;font-size:.95rem}
+  .ans td.l{text-align:left;font-size:.76rem;color:var(--ink2)}
+  .caution{margin-top:14px;border:1px solid var(--no);padding:10px 13px;font-size:.82rem;line-height:1.68;color:var(--ink2)}
+  .caution b{color:var(--no);font-weight:700}
+  .foot{margin-top:26px;border-top:1px solid var(--rule);padding-top:8px;display:flex;justify-content:space-between;gap:18px;font-family:var(--godic);font-size:.72rem;color:var(--gray)}
+  .foot span:last-child{text-align:right;white-space:nowrap}
+  .pagemark{margin-top:28px}
+  .pagemark .pgend{text-align:center;font-family:var(--myeong);font-size:.82rem;color:var(--ink2);letter-spacing:.14em}
+  .pagemark .pgcut{margin:12px -40px 0;border-top:1px dashed #C7C4BC}
+  .pghead{margin:24px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--rule);padding-bottom:4px}
+  .pghead .l{font-family:var(--godic);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+  .pghead .r{font-family:var(--godic);font-weight:500;font-size:.82rem;color:var(--ink2)}
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:10px 20px;font-family:var(--godic);font-size:.83rem;font-weight:500;box-shadow:0 6px 22px rgba(0,0,0,.25);transition:transform .35s ease,opacity .25s;z-index:99;opacity:0}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  #top{position:fixed;right:14px;bottom:20px;z-index:60;width:36px;height:36px;border:1px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;display:none;font-size:.9rem}
+  #top.show{display:block}
+
+  @media(max-width:640px){
+    .sheet{padding:22px 16px 18px;margin:10px auto 30px;border-left:none;border-right:none}
+    .running .l{font-size:1.15rem}
+    .cover h1{font-size:2.05rem}
+    .cover .titlerow{flex-direction:column;gap:10px;min-height:0}
+    .cover .form{position:static;transform:none}
+    .cover .fields{gap:12px}
+    .fld .nm{width:120px}
+    .fld .cell{width:24px}
+    .pagemark .pgcut{margin-left:-16px;margin-right:-16px}
+    .ch.inline{flex-direction:column;gap:0}
+    .ch.inline button{width:100%;white-space:normal}
+  }
+  @media print{
+    body{background:#fff}
+    .toolbar,#top,#toast,.index,.lead,.qact{display:none!important}
+    .sheet{box-shadow:none;border:none;max-width:none;margin:0;padding:0}
+    .sol{display:none!important}
+    .q{break-inside:avoid;page-break-inside:avoid}
+    .pagemark{break-after:page;page-break-after:always;margin-top:0}
+    .pagemark .pgcut{display:none}
+    .pghead{margin-top:0}
+    @page{size:A4;margin:14mm}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ── 계산 문항 단계별 풀이표 ── */
+  table.calc{width:100%;border-collapse:collapse;border:2px solid var(--ink);font-size:.82rem;margin:9px 0 4px;background:#fff}
+  .calc th,.calc td{border:1px solid #A5A5A0;padding:6px 9px;line-height:1.55}
+  .calc th{background:#EFEFEC;font-family:var(--godic);font-weight:700;text-align:center;font-size:.78rem;border-bottom:2px solid var(--ink)}
+  .calc td.s{background:#F6F6F3;text-align:center;font-weight:700;white-space:nowrap;width:52px;font-family:var(--godic);font-size:.76rem}
+  .calc td.f{font-family:var(--godic);font-size:.83rem;letter-spacing:-.01em}
+  .calc td.r{text-align:right;white-space:nowrap;font-weight:700}
+  .calc tr.fin td{background:#F2F0E8;border-top:2px solid var(--ink)}
+  .calc tr.fin td.r{color:var(--no);font-size:.92rem}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <div class="prog"><i id="bar"></i></div>
+  <div class="stat">푼 문항 <b id="done">0</b>/26 · 정답 <b id="hit">0</b></div>
+  <button class="tbtn" onclick="showAll()">정답·해설 전체 보기</button>
+  <button class="tbtn" onclick="resetAll()">다시 풀기</button>
+  <button class="tbtn" onclick="window.print()">인쇄</button>
+</div></div>
+
+<div class="sheet">
+  <div class="cover">
+    <div class="org">은또링쌤의 행성 연구소</div>
+    <div class="dbl"></div>
+    <div class="kind">2027학년도 수능 대비 직업탐구 영역 기출 문제지</div>
+    <div class="titlerow">
+      <h1>성공적인 직업생활</h1>
+      <span class="form">11강</span>
+    </div>
+    <div class="fields">
+      <div class="fld"><span class="lb">성명</span><input class="nm" type="text" aria-label="성명"></div>
+      <div class="fld"><span class="lb">학번</span><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 첫째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 둘째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 셋째 자리"><input class="cell" maxlength="1" inputmode="numeric" aria-label="학번 넷째 자리"></div>
+    </div>
+  </div>
+  <div class="runsub">
+    <span>11강 경력 개발과 평생 학습의 의미</span>
+    <span>기출 26문항</span>
+  </div>
+
+  <div class="lead">
+    <ul>
+      <li>선택지를 눌러 답을 표시한 뒤, 문항 아래 <b>채점하기</b>를 누르면 정답과 해설이 나타납니다.</li>
+      <li>제시문은 판단에 필요한 조건만 옮겼으므로, 원문 지문은 각 회차 기출 문제지와 함께 보십시오.</li>
+      <li>문항은 <b>개념 그룹별로 재배열</b>되어 있으며, 각 문항 우측 상단에 출처를 표기하였습니다.</li>
+    </ul>
+  </div>
+
+  <nav class="index">
+    <a href="#p1">Ⅰ. 학위·학습 이력 인정형 제도</a>
+    <a href="#p2">Ⅱ. 산학 협력형 제도</a>
+    <a href="#p3">Ⅲ. 제도 비교·통합 판단</a>
+    <a href="#p4">Ⅳ. 경력 개발 단계와 경로</a>
+    <a href="#p5">Ⅴ. NCS 기반 경력 개발 실천</a>
+    <a href="#appx">［부록］함정 정리·정답표</a>
+  </nav>
+
+<section class="part" id="p1">
+  <h2>Ⅰ. 학위·학습 이력 인정형 제도 <span class="rng">1~7번 · 학점 은행제 / 독학 학위제 / 평생 학습 계좌제</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>학점 은행제</b> 「학점인정 등에 관한 법률」 · <em>국가평생교육진흥원</em> 주관 · 학교 <em>밖</em>의 학습·자격도 학점 인정 · 학점 누적 후 기준 충족 시 <em>학위 취득</em> · <em>고졸 또는 동등 이상</em> 학력자면 누구나 · 학위는 <em>2월과 8월</em>에 수여 · 취득 가능 자격은 사회복지사 2급, 평생교육사 2·3급, 보육교사 2급, 한국어교원 2급, 청소년지도사 2·3급</li>
+      <li><b>독학 학위제</b> 「독학에 의한 학위취득에 관한 법률」 · <em>국가평생교육진흥원</em> 주관 국가시험 · <em>1~4과정 총 4번</em>의 시험 통과 → <em>교육부장관</em> 명의 학사 학위 · 고졸 이상 학력자 대상</li>
+      <li><b>평생 학습 계좌제</b> 「평생교육법」 <em>제23조</em> · 다양한 학습 경험을 <em>온라인 학습 계좌</em>에 기록·누적 → 학력·자격 인정 또는 <em>고용 정보</em>로 활용 · 평생 학습 이력 증명서 발급</li>
+      <li><b>주관 기관이 겹친다</b> 학점 은행제 · 독학 학위제 · 평생 학습 계좌제 모두 <em>국가평생교육진흥원</em>이 운영을 맡는다. 따라서 <b>기관 이름만으로는 세 제도를 가를 수 없고</b>, 반드시 <em>근거 법률</em>이나 <em>학위·인정에 이르는 경로</em>를 함께 보아야 한다 <span style="font-size:.94em">［법령 보충］ 「평생교육법」 제19조는 진흥원의 업무로 ‘학점인정법·독학학위법에 따른 학점 또는 학력인정에 관한 사항’과 ‘제23조에 따른 <b>학습계좌의 통합 관리·운영</b>’을 함께 규정한다. 세 제도 모두 법률상 주체는 <b>교육부장관</b>이고 실제 운영을 진흥원이 맡는 구조다</span></li>
+      <li><b>갈림길</b> “학점을 모아 학위” → 학점 은행제 / “시험을 통과해 학위” → 독학 학위제 / “이력을 계좌에 쌓아 관리” → 평생 학습 계좌제</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="3">
+  <div class="code">2022학년도 6월 모의평가 16번</div>
+  <p class="ask"><span class="n">1.</span> 다음 A 씨의 성공 사례를 통해 알 수 있는 평생 학습 제도로 옳은 것은?</p>
+  <div class="passage">
+    <p>A 씨는 개인 사정으로 대학 진학을 미루고 건설 현장에서 일하면서 건설 안전과 관련한 일을 하고 싶다는 목표를 갖게 되었다. 이후 <b>학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정</b>해 주고 <b>일정 기준을 충족하면 학위 취득을 가능하게 하는 제도</b>를 알게 되었다. 그는 이 제도를 통해 학사 학위를 취득하여 자신의 꿈을 이루게 되었다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">계약학과</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">일학습 병행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생 학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3)② 학점 은행제</div>
+    <p><span class="lab">해설</span>제시문의 평생 학습 제도는 <b>학점 은행제</b>이다. 학점 은행제는 「학점인정 등에 관한 법률」에 의거하여 학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습 및 자격을 학점으로 인정받을 수 있도록 하고, 학점이 누적되어 일정 기준을 충족하면 학위 취득이 가능하게 함으로써 평생 학습 사회를 구현하기 위한 제도이다.</p>
+    <div class="trap"><span class="lab t">함정</span>지문의 결말이 “<b>학사 학위를 취득</b>”이라 학위만 보고 ②독학 학위제로 끌려가기 쉽다. 갈리는 지점은 <span class="hl">학위에 이르는 경로</span>다. <b>학점을 인정받아 누적</b>했으면 학점 은행제, <b>시험을 통과</b>했으면 독학 학위제다. 다만 “학점 은행제는 학위와 무관하다”로 뒤집어 외우면 안 된다. 학점 은행제도 학위 취득이 가능하고, 취득 시 <b>대학 졸업과 동일한 학력</b>이 인정된다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2024학년도 6월 모의평가 17번</div>
+  <p class="ask"><span class="n">2.</span> 다음 글에 나타난 평생 학습 제도 (가)에 대한 설명으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="passage">
+    <p>국가평생교육진흥원이 주관하는 평생 학습 제도 중 하나인 <b>(가)</b> 은/는 「학점인정 등에 관한 법률」에 근거하여 학교뿐만 아니라 학교 밖에서 이뤄지는 다양한 형태의 학습과 자격을 학점으로 인정하는 제도이다. 이 제도를 통해 일정한 학점을 인정받고 별도로 정하는 요건을 충족하면 학위를 취득할 수 있다.</p>
+    <p class="note">－ 『○○지』, 2023년 4월 호 －</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 산업계 주도로 진행되는 현장 기반 훈련 제도이다.</p>
+    <p>ㄴ. 국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정이다.</p>
+    <p>ㄷ. 학점을 인정받기 위해서는 학점 인정 신청 당시 고등학교를 졸업하였거나 이와 같은 수준 이상의 학력이 있다고 인정되어야 한다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3)② 학점 은행제 / 일학습 병행제·계약학과 구분</div>
+    <p><span class="lab">해설</span>(가)는 <b>학점 은행제</b>이다. ㄷ만 옳다. 고등학교 졸업자 또는 동등 이상의 학력을 가진 사람은 누구나 이용할 수 있다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 산업계 주도로 진행되는 현장 기반 훈련 제도는 <b>일학습 병행제</b>이다.<br>ㄴ. 소속 직원의 직무 능력 향상을 위해 대학에 교육을 의뢰하는 과정은 <b>재교육형 계약학과</b>이다.</p>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 <span class="hl">오답 선택지가 곧 개념 정리표</span>다. ㄱ은 일학습 병행제, ㄴ은 재교육형 계약학과, ㄷ만 학점 은행제 요건이다. 세 제도를 한 문항에서 갈라 주므로, 틀린 학생은 어느 제도와 헷갈렸는지가 바로 드러난다. 유의할 점은 “국가평생교육진흥원 주관”이 <b>학점 은행제와 독학 학위제에 공통</b>이라는 것이다. 주관 기관만으로는 두 제도를 가를 수 없으니, 반드시 <b>근거 법률</b>이나 <b>학위에 이르는 경로</b>를 함께 보아야 한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2023학년도 9월 모의평가 14번</div>
+  <p class="ask"><span class="n">3.</span> 다음 학위증에 나타난 법률에 의해 운영되는 평생 학습 제도에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">학 위 증</div>
+    <p style="text-indent:0">제 2022-○○ 호</p>
+    <p style="text-indent:0">성 명 : △△△ / 생년월일 : 1986. 11. 06. / 전 공 : <b>사회복지학 전공(학사)</b></p>
+    <p style="text-indent:0">위 사람은 『<b>학점 인정 등에 관한 법률</b>』 제9조에 따라 (행정학사)의 학위를 수여합니다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 사회복지사 1급, 보육교사 1급의 자격증을 취득할 수 있다.</p>
+    <p>ㄴ. 학위 취득 시 대학 졸업과 동일한 학력을 인정받을 수 있다.</p>
+    <p>ㄷ. 고등학교 졸업 이상의 학력을 가진 사람은 누구나 참여할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3)② 학점 은행제 · 취득 가능 자격의 급수</div>
+    <p><span class="lab">해설</span>제시된 학위증은 「학점 인정 등에 관한 법률」에 따른 <b>학점 은행제</b>에 의한 것이다. ㄴ·ㄷ이 옳다. 학위 취득 시 대학 졸업과 동일한 학력으로 인정받을 수 있고, 고등학교 졸업 이상의 학력을 가진 사람은 누구나 참여할 수 있다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 학점 은행제를 통해 취득 가능한 자격은 <b>사회복지사 2급, 평생교육사 2급·3급, 보육교사 2급, 한국어교원 2급, 청소년지도사 2급·3급</b> 등이다. <b>1급은 해당하지 않는다.</b></p>
+    <div class="trap"><span class="lab t">함정</span>ㄱ이 노리는 것은 제도 자체가 아니라 <span class="hl">자격의 급수</span> 하나다. “학점 은행제 = 2급까지”로 각인시켜야 한다. 다만 “학점 은행제로는 자격증을 딸 수 없다”로 뒤집어 외우면 ㄴ·ㄷ 판단이 무너진다. 자격 취득 자체는 가능하고, <b>급수의 상한</b>이 갈림길이다.<br>＊ 지문의 전공은 ‘사회복지학 전공’인데 학위명은 ‘(행정학사)’로 적혀 있다. 공식 해설지에 이에 대한 설명이 없어 여기서는 <b>원문 그대로 옮기고 해석은 붙이지 않는다.</b></div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2022학년도 대학수학능력시험 7번</div>
+  <p class="ask"><span class="n">4.</span> 다음 글에서 설명하고 있는 평생 학습 제도로 옳은 것은?</p>
+  <div class="passage">
+    <p><b>국가평생교육진흥원</b>은 고등학교 졸업 이상의 학력을 가진 사람이면 대학교를 다니지 않아도 누구나 학위를 취득할 수 있고 일과 학습을 함께 할 수 있게 하며, 시간과 비용을 최소화할 수 있는 제도를 운영하고 있다. 이 제도는 <b>국가에서 실시하는 학위 취득 시험에 합격한 독학자(獨學者)에게 학사 학위를 수여</b>함으로써 평생 교육의 이념을 구현하고 개인의 자아실현과 국가 사회의 발전에 이바지하는 것을 목적으로 한다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">계약학과</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">일학습 병행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생 학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3)① 독학 학위제</div>
+    <p><span class="lab">해설</span>제시문은 <b>독학 학위제</b>에 대한 내용이다. 고등학교 졸업 이상의 학력을 갖춘 자가 스스로 학습을 진행하고 과정 시험에 응시하여 합격하면 <b>교육부 장관 명의의 학사 학위</b>를 수여하는 제도이다.</p>
+    <div class="trap"><span class="lab t">함정</span>“일과 학습을 함께 할 수 있게”라는 구절 때문에 ④일학습 병행제로 새는 학생이 많다. 그러나 일학습 병행제는 <b>근로계약을 맺고 기업 현장에서 훈련</b>받는 제도다. 이 지문의 결정적 단서는 <span class="hl">국가에서 실시하는 학위 취득 시험에 합격한 독학자</span>다. 즉 <b>혼자 공부해 시험으로 학위</b>가 핵심이다. 다만 “독학 학위제는 직장인이 못 한다”로 뒤집으면 안 된다. 온라인 학습으로 일과 병행이 가능하다는 것이 이 제도의 장점으로 교재에도 제시된다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2026학년도 9월 모의평가 18번</div>
+  <p class="ask"><span class="n">5.</span> 다음 안내문에 나타난 평생 학습 제도의 사례로 적절한 것은?</p>
+  <div class="passage">
+    <div class="ttl">평생 학습 제도 활용 후기 공모 안내문</div>
+    <p>“<b>스스로 공부하는 학습자</b>가 「<b>독학에 의한 학위취득에 관한 법률</b>」에 의해 <b>교육부 장관 명의의 학사 학위</b>를 취득할 수 있도록 하는 제도”를 활용했던 당신의 이야기를 들려주세요.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">국가평생교육진흥원에서 주관하는 시험을 통과하여 경영학사 학위를 취득한 경우</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">소속 근로자를 위한 기업 내 교육 시설에서 교육 수료 후 전문학사 학위를 취득한 경우</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">산업체 요구에 따라 대학에 개설된 특별 교육 과정을 이수하여 학사 학위를 취득한 경우</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">기업에 채용되어 현장 직업 훈련을 받은 뒤 대학에서 현장 외 훈련을 받아 학사 학위를 취득한 경우</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">스포츠 강사 경험을 온라인 학습 계좌에 누적하여 이를 인정받아 청소년 지도사 3급을 취득한 경우</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 평생 학습 제도 5종 사례 판별</div>
+    <p><span class="lab">해설</span>제시문의 제도는 <b>독학 학위제</b>이다. ①의 국가평생교육진흥원에서 주관하는 시험을 통과하여 경영학사 학위를 취득한 경우가 독학 학위제에 해당한다.</p>
+    <ul>
+      <li><span class="x">②</span> 소속 근로자를 위한 기업 내 교육 시설 → <b>사내 대학</b></li>
+      <li><span class="x">③</span> 산업체 요구에 따라 대학에 개설된 특별 교육 과정 → <b>계약학과</b></li>
+      <li><span class="x">④</span> 채용 후 현장 훈련 ＋ 대학에서 현장 외 훈련 → <b>일학습 병행제</b></li>
+      <li><span class="x">⑤</span> 온라인 학습 계좌에 누적·인정 → <b>평생 학습 계좌제</b></li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>선택지 다섯 개가 <span class="hl">평생 학습 제도 다섯 종을 하나씩 배치</span>한 구조다. 이 문항은 사실상 Ⅰ·Ⅱ단원 전체의 요약이므로, 틀렸다면 어느 선택지를 골랐는지로 취약한 제도를 바로 찾을 수 있다. ⑤가 특히 정교하다. 청소년 지도사 3급은 <b>학점 은행제로도 취득 가능한 자격</b>이지만, 선택지가 말하는 경로는 “온라인 학습 계좌에 누적”이므로 평생 학습 계좌제다. <b>자격 이름이 아니라 경로</b>로 판단해야 한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2025학년도 6월 모의평가 7번</div>
+  <p class="ask"><span class="n">6.</span> 다음 ［사례］에 나타난 평생 학습 제도를 활용하여 ［학습 활동］을 수행할 경우 게임판의 최종 도착지로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［사례］</div>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:88px">평생 학습 제도</th><th>(가)</th><th>(나)</th></tr>
+      <tr><td class="k">활용 사례</td><td>갑은 「<b>학점 인정 등에 관한 법률</b>」에 의거하여 작년에 수강한 강좌를 모두 <b>학점으로 인정</b> 받음.</td><td>을은 2023년에 <b>국가평생교육진흥원에서 주관하는 국가시험을 통과</b>하고 학사 학위를 취득한 덕분에 시간과 비용을 아낄 수 있었음.</td></tr>
+    </table></div>
+    <div class="ttl" style="margin-top:9px">［학습 활동］</div>
+    <p>위 ［사례］의 평생 학습 제도 (가), (나)에 대한 물음에 옳게 응답한 후 게임판의 최종 도착지를 찾아보십시오. <span style="font-size:.85em">(출발 → 분기 판단 순서대로 이동)</span></p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:52px">분기</th><th>판단 질문</th><th style="width:150px">응답에 따른 이동</th></tr>
+      <tr><td class="k">1</td><td>(가)와 (나)는 기업이 졸업생 채용을 조건으로 대학에 교육을 의뢰하는 제도인가?</td><td>예 → 분기 2<br>아니요 → 분기 3</td></tr>
+      <tr><td class="k">2</td><td>(나)에 개설된 전공은 11개인가?</td><td>예 → <b>D</b> / 아니요 → <b>E</b></td></tr>
+      <tr><td class="k">3</td><td>(가)를 통해 자격증을 취득할 수 있는가?</td><td>예 → 분기 4<br>아니요 → <b>A</b></td></tr>
+      <tr><td class="k">4</td><td>(가)는 참여 기업의 특성에 따라 ‘자격 연계형’과 ‘대학 연계형’으로 나뉘는가?</td><td>예 → <b>C</b> / 아니요 → <b>B</b></td></tr>
+    </table></div>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">A</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">B</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">C</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">D</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">E</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3)①② 학점 은행제·독학 학위제 / 일학습 병행제·계약학과 구분</div>
+    <p><span class="lab">해설</span>(가)는 「학점 인정 등에 관한 법률」에 의거하므로 <b>학점 은행제</b>, (나)는 국가평생교육진흥원 주관 국가시험을 통과해 학사 학위를 취득했으므로 <b>독학 학위제</b>이다. 분기를 순서대로 따라가면 다음과 같다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th style="width:52px">분기</th><th>판단</th><th style="width:74px">응답</th><th style="width:74px">이동</th></tr>
+      <tr><td class="s">1</td><td class="f">기업이 졸업생 채용을 조건으로 대학에 교육을 의뢰하는 제도 = <b>계약학과</b>. (가)·(나)는 계약학과가 아니다</td><td class="r">아니요</td><td class="r">분기 3</td></tr>
+      <tr><td class="s">3</td><td class="f">학점 은행제는 자격증을 학점으로 인정하며 자격 취득이 가능하다</td><td class="r">예</td><td class="r">분기 4</td></tr>
+      <tr class="fin"><td class="s">4</td><td class="f">‘자격 연계형·대학 연계형’ 구분은 <b>일학습 병행제</b>의 것이다. 학점 은행제는 해당하지 않는다</td><td class="r">아니요</td><td class="r">B</td></tr>
+    </table></div>
+    <p>따라서 최종 도착지는 <b>B</b>이다.</p>
+    <div class="trap"><span class="lab t">함정</span>분기형 문항은 <span class="hl">한 번만 잘못 판단하면 그 뒤가 전부 무너진다</span>. 특히 분기 1에서 ‘예’로 가면 분기 2(전공 11개)를 만나게 되는데, 독학 학위제의 전공이 실제로 11개(국어국문학·영어영문학·심리학·경영학·법학·행정학·유아교육학·가정학·컴퓨터공학·정보통신학·간호학)이므로 <b>맞는 사실을 근거로 틀린 칸에 도착</b>하게 된다. 사실 자체가 참이어도 분기 순서를 어기면 오답이라는 점을 반드시 짚어야 한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2025학년도 10월 학력평가 8번</div>
+  <p class="ask"><span class="n">7.</span> 다음 Q&amp;A 게시판 화면의 (가)에 공통적으로 들어갈 평생 학습 제도로 가장 적절한 것은?</p>
+  <div class="passage">
+    <div class="ttl">Q&amp;A 게시판</div>
+    <p style="text-indent:0">Q. <b>(가)</b> 란 무엇인가요?</p>
+    <p style="text-indent:0">A. 「<b>평생교육법</b>」 <b>제23조</b>에 따라 국민의 다양한 학습 경험을 <b>온라인 학습 이력 시스템에 기록·누적</b>하여 체계적인 학습 설계를 지원하는 제도입니다.</p>
+    <p style="text-indent:0">Q. <b>(가)</b> 의 활용 방법에는 어떤 것들이 있나요?</p>
+    <p style="text-indent:0">A. 온라인 학습 이력 시스템에 기록한 학습 이력은 <b>학력·자격 인정과 연계</b>하거나 <b>고용 정보로 활용</b>할 수 있습니다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">계약학과</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">K-MOOC</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">일학습 병행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생 학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">학평 해설 원문 ＋ 정답표 대조</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 평생 학습 계좌제 「평생교육법」 제23조</div>
+    <p><span class="lab">해설</span><b>평생 학습 계좌제</b>는 온라인 학습 이력 시스템을 통해 학습 이력을 관리할 수 있는 평생 학습 제도이다. 「평생교육법」 제23조에 따라 국민의 다양한 학습 경험을 온라인 학습 계좌에 누적·관리하고, 이를 학력 또는 자격으로 인정하거나 고용 정보로 활용할 수 있다. 평생 학습 이력 증명서에는 학력·경력·자격·평생 학습 이수·기타 활동 사항을 등록할 수 있다.</p>
+    <div class="trap"><span class="lab t">함정</span>“온라인”이라는 단어 하나로 ②K-MOOC로 새는 경우가 잦다. 그러나 <span class="hl">K-MOOC는 강좌를 제공하는 서비스</span>이고 <span class="hl">평생 학습 계좌제는 이력을 기록·누적하는 시스템</span>이다. 즉 K-MOOC는 <b>배우는 곳</b>, 계좌제는 <b>쌓아 두는 곳</b>이다. 다만 “계좌제는 학력·자격과 무관하다”로 뒤집어 외우면 안 된다. 누적된 학습 결과는 <b>학력 또는 자격으로 인정</b>될 수 있고 고용 정보로도 활용된다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 1 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p2">
+  <h2>Ⅱ. 산학 협력형 제도 <span class="rng">8~13번 · 일학습 병행제 / 계약학과 / 사내 대학</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>일학습 병행제</b> 「산업현장 일학습병행 지원에 관한 법률」 · <em>NCS 기반</em> 체계적 교육 훈련 · 학습근로자로 채용 → <em>현장 훈련(OJT) ＋ 사업장 외 훈련(Off-JT)</em> 병행 · 훈련 급여 지급 · 평가를 통해 자격 또는 학위 부여</li>
+      <li><b>일학습 병행제의 두 축</b> ① <em>참여 기업의 특징</em>에 따라 자격 연계형 / 대학 연계형 ② <em>학습근로자 유형</em>에 따라 재학생 단계(산학일체형 도제학교 특성화고 2~3학년, Uni-Tech 전문대 최종학년, IPP형 4년제 3~4학년) / 재직자 단계(단독기업형 상시 50인 이상, 공동훈련센터형 20인 이상, P-Tech)</li>
+      <li><b>계약학과</b> 「산업교육진흥 및 산학연협력촉진에 관한 법률」 제8조 · 대학이 국가·지자체·산업체와 협약을 맺고 <em>학과 등을 설치·운영</em> · <em>채용조건형</em>(채용을 조건으로 학자금 지원계약) / <em>재교육형</em>(소속 직원 재교육을 대학에 의뢰) · 산업체가 총 교육 필요 경비의 <em>50% 이상</em> 부담</li>
+      <li><b>사내 대학</b> 상법·특별법상 법인인 사업장의 경영자가 근로자를 위해 <em>직접 설치·운영</em>하는 평생 교육 시설. 계약학과는 <em>대학에 위탁</em>, 사내 대학은 <em>회사가 단독 운영</em>이 갈림길</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="4">
+  <div class="code">2023학년도 6월 모의평가 3번</div>
+  <p class="ask"><span class="n">8.</span> 다음 기사에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?</p>
+  <div class="passage">
+    <p>최근 7년간 지역 내 중소기업 700여 곳과 고교, 대학 등에서 4,000명이 넘는 <b>학습근로자</b>가 <b>산업 현장의 실무형 인재 양성을 위한 제도</b>인 <b>(가)</b> 에 참여하였다. <b>일하면서 공부할 수 있는</b> 이 제도는 기업 신입 사원들에게는 장기근속을 유도해 기업의 핵심 인재로 성장할 수 있도록 지원하고, 취업을 희망하는 학생들에게는 현장의 실무를 배울 수 있는 기회를 제공하고 있다. 특성화고와 대학에서도 참여 학생들이 <b>장기현장실습</b>을 통해 소정의 <b>훈련비</b>를 지원받으며 현장의 실무를 익힐 수 있다는 점에서 높은 평가를 받는다.</p>
+    <p class="note">－ ○○신문, 2022년 2월 15일 자 －</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">사내대학</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">일학습 병행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 일학습 병행제 · 자격 연계형 / 대학 연계형</div>
+    <p><span class="lab">해설</span>제시문에 나타난 평생 학습 제도는 <b>일학습 병행제</b>이다. 산업 현장의 실무형 인재 양성을 위해 일터 기반 학습이 가능하도록 독일·스위스의 교육 훈련 제도를 우리나라에 맞게 설계하여 <b>2014년부터</b> 실시한 제도이다. 참여 기업의 특징에 따라 <b>자격 연계형</b>(NCS를 기반으로 일과 학습을 병행한 뒤 국가가 인정하는 자격을 얻는 방식)과 <b>대학 연계형</b>(일하면서 학위를 취득하는 방식)으로 나뉜다.</p>
+    <div class="trap"><span class="lab t">함정</span>결정적 단서는 <span class="hl">학습근로자</span>라는 한 단어다. 이 용어가 나오면 일학습 병행제로 확정된다. “일하면서 공부”라는 표현만으로는 사내 대학·계약학과와 갈리지 않으니, 반드시 <b>근로자 신분으로 채용되어 훈련받는가</b>를 확인해야 한다. 다만 자격 연계형·대학 연계형이라는 이름 때문에 “대학 연계형이니 계약학과와 같다”로 뒤집으면 안 된다. 계약학과는 <b>대학이 협약으로 학과를 설치</b>하는 제도이고, 대학 연계형 일학습 병행제는 <b>학습근로자가 일하며 학위를 취득</b>하는 경로다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2024학년도 9월 모의평가 4번</div>
+  <p class="ask"><span class="n">9.</span> 다음은 ［수행 평가 보고서］의 일부이다. 이에 해당하는 평생 학습 제도로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［수행 평가 보고서］ — 제도의 특징</div>
+    <ul>
+      <li>기업이 취업을 원하는 학생 또는 구직자를 ‘<b>학습근로자</b>’로 채용하여 기업의 현장이나 학교 등의 교육기관에서 체계적인 교육을 제공하고, 교육훈련을 마친 자의 역량을 국가 또는 산업계가 평가하여 <b>자격을 인정</b>하는 제도</li>
+      <li><b>NCS 기반</b>으로 일과 학습을 병행한 뒤 자격을 얻는 ‘<b>자격연계형</b>’과 일을 하면서 학위를 취득하는 ‘<b>대학연계형</b>’이 있음</li>
+    </ul>
+    <p style="text-indent:0;margin-top:6px"><b>◦ 학습근로자의 유형에 따른 분류</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:96px">단계</th><th>내용</th><th style="width:210px">참여 형태</th></tr>
+      <tr><td class="k">재학생 단계</td><td>지정받은 기업에서 고등학교·전문대·대학에 <b>재학 중인 자</b>를 학습근로자로 고용하여 담당 직무를 수행하도록 하면서 교육훈련을 실시하는 단계</td><td><b>고교 단계</b> 산학일체형 도제학교(특성화고 2~3학년)<br><b>전문대 단계</b> Uni-Tech(전문대학 최종 학년) …</td></tr>
+      <tr><td class="k">재직자 단계</td><td>지정받은 기업이 <b>고용된 자</b>에게 임금을 지급하면서 직업교육훈련을 제공하는 근로계약을 체결하여 교육훈련을 실시하는 단계</td><td><b>단독기업형</b> 상시 근로자 50명 이상<br><b>공동훈련센터형</b> 상시 근로자 20명 이상 …</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">계약학과</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">사내대학</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">일학습 병행제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 일학습 병행제 · 두 가지 분류 축</div>
+    <p><span class="lab">해설</span>제시문에 해당하는 평생 학습 제도는 <b>일학습 병행제</b>이다. 기업이 청년 등을 채용한 후 NCS 기반으로 업무 현장 및 사업장 외에서 훈련을 실시하고 평가를 통해 자격을 주는 교육 훈련 제도이다.</p>
+    <div class="trap"><span class="lab t">함정</span>이 지문은 일학습 병행제의 <span class="hl">두 분류 축을 한 화면에 보여 주는 표준 자료</span>다. 반드시 구별해야 한다. <b>참여 기업의 특징</b>에 따라 자격연계형·대학연계형, <b>학습근로자의 유형</b>에 따라 재학생 단계·재직자 단계다. 두 축을 서로 바꿔 놓는 것이 실제 출제 방식이며, 11번(2026 10월 4번) ㄱ이 정확히 그 함정이다. 상시 근로자 기준(단독기업형 50명 이상·공동훈련센터형 20명 이상)도 자주 등장하니 숫자를 함께 기억해 두어야 한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2024학년도 10월 학력평가 10번</div>
+  <p class="ask"><span class="n">10.</span> 다음은 경력 개발에 관한 대화 장면이다. 팀장이 설명하고 있는 평생 학습 제도로 가장 적절한 것은?</p>
+  <div class="passage">
+    <p style="text-indent:0"><b>직원</b> 현재 용접 직무에 만족하고 있지만 경력 개발을 위해 기계 설계 분야의 역량을 키우고 싶습니다.</p>
+    <p style="text-indent:0"><b>팀장</b> 그럼 <b>대학 연계형 P-Tech 과정</b>에 참여해 보면 좋을 것 같습니다. <b>주중에는 회사에서 훈련</b>을 받고 <b>주말에는 대학에서 공부</b>하는 방식으로 <b>학위 취득</b>도 가능합니다.</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">K-MOOC</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">일학습 병행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생 학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">학평 해설 원문 ＋ 정답표 대조</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 일학습 병행제 · 재직자 단계 P-Tech</div>
+    <p><span class="lab">해설</span>팀장이 설명하고 있는 평생 학습 제도는 <b>재직자를 대상으로 하는 일학습 병행제</b>에 해당한다. P-Tech는 재직자가 주중에 회사에서 훈련을 받고 주말에 대학에서 공부하여 학위를 취득하는 대학 연계형 과정이다.</p>
+    <p><span class="lab w">오답</span>① K-MOOC는 한국형 온라인 공개강좌로 <b>양방향 학습</b>을 지원하는 서비스이다.</p>
+    <div class="trap"><span class="lab t">함정</span>“대학에서 공부하여 학위 취득”이라는 대목 때문에 ③학점 은행제나 계약학과로 새기 쉽다. 그러나 이 지문의 주체는 <span class="hl">이미 회사에 다니는 재직자</span>이고 경로는 <span class="hl">회사 훈련 ＋ 대학 학습의 병행</span>이다. 즉 대학 연계형 일학습 병행제다. 여기서 “일학습 병행제는 특성화고 학생만 한다”로 뒤집어 외우면 이 문항을 통째로 놓친다. 재학생 단계(도제학교·Uni-Tech)와 <b>재직자 단계(단독기업형·공동훈련센터형·P-Tech)</b>가 모두 있다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2026학년도 10월 학력평가 4번</div>
+  <p class="ask"><span class="n">11.</span> 다음은 취업 지원 센터에 게시된 평생 학습 제도 안내문이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th>［안내문 1］ 일하면서 배우는 현장 실습형 훈련 과정 <span style="font-weight:400">(고용노동부 주관)</span></th><th>［안내문 2］ 산업체에서 등록금 일부 지원 <span style="font-weight:400">(교육부 주관)</span></th></tr>
+      <tr>
+        <td>◦ <b>근로 계약을 체결</b>하고 기업 현장에서 실제 업무를 수행하며 실무 능력 습득<br>◦ 주 1~2회 훈련 기관에 방문해 <b>국가직무능력표준(NCS) 이론 수업 병행</b></td>
+        <td>◦ 대학이 국가, 지방 자치 단체, 산업체 등과 <b>직무 교육 관련 협약</b>을 맺고 특별한 교육 과정을 운영<br>◦ 고등학교 졸업(예정)자 또는 협약 체결 기업 <b>재직자</b> 대상</td>
+      </tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. ［안내문 1］의 제도는 학습 근로자의 유형에 따라 자격 연계형, 대학 연계형으로 구분할 수 있다.</p>
+    <p>ㄴ. ［안내문 2］의 제도에는 채용 조건형과 재교육형이 있다.</p>
+    <p>ㄷ. ［안내문 1］, ［안내문 2］의 제도는 모두 산업체와 산업 교육 기관이 협력하여 운영된다.</p>
+    <p>ㄹ. ［안내문 1］, ［안내문 2］의 제도는 국가에서 주관하는 1~4과정의 시험을 통과해야 학사 학위를 취득할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">학평 해설 원문 ＋ 정답표 대조</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 일학습 병행제 두 축 / 계약학과 유형</div>
+    <p><span class="lab">해설</span>［안내문 1］은 <b>일학습 병행제</b>, ［안내문 2］는 <b>계약학과</b>이다. 계약학과는 채용 조건형과 재교육형으로 구분하고, 일학습 병행제와 계약학과 모두 산업체와 산업 교육 기관이 협력하여 운영한다. 따라서 ㄴ·ㄷ이 옳다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 자격 연계형·대학 연계형 구분의 기준은 <b>참여 기업의 특징</b>이다. 학습 근로자의 유형에 따른 구분은 <b>재학생 단계·재직자 단계</b>이다.<br>ㄹ. 국가에서 주관하는 1~4과정의 시험을 통과해야 학사 학위를 취득하는 제도는 <b>독학 학위제</b>이다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄱ은 <span class="hl">두 분류 축을 맞바꿔 놓은</span> 전형적인 함정이다. 내용 자체는 교재에 있는 말이고 단어도 모두 익숙해서, 빠르게 읽으면 참으로 보인다. 9번(2024 9월 4번) 지문을 함께 펼쳐 놓고 “무엇에 따라”를 소리 내어 확인하는 습관이 필요하다. 반대로 “자격 연계형은 학습근로자와 무관하다”로 뒤집어도 안 된다. 학습근로자가 참여하는 것은 맞고, <b>분류 기준</b>이 참여 기업의 특징이라는 점만 다르다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2023학년도 대학수학능력시험 2번</div>
+  <p class="ask"><span class="n">12.</span> 다음 안내문에서 (가)에 들어갈 평생 학습 제도로 옳은 것은?</p>
+  <div class="passage">
+    <div class="ttl">〔 <b>(가)</b> 제도 안내 〕</div>
+    <p>이 제도의 운영 형태는 <b>채용조건형, 재교육형</b> 등이 있다.</p>
+    <p style="text-indent:0"><b>◾ 채용조건형</b><br>국가, 지방자치단체 또는 산업체 등이 <b>채용을 조건으로 학자금 지원계약</b>을 체결하고, 특별한 교육과정의 운영을 요구하는 경우 <b>대학이 직업교육훈련 과정 또는 학과 등을 설치 운영</b></p>
+    <p style="text-indent:0" class="note">〈채용조건형 운영 사례〉 채용 약정 체결 → (입학) 대학 → 교육 이수 후 졸업 → (채용) 산업체</p>
+    <p style="text-indent:0"><b>◾ 재교육형</b> …</p>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">계약학과</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">사내대학</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">독학 학위제</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">학점 은행제</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">평생 학습 계좌제</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 계약학과 · 채용조건형 / 재교육형</div>
+    <p><span class="lab">해설</span>제시문에서 안내하는 평생 학습 제도는 <b>계약학과</b>이다. 계약학과는 대학이 국가·지방 자치 단체 또는 산업체 등과 직무 교육 관련 협약을 맺고 각 기관에서 요구하는 특별한 교육과정을 운영하는 학과이다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:110px">유형</th><th>내용</th></tr>
+      <tr><td class="k">채용 조건형</td><td>국가·지방 자치 단체 또는 산업체 등이 <b>졸업생의 채용을 조건</b>으로 학자금 지원 계약을 체결하고 특별한 교육과정을 운영하는 학과</td></tr>
+      <tr><td class="k">재교육형</td><td>국가·지방 자치 단체 또는 산업체 등이 <b>소속 직원의 재교육</b>이나 직무 능력 향상 등을 위해 대학 등에 교육을 의뢰하는 과정</td></tr>
+    </table></div>
+    <div class="trap"><span class="lab t">함정</span>계약학과는 <span class="hl">두 유형의 이름 자체가 판별 단서</span>다. “채용을 조건으로” → 채용조건형, “소속 직원의 재교육” → 재교육형. 이 두 단어가 보이면 계약학과로 확정된다. 다만 “계약학과는 취업이 보장된다”로 단순화하면 안 된다. 채용조건형만 채용 약정이 있고, <b>재교육형은 이미 재직 중인 직원</b>을 대상으로 한다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="2">
+  <div class="code">2022학년도 9월 모의평가 17번</div>
+  <p class="ask"><span class="n">13.</span> 다음 대화에서 학생 A, B가 선택하려는 평생 학습 제도로 가장 적절한 것은?</p>
+  <div class="passage">
+    <p style="text-indent:0"><b>교사</b> 여러분은 취업 또는 대학 진학 중에서 무엇을 선택했나요?</p>
+    <p style="text-indent:0"><b>학생 A</b> 평소 관심이 많았던 컴퓨터 보안 분야를 중심으로 희망 직업 후보군을 검색·비교하고 진로를 선택하여 정부에서 지원하는 보안 전문가 양성 교육 프로그램에 참여하였습니다. 향후 저는 <b>산업체가 요구하는 교육과 채용을 조건으로 산업체와 협약을 맺고 운영하는 대학의 학과</b>에 진학하려고 합니다.</p>
+    <p style="text-indent:0"><b>학생 B</b> 게임 분야에 관심이 많아 프로 게이머를 희망했지만 부모님께서 평소 말씀하시던 정비사에 도전하려고 합니다. 부모님께서 <b>학습 근로자로 취업하고 현장에서 도제식 현장 교육 훈련과 대학에서의 이론 교육을 함께 받을 수 있는 제도</b>를 통해 취업과 진학을 한꺼번에 하라고 하셔서 그렇게 하려고 합니다.</p>
+  </div>
+  <div class="scroll"><table class="ex" style="margin-top:10px">
+    <tr><th style="width:52px">번호</th><th>학생 A</th><th>학생 B</th></tr>
+    <tr><td class="k">①</td><td>계약학과</td><td>독학 학위제</td></tr>
+    <tr><td class="k">②</td><td>계약학과</td><td>일학습 병행제</td></tr>
+    <tr><td class="k">③</td><td>독학 학위제</td><td>계약학과</td></tr>
+    <tr><td class="k">④</td><td>독학 학위제</td><td>일학습 병행제</td></tr>
+    <tr><td class="k">⑤</td><td>일학습 병행제</td><td>독학 학위제</td></tr>
+  </table></div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">①</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">②</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">③</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">④</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">⑤</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">②</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 계약학과 채용조건형 / 일학습 병행제 도제학교</div>
+    <p><span class="lab">해설</span>학생 A가 산업체가 요구하는 교육과 채용을 조건으로 산업체와 협약을 맺고 운영하는 대학의 학과에 진학하는 것은 <b>계약학과</b>에 대한 내용이며, 학생 B가 학습 근로자로 취업하여 현장에서 도제식 현장 교육 훈련과 대학에서의 이론 교육을 함께 받을 수 있는 제도를 통해 취업과 진학을 한꺼번에 하려고 하는 것은 <b>일학습 병행제</b>에 대한 내용이다.</p>
+    <div class="trap"><span class="lab t">함정</span>두 학생 모두 “대학”이 등장하므로 대학이라는 단어로는 갈리지 않는다. 갈림길은 <span class="hl">신분</span>이다. A는 <b>학생으로 학과에 진학</b>하고, B는 <b>학습 근로자로 취업</b>한다. “도제식”과 “학습 근로자”가 함께 나오면 일학습 병행제, “협약을 맺고 운영하는 대학의 학과”면 계약학과다. 참고로 B의 사례는 재학생 단계 중 <b>산학일체형 도제학교</b>에 해당한다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 2 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p3">
+  <h2>Ⅲ. 제도 비교·통합 판단 <span class="rng">14~20번 · 근거 법률 / 운영 주체 / 대상자 / 학위 경로</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>근거 법률로 제도를 가른다</b> 「학점인정 등에 관한 법률」→ <em>학점 은행제</em> / 「독학에 의한 학위취득에 관한 법률」→ <em>독학 학위제</em> / 「산업교육진흥 및 산학연협력촉진에 관한 법률」 제8조 → <em>계약학과</em> / 「산업현장 일학습병행 지원에 관한 법률」→ <em>일학습 병행제</em> / 「평생교육법」 제23조 → <em>평생 학습 계좌제</em></li>
+      <li><b>주관 기관</b> 국가평생교육진흥원 → 학점 은행제·독학 학위제·K-MOOC / 고용노동부 → 일학습 병행제 / 교육부 → 계약학과</li>
+      <li><b>운영 방식</b> 대학에 <em>위탁·의뢰</em> → 계약학과 / 회사가 <em>직접 단독 설치·운영</em> → 사내 대학</li>
+      <li><b>학사 학위를 취득할 수 있는 제도</b> 학점 은행제 · 독학 학위제 · 계약학과 · 일학습 병행제(대학 연계형) · 사내 대학. “한 제도만 학위가 된다”는 진술은 대개 오답</li>
+      <li><b>대상자 제한</b> 학점 은행제는 <em>취업 여부와 무관</em>, 일학습 병행제도 재직자뿐 아니라 <em>미취업 학생도 참여 가능</em> → “재직자로 제한된다”는 진술은 오답</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="5">
+  <div class="code">2022학년도 10월 학력평가 19번</div>
+  <p class="ask"><span class="n">14.</span> 다음은 선취업·후학습 제도에 관한 교사와 학생들의 대화이다. 이를 통해 알 수 있는 내용으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p style="text-indent:0"><b>교사</b> 지난 시간에 학습한 선취업·후학습 제도에 대해 이야기해 보세요.</p>
+    <p style="text-indent:0"><b>학생 A</b> ‘<b>학점 은행제</b>’가 있습니다.</p>
+    <p style="text-indent:0"><b>학생 B</b> 소속 직원의 직무 능력 향상을 위해 산업체의 특별한 교육 과정 요구에 따라 대학에서 운영하는 ‘<b>계약학과</b>’가 있습니다.</p>
+    <p style="text-indent:0"><b>학생 C</b> 취업 후 대학 진학 시 ‘<b>재직자 특별 전형</b>’에 지원할 수 있습니다.</p>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 학생 A가 말한 제도는 학력에 상관없이 이용할 수 있다.</p>
+    <p>ㄴ. 학생 B가 말한 제도는 재교육형 계약학과에 해당한다.</p>
+    <p>ㄷ. 학생 C가 말한 제도는 특성화고 졸업 후 대학 입학 사실 없이 산업체에 3년 이상 재직 중인 경우 지원 자격이 있다.</p>
+    <p>ㄹ. 학생 A~C가 말한 제도를 통해 일과 학습을 병행하며 학위를 취득할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄷ, ㄹ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄱ, ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄴ, ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">학평 해설 원문 ＋ 정답표 대조</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 학점 은행제 이용 요건 / 계약학과 재교육형</div>
+    <p><span class="lab">해설</span>선취업·후학습 제도에는 학점 은행제, 계약학과, 재직자 특별 전형 등이 있다. ㄴ·ㄷ·ㄹ이 옳다. 학생 B의 진술은 소속 직원의 직무 능력 향상을 위한 것이므로 <b>재교육형 계약학과</b>에 해당한다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 학점 은행제는 <b>고등학교 졸업자 또는 동등 이상의 학력</b>을 가진 사람이라면 누구나 이용 가능하다. “학력에 상관없이”가 아니다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄱ은 “누구나”라는 표현의 <span class="hl">범위를 한 칸 넓혀</span> 만든 오선택지다. 학점 은행제의 정확한 표현은 “<b>고졸 또는 동등 이상 학력자라면 누구나</b>”이며, 학력 요건 자체는 존재한다. 다만 이를 “학점 은행제는 문턱이 높다”로 뒤집어 외우면 안 된다. 대학 진학 이력이나 나이·직업 제한은 없고, 요건은 <b>고졸 학력 하나</b>다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2024학년도 대학수학능력시험 2번</div>
+  <p class="ask"><span class="n">15.</span> 다음 ［수행평가 활동지］의 (가), (나)에 해당하는 평생 학습 제도에 대한 설명으로 가장 적절한 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［수행평가 활동지］ — 작성자 : ○○특성화고 3학년 A</div>
+    <p style="text-indent:0">◦ 제목 : 평생 학습 제도 (가), (나)의 차이점과 공통점 알아보기</p>
+    <p style="text-indent:0">◦ (가)는 「<b>산업교육진흥 및 산학연협력촉진에 관한 법률</b>」, (나)는 「<b>학점인정 등에 관한 법률</b>」에 따라 실시되는 제도이다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:33%">(가) 고유</th><th style="width:33%">공통 (교집합)</th><th>(나) 고유</th></tr>
+      <tr>
+        <td>◦ <b>운영 경비 일부를 산업체가 부담</b><br>◦ 유형 – 채용조건형 / 재교육형</td>
+        <td style="text-align:center"><b>일과 학업 병행 가능</b></td>
+        <td>◦ 학교뿐만 아니라 <b>학교 밖에서 이루어지는 다양한 형태의 학습 및 자격을 학점으로 인정</b></td>
+      </tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)는 국가평생교육진흥원 주관으로 시행된다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(가)는 산업체가 재직자의 교육을 위해 산업교육기관에 위탁 없이 직접 사내에 설치·운영할 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(나)는 참여 기업의 특징에 따라 ‘자격연계형’과 ‘대학연계형’으로 구분한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">(나)는 산업체 등이 채용을 조건으로 특별한 교육과정의 운영을 요구하는 경우 설치·운영된다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가), (나)를 이용하여 학사 학위를 취득할 수 있다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 계약학과 · 학점 은행제 · 사내 대학 · 일학습 병행제 종합</div>
+    <p><span class="lab">해설</span>(가)는 <b>계약학과</b>, (나)는 <b>학점은행제</b>이다. 계약학과와 학점은행제를 이용하여 학사 학위를 취득할 수 있으므로 ⑤가 정답이다.</p>
+    <ul>
+      <li><span class="x">①</span> 국가평생교육진흥원 주관으로 시행되는 것은 <b>학점은행제</b>, 즉 (나)이다.</li>
+      <li><span class="x">②</span> 산업교육기관에 위탁 없이 직접 사내에 설치·운영하는 것은 <b>사내 대학</b>의 성격이다. 재교육형 계약학과는 <b>대학 등에 교육을 의뢰</b>하는 과정이다.</li>
+      <li><span class="x">③</span> ‘자격연계형’·‘대학연계형’ 구분은 <b>일학습병행제</b>에 해당한다.</li>
+      <li><span class="x">④</span> 채용을 조건으로 특별한 교육과정의 운영을 요구하는 경우는 계약학과 중 <b>채용 조건형</b>, 즉 (가)이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>선택지 다섯 개가 <span class="hl">주체와 제도를 서로 바꿔치기</span>하는 방식으로 짜여 있다. ②가 가장 정교하다. 재교육형 계약학과와 사내 대학은 “산업체가 소속 직원을 교육한다”는 큰 틀이 같고, 갈리는 지점은 <b>대학에 의뢰하는가(계약학과)</b> vs <b>회사가 직접 설치·운영하는가(사내 대학)</b>다. 다만 “사내 대학은 대학과 무관하다”로 뒤집으면 안 된다. 사내 대학도 학력·학위가 인정되는 평생 교육 시설이다.<br>또한 벤 다이어그램의 <b>교집합 칸이 이미 정답의 절반</b>을 알려 준다. “일과 학업 병행 가능”이 공통점으로 제시되어 있으므로, 공통 항목을 묻는 ⑤를 먼저 검토하는 것이 빠른 길이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2025학년도 9월 모의평가 16번</div>
+  <p class="ask"><span class="n">16.</span> 다음 (가)~(다)의 평생학습제도 활용에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">(가)</td><td>「<b>산업교육진흥 및 산학연협력촉진에 관한 법률</b>」 제8조에 따라 대학이 국가·지방자치단체 또는 산업체 등과 직무 교육 관련 협약을 맺고, 학과 등을 설치·운영하는 제도</td></tr>
+      <tr><td class="k">(나)</td><td>「<b>학점인정 등에 관한 법률</b>」에 의거하여 학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정하는 제도</td></tr>
+      <tr><td class="k">(다)</td><td>「<b>독학에 의한 학위취득에 관한 법률</b>」에 의해 <u>스스로</u> 공부하는 학습자의 의지로 국가가 주관하는 시험을 통해 교육부장관 명의의 학사학위를 취득할 수 있는 제도</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 산업체는 소속 직원의 재교육을 위하여 그 경비를 부담하지 않고 (가)를 활용할 수 있다.</p>
+    <p>ㄴ. 최종 학력이 고졸로 국가기술자격인 컴퓨터활용능력 1급을 취득한 자는 (나)를 이용하여 해당 자격을 학점으로 인정받을 수 있다.</p>
+    <p>ㄷ. 최종 학력이 고졸인 자는 (나) 또는 (다)를 이용해 학사학위를 취득할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 계약학과 경비 부담 / 학점 은행제 자격 학점 인정</div>
+    <p><span class="lab">해설</span>(가)는 <b>계약학과</b>, (나)는 <b>학점은행제</b>, (다)는 <b>독학학위제</b>이다. ㄴ·ㄷ이 옳다. 학점은행제는 다양한 자격증을 취득할 경우 이를 학점으로 인정하고 있으며, <b>국가기술자격인 경우 학점으로 인정</b>받을 수 있다. 또한 고등학교 졸업자는 학점은행제 및 독학학위제를 통해 학사학위를 취득할 수 있다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 계약학과는 산업체가 <b>등록금이 포함된 총 교육 필요 경비의 50% 이상을 부담</b>한다. “경비를 부담하지 않고”가 아니다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄱ은 <span class="hl">부담 주체를 지워 버린</span> 오선택지다. “대학에 의뢰한다”는 구조만 외우면 비용까지 대학이 대는 것으로 착각하기 쉽다. 계약학과의 핵심 숫자는 <b>50% 이상</b>이고, 19번(2027 6월 11번) 지문의 “등록금을 일부 지원받고”가 바로 이 대목이다. 반대로 “산업체가 전액 부담한다”로 외워도 틀린다. 규정은 <b>50% 이상</b>이지 전액이 아니다.<br>ㄴ도 짚어 둘 만하다. 3번(2023 9월 14번) ㄱ에서는 자격의 <b>급수</b>가 함정이었지만, 여기서는 <b>국가기술자격의 학점 인정 가능성</b>을 묻는다. 즉 “자격을 학점으로 인정받는 것”과 “그 자격을 학점 은행제로 취득하는 것”은 다른 이야기다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2026학년도 6월 모의평가 14번</div>
+  <p class="ask"><span class="n">17.</span> 다음은 평생 학습 제도에 대한 모둠별 발표 내용이다. 이에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:78px">모둠</th><th>발표 내용</th></tr>
+      <tr><td class="k">［1모둠］</td><td>「<b>산업현장 일학습병행 지원에 관한 법률</b>」에 따라 근로자를 고용하여 담당 직무를 수행하도록 하면서, <b>도제식 현장 교육 훈련(OJT)과 사업장 외 교육 훈련(Off-JT)</b>을 모두 제공하는 제도</td></tr>
+      <tr><td class="k">［2모둠］</td><td>「<b>산업교육진흥 및 산학연협력촉진에 관한 법률</b>」 제8조에 따라 대학이 국가·지방 자치 단체 또는 산업체 등과 직무 교육 관련 협약을 맺고, <b>학과 등을 설치·운영</b>하는 제도</td></tr>
+      <tr><td class="k">［3모둠］</td><td>「<b>학점인정 등에 관한 법률</b>」에 의거하여 학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습과 자격을 <b>학점으로 인정</b>하는 제도</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">［1모둠］이 발표한 제도에 참여하는 근로자는 교육 훈련의 평가 결과에 따라 자격을 인정받을 수 있다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">［2모둠］이 발표한 제도에서 국가·지방자치단체 또는 산업체 등은 교육에 필요한 경비를 부담하지 않는다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">［3모둠］이 발표한 제도에서는 국가평생교육진흥원이 주관하는 1~4과정까지 총 4번의 시험을 통과하여야 학사 학위 취득이 가능하다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">［2모둠］이 발표한 제도에는 ‘자격 연계형’이 있으며, ［3모둠］이 발표한 제도에는 ‘재직자 단계’가 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">［2모둠］과 ［3모둠］이 발표한 제도의 대상자는 재직자로 제한된다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 세 제도의 법률·유형·대상자 종합 비교</div>
+    <p><span class="lab">해설</span>［1모둠］은 <b>일학습병행제</b>, ［2모둠］은 <b>계약학과</b>, ［3모둠］은 <b>학점은행제</b>이다. 일학습병행제는 참여 기업의 특징에 따라 자격 연계형과 대학 연계형이 있는데, 근로자가 교육 훈련의 평가 결과에 따라 자격을 인정받을 수 있는 것이 <b>자격 연계형</b>이므로 ①이 정답이다.</p>
+    <ul>
+      <li><span class="x">②</span> 계약학과는 <b>등록금이 포함된 교육 필요 경비의 50% 이상을 산업체가 부담</b>한다.</li>
+      <li><span class="x">③</span> 국가평생교육진흥원 주관 1~4과정 총 4번의 시험은 <b>독학학위제</b>에 대한 내용이다.</li>
+      <li><span class="x">④</span> ［2모둠］의 계약학과에는 <b>채용 조건형과 재교육형</b>이 있고, ‘재직자 단계’는 <b>일학습병행제</b>에 해당한다.</li>
+      <li><span class="x">⑤</span> 계약학과와 학점은행제는 <b>대상이 재직자로 제한되지 않는다.</b></li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④가 이 문항의 핵심 함정이다. <span class="hl">‘자격 연계형’과 ‘재직자 단계’는 둘 다 일학습 병행제의 용어</span>인데, 이를 계약학과와 학점은행제에 각각 붙여 놓았다. 세 제도의 하위 유형 이름을 정확히 소속시켜 두어야 한다 — <b>일학습 병행제</b>: 자격/대학 연계형 · 재학생/재직자 단계, <b>계약학과</b>: 채용조건형/재교육형, <b>학점은행제</b>: 하위 유형 구분 없음.<br>⑤도 자주 틀린다. 재교육형 계약학과와 재직자 단계라는 말이 익숙해서 “산학 협력형은 다 재직자용”이라 뭉개기 때문이다. 그러나 계약학과에는 채용조건형(고교 졸업 예정자 포함)이 있고 학점은행제는 취업 여부와 무관하다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2026학년도 대학수학능력시험 9번 (8~9 공통 지문)</div>
+  <p class="ask"><span class="n">18.</span> 다음 자료에서 A가 직무 수행 능력 향상 방법으로 활용한 (가), (나) 제도에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［직무 수행 능력 향상에 관한 특강］ — 사회복지사 A</div>
+    <p>저는 NCS를 기반으로 직무 역량을 개발하여 사회복지법인에 취업하였고, 이후에도 직무 수행 능력 향상을 위해 노력하고 있습니다.</p>
+    <p style="text-indent:0"><b>1. NCS 검색 결과</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">직무</td><td>02. 일상생활기능지원</td></tr>
+      <tr><td class="k">능력단위분류번호</td><td>0701020205_20v2</td></tr>
+      <tr><td class="k">능력단위</td><td>05. 건강지원</td></tr>
+      <tr><td class="k">능력단위 수준</td><td>3</td></tr>
+      <tr><td class="k">능력단위 요소</td><td>0701020205_20v2.1 위생지원하기</td></tr>
+    </table></div>
+    <p style="text-indent:0;margin-top:6px"><b>2. 직무 수행 능력 향상 방법</b></p>
+    <ul>
+      <li>학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정받을 수 있도록 하는 제도인 <b>(가)</b> 를 통해 사회복지사 2급 취득</li>
+      <li>회사가 고용노동부장관으로부터 ‘<b>학습기업</b>’으로 지정받아 실시하는 <b>(나)</b> 에 참여하여 NCS 기반의 도제식 현장 교육훈련과 사업장 외 교육훈련을 동시에 수행하며 직무 수행 능력 향상</li>
+    </ul>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">(가)는 국가·지방자치단체·산업체가 소속 직원의 직무 능력 향상을 위해 대학에 교육 과정 운영을 의뢰하는 제도이다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">(가)를 통해 학사 학위를 취득하기 위해서는 국가평생교육진흥원이 주관하는 1~4과정까지 총 4번의 시험을 통과하여야 한다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">(나)는 학습계좌를 통해 국민의 개인적 학습 경험을 종합적으로 집중 관리하는 제도이다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">상시 근로자 수가 50인 이상인 개별 기업은 (나)의 모든 교육훈련을 외부 위탁 없이 독립적으로 실시할 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">(가), (나)의 대상자는 재직자로 제한된다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 학점 은행제 / 일학습 병행제 단독기업형</div>
+    <p><span class="lab">해설</span>(가)는 <b>학점 은행제</b>, (나)는 <b>일학습 병행제</b>이다. 일학습 병행제의 <b>단독기업형</b>은 도제식 현장 교육훈련(OJT)과 사업장 외 교육훈련(Off-JT)을 개별기업에서 독립적으로 수행하는 학습기업 참여 형태로, <b>상시근로자 수 50인 이상</b>의 개별 기업에서 외부 위탁 없이 독립적으로 실시할 수 있으므로 ④가 정답이다.</p>
+    <ul>
+      <li><span class="x">①</span> <b>재교육형 계약학과</b>에 대한 설명이다.</li>
+      <li><span class="x">②</span> <b>독학 학위제</b>에 대한 설명이다.</li>
+      <li><span class="x">③</span> <b>평생 학습 계좌제</b>에 대한 설명이다.</li>
+      <li><span class="x">⑤</span> 학점은행제는 <b>취업 여부와 관계없이</b> 누구나 대상이 될 수 있으며, 일학습 병행제도 재직자뿐 아니라 <b>미취업 학생도 참여가 가능</b>하다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>④는 <span class="hl">숫자와 예외를 동시에 확인</span>해야 하는 선택지다. 단독기업형 50인 이상은 교재의 기준값이고, “외부 위탁 없이 독립적으로” 실시할 수 있다는 서술이 여기에 대응한다. 20인 이상은 <b>공동훈련센터형</b>이므로 두 숫자를 맞바꾸면 틀린다.<br>⑤의 “재직자로 제한된다”는 진술은 이 단원 전체에서 반복 출제되는 오답 패턴이다(17번 ⑤와 동일). 다만 반대로 “일학습 병행제는 재직자와 무관하다”로 뒤집으면 안 된다. 재직자 단계가 분명히 존재하며, 이 지문의 A도 취업 후 참여했다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="1">
+  <div class="code">2027학년도 6월 모의평가 11번</div>
+  <p class="ask"><span class="n">19.</span> 다음 사례를 통해 알 수 있는 평생 학습 제도에 대한 설명으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><td class="k">［사례 1］</td><td>A 씨는 지역 영농 조합에서 근무하고 있습니다. 그는 최근 <b>지방자치단체와 대학교가 직무 교육 관련 협약</b>을 맺고 개설한 ‘농업시스템학과’에 진학했습니다. <b>등록금을 일부 지원받고</b> 야간 수업을 받으며 학위 과정을 이수하고 있습니다.</td></tr>
+      <tr><td class="k">［사례 2］</td><td>B 씨는 대형 외식 기업(<b>상시 근로자 수 330명</b>)에서 수습 요리사로 일하고 있습니다. 그는 전문적인 외식 경영 지식을 쌓고자 <b>회사가 소속 직원의 직무 능력 향상을 위해 단독으로 설치·운영하는 대학</b>에 입학했습니다. 바쁜 주방 업무 속에서도 일과 학업을 병행하며 학위 과정을 이수하고 있습니다.</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">［사례 1］의 제도는 ‘계약학과’의 유형에 포함된다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">［사례 1］의 제도는 산업체가 재직자의 교육을 위해 산업교육기관에 위탁 없이 직접 설치·운영할 수 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">［사례 2］의 제도는 ‘일학습 병행제’에 해당한다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">［사례 2］의 제도는 학교 밖에서 이루어지는 다양한 형태의 학습과 자격도 학점으로 인정한다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">［사례 1］, ［사례 2］의 제도에서 학위를 취득하기 위해서는 기업 현장의 실무 훈련에 대한 평가를 받아야 한다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 재교육형 계약학과 / 사내 대학</div>
+    <p><span class="lab">해설</span>［사례 1］은 <b>재교육형 계약학과</b>에 대한 사례이고, ［사례 2］는 소속 직원의 직무 능력 향상을 위해 회사가 단독으로 설치 및 운영하는 대학이므로 <b>사내 대학</b>에 속하는 사례이다. ［사례 1］의 제도는 ‘계약학과’의 유형에 포함되므로 ①이 정답이다.</p>
+    <ul>
+      <li><span class="x">②</span> 계약학과는 산업체 등이 채용을 조건으로 하거나 재교육을 위해 <b>대학에 위탁하여 운영</b>하는 형태로, 직접 설치·운영하는 것이 아니다.</li>
+      <li><span class="x">③</span> ［사례 2］의 제도는 <b>사내 대학</b>에 해당한다.</li>
+      <li><span class="x">④</span> 학교 밖의 다양한 학습과 자격도 학점으로 인정하는 제도는 <b>학점은행제</b>이다.</li>
+      <li><span class="x">⑤</span> 기업 현장의 실무 훈련에 대한 평가를 받는 것은 <b>일학습병행제</b>의 내용이다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>［사례 2］에 박힌 “<b>상시 근로자 수 330명</b>”은 유인이다. 일학습 병행제의 단독기업형 50인·공동훈련센터형 20인 기준을 떠올리게 해 ③으로 끌고 간다. 그러나 실제 판단 근거는 <span class="hl">회사가 단독으로 설치·운영하는 대학</span>이라는 문구이고, 이는 사내 대학이다. <b>숫자가 보여도 제도는 운영 주체·방식으로 가른다.</b><br>다만 “계약학과는 산업체가 돈을 안 낸다”로 뒤집어 외우면 안 된다. ［사례 1］의 “등록금을 일부 지원받고”가 곧 <b>산업체의 경비 부담(총 교육 필요 경비의 50% 이상)</b>을 보여 주는 대목이다(16번 ㄱ 참조).</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2025학년도 대학수학능력시험 18번</div>
+  <p class="ask"><span class="n">20.</span> 다음은 평생학습제도에 대한 퀴즈와 학생들의 답지이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <p>평생학습제도에 대한 퀴즈입니다. 각 문제의 질문에 ‘예’, ‘아니요’로 답하세요. <b>기본 점수는 100점</b>이며, 각 문제별로 <b>정답은 20점 득점, 오답은 10점 감점</b>하여 최종 점수를 계산합니다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:50%">1번 문제</th><th>2번 문제</th></tr>
+      <tr>
+        <td>「학점인정 등에 관한 법률」에 의거하여 학교에서뿐만 아니라 학교 밖에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정하는 제도는 <b>㉮독학 학위제</b>인가요?</td>
+        <td>「산업교육진흥 및 산학연협력촉진에 관한 법률」 제8조에 따라 대학이 국가·지방 자치 단체 또는 산업체 등과 직무교육 관련 협약을 맺고, 학과 등을 설치·운영하는 제도는 <b>㉯계약학과</b>인가요?</td>
+      </tr>
+    </table></div>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:96px">학생 답지</th><th>학생 A</th><th>학생 B</th><th>학생 C</th></tr>
+      <tr><td class="k">1번 문제</td><td style="text-align:center">아니요</td><td style="text-align:center">아니요</td><td style="text-align:center">예</td></tr>
+      <tr><td class="k">2번 문제</td><td style="text-align:center">예</td><td style="text-align:center">아니요</td><td style="text-align:center">아니요</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. ㉮는 학습 근로자 유형에 따라 재학생 단계와 재직자 단계로 구분하여 운영된다.</p>
+    <p>ㄴ. ㉯를 이용하여 학사학위를 취득할 수 있다.</p>
+    <p>ㄷ. 최종점수의 합계가 높은 학생부터 순서대로 나열하면 학생 A, B, C 순이다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 학점 은행제 · 계약학과 · 일학습 병행제 구분 ＋ 점수 계산</div>
+    <p><span class="lab">해설</span>1번 문제의 답은 <b>학점은행제</b>이므로 질문(㉮독학 학위제인가요?)에 대한 정답은 <b>‘아니요’</b>이고, 2번 문제의 답은 <b>계약학과</b>이므로 정답은 <b>‘예’</b>가 된다. 이에 따라 각 학생의 점수를 계산하면 다음과 같다.</p>
+    <div class="scroll"><table class="calc">
+      <tr><th style="width:66px">학생</th><th style="width:56px">기본</th><th>1번 (정답 ‘아니요’)</th><th>2번 (정답 ‘예’)</th><th style="width:74px">최종</th></tr>
+      <tr><td class="s">A</td><td class="r">100</td><td class="f">아니요 → 정답 <b>＋20</b> = 120</td><td class="f">예 → 정답 <b>＋20</b> = 140</td><td class="r">140</td></tr>
+      <tr><td class="s">B</td><td class="r">100</td><td class="f">아니요 → 정답 <b>＋20</b> = 120</td><td class="f">아니요 → 오답 <b>－10</b> = 110</td><td class="r">110</td></tr>
+      <tr class="fin"><td class="s">C</td><td class="r">100</td><td class="f">예 → 오답 <b>－10</b> = 90</td><td class="f">아니요 → 오답 <b>－10</b> = 80</td><td class="r">80</td></tr>
+    </table></div>
+    <p>따라서 최종 점수가 높은 순서는 <b>A(140) → B(110) → C(80)</b>이므로 ㄷ은 옳다. ㉯계약학과를 이용하여 학사학위를 취득할 수 있으므로 ㄴ도 옳다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 학습 근로자 유형에 따라 재학생 단계와 재직자 단계로 구분하는 것은 <b>일학습병행제</b>이다. ㉮는 독학 학위제이므로 옳지 않다.</p>
+    <div class="trap"><span class="lab t">함정</span>이 문항의 함정은 <span class="hl">이중 부정 구조</span>다. 1번 문제는 학점은행제의 설명을 제시하고 “㉮독학 학위제인가요?”라고 물었으므로 <b>정답이 ‘아니요’</b>다. 여기서 반사적으로 ‘예’를 정답으로 잡으면 세 학생의 점수가 전부 뒤집혀 ㄷ까지 틀리게 된다. <b>제시된 설명이 어느 제도인지 먼저 확정하고, 그다음 질문의 제도명과 일치하는지 대조</b>하는 두 단계를 반드시 나눠야 한다.<br>또한 ㄱ의 ㉮는 <b>질문 속의 제도명(독학 학위제)</b>을 가리킨다는 점에 주의해야 한다. 1번 문제의 정답인 학점은행제로 착각하면 판단 대상 자체가 달라진다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 3 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p4">
+  <h2>Ⅳ. 경력 개발 단계와 경로 <span class="rng">21~23번 · 경력 개발 계획 5단계 / 생애 발달 ↔ 경력 개발</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>경력 개발 계획 5단계</b> ① <em>직무 정보 탐색</em> — 관심 직무의 요구 능력, 고용·승진 전망, 급여, 업무 환경, 종사자 직무 만족도 탐색 ② <em>자신과 환경 이해</em> — 능력·흥미·적성·가치관 파악, 직무 관련 환경 분석으로 기회와 장애 요소 파악 ③ <em>경력 목표 설정</em> — 개발하고 싶은 능력 및 장·단기 목표 설정(단기 2~3년, 장기 5~7년) ④ <em>경력 개발 전략 수립</em> — 역량 강화 계획(교육 프로그램 이수, 워크숍 참가, 대학원 진학), 인적 네트워크 강화 ⑤ <em>실행 및 평가</em> — 실행, 상시적 재검토로 목표 달성 가능 여부 확인, 전략 수정</li>
+      <li><b>경력 개발 단계(생애 5단계)</b> 직업 선택(0~18세) → 조직 입사(19~25세) → 경력 초기(26~40세) → 경력 중기(41~55세) → 경력 말기(56세~은퇴). <span style="font-size:.95em">＊ 2026 교재는 18~25 / 25~40 / 40~55 / 55~은퇴로 표기하므로 회차에 따라 경계값 표기가 다를 수 있다</span></li>
+      <li><b>단계별 핵심어</b> 경력 초기 — <em>조직의 규칙과 규범 학습, 입지 확고, 승진 관심</em> / 경력 중기 — <em>성취한 것의 재평가, 생산성 유지</em>(수직 승진보다) / 경력 말기 — <em>자신의 가치 유지, 퇴직 고려</em></li>
+      <li><b>생애 발달과의 대응</b> 청소년기(자아 정체감) ↔ 직업 선택 / 성년기(경제적·심리적 독립) ↔ 경력 초기 / 중년기(갱년기 적응, 인생 철학 확립) ↔ 경력 중기 / 노년기(노화 적응) ↔ 경력 말기</li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="5">
+  <div class="code">2025학년도 9월 모의평가 9번</div>
+  <p class="ask"><span class="n">21.</span> 다음 경력 개발 계획 단계 중 ㉮, ㉯에 해당하는 활동 사례로 가장 적절한 것을 &lt;보기&gt;에서 고른 것은?</p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th><b>㉮ 직무 정보 탐색</b></th><th>자신과 환경 이해</th><th>경력 목표 설정</th><th><b>㉯ 경력 개발 전략 수립</b></th><th>실행 및 평가</th></tr>
+      <tr><td style="text-align:center">1단계</td><td style="text-align:center">2단계</td><td style="text-align:center">3단계</td><td style="text-align:center">4단계</td><td style="text-align:center">5단계</td></tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 어학 능력을 향상시켜 해외 파견에 지원하겠다는 목표를 세웠다.</p>
+    <p>ㄴ. ‘빅데이터기획’ 직무와 관련된 산업 환경을 분석하여 기회와 장애 요소를 파악하였다.</p>
+    <p>ㄷ. 관심 있는 ‘농촌체험상품개발’ 직무에서 요구하는 능력과 자격 요건을 조사하였다.</p>
+    <p>ㄹ. ‘인공지능서비스기획’ 분야 전문가들의 의견을 반영하여 대학원 진학을 계획하였다.</p>
+  </div>
+  <div class="scroll"><table class="ex" style="margin-top:10px">
+    <tr><th style="width:52px">번호</th><th>㉮</th><th>㉯</th></tr>
+    <tr><td class="k">①</td><td>ㄱ</td><td>ㄴ</td></tr>
+    <tr><td class="k">②</td><td>ㄱ</td><td>ㄷ</td></tr>
+    <tr><td class="k">③</td><td>ㄴ</td><td>ㄹ</td></tr>
+    <tr><td class="k">④</td><td>ㄷ</td><td>ㄴ</td></tr>
+    <tr><td class="k">⑤</td><td>ㄷ</td><td>ㄹ</td></tr>
+  </table></div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">①</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">②</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">③</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">④</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">⑤</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 02-(2) 경력 개발 계획 5단계</div>
+    <p><span class="lab">해설</span>‘<b>직무 정보 탐색</b>’에는 관심 직무에서 요구하는 능력 탐색, 고용 및 승진 전망, 급여, 업무 환경 탐색, 종사자의 직무 만족도 탐색 등이 해당한다. 이에 따라 ㄷ이 정선택지이다. 또한 ‘<b>경력 개발 전략 수립</b>’은 현재 수행 중인 직무에 대한 역량 강화 계획 수립, 인적 네트워크 강화를 통한 경력 개발 계획 수립 등이 해당하므로 ㄹ이 정선택지이다.</p>
+    <p><span class="lab w">오답</span>ㄱ. 목표를 세우는 것은 <b>3단계 경력 목표 설정</b>이다.<br>ㄴ. 직무 관련 환경 분석을 통해 기회와 장애 요소를 파악하는 것은 <b>2단계 자신과 환경 이해</b>이다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄴ과 ㄷ이 붙어 있어 헷갈리기 쉽다. 갈림길은 <span class="hl">무엇을 조사하는가</span>다. ㄷ은 <b>직무 자체의 요구 능력·자격 요건</b>을 조사하므로 1단계, ㄴ은 <b>직무를 둘러싼 환경에서 기회와 장애 요소</b>를 찾으므로 2단계다. 두 단계 모두 “탐색·분석”이라는 동사를 쓰기 때문에 동사만 보면 갈리지 않는다.<br>ㄹ도 4단계의 정확한 예시다. 교재는 4단계의 역량 강화 계획으로 <b>교육 프로그램 이수·워크숍 참가·대학원 진학</b>을, 그리고 <b>인적 네트워크 강화</b>를 명시한다. ㄹ은 “전문가들의 의견을 반영”(인적 네트워크) ＋ “대학원 진학”(역량 강화)이 함께 들어 있어 4단계임이 이중으로 확인된다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="4">
+  <div class="code">2022학년도 대학수학능력시험 6번</div>
+  <p class="ask"><span class="n">22.</span> 다음은 A 씨가 작성한 생애 발달 시기에 따른 과업과 경력 개발 경로를 나타낸 것이다. (가), (나)에 들어갈 내용으로 가장 적절한 것은?</p>
+  <div class="passage">
+    <div class="scroll"><table class="ex">
+      <tr><th>생애 발달 시기에 따른 과업</th><th>경력 개발 경로</th></tr>
+      <tr><td style="text-align:center">자아 정체감 형성</td><td style="text-align:center">나에 대한 이해 및 직업 탐색</td></tr>
+      <tr><td style="text-align:center"><b>(가)</b></td><td style="text-align:center">입사 및 대학원 진학 등을 통한 직무 역량 강화</td></tr>
+      <tr><td style="text-align:center">갱년기에 적응</td><td style="text-align:center"><b>(나)</b></td></tr>
+      <tr><td style="text-align:center">노화에 적응</td><td style="text-align:center">나의 가치 유지 노력</td></tr>
+    </table></div>
+    <p class="note">＊ 좌우 두 열은 같은 행끼리 대응하며, 각 열은 위에서 아래로 진행한다.</p>
+  </div>
+  <div class="scroll"><table class="ex" style="margin-top:10px">
+    <tr><th style="width:52px">번호</th><th>(가)</th><th>(나)</th></tr>
+    <tr><td class="k">①</td><td>부모와의 애착 형성</td><td>초기 경력 재평가 및 생산성 유지</td></tr>
+    <tr><td class="k">②</td><td>부모와의 애착 형성</td><td>진로 선택을 위한 흥미, 적성 검사</td></tr>
+    <tr><td class="k">③</td><td>기본 생활 습관 형성</td><td>은퇴 후 노후 생활 준비</td></tr>
+    <tr><td class="k">④</td><td>경제적, 심리적으로 독립</td><td>초기 경력 재평가 및 생산성 유지</td></tr>
+    <tr><td class="k">⑤</td><td>경제적, 심리적으로 독립</td><td>진로 선택을 위한 흥미, 적성 검사</td></tr>
+  </table></div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">①</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">②</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">③</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">④</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">⑤</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">④</span><span class="via">EBS 공식 해설 대조 완료 (스캔본 OCR)</span></div>
+    <div class="link">연계 — <b>11강</b> 01-(5) 경력 개발 단계 · 생애 발달 시기와의 대응</div>
+    <p><span class="lab">해설</span>생애 발달 시기를 순서대로 나열하면 <b>영유아기 → 아동기 → 청소년기 → 성년기 → 중년기 → 노년기</b>로 구분된다. 경력 개발 단계는 <b>직업 선택 → 조직 입사 → 경력 초기 → 경력 중기 → 경력 말기</b>로 구분된다. 제시문 (가)는 <b>성년기</b>로 직업을 선택하고 경제적·심리적으로 독립을 이루는 단계이고, (나)는 <b>경력 중기</b>로 초기 경력 재평가 및 생산성 유지를 하는 단계이다.</p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:52px">행</th><th>생애 발달</th><th>경력 개발</th></tr>
+      <tr><td class="k">1</td><td>청소년기 — 자아 정체감 형성</td><td>직업 선택 — 나에 대한 이해 및 직업 탐색</td></tr>
+      <tr><td class="k">2</td><td><b>성년기 = (가)</b> 경제적·심리적 독립</td><td>경력 초기 — 입사 및 직무 역량 강화</td></tr>
+      <tr><td class="k">3</td><td>중년기 — 갱년기에 적응</td><td><b>경력 중기 = (나)</b> 초기 경력 재평가 및 생산성 유지</td></tr>
+      <tr><td class="k">4</td><td>노년기 — 노화에 적응</td><td>경력 말기 — 나의 가치 유지 노력</td></tr>
+    </table></div>
+    <div class="trap"><span class="lab t">함정</span>오답 다섯 개가 모두 <span class="hl">한 칸 위나 아래로 밀어 놓은 내용</span>이다. ①②의 “부모와의 애착 형성”과 ③의 “기본 생활 습관 형성”은 영유아기·아동기 과업이지만 표 1행이 이미 청소년기라 (가) 자리에 올 수 없다. ⑤의 “진로 선택을 위한 흥미, 적성 검사”는 직업 선택 단계로 1행에 이미 배치되어 있고, ③의 “은퇴 후 노후 생활 준비”는 경력 말기로 4행에 해당한다.<br>지도 원칙은 하나다 — <b>표 안에 이미 있는 내용은 빈칸의 답이 될 수 없다.</b> 다만 좌우 한 축만 보고 답을 고르면 안 된다. 두 축이 같은 행에서 대응하므로 <b>세로 정렬</b>이 곧 정답 근거다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="3">
+  <div class="code">2024학년도 대학수학능력시험 19번</div>
+  <p class="ask"><span class="n">23.</span> 다음 맞춤형 사내 교육 프로그램 (가), (나)에 참여하는 교육 대상자에 대한 설명으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? <span class="cond">(단, 생애 발달 단계별 발달 과업은 해비거스트(Havighurst, R. J.) 이론에 근거한다.)</span></p>
+  <div class="passage">
+    <div class="ttl">맞춤형 사내 교육 프로그램</div>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:50%">(가) 프로그램</th><th>(나) 프로그램</th></tr>
+      <tr>
+        <td><b>1. 교육 내용</b><br>◦ 경력 재평가 및 목표 재설정<br>◦ 직무 역량 유지를 위한 보수 교육<br><b>2. 대상자</b> : <b>41~50세의 10년 이상 재직 사원</b></td>
+        <td><b>1. 교육 내용</b><br>◦ 조화와 협력을 위한 팀 빌딩<br>◦ 비즈니스 매너 및 조직 커뮤니케이션<br><b>2. 대상자</b> : <b>25~30세의 1년 미만 신입 사원</b></td>
+      </tr>
+    </table></div>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. (가) 프로그램 대상자가 속한 시기의 발달 과업에는 ‘인생 철학 확립하기’가 있다.</p>
+    <p>ㄴ. (나) 프로그램 대상자가 속한 시기의 발달 과업에는 ‘사회적 성역할 학습’이 있다.</p>
+    <p>ㄷ. 경력 개발 단계를 고려할 때, 조직의 규칙과 규범에 대한 교육은 (가) 프로그램 대상자보다 (나) 프로그램 대상자에게 더 적합하다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄴ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄱ, ㄴ, ㄷ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">③</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 01-(5) 경력 개발 단계 · 경력 초기의 조직 규범 학습</div>
+    <p><span class="lab">해설</span>제시문의 (가)는 <b>중년기</b>, (나)는 <b>성년기</b>에 해당한다. (가) 프로그램 대상자가 속한 시기는 중년기로 발달 과업에 ‘<b>인생 철학 확립하기</b>’가 있으므로 ㄱ은 정선택지이다. 경력 개발 단계를 고려할 때 <b>조직의 규칙과 규범에 대한 교육은 성년기에 더 적합</b>하므로 ㄷ도 정선택지이다.</p>
+    <p><span class="lab w">오답</span>ㄴ. ‘<b>사회적 성역할 학습</b>’은 <b>청소년기</b>의 발달 과업에 해당한다. (나) 대상자는 성년기이다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄷ이 11강의 핵심을 정확히 겨냥한다. 교재는 <span class="hl">경력 초기(26~40세)를 “조직의 규칙과 규범에 대해 학습하고 조직 내에서 자신의 입지를 확고히 다지며 승진에 관심을 가지는 단계”</span>로 규정한다. (나)의 25~30세 신입 사원이 여기에 해당하므로 ㄷ은 옳다. 반면 (가)의 41~50세는 <b>경력 중기</b>로, 교육 내용에 적힌 “경력 재평가·직무 역량 유지”가 교재의 “성취한 것을 재평가하고 생산성을 유지”와 정확히 대응한다.<br>주의할 점은 <b>대상자의 나이가 곧 근거</b>라는 것이다. 프로그램 이름이나 교육 내용만 보고 판단하면 (가)를 경력 말기로, (나)를 조직 입사로 밀어 놓기 쉽다. 나이 구간과 재직 기간을 함께 읽어야 한다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 4 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="part" id="p5">
+  <h2>Ⅴ. NCS 기반 경력 개발 실천 <span class="rng">24~26번 · NCS 분류 체계 / 학습모듈 / 국민내일배움카드</span></h2>
+  <div class="memo">
+    <div class="mt">［정리］</div>
+    <ul>
+      <li><b>교재 연결</b> 11강 02-(3) 전공별 경력 개발 경로 탐색 — NCS 홈페이지(www.ncs.go.kr)의 ‘NCS 활용’ → ‘개인 활용’ → ‘<em>경력 개발 경로 찾기</em>’에서 분야별·키워드·코드로 탐색</li>
+      <li><b>NCS 분류 체계</b> 대분류(직능 유형이 유사한 분야 <em>24개</em>) → 중분류 → 소분류 → <em>세분류 ＝ 직무</em> → <em>능력단위 ＝ 직무를 구성하는 기본 단위</em> → 능력단위요소 → 수행준거</li>
+      <li><b>혼동 주의</b> 성취 여부 판단을 위해 도달해야 하는 기준은 <em>수행준거</em>(능력단위요소별) / 교수·학습 자료는 <em>NCS 학습모듈</em> / 능력단위분류번호의 뒤쪽 <em>‘＿○○v○’의 숫자가 개정 연도·버전</em></li>
+      <li><b>국민내일배움카드</b> 「국민 평생 직업능력 개발법」 · 직무수행능력 습득·향상을 위해 국가가 직업능력개발 훈련비를 지원 · <em>특성화고 3학년</em> 학생도 활용 가능</li>
+      <li><b>직무 기술서</b> 해당 직무의 특징과 직무에 필요한 요건을 기록한 문서 ↔ 회사의 목적·조직·규칙을 정리한 문서는 <em>회사 규정·사규</em></li>
+    </ul>
+  </div>
+</section>
+
+<article class="q" data-a="1">
+  <div class="code">2022학년도 9월 모의평가 9번</div>
+  <p class="ask"><span class="n">24.</span> 다음은 직무 수행 능력 향상을 위한 ［선배 초청 특강］이다. 강사 A 씨에 대한 설명으로 적절한 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="passage">
+    <div class="ttl">［선배 초청 특강］ 주제 : 직무 수행 능력 향상을 통한 성공적인 취업 <span style="font-weight:400">(강사명 : A)</span></div>
+    <p style="text-indent:0"><b>◦ 담당 업무</b> : 시각 디자인</p>
+    <p style="text-indent:0"><b>◦ 직무 수행 능력 향상을 위해 내가 걸어온 길</b></p>
+    <ul>
+      <li><b>채용 공고문에 제시된 직무 기술서 분석</b></li>
+      <li>직업기초능력 중 <b>업무와 관련된 문제의 특성을 파악하고, 대안을 제시·선택·적용하며, 그 결과를 평가하여 피드백하는 능력</b> 개발</li>
+      <li><b>시각디자인기사</b> 취득</li>
+      <li><b>학교 내·외에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정받아 학위 취득</b></li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. 학점 은행제를 이용하였다.</p>
+    <p>ㄴ. 담당 업무와 관련된 국가기술자격을 취득하였다.</p>
+    <p>ㄷ. 직업기초능력 중 ‘수리 능력’의 하위 능력인 ‘기초 연산 능력’을 향상시켰다.</p>
+    <p>ㄹ. 회사의 목적, 조직 등에 관한 내용 및 규칙을 이해하기 쉽게 정리한 문서를 분석하였다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄱ, ㄷ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄴ, ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">①</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 03-(3) 학점 은행제 ＋ <b>8강</b> 직업기초능력 하위 능력 / 직무 기술서</div>
+    <p><span class="lab">해설</span>강사 A 씨는 학교 내·외에서 이루어지는 다양한 형태의 학습과 자격을 학점으로 인정받아 학위를 취득하였다. 이는 <b>학점 은행제</b>를 이용하였음을 알 수 있으므로 ㄱ은 정선택지이다. 또 담당 업무인 시각 디자인과 관련된 <b>국가기술자격(시각디자인기사)</b>를 취득하였으므로 ㄴ도 정선택지이다.</p>
+    <p><span class="lab w">오답</span>ㄷ. 업무와 관련된 문제의 특성을 파악하고 대안을 제시·선택·적용하여 그 결과를 평가하고 피드백하는 능력은 <b>문제 해결 능력의 하위 능력인 ‘문제 처리 능력’</b>이다. 수리 능력의 기초 연산 능력이 아니다.<br>ㄹ. A 씨가 분석한 것은 해당 직무의 특징과 직무에 필요한 요건을 기록한 문서인 <b>직무 기술서</b>이다. 회사의 목적·조직·규칙을 정리한 문서가 아니다.</p>
+    <div class="trap"><span class="lab t">함정</span>이 문항은 11강과 8강이 섞인 통합 문항이다. <span class="hl">ㄱ만 11강, ㄴ·ㄷ·ㄹ은 각각 국가기술자격·직업기초능력·직무 기술서</span>이므로, 틀린 학생은 어느 단원이 약한지가 바로 드러난다.<br>ㄷ은 능력의 <b>계통</b>을 바꿔치기한 함정이다. “문제의 특성 파악 → 대안 제시·선택·적용 → 결과 평가·피드백”이라는 서술은 문제 해결 능력의 정의를 그대로 옮긴 것이다. 다만 “수리 능력은 문제 해결과 무관하다”로 뒤집으면 안 된다. 수리 능력에도 <b>기초 연산·기초 통계·도표 분석·도표 작성</b>이라는 하위 능력이 있고, 이 문항은 <b>어느 능력의 하위인가</b>만 다투는 것이다.</div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2024학년도 대학수학능력시험 18번</div>
+  <p class="ask"><span class="n">25.</span> 다음 ［진로 탐색 활동지］를 통해 알 수 있는 내용으로 적절한 것만을 &lt;보기&gt;에서 고른 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">［진로 탐색 활동지］ — 작성자 : ○○특성화고 3학년 A</div>
+    <p style="text-indent:0"><b>1. 취업 희망 분야 NCS 검색 내용</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><th style="width:66px">분류 체계</th><th><b>(가)</b></th><th>중분류</th><th>소분류</th><th>세분류</th><th><b>(나)</b></th></tr>
+      <tr><td class="k">내용</td><td>08. 문화·예술·디자인·방송</td><td>03. 문화 콘텐츠</td><td>02. 문화 콘텐츠제작</td><td>01. 방송 콘텐츠제작</td><td>01. 프로그램 기획</td></tr>
+    </table></div>
+    <p style="text-indent:0;margin-top:6px"><b>2. 직무 수행 능력 향상 방법</b></p>
+    <ul>
+      <li>고용노동부의 <b>직업능력개발 훈련 지원 프로그램</b> 활용</li>
+    </ul>
+  </div>
+  <div class="bogi"><div class="bt">&#65308;보 기&#65310;</div>
+    <p>ㄱ. (가)는 산업별로 유사한 분야를 10개로 구분한 것이다.</p>
+    <p>ㄴ. (나)는 ‘01. 방송콘텐츠제작’ 능력의 성취 여부를 판단하기 위해 개인이 도달해야 하는 수행 기준을 제시한 것이다.</p>
+    <p>ㄷ. 직무를 구성하는 기본 단위가 제시되어 있다.</p>
+    <p>ㄹ. 직무 수행 능력 향상 방법으로 ‘국민내일배움카드’를 활용할 수 있다.</p>
+  </div>
+  <ul class="ch inline">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">ㄱ, ㄴ</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">ㄱ, ㄷ</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">ㄴ, ㄷ</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">ㄴ, ㄹ</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">ㄷ, ㄹ</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 02-(3) NCS 활용 경력 개발 경로 탐색 ＋ <b>8강</b> NCS 분류 체계</div>
+    <p><span class="lab">해설</span>(가)는 <b>대분류</b>로 직능유형이 유사한 분야 <b>24개</b>로 분류되어 있으며, 세분류가 <b>직무</b>를 의미한다. 또한 (나)는 <b>능력단위</b>를 의미한다. ‘01. 방송 콘텐츠제작’ 직무를 구성하는 기본 단위가 (나)인 능력단위이므로 ㄷ은 정선택지이다. 특성화고 3학년 학생이 고용노동부의 직업능력개발 훈련 지원 프로그램을 활용하여 직무 수행 능력 향상을 위해 ‘<b>국민내일배움카드</b>’를 활용할 수 있으므로 ㄹ도 정선택지이다.</p>
+    <p><span class="lab w">오답</span>ㄱ. (가)는 대분류로 <b>직능유형이 유사한 분야 24개</b>로 분류된다. “산업별”도 “10개”도 옳지 않다.<br>ㄴ. 능력단위 요소별로 성취를 위해 도달해야 하는 수행 기준은 <b>수행준거</b>이다. (나)는 능력단위이다.</p>
+    <div class="trap"><span class="lab t">함정</span>ㄱ은 <span class="hl">두 군데를 동시에 틀리게</span> 만들어 두었다 — 분류 기준(산업별 ✕ / 직능유형 ○)과 개수(10개 ✕ / 24개 ○). 한 군데만 검토하고 넘어가면 놓친다.<br>ㄴ은 계층을 한 단 건너뛴 함정이다. 계층 순서는 <b>세분류(직무) → 능력단위 → 능력단위요소 → 수행준거</b>다. 여기서 “능력단위가 가장 작은 단위”로 뒤집어 외우면 안 된다. 능력단위 아래에 능력단위요소가 있고, 수행준거는 그 능력단위요소별로 제시된다.<br>＊ 이 문항의 EBS 해설지에는 출제 의도가 “회사의 형태 이해하기”로 표기되어 있으나 문항 내용과 어긋난다. 해설지 편집상의 오기로 보이므로 <b>해설 본문 내용만 근거로 삼았다.</b></div>
+  </div>
+</article>
+
+<article class="q" data-a="5">
+  <div class="code">2026학년도 9월 모의평가 7번</div>
+  <p class="ask"><span class="n">26.</span> 다음 직무 능력 인증서를 분석한 내용으로 옳은 것은? <span class="pt">[3점]</span></p>
+  <div class="passage">
+    <div class="ttl">직무 능력 인증서 <span style="font-weight:400">(성명 : A)</span></div>
+    <p>1. 위 사람은 「<b>국민 평생 직업능력 개발법</b>」 제26조에 따라 아래의 직무 능력을 갖추었음을 인정합니다. <span style="font-size:.9em">(중략)</span></p>
+    <p style="text-indent:0"><b>◾ 자격</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><th>취득 방법</th><th>자격명</th><th>발급 기관</th><th>취득 일자</th><th>NCS 분류</th><th>NCS 능력단위명</th></tr>
+      <tr><td style="text-align:center">검정형 자격</td><td style="text-align:center">화훼장식 기능사</td><td style="text-align:center">한국산업<br>인력공단</td><td style="text-align:center">2023.<br>11. 29.</td><td>24.농림어업<br>&gt;01.농업<br>&gt;<b>04.화훼장식</b><br>&gt;01.단위화훼장식</td><td>화훼장식 한국형 디자인<br>(<b>2401040131_19v4</b>)</td></tr>
+    </table></div>
+    <p style="text-indent:0"><b>◾ 훈련</b></p>
+    <div class="scroll"><table class="ex">
+      <tr><th>훈련 유형</th><th>과정명</th><th>훈련 기관</th><th>훈련 기간</th><th>NCS 분류 / 능력단위명</th></tr>
+      <tr><td style="text-align:center"><b>국민내일<br>배움카드</b></td><td style="text-align:center">유기농업<br>기능사</td><td style="text-align:center">○○직업<br>전문학교</td><td style="text-align:center">2020. ××. ××. ~<br>2020. ××. ××.</td><td style="text-align:center">－ / －</td></tr>
+    </table></div>
+  </div>
+  <ul class="ch">
+    <li><button data-i="1"><span class="no">1</span><span class="tx">‘04.화훼장식’은 NCS 분류 체계 중 세분류에 해당한다.</span></button></li>
+    <li><button data-i="2"><span class="no">2</span><span class="tx">NCS 능력단위의 교육 훈련을 위한 교수·학습 자료가 제시되어 있다.</span></button></li>
+    <li><button data-i="3"><span class="no">3</span><span class="tx">A가 취득한 자격에서 직무를 구성하는 기본 단위는 2024년에 수정·보완되었다.</span></button></li>
+    <li><button data-i="4"><span class="no">4</span><span class="tx">A가 이용한 훈련 유형은 특성화고 1학년 학생이 활용하여 훈련비를 지원받을 수 있다.</span></button></li>
+    <li><button data-i="5"><span class="no">5</span><span class="tx">A는 직무수행능력 습득·향상을 위해 국가에서 직업능력개발 훈련비를 지원하는 제도를 활용하였다.</span></button></li>
+  </ul>
+  <div class="qact"><button class="gradebtn" type="button">채점하기</button></div>
+  <div class="sol">
+    <div class="hd">정답과 해설 <span class="ans">⑤</span><span class="via">EBS 공식 해설 대조 완료</span></div>
+    <div class="link">연계 — <b>11강</b> 02-(3) NCS 활용 ＋ 국민내일배움카드</div>
+    <p><span class="lab">해설</span>A는 직무수행능력 습득·향상을 위해 국가에서 직업능력개발 훈련비를 지원하는 제도인 <b>국민내일배움카드</b>를 활용하고 있으므로 ⑤가 정답이다.</p>
+    <ul>
+      <li><span class="x">①</span> ‘04.화훼장식’은 NCS 분류 체계 중 <b>소분류</b>에 해당한다.</li>
+      <li><span class="x">②</span> NCS 능력단위의 교육 훈련을 위한 교수·학습 자료인 <b>학습 모듈</b>은 제시되어 있지 않다.</li>
+      <li><span class="x">③</span> A가 취득한 자격에서 직무를 구성하는 기본 단위(능력단위)는 <b>19년</b>에 수정·보완되었다.</li>
+      <li><span class="x">④</span> 국민내일배움카드는 <b>특성화고 3학년</b> 학생이 활용하여 훈련비를 지원받을 수 있다.</li>
+    </ul>
+    <div class="trap"><span class="lab t">함정</span>③이 이 단원에서 가장 세밀한 함정이다. 능력단위분류번호 <b>2401040131_19v4</b>에서 개정 연도를 나타내는 것은 밑줄 뒤의 <span class="hl">19</span>이며, 앞자리 ‘2401…’은 <b>분류 코드</b>일 뿐 연도가 아니다. 취득 일자가 2023년이고 코드 앞이 ‘24’라서 2024년으로 끌려가기 쉽다.<br>①도 지문의 계층을 그대로 세어야 한다. ‘24.농림어업(대분류) &gt; 01.농업(중분류) &gt; <b>04.화훼장식(소분류)</b> &gt; 01.단위화훼장식(세분류)’이므로 화훼장식은 소분류다. 다만 “세분류가 가장 아래”로 뒤집어 외우면 안 된다. 세분류가 곧 <b>직무</b>이고, 그 아래에 능력단위가 있다.<br>④의 학년 조건도 반복 출제 지점이다. 국민내일배움카드는 <b>특성화고 3학년</b>부터 활용할 수 있다.</div>
+  </div>
+</article>
+
+<div class="pagemark"><div class="pgend">- 5 -</div><div class="pgcut"></div></div>
+<div class="pghead"><span class="l">직업탐구 영역</span><span class="r">성공적인 직업생활</span></div>
+
+<section class="appx" id="appx">
+  <h2>［부록 1］ 이 단원 함정 포인트 9</h2>
+
+  <details class="pit"><summary><span class="n">1</span>학위에 이르는 경로가 제도를 가른다 — 학점이냐, 시험이냐</summary>
+    <div class="bd">세 제도 모두 <b>학사 학위</b>로 끝나므로 결말만 보면 갈리지 않는다. 판별은 <b>과정</b>에서 한다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:104px">제도</th><th style="width:200px">근거 법률</th><th style="width:120px">주관</th><th>학위에 이르는 경로</th></tr>
+        <tr><td class="k">학점 은행제</td><td>「학점인정 등에 관한 법률」</td><td style="text-align:center"><b>국가평생교육<br>진흥원</b></td><td>학교 밖 학습·자격을 <b>학점으로 인정 → 누적</b> → 기준 충족 시 학위</td></tr>
+        <tr><td class="k">독학 학위제</td><td>「독학에 의한 학위취득에 관한 법률」</td><td style="text-align:center"><b>국가평생교육<br>진흥원</b></td><td><b>1~4과정 총 4번의 시험</b> 통과 → 교육부장관 명의 학위</td></tr>
+        <tr><td class="k">계약학과</td><td>「산업교육진흥 및 산학연협력촉진에 관한 법률」 제8조</td><td style="text-align:center">교육부</td><td>협약으로 설치된 <b>대학의 학과</b>를 이수 → 학위</td></tr>
+      </table></div>
+      <span class="sub">주관 기관은 판별 근거가 되지 못한다</span>
+      <b>학점 은행제도 국가평생교육진흥원이 운영하는 제도</b>이며, 독학 학위제·평생 학습 계좌제·K-MOOC도 마찬가지다. 즉 “국가평생교육진흥원이 주관한다”는 문구는 <span class="hl">네 제도에 모두 참</span>이므로 이것만으로는 어느 하나를 특정할 수 없다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:200px">국가평생교육진흥원이 운영</th><th>그 밖의 주관</th></tr>
+        <tr><td>학점 은행제 · 독학 학위제 · 평생 학습 계좌제 · K-MOOC(교육부와 함께)</td><td>일학습 병행제 — <b>고용노동부</b><br>계약학과 — <b>교육부</b><br>사내 대학 — 회사가 직접 설치·운영</td></tr>
+      </table></div>
+      <span class="cap">＊ ［법령 보충］ 「평생교육법」 제19조는 진흥원의 업무로 <b>‘「학점인정 등에 관한 법률」 및 「독학에 의한 학위취득에 관한 법률」에 따른 학점 또는 학력인정에 관한 사항’</b>과 <b>‘제23조에 따른 학습계좌의 통합 관리·운영’</b>을 함께 규정한다. 세 제도 모두 <b>법률상 주체는 교육부장관</b>이고 실제 운영을 진흥원이 맡는 구조이므로, 계좌제만 성격이 다른 것이 아니다.</span>
+      <span class="cap" style="margin-top:8px">→ 2번 지문은 “국가평생교육진흥원이 주관하는 평생 학습 제도 중 하나인 (가)”로 시작하지만, (가)를 학점 은행제로 확정해 주는 것은 뒤따르는 <b>「학점인정 등에 관한 법률」</b>과 “학점으로 인정”이다. 1번은 “학점으로 인정”이 있어 학점 은행제, 4번·5번은 “시험에 합격한 독학자”가 있어 독학 학위제다.</span>
+      <span class="cap" style="margin-top:8px">＊ 다만 15번 ①처럼 <b>계약학과를 두고 “국가평생교육진흥원 주관”이라 하면 오답</b>이다. 기관으로 <b>특정</b>은 못 해도 <b>배제</b>는 할 수 있다는 점이 이 함정의 양면이다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">2</span>학점 은행제로 딸 수 있는 자격은 ‘2급까지’다</summary>
+    <div class="bd">학점 은행제를 통해 취득 가능한 자격은 <b>사회복지사 2급, 평생교육사 2급·3급, 보육교사 2급, 한국어교원 2급, 청소년지도사 2급·3급</b> 등이다. <span class="no-ok">1급은 해당하지 않는다.</span>
+      <span class="sub">거꾸로 읽지 말 것 — “자격을 아예 못 딴다”가 아니다</span>
+      자격 취득 자체는 가능하고 <b>급수의 상한</b>만 다르다. 또한 <b>이미 가진 자격을 학점으로 인정받는 것</b>은 별개의 이야기다. 16번 ㄴ에서 국가기술자격(컴퓨터활용능력 1급)을 <b>학점으로 인정</b>받는 것은 옳은 진술이다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:120px">문항</th><th style="width:190px">묻는 것</th><th>판정</th></tr>
+        <tr><td class="k">3번 ㄱ</td><td>사회복지사 <b>1급</b>·보육교사 1급 취득 가능?</td><td><span class="no-ok">오선택지</span> — 2급까지</td></tr>
+        <tr><td class="k">16번 ㄴ</td><td>국가기술자격 1급을 <b>학점으로 인정</b>?</td><td><span class="yes-ok">정선택지</span> — 인정 가능</td></tr>
+      </table></div>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">3</span>일학습 병행제의 분류 축은 두 개다 — 바꿔치기를 노린다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:170px">분류 기준</th><th>유형</th></tr>
+        <tr><td class="k"><b>참여 기업의 특징</b>에 따라</td><td><b>자격 연계형</b>(NCS 기반으로 일과 학습 병행 후 국가 인정 자격) / <b>대학 연계형</b>(일하면서 학위 취득)</td></tr>
+        <tr><td class="k"><b>학습근로자의 유형</b>에 따라</td><td><b>재학생 단계</b> — 산학일체형 도제학교(특성화고 2~3학년), Uni-Tech(전문대 최종 학년), IPP형(4년제 3~4학년)<br><b>재직자 단계</b> — 단독기업형(상시 50명 이상), 공동훈련센터형(상시 20명 이상), P-Tech</td></tr>
+      </table></div>
+      <span class="cap">→ 11번 ㄱ은 “<b>학습 근로자의 유형</b>에 따라 자격 연계형·대학 연계형”이라 써서 두 축을 맞바꿨다. 17번 ④는 ‘자격 연계형’을 계약학과에, ‘재직자 단계’를 학점은행제에 붙였다. 두 문항 모두 <b>용어는 전부 교재에 있는 말</b>이므로 단어만 보고는 걸러지지 않는다. “<b>무엇에 따라</b>”를 소리 내어 확인하라.</span>
+      <span class="cap" style="margin-top:8px">＊ 반대로 “자격 연계형은 학습근로자와 무관하다”로 뒤집어도 틀린다. 학습근로자가 참여하는 것은 맞고, <b>분류 기준</b>만 다르다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">4</span>계약학과는 ‘대학에 의뢰’, 사내 대학은 ‘회사가 직접 운영’</summary>
+    <div class="bd">두 제도는 “산업체가 소속 직원을 교육한다”는 큰 틀이 같아 가장 많이 헷갈린다. 갈림길은 <b>누가 설치·운영하는가</b> 하나다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:110px">제도</th><th style="width:180px">운영 방식</th><th>기출</th></tr>
+        <tr><td class="k">계약학과 재교육형</td><td><b>대학 등에 교육을 의뢰·위탁</b></td><td>19번 ［사례 1］ / 15번 ② / 2번 ㄴ / 14번 ㄴ</td></tr>
+        <tr><td class="k">사내 대학</td><td>회사가 <b>단독으로 설치·운영</b>(위탁 없음)</td><td>19번 ［사례 2］ / 5번 ②</td></tr>
+      </table></div>
+      <span class="sub">거꾸로 읽지 말 것 — “사내 대학은 대학과 무관하다”가 아니다</span>
+      사내 대학도 <b>학력·학위가 인정되는 평생 교육 시설</b>이다. 상법 또는 특별법에 의하여 설립된 법인인 사업장의 경영자가, 시간적·경제적 여유가 없어 대학에 가지 못하는 근로자를 위해 운영한다.
+      <span class="cap">→ 19번 ［사례 2］에 박힌 “상시 근로자 수 330명”은 <b>유인</b>이다. 일학습 병행제의 50인·20인 기준을 떠올리게 해 ③으로 끌고 간다. 숫자가 보여도 제도는 <b>운영 주체·방식</b>으로 가른다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">5</span>계약학과의 경비는 산업체가 ‘50% 이상’ 부담한다</summary>
+    <div class="bd">계약학과는 산업체가 <b>등록금이 포함된 총 교육 필요 경비의 50% 이상</b>을 부담한다. “대학에 의뢰한다”는 구조만 외우면 비용까지 대학이 대는 것으로 착각하기 쉽다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:130px">문항</th><th>진술</th><th style="width:96px">판정</th></tr>
+        <tr><td class="k">16번 ㄱ</td><td>“그 경비를 <b>부담하지 않고</b> 활용할 수 있다”</td><td><span class="no-ok">오선택지</span></td></tr>
+        <tr><td class="k">17번 ②</td><td>“교육에 필요한 경비를 <b>부담하지 않는다</b>”</td><td><span class="no-ok">오답지</span></td></tr>
+        <tr><td class="k">19번 ［사례 1］</td><td>“<b>등록금을 일부 지원받고</b> 야간 수업”</td><td><span class="yes-ok">경비 부담의 실제 모습</span></td></tr>
+      </table></div>
+      <span class="cap">＊ “산업체가 <b>전액</b> 부담한다”로 외워도 틀린다. 규정은 <b>50% 이상</b>이다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">6</span>“대상자는 재직자로 제한된다”는 반복 출제되는 오답 패턴</summary>
+    <div class="bd">재교육형 계약학과·재직자 단계 같은 말이 익숙해서 “산학 협력형은 다 재직자용”으로 뭉개기 쉽다. 그러나 공식 해설은 다음과 같이 명시한다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:130px">제도</th><th>대상</th></tr>
+        <tr><td class="k">학점 은행제</td><td><b>취업 여부와 관계없이</b> 누구나(고졸 또는 동등 이상 학력)</td></tr>
+        <tr><td class="k">일학습 병행제</td><td>재직자뿐 아니라 <b>미취업 학생도 참여 가능</b>(재학생 단계)</td></tr>
+        <tr><td class="k">계약학과</td><td>채용조건형은 <b>고교 졸업(예정)자</b>, 재교육형은 협약 기업 재직자</td></tr>
+      </table></div>
+      <span class="cap">→ 17번 ⑤·18번 ⑤가 같은 자리를 노렸다. 두 문항 모두 <b>오답</b>이다. 다만 반대로 “일학습 병행제는 재직자와 무관하다”로 뒤집으면 10번(P-Tech)·18번(취업 후 참여)을 통째로 놓친다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">7</span>K-MOOC는 ‘배우는 곳’, 평생 학습 계좌제는 ‘쌓아 두는 곳’</summary>
+    <div class="bd">둘 다 온라인이라 헷갈리지만 기능이 다르다.
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">제도</th><th>기능</th></tr>
+        <tr><td class="k">K-MOOC</td><td>교육부·국가평생교육진흥원이 대학·기업 등과 협력해 <b>무료 온라인 공개강좌를 운영</b>하는 서비스. 질의응답·토론·퀴즈·과제로 <b>양방향 학습</b> 지원(2015년부터)</td></tr>
+        <tr><td class="k">평생 학습 계좌제</td><td>「평생교육법」 제23조에 따라 학습 경험을 <b>온라인 학습 계좌에 누적·관리</b> → 학력·자격 인정 또는 <b>고용 정보</b>로 활용. 평생 학습 이력 증명서 발급</td></tr>
+      </table></div>
+      <span class="cap">→ 7번은 “기록·누적”이 있어 계좌제, 10번 ①의 K-MOOC는 오답이다. <b>계좌제는 학력·자격과 무관하다</b>로 뒤집어 외우면 안 된다. 누적된 결과는 학력 또는 자격으로 인정될 수 있다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">8</span>NCS 계층은 네 단, 개정 연도는 ‘＿19v4’의 19다</summary>
+    <div class="bd">
+      <div class="scroll"><table class="ex">
+        <tr><th style="width:150px">계층</th><th>의미</th></tr>
+        <tr><td class="k">대분류</td><td><b>직능 유형이 유사한 분야 24개</b>(‘산업별 10개’가 아니다)</td></tr>
+        <tr><td class="k">세분류</td><td><b>직무</b></td></tr>
+        <tr><td class="k">능력단위</td><td><b>직무를 구성하는 기본 단위</b></td></tr>
+        <tr><td class="k">능력단위요소 → 수행준거</td><td>성취 여부 판단을 위해 도달해야 하는 기준 ＝ <b>수행준거</b></td></tr>
+      </table></div>
+      <span class="cap">→ 25번 ㄱ은 분류 기준과 개수를 <b>동시에</b> 틀리게 했고(산업별 ✕ / 10개 ✕), ㄴ은 능력단위를 수행준거로 바꿔치기했다. 26번 ①은 소분류를 세분류로, ②는 학습모듈의 부재를 노렸다.</span>
+      <span class="sub">능력단위분류번호 읽기 — 2401040131_19v4</span>
+      앞자리 <b>2401…</b>은 분류 코드, 밑줄 뒤 <b>19</b>가 개정 연도, <b>v4</b>가 버전이다. 취득 일자(2023년)나 코드 앞 ‘24’에 끌려 2024년으로 읽으면 26번 ③에서 탈락한다.
+      <span class="cap" style="margin-top:8px">＊ “능력단위가 가장 작은 단위”로 뒤집어 외우면 안 된다. 그 아래에 능력단위요소가 있고, 수행준거는 능력단위요소별로 제시된다.</span>
+    </div>
+  </details>
+
+  <details class="pit"><summary><span class="n">9</span>국민내일배움카드는 특성화고 ‘3학년’부터다</summary>
+    <div class="bd">국민내일배움카드는 직무수행능력 습득·향상을 위해 <b>국가에서 직업능력개발 훈련비를 지원</b>하는 제도로, <b>특성화고 3학년</b> 학생이 활용하여 훈련비를 지원받을 수 있다.<br>→ 25번 ㄹ은 <span class="yes-ok">정선택지</span>(특성화고 3학년 A의 활용), 26번 ④는 <span class="no-ok">오답지</span>(“1학년”으로 학년을 낮춰 놓았다). <b>같은 제도, 학년 하나로 정오가 갈린다.</b></div>
+  </details>
+
+  <h2 style="margin-top:22px">［부록 2］ 정답표</h2>
+  <div class="scroll"><table class="ans">
+    <tr><th>번호</th><th>출처</th><th>정답</th><th>핵심 개념</th></tr>
+    <tr><td>1</td><td>2022학년도 6월 모평 16번</td><td class="a">③</td><td class="l">학점 은행제 · 학점 인정 → 학위</td></tr>
+    <tr><td>2</td><td>2024학년도 6월 모평 17번</td><td class="a">②</td><td class="l">학점 은행제 이용 요건 · 일학습 병행제·재교육형 계약학과 구분</td></tr>
+    <tr><td>3</td><td>2023학년도 9월 모평 14번</td><td class="a">④</td><td class="l">학위증 · 취득 가능 자격은 2급까지 · 동일 학력 인정</td></tr>
+    <tr><td>4</td><td>2022학년도 수능 7번</td><td class="a">③</td><td class="l">독학 학위제 · 시험 합격 → 교육부장관 명의 학위</td></tr>
+    <tr><td>5</td><td>2026학년도 9월 모평 18번</td><td class="a">①</td><td class="l">독학 학위제 사례 판별 · 5제도 사례 대조</td></tr>
+    <tr><td>6</td><td>2025학년도 6월 모평 7번</td><td class="a">②</td><td class="l">게임판 분기 · 학점 은행제/독학 학위제 · 전공 11개 유인</td></tr>
+    <tr><td>7</td><td>2025학년도 10월 학평 8번</td><td class="a">⑤</td><td class="l">평생 학습 계좌제 「평생교육법」 제23조 · K-MOOC 구분</td></tr>
+    <tr><td>8</td><td>2023학년도 6월 모평 3번</td><td class="a">④</td><td class="l">일학습 병행제 · 학습근로자 · 자격/대학 연계형</td></tr>
+    <tr><td>9</td><td>2024학년도 9월 모평 4번</td><td class="a">⑤</td><td class="l">일학습 병행제 두 분류 축 · 도제학교·Uni-Tech·50인/20인</td></tr>
+    <tr><td>10</td><td>2024학년도 10월 학평 10번</td><td class="a">④</td><td class="l">재직자 단계 P-Tech · 대학 연계형</td></tr>
+    <tr><td>11</td><td>2026학년도 10월 학평 4번</td><td class="a">③</td><td class="l">두 분류 축 바꿔치기 · 계약학과 채용조건형/재교육형</td></tr>
+    <tr><td>12</td><td>2023학년도 수능 2번</td><td class="a">①</td><td class="l">계약학과 · 채용조건형 운영 사례</td></tr>
+    <tr><td>13</td><td>2022학년도 9월 모평 17번</td><td class="a">②</td><td class="l">계약학과 vs 일학습 병행제 · 학생 신분 vs 학습근로자</td></tr>
+    <tr><td>14</td><td>2022학년도 10월 학평 19번</td><td class="a">⑤</td><td class="l">선취업·후학습 · 학점 은행제 학력 요건 · 재직자 특별 전형</td></tr>
+    <tr><td>15</td><td>2024학년도 수능 2번</td><td class="a">⑤</td><td class="l">벤 다이어그램 · 근거 법률 · 사내 대학 바꿔치기</td></tr>
+    <tr><td>16</td><td>2025학년도 9월 모평 16번</td><td class="a">④</td><td class="l">3제도 법률 비교 · 계약학과 경비 50% 이상</td></tr>
+    <tr><td>17</td><td>2026학년도 6월 모평 14번</td><td class="a">①</td><td class="l">모둠 발표 · 자격 연계형 · 하위 유형 소속 확인</td></tr>
+    <tr><td>18</td><td>2026학년도 수능 9번</td><td class="a">④</td><td class="l">학점 은행제/일학습 병행제 · 단독기업형 50인 이상</td></tr>
+    <tr><td>19</td><td>2027학년도 6월 모평 11번</td><td class="a">①</td><td class="l">재교육형 계약학과 vs 사내 대학 · 330명 유인</td></tr>
+    <tr><td>20</td><td>2025학년도 수능 18번</td><td class="a">④</td><td class="l">퀴즈 채점 계산 · 이중 부정 구조 · A 140 / B 110 / C 80</td></tr>
+    <tr><td>21</td><td>2025학년도 9월 모평 9번</td><td class="a">⑤</td><td class="l">경력 개발 계획 5단계 · 1단계 vs 2단계 · 4단계</td></tr>
+    <tr><td>22</td><td>2022학년도 수능 6번</td><td class="a">④</td><td class="l">생애 발달 ↔ 경력 개발 세로 정렬 · 성년기/경력 중기</td></tr>
+    <tr><td>23</td><td>2024학년도 수능 19번</td><td class="a">③</td><td class="l">경력 초기의 조직 규범 학습 · 중년기 인생 철학 확립</td></tr>
+    <tr><td>24</td><td>2022학년도 9월 모평 9번</td><td class="a">①</td><td class="l">학점 은행제 ＋ 문제 처리 능력 · 직무 기술서</td></tr>
+    <tr><td>25</td><td>2024학년도 수능 18번</td><td class="a">⑤</td><td class="l">대분류 24개 · 능력단위 vs 수행준거 · 국민내일배움카드</td></tr>
+    <tr><td>26</td><td>2026학년도 9월 모평 7번</td><td class="a">⑤</td><td class="l">소분류 · 학습모듈 · ＿19v4 개정 연도 · 3학년 요건</td></tr>
+  </table></div>
+
+  <div class="caution">
+    <b>［근거 표기 원칙］</b> 26문항 전부 원본 시험지 및 EBS·시·도 교육청 공식 해설지 원문과 대조하여 출처·정답·근거를 확정하였다. 학력평가 4문항(7·10·11·14번)은 해설지에 <b>［정답］</b> 표기가 별도로 없어 <b>해설 원문 ＋ 회차 정답표</b>를 함께 대조하였고, 22학년도 수능 6번(22번)은 해설지 스캔본의 텍스트 레이어가 손상되어 <b>한국어 OCR로 원문을 복원</b>해 대조하였다.<br>
+    <b>［확인하지 못한 사항］</b> 3번(2023학년도 9월 모평 14번) 학위증의 전공(사회복지학)과 학위명(행정학사)이 어긋나는 점은 공식 해설지에 설명이 없어 <b>원문 그대로 옮기고 해석을 붙이지 않았다.</b><br>
+    <b>［해설지 오기］</b> 25번(2024학년도 수능 18번)의 EBS 해설지 출제 의도는 “회사의 형태 이해하기”로 표기되어 있으나 문항 내용과 어긋난다. 해설 본문 내용만 근거로 삼았다.<br>
+    <b>［연령 구간 표기］</b> 경력 개발 단계의 연령은 <b>2027 수능특강 기준</b>(직업 선택 0~18 / 조직 입사 19~25 / 경력 초기 26~40 / 경력 중기 41~55 / 경력 말기 56~은퇴)으로 적었다. 2026 교재는 18~25 / 25~40 / 40~55 / 55~은퇴로 표기하므로 회차에 따라 경계값이 다를 수 있다.
+  </div>
+
+  <div class="foot">
+    <span>EBS 2027 수능특강 「성공적인 직업생활」 11강</span>
+    <span>은또링쌤의 행성 연구소</span>
+  </div>
+  <div class="pagemark" style="break-after:auto"><div class="pgend">- 6 -</div></div>
+  <p style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:.72rem;color:#8A8A8A;margin-top:10px">기출 문항의 저작권은 한국교육과정평가원 및 시·도 교육청에 있습니다.</p>
+</section>
+</div><!-- /sheet -->
+
+<div id="toast"></div>
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
+
+<script>
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('.q'));
+  var TOTAL = qs.length;
+  var tt;
+  function toast(msg){
+    var t=document.getElementById('toast');
+    t.textContent=msg; t.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){t.classList.remove('show');},3000);
+  }
+  function update(){
+    var d=qs.filter(function(q){return q.classList.contains('done');}).length;
+    var h=qs.filter(function(q){return q.dataset.hit==='1';}).length;
+    document.getElementById('done').textContent=d;
+    document.getElementById('hit').textContent=h;
+    document.getElementById('bar').style.width=(d/TOTAL*100)+'%';
+    if(d===TOTAL) toast(h===TOTAL?TOTAL+'문항 전부 정답입니다.':'채점 완료 — 정답 '+h+' / '+TOTAL);
+  }
+  // 채점 실행 — 마킹한 답과 정답을 대조해 표시하고 해설을 연다
+  function applyGrade(q){
+    var ans=q.dataset.a, pick=q.dataset.pick||'';
+    q.classList.add('done');
+    q.dataset.hit=(pick===ans)?'1':'0';
+    q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+    if(pick){
+      var pb=q.querySelector('.ch button[data-i="'+pick+'"]');
+      if(pb) pb.classList.add(pick===ans?'pick-ok':'pick-no');
+    }
+    if(pick!==ans){
+      var right=q.querySelector('.ch button[data-i="'+ans+'"]');
+      if(right) right.classList.add('mark-ok');
+    }
+    q.querySelector('.sol').classList.add('open');
+    var g=q.querySelector('.gradebtn');
+    g.textContent='해설 접기'; g.classList.add('graded');
+  }
+
+  qs.forEach(function(q){
+    var list=q.querySelector('.ch');
+    var g=q.querySelector('.gradebtn');
+
+    // 선택지 클릭 — 채점 전에는 마킹만 한다(정오 표시 없음)
+    q.querySelectorAll('.ch button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        if(q.classList.contains('done')) return;
+        q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked');});
+        btn.classList.add('marked');
+        q.dataset.pick=btn.dataset.i;
+      });
+    });
+
+    // 채점하기 / 채점 후에는 해설 접기·펼치기 토글
+    g.addEventListener('click',function(){
+      if(!q.classList.contains('done')){
+        if(!q.dataset.pick){
+          toast('답을 먼저 고른 뒤 채점하세요.');
+          list.classList.remove('nudge'); void list.offsetWidth; list.classList.add('nudge');
+          return;
+        }
+        applyGrade(q); update();
+      }else{
+        var sol=q.querySelector('.sol');
+        var open=sol.classList.toggle('open');
+        g.textContent=open?'해설 접기':'해설 보기';
+      }
+    });
+  });
+
+  window.showAll=function(){
+    qs.forEach(function(q){
+      if(q.classList.contains('done')){
+        q.querySelector('.sol').classList.add('open');
+        q.querySelector('.gradebtn').textContent='해설 접기';
+        return;
+      }
+      applyGrade(q);
+    });
+    update(); toast('정답과 해설을 모두 펼쳤습니다.');
+  };
+
+  window.resetAll=function(){
+    qs.forEach(function(q){
+      q.classList.remove('done'); delete q.dataset.hit; delete q.dataset.pick;
+      q.querySelectorAll('.ch button').forEach(function(b){b.classList.remove('marked','pick-ok','pick-no','mark-ok');});
+      q.querySelector('.sol').classList.remove('open');
+      var g=q.querySelector('.gradebtn');
+      g.textContent='채점하기'; g.classList.remove('graded');
+    });
+    update(); toast('처음부터 다시 풀어 보세요.');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  // 학번 칸: 숫자만 입력하고 한 자리 채우면 다음 칸으로
+  var cells=Array.prototype.slice.call(document.querySelectorAll('.fld .cell'));
+  cells.forEach(function(c,i){
+    c.addEventListener('input',function(){
+      c.value=c.value.replace(/[^0-9]/g,'').slice(0,1);
+      if(c.value && cells[i+1]) cells[i+1].focus();
+    });
+    c.addEventListener('keydown',function(e){
+      if(e.key==='Backspace' && !c.value && cells[i-1]) cells[i-1].focus();
+    });
+  });
+  window.addEventListener('scroll',function(){
+    document.getElementById('top').classList.toggle('show', window.scrollY>420);
+  });
+  update();
+})();
+</script>
+</body>
+</html>
